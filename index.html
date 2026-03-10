@@ -38,33 +38,34 @@
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       background: rgba(242,240,239,0.95);
       backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(92,26,26,0.15);
-      padding: 0 2rem;
+      border-bottom: 1px solid rgba(92,26,26,0.1);
+      padding: 0 1.5rem;
       display: flex; align-items: center; justify-content: space-between;
-      height: 64px;
+      height: 48px;
     }
     .nav-logo {
       font-family: 'Playfair Display', serif;
-      font-size: 1.4rem; font-weight: 800; font-style: italic;
+      font-size: 1.1rem; font-weight: 800; font-style: italic;
       color: var(--wood-dark);
       letter-spacing: -0.02em;
+      white-space: nowrap;
     }
     .nav-logo span { color: var(--amber); }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links { display: flex; gap: 1.4rem; list-style: none; flex-wrap: nowrap; }
     .nav-links a {
       font-family: 'Raleway', sans-serif;
-      font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em;
+      font-size: 0.75rem; font-weight: 500; letter-spacing: 0.07em;
       text-transform: uppercase; text-decoration: none;
-      color: var(--ink-soft);
+      color: var(--ink-soft); white-space: nowrap;
       transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--wood); }
     .nav-cart {
-      font-family: 'Raleway', sans-serif; font-size: 0.82rem;
+      font-family: 'Raleway', sans-serif; font-size: 0.75rem;
       font-weight: 600; letter-spacing: 0.05em;
       background: var(--wood); color: var(--cream);
-      border: none; cursor: pointer;
-      padding: 0.5rem 1.2rem; border-radius: 2px;
+      border: none; cursor: pointer; white-space: nowrap;
+      padding: 0.35rem 1rem; border-radius: 2px;
       transition: background 0.2s;
     }
     .nav-cart:hover { background: var(--wood-dark); }
@@ -293,6 +294,11 @@
       border-left: 3px solid var(--amber);
       transition: transform 0.2s;
     }
+    .event-special {
+      border-left: 3px solid var(--amber) !important;
+      background: linear-gradient(90deg, rgba(212,150,58,0.08) 0%, var(--cream) 100%) !important;
+    }
+    .event-special .event-title { color: var(--wood-dark); font-size: 1.1rem; }
     .event-card:hover { transform: translateX(4px); }
     .event-date {
       min-width: 60px; text-align: center;
@@ -442,7 +448,7 @@
 
     /* ── HERO SLIDESHOW ── */
     #hero {
-      min-height: 100vh;
+      height: 33vh;
       position: relative; overflow: hidden;
       display: flex; align-items: center; justify-content: center;
     }
@@ -538,7 +544,50 @@
       font-size: 1rem; line-height: 1.75;
       color: rgba(242,240,239,0.7); margin: 1rem 0 2rem;
     }
-    .tempete-archives { margin-top: 1.5rem; }
+    .tempete-archives {
+      margin-top: 1.5rem;
+      max-height: 420px;
+      overflow-y: auto;
+      padding-right: 0.5rem;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(242,240,239,0.2) transparent;
+    }
+    .tempete-archives::-webkit-scrollbar { width: 4px; }
+    .tempete-archives::-webkit-scrollbar-track { background: transparent; }
+    .tempete-archives::-webkit-scrollbar-thumb { background: rgba(242,240,239,0.2); border-radius: 2px; }
+
+    /* Modal AdT */
+    .adt-modal-overlay {
+      position: fixed; inset: 0; z-index: 300;
+      background: rgba(20,10,10,0.85); backdrop-filter: blur(6px);
+      display: none; align-items: center; justify-content: center; padding: 1rem;
+    }
+    .adt-modal-overlay.open { display: flex; }
+    .adt-modal {
+      background: var(--ink); border-radius: 6px;
+      max-width: 700px; width: 100%; max-height: 90vh;
+      overflow-y: auto; position: relative;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      animation: fadeUp 0.3s ease;
+    }
+    .adt-modal img { width: 100%; display: block; border-radius: 6px 6px 0 0; }
+    .adt-modal-bar {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1rem 1.5rem;
+      border-top: 1px solid rgba(242,240,239,0.1);
+    }
+    .adt-modal-title {
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: 0.95rem; color: var(--cream);
+    }
+    .adt-close {
+      font-family: 'Raleway', sans-serif; font-size: 0.75rem;
+      font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      background: transparent; color: rgba(242,240,239,0.5);
+      border: 1px solid rgba(242,240,239,0.2); padding: 0.4rem 0.9rem;
+      cursor: pointer; border-radius: 2px; transition: all 0.2s;
+    }
+    .adt-close:hover { color: var(--cream); border-color: var(--cream); }
     .archive-item {
       display: flex; align-items: center; gap: 1rem;
       padding: 0.75rem 0; border-bottom: 1px solid rgba(242,240,239,0.1);
@@ -625,7 +674,7 @@
   <div class="hero-content">
     <!-- Big real logo -->
     <div class="hero-logo-wrap">
-      <img src="images/logo.png" alt="Librairie L'Esprit Large" style="width:200px;height:200px;object-fit:contain;filter:drop-shadow(0 4px 24px rgba(0,0,0,0.5)) brightness(0) invert(1);opacity:0.92;" />
+      <img src="images/logo.png" alt="Librairie L'Esprit Large" style="width:100px;height:100px;object-fit:contain;filter:drop-shadow(0 4px 24px rgba(0,0,0,0.5)) brightness(0) invert(1);opacity:0.92;" />
     </div>
     <div class="hero-btns" style="margin-top:2rem;">
       <a href="#catalogue" class="btn-primary">Explorer le catalogue</a>
@@ -638,24 +687,6 @@
       <span class="dot" onclick="goSlide(2)"></span>
       <span class="dot" onclick="goSlide(3)"></span>
       <span class="dot" onclick="goSlide(4)"></span>
-    </div>
-  </div>
-</section>
-
-<!-- GALERIE PHOTOS -->
-<section id="galerie" style="background:var(--ink);padding:0;overflow:hidden;">
-  <div style="display:grid;grid-template-columns:2fr 1fr 1fr;height:380px;gap:3px;">
-    <div class="photo-item">
-      <img src="images/IMG_20220829_145131.jpg" alt="La librairie L'Esprit Large — grande salle" loading="lazy"/>
-      <div class="photo-caption">Murs de pierre, poutres et lumière chaude</div>
-    </div>
-    <div class="photo-item">
-      <img src="images/350884255_193606970299119_684689304584996683_n.jpg" alt="Rayon Bandes Dessinées" loading="lazy"/>
-      <div class="photo-caption">Rayon Bandes Dessinées</div>
-    </div>
-    <div class="photo-item">
-      <img src="images/IMG_20220829_145141.jpg" alt="Espace Jeunesse" loading="lazy"/>
-      <div class="photo-caption">Espace Jeunesse</div>
     </div>
   </div>
 </section>
@@ -718,17 +749,43 @@
       <h2 class="section-title" style="color:var(--cream);">Avis de Tempête</h2>
       <p class="tempete-desc">Notre newsletter, comme une bouteille à la mer : des coups de cœur, des actualités, des événements à venir et les humeurs de notre équipe. Paraît quand l'inspiration frappe.</p>
       <div class="tempete-archives">
-        <p style="font-family:'Raleway',sans-serif;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(196,112,112,0.8);margin-bottom:0.8rem;">Derniers numéros</p>
-        <div class="archive-item" onclick="window.open('https://aureldaunay.wixsite.com/lespritlarge/post/avis-de-tempete-f%C3%A9vrier-26','_blank')">
-          <span class="archive-num">N° Fév. 26</span>
-          <span class="archive-title">Avis de Tempête — Février 2026</span>
-          <span class="archive-arrow">→</span>
-        </div>
-        <div class="archive-item" onclick="window.open('https://aureldaunay.wixsite.com/lespritlarge/blog','_blank')">
-          <span class="archive-num">N° Jan. 26</span>
-          <span class="archive-title">Avis de Tempête — Janvier 2026</span>
-          <span class="archive-arrow">→</span>
-        </div>
+        <p style="font-family:'Raleway',sans-serif;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(196,112,112,0.8);margin-bottom:0.8rem;">Tous les numéros</p>
+
+        <!-- 2026 -->
+        <p style="font-family:'Raleway',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(242,240,239,0.3);margin:1rem 0 0.4rem;">2026</p>
+        <div class="archive-item" onclick="openAdt('avisdetempete/AdT2026Mars.png','Avis de Tempête — Mars 2026')"><span class="archive-num">Mars</span><span class="archive-title">Avis de Tempête — Mars 2026</span><span class="archive-arrow">→</span></div>
+        <div class="archive-item" onclick="openAdt('avisdetempete/AdT2026Février.png','Avis de Tempête — Février 2026')"><span class="archive-num">Fév.</span><span class="archive-title">Avis de Tempête — Février 2026</span><span class="archive-arrow">→</span></div>
+        <div class="archive-item" onclick="openAdt('avisdetempete/AdT2026Janvier.png','Avis de Tempête — Janvier 2026')"><span class="archive-num">Jan.</span><span class="archive-title">Avis de Tempête — Janvier 2026</span><span class="archive-arrow">→</span></div>
+
+        <!-- 2025 -->
+        <p style="font-family:'Raleway',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(242,240,239,0.3);margin:1rem 0 0.4rem;">2025</p>
+        <div class="archive-item" onclick="openAdt('avisdetempete/2025AdT Décembre.png','Avis de Tempête — Décembre 2025')"><span class="archive-num">Déc.</span><span class="archive-title">Avis de Tempête — Décembre 2025</span><span class="archive-arrow">→</span></div>
+        <div class="archive-item" onclick="openAdt('avisdetempete/2025AdT Novembre.png','Avis de Tempête — Novembre 2025')"><span class="archive-num">Nov.</span><span class="archive-title">Avis de Tempête — Novembre 2025</span><span class="archive-arrow">→</span></div>
+        <div class="archive-item" onclick="openAdt('avisdetempete/2025AdT Octobre.png','Avis de Tempête — Octobre 2025')"><span class="archive-num">Oct.</span><span class="archive-title">Avis de Tempête — Octobre 2025</span><span class="archive-arrow">→</span></div>
+        <div class="archive-item" onclick="openAdt('avisdetempete/2025AdT Septembre.png','Avis de Tempête — Septembre 2025')"><span class="archive-num">Sep.</span><span class="archive-title">Avis de Tempête — Septembre 2025</span><span class="archive-arrow">→</span></div>
+        <div class="archive-item" onclick="openAdt('avisdetempete/2025AdT Août.png','Avis de Tempête — Août 2025')"><span class="archive-num">Août</span><span class="archive-title">Avis de Tempête — Août 2025</span><span class="archive-arrow">→</span></div>
+        <div class="archive-item" onclick="openAdt('avisdetempete/2025AdT Juillet.png','Avis de Tempête — Juillet 2025')"><span class="archive-num">Juil.</span><span class="archive-title">Avis de Tempête — Juillet 2025</span><span class="archive-arrow">→</span></div>
+        <div class="archive-item" onclick="openAdt('avisdetempete/2025AdT Juin.png','Avis de Tempête — Juin 2025')"><span class="archive-num">Juin</span><span class="archive-title">Avis de Tempête — Juin 2025</span><span class="archive-arrow">→</span></div>
+        <div class="archive-item" onclick="openAdt('avisdetempete/2025AdT Mai.png','Avis de Tempête — Mai 2025')"><span class="archive-num">Mai</span><span class="archive-title">Avis de Tempête — Mai 2025</span><span class="archive-arrow">→</span></div>
+        <div class="archive-item" onclick="openAdt('avisdetempete/2025AdT Avril.png','Avis de Tempête — Avril 2025')"><span class="archive-num">Avr.</span><span class="archive-title">Avis de Tempête — Avril 2025</span><span class="archive-arrow">→</span></div>
+        <div class="archive-item" onclick="openAdt('avisdetempete/2025AdT Mars.png','Avis de Tempête — Mars 2025')"><span class="archive-num">Mars</span><span class="archive-title">Avis de Tempête — Mars 2025</span><span class="archive-arrow">→</span></div>
+        <div class="archive-item" onclick="openAdt('avisdetempete/2025AdT Février.png','Avis de Tempête — Février 2025')"><span class="archive-num">Fév.</span><span class="archive-title">Avis de Tempête — Février 2025</span><span class="archive-arrow">→</span></div>
+        <div class="archive-item" onclick="openAdt('avisdetempete/2025AdT Janvier.png','Avis de Tempête — Janvier 2025')"><span class="archive-num">Jan.</span><span class="archive-title">Avis de Tempête — Janvier 2025</span><span class="archive-arrow">→</span></div>
+
+        <!-- 2024 -->
+        <p style="font-family:'Raleway',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(242,240,239,0.3);margin:1rem 0 0.4rem;">2024</p>
+        <div class="archive-item" onclick="openAdt('avisdetempete/202412 AdT Décembre.png','Avis de Tempête — Décembre 2024')"><span class="archive-num">Déc.</span><span class="archive-title">Avis de Tempête — Décembre 2024</span><span class="archive-arrow">→</span></div>
+        <div class="archive-item" onclick="openAdt('avisdetempete/202411 AdT Novembre.png','Avis de Tempête — Novembre 2024')"><span class="archive-num">Nov.</span><span class="archive-title">Avis de Tempête — Novembre 2024</span><span class="archive-arrow">→</span></div>
+        <div class="archive-item" onclick="openAdt('avisdetempete/202410 AdT Octobre.png','Avis de Tempête — Octobre 2024')"><span class="archive-num">Oct.</span><span class="archive-title">Avis de Tempête — Octobre 2024</span><span class="archive-arrow">→</span></div>
+        <div class="archive-item" onclick="openAdt('avisdetempete/202409 AdT Septembre.png','Avis de Tempête — Septembre 2024')"><span class="archive-num">Sep.</span><span class="archive-title">Avis de Tempête — Septembre 2024</span><span class="archive-arrow">→</span></div>
+        <div class="archive-item" onclick="openAdt('avisdetempete/202408 AdT Août.png','Avis de Tempête — Août 2024')"><span class="archive-num">Août</span><span class="archive-title">Avis de Tempête — Août 2024</span><span class="archive-arrow">→</span></div>
+        <div class="archive-item" onclick="openAdt('avisdetempete/202407 AdT Juillet.png','Avis de Tempête — Juillet 2024')"><span class="archive-num">Juil.</span><span class="archive-title">Avis de Tempête — Juillet 2024</span><span class="archive-arrow">→</span></div>
+        <div class="archive-item" onclick="openAdt('avisdetempete/202406 AdT Juin.png','Avis de Tempête — Juin 2024')"><span class="archive-num">Juin</span><span class="archive-title">Avis de Tempête — Juin 2024</span><span class="archive-arrow">→</span></div>
+        <div class="archive-item" onclick="openAdt('avisdetempete/202405 AdT Mai.png','Avis de Tempête — Mai 2024')"><span class="archive-num">Mai</span><span class="archive-title">Avis de Tempête — Mai 2024</span><span class="archive-arrow">→</span></div>
+        <div class="archive-item" onclick="openAdt('avisdetempete/202404 AdT Avril.png','Avis de Tempête — Avril 2024')"><span class="archive-num">Avr.</span><span class="archive-title">Avis de Tempête — Avril 2024</span><span class="archive-arrow">→</span></div>
+        <div class="archive-item" onclick="openAdt('avisdetempete/202403 AdT Mars.png','Avis de Tempête — Mars 2024')"><span class="archive-num">Mars</span><span class="archive-title">Avis de Tempête — Mars 2024</span><span class="archive-arrow">→</span></div>
+        <div class="archive-item" onclick="openAdt('avisdetempete/202402 AdT Février.png','Avis de Tempête — Février 2024')"><span class="archive-num">Fév.</span><span class="archive-title">Avis de Tempête — Février 2024</span><span class="archive-arrow">→</span></div>
+        <div class="archive-item" onclick="openAdt('avisdetempete/202401 AdT Janvier.png','Avis de Tempête — Janvier 2024')"><span class="archive-num">Jan.</span><span class="archive-title">Avis de Tempête — Janvier 2024</span><span class="archive-arrow">→</span></div>
       </div>
     </div>
     <div class="tempete-right">
@@ -833,7 +890,16 @@
   </div>
 </div>
 
-<!-- TOAST -->
+<!-- MODAL AVIS DE TEMPÊTE -->
+<div class="adt-modal-overlay" id="adtModal">
+  <div class="adt-modal">
+    <img id="adtImg" src="" alt="Avis de Tempête" />
+    <div class="adt-modal-bar">
+      <span class="adt-modal-title" id="adtTitle"></span>
+      <button class="adt-close" onclick="closeAdt()">✕ Fermer</button>
+    </div>
+  </div>
+</div>
 <div class="toast" id="toast">
   <span class="toast-icon">✓</span><span id="toastMsg"></span>
 </div>
@@ -856,10 +922,36 @@ const BOOKS = [
 ];
 
 const EVENTS = [
-  { day:"10", month:"Mars", type:"Club lecture", title:"Les Madeleines des bibliothécaires", desc:"Soirée conviviale de partage de lectures autour d'un verre. Venez parler de vos derniers coups de cœur !", time:"18h30 – 20h30" },
-  { day:"24", month:"Mars", type:"Rencontre auteur", title:"Rencontre avec Séverine Cressan", desc:"Dédicace et échanges autour de son dernier roman. Une soirée à ne pas manquer.", time:"18h30 – 20h00" },
-  { day:"5", month:"Avr.", type:"Exposition", title:"Exposition Michele Iordanov", desc:"Découvrez les œuvres de l'artiste Michele Iordanov exposées dans notre librairie tout au long du mois.", time:"Pendant les horaires d'ouverture" },
-  { day:"17", month:"Avr.", type:"Podcast & lecture", title:"Les podcasts de l'ALIP", desc:"Soirée autour des podcasts littéraires de l'Association de Librairies Indépendantes en Pays de la Loire.", time:"19h00" },
+  {
+    day:"10", month:"Mars", year:"2026", type:"Club lecture",
+    title:"Les Madeleines des bibliothécaires",
+    desc:"Soirée conviviale de partage autour d'un verre. Venez parler de vos dernières lectures !",
+    time:"18h30 – 20h30", lieu:"Librairie L'Esprit Large"
+  },
+  {
+    day:"24", month:"Mars", year:"2026", type:"Rencontre auteur",
+    title:"Rencontre avec Séverine Cressan",
+    desc:"Dédicace et échanges autour de son dernier roman. Une soirée à ne pas manquer.",
+    time:"18h30 – 20h00", lieu:"Librairie L'Esprit Large"
+  },
+  {
+    day:"26", month:"Mars", year:"2026", type:"Lecture 📖 hebdo",
+    title:"Les Lectures d'Adel du Mercredi",
+    desc:"Chaque mercredi, Adel vous lit un texte à voix haute. Une parenthèse littéraire régulière et gratuite.",
+    time:"19h00", lieu:"Guérande", recurrent:"Tous les mercredis"
+  },
+  {
+    day:"02", month:"Avr.", year:"2026", type:"Lecture 📖 hebdo",
+    title:"Les Lectures d'Adel du Mercredi",
+    desc:"Chaque mercredi, Adel vous lit un texte à voix haute. Une parenthèse littéraire régulière et gratuite.",
+    time:"19h00", lieu:"Guérande", recurrent:"Tous les mercredis"
+  },
+  {
+    day:"05", month:"Sep.", year:"2026", type:"🎉 Anniversaire",
+    title:"Fête des 20 ans de la Librairie !",
+    desc:"L'Esprit Large souffle ses 20 bougies ! Grande fête avec animations, surprises, auteurs et beaucoup de joie. Tout le monde est invité !",
+    time:"À confirmer", lieu:"Guérande", special:true
+  },
 ];
 
 let currentFilter = 'Tous';
@@ -877,6 +969,15 @@ function goSlide(n) {
   dots[currentSlide].classList.add('active');
 }
 setInterval(() => goSlide((currentSlide + 1) % slides.length), 5000);
+
+/* ── AVIS DE TEMPÊTE ── */
+function openAdt(src, title) {
+  document.getElementById('adtImg').src = src;
+  document.getElementById('adtTitle').textContent = title;
+  document.getElementById('adtModal').classList.add('open');
+}
+function closeAdt() { document.getElementById('adtModal').classList.remove('open'); }
+document.getElementById('adtModal').addEventListener('click', function(e) { if(e.target === this) closeAdt(); });
 
 /* ── NEWSLETTER ── */
 function subscribeNewsletter() {
@@ -960,15 +1061,18 @@ function renderCoups() {
 function renderEvents() {
   const list = document.getElementById('eventList');
   list.innerHTML = EVENTS.map(e => `
-    <div class="event-card">
-      <div class="event-date">
+    <div class="event-card${e.special ? ' event-special' : ''}">
+      <div class="event-date" style="${e.special ? 'background:var(--amber);' : ''}">
         <div class="event-day">${e.day}</div>
         <div class="event-month">${e.month}</div>
+        <div class="event-month" style="font-size:0.6rem;opacity:0.7;">${e.year}</div>
       </div>
       <div class="event-info">
-        <div class="event-type">${e.type}</div>
+        <div class="event-type">${e.type}${e.recurrent ? ' · <span style="font-style:italic;font-weight:400;">'+e.recurrent+'</span>' : ''}</div>
         <div class="event-title">${e.title}</div>
-        <div class="event-desc">${e.desc}${e.price ? ` <strong>— ${e.price}</strong>` : ''}${e.time ? `<br/><span style="font-family:'Raleway',sans-serif;font-size:0.72rem;color:var(--wood);font-weight:600;margin-top:0.3rem;display:inline-block;">🕐 ${e.time}</span>` : ''}</div>
+        <div class="event-desc">${e.desc}
+          <br/><span style="font-family:'Raleway',sans-serif;font-size:0.72rem;color:var(--wood);font-weight:600;margin-top:0.3rem;display:inline-block;">🕐 ${e.time}${e.lieu ? ' · 📍 '+e.lieu : ''}</span>
+        </div>
       </div>
       <button class="btn-event" onclick="openEventModal('${e.title.replace(/'/g,"\\'")}')">Je m'inscris</button>
     </div>
