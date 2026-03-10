@@ -448,7 +448,8 @@
 
     /* ── HERO SLIDESHOW ── */
     #hero {
-      height: 33vh;
+      height: 60vh;
+      min-height: 400px;
       position: relative; overflow: hidden;
       display: flex; align-items: center; justify-content: center;
     }
@@ -468,8 +469,14 @@
     .hero-content {
       position: relative; z-index: 2;
       display: flex; flex-direction: column; align-items: center;
-      text-align: center; padding: 80px 2rem 4rem;
+      text-align: center; padding: 2rem;
       animation: fadeUp 0.9s ease both;
+    }
+    .hero-logo-wrap img {
+      width: 180px; height: 180px;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 24px rgba(0,0,0,0.5)) brightness(0) invert(1);
+      opacity: 0.95;
     }
     .hero-logo-wrap svg { filter: drop-shadow(0 4px 24px rgba(0,0,0,0.4)); }
     .btn-secondary-light {
@@ -492,9 +499,6 @@
       transition: background 0.3s, transform 0.3s;
     }
     .dot.active { background: var(--cream); transform: scale(1.3); }
-
-    /* ── HERO PHOTOS (old, keep for fallback) ── */
-    .hero-photos { display: none; }
 
     /* ── PHOTO GALLERY ── */
     .photo-item {
@@ -592,6 +596,7 @@
       display: flex; align-items: center; gap: 1rem;
       padding: 0.75rem 0; border-bottom: 1px solid rgba(242,240,239,0.1);
       cursor: pointer; transition: all 0.2s;
+      text-decoration: none;
     }
     .archive-item:hover { padding-left: 0.5rem; }
     .archive-num {
@@ -653,8 +658,8 @@
   <ul class="nav-links">
     <li><a href="#catalogue">Catalogue</a></li>
     <li><a href="#coups-de-coeur">Coups de cœur</a></li>
-    <li><a href="#evenements">Événements</a></li>
-    <li><a href="#newsletter" class="nav-tempete">🌊 Avis de Tempête</a></li>
+    <li><a href="evenements.html">Événements</a></li>
+    <li><a href="avisdetempete.html" class="nav-tempete">🌊 Avis de Tempête</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <button class="nav-cart" onclick="showToast('🛒 Panier bientôt disponible !')">Mon panier</button>
@@ -674,7 +679,7 @@
   <div class="hero-content">
     <!-- Big real logo -->
     <div class="hero-logo-wrap">
-      <img src="images/logo.png" alt="Librairie L'Esprit Large" style="width:100px;height:100px;object-fit:contain;filter:drop-shadow(0 4px 24px rgba(0,0,0,0.5)) brightness(0) invert(1);opacity:0.92;" />
+      <img src="images/logo.png" alt="Librairie L'Esprit Large" style="width:180px;height:180px;object-fit:contain;filter:drop-shadow(0 4px 24px rgba(0,0,0,0.5)) brightness(0) invert(1);opacity:0.95;" />
     </div>
     <div class="hero-btns" style="margin-top:2rem;">
       <a href="#catalogue" class="btn-primary">Explorer le catalogue</a>
@@ -737,6 +742,7 @@
       <h2 class="section-title">Événements</h2>
       <p class="section-sub">Rencontres, lectures & ateliers</p>
     </div>
+    <a href="evenements.html" style="font-family:'Raleway',sans-serif;font-size:0.75rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--wood);text-decoration:none;border:1.5px solid var(--wood-light);padding:0.4rem 1rem;border-radius:2px;white-space:nowrap;transition:all 0.2s;" onmouseover="this.style.background='var(--wood)';this.style.color='var(--cream)'" onmouseout="this.style.background='transparent';this.style.color='var(--wood)'">Voir le calendrier →</a>
   </div>
   <div class="event-list" id="eventList"></div>
 </section>
@@ -747,45 +753,50 @@
     <div class="tempete-left">
       <div class="tempete-label">📨 Newsletter</div>
       <h2 class="section-title" style="color:var(--cream);">Avis de Tempête</h2>
-      <p class="tempete-desc">Notre newsletter, comme une bouteille à la mer : des coups de cœur, des actualités, des événements à venir et notre humeur. Paraît une fois par mois, quand la tempête arrive..</p>
+      <p class="tempete-desc">Notre newsletter, comme une bouteille à la mer : des coups de cœur, des actualités, des événements à venir et notre humeur. Paraît une fois par mois, quand la tempête arrive...</p>
       <div class="tempete-archives">
         <p style="font-family:'Raleway',sans-serif;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(196,112,112,0.8);margin-bottom:0.8rem;">Tous les numéros</p>
+        <div style="margin-bottom:1.5rem;">
+          <a href="avisdetempete.html" style="display:inline-block;font-family:'Raleway',sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;background:var(--cream);color:var(--wood-dark);padding:0.75rem 1.5rem;border-radius:2px;text-decoration:none;transition:all 0.2s;" onmouseover="this.style.background='#fff'" onmouseout="this.style.background='var(--cream)'">
+            🌊 Voir tous les Avis de Tempête →
+          </a>
+        </div>
 
         <!-- 2026 -->
         <p style="font-family:'Raleway',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(242,240,239,0.3);margin:1rem 0 0.4rem;">2026</p>
-        <div class="archive-item" onclick="openAdt('avisdetempete/AdT2026Mars.png','Avis de Tempête — Mars 2026')"><span class="archive-num">Mars</span><span class="archive-title">Avis de Tempête — Mars 2026</span><span class="archive-arrow">→</span></div>
-        <div class="archive-item" onclick="openAdt('avisdetempete/AdT2026Février.png','Avis de Tempête — Février 2026')"><span class="archive-num">Fév.</span><span class="archive-title">Avis de Tempête — Février 2026</span><span class="archive-arrow">→</span></div>
-        <div class="archive-item" onclick="openAdt('avisdetempete/AdT2026Janvier.png','Avis de Tempête — Janvier 2026')"><span class="archive-num">Jan.</span><span class="archive-title">Avis de Tempête — Janvier 2026</span><span class="archive-arrow">→</span></div>
+        <a href="avisdetempete.html" class="archive-item"><span class="archive-num">Mars</span><span class="archive-title">Avis de Tempête — Mars 2026</span><span class="archive-arrow">→</span></a>
+        <a href="avisdetempete.html" class="archive-item"><span class="archive-num">Fév.</span><span class="archive-title">Avis de Tempête — Février 2026</span><span class="archive-arrow">→</span></a>
+        <a href="avisdetempete.html" class="archive-item"><span class="archive-num">Jan.</span><span class="archive-title">Avis de Tempête — Janvier 2026</span><span class="archive-arrow">→</span></a>
 
         <!-- 2025 -->
         <p style="font-family:'Raleway',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(242,240,239,0.3);margin:1rem 0 0.4rem;">2025</p>
-        <div class="archive-item" onclick="openAdt('avisdetempete/2025AdT Décembre.png','Avis de Tempête — Décembre 2025')"><span class="archive-num">Déc.</span><span class="archive-title">Avis de Tempête — Décembre 2025</span><span class="archive-arrow">→</span></div>
-        <div class="archive-item" onclick="openAdt('avisdetempete/2025AdT Novembre.png','Avis de Tempête — Novembre 2025')"><span class="archive-num">Nov.</span><span class="archive-title">Avis de Tempête — Novembre 2025</span><span class="archive-arrow">→</span></div>
-        <div class="archive-item" onclick="openAdt('avisdetempete/2025AdT Octobre.png','Avis de Tempête — Octobre 2025')"><span class="archive-num">Oct.</span><span class="archive-title">Avis de Tempête — Octobre 2025</span><span class="archive-arrow">→</span></div>
-        <div class="archive-item" onclick="openAdt('avisdetempete/2025AdT Septembre.png','Avis de Tempête — Septembre 2025')"><span class="archive-num">Sep.</span><span class="archive-title">Avis de Tempête — Septembre 2025</span><span class="archive-arrow">→</span></div>
-        <div class="archive-item" onclick="openAdt('avisdetempete/2025AdT Août.png','Avis de Tempête — Août 2025')"><span class="archive-num">Août</span><span class="archive-title">Avis de Tempête — Août 2025</span><span class="archive-arrow">→</span></div>
-        <div class="archive-item" onclick="openAdt('avisdetempete/2025AdT Juillet.png','Avis de Tempête — Juillet 2025')"><span class="archive-num">Juil.</span><span class="archive-title">Avis de Tempête — Juillet 2025</span><span class="archive-arrow">→</span></div>
-        <div class="archive-item" onclick="openAdt('avisdetempete/2025AdT Juin.png','Avis de Tempête — Juin 2025')"><span class="archive-num">Juin</span><span class="archive-title">Avis de Tempête — Juin 2025</span><span class="archive-arrow">→</span></div>
-        <div class="archive-item" onclick="openAdt('avisdetempete/2025AdT Mai.png','Avis de Tempête — Mai 2025')"><span class="archive-num">Mai</span><span class="archive-title">Avis de Tempête — Mai 2025</span><span class="archive-arrow">→</span></div>
-        <div class="archive-item" onclick="openAdt('avisdetempete/2025AdT Avril.png','Avis de Tempête — Avril 2025')"><span class="archive-num">Avr.</span><span class="archive-title">Avis de Tempête — Avril 2025</span><span class="archive-arrow">→</span></div>
-        <div class="archive-item" onclick="openAdt('avisdetempete/2025AdT Mars.png','Avis de Tempête — Mars 2025')"><span class="archive-num">Mars</span><span class="archive-title">Avis de Tempête — Mars 2025</span><span class="archive-arrow">→</span></div>
-        <div class="archive-item" onclick="openAdt('avisdetempete/2025AdT Février.png','Avis de Tempête — Février 2025')"><span class="archive-num">Fév.</span><span class="archive-title">Avis de Tempête — Février 2025</span><span class="archive-arrow">→</span></div>
-        <div class="archive-item" onclick="openAdt('avisdetempete/2025AdT Janvier.png','Avis de Tempête — Janvier 2025')"><span class="archive-num">Jan.</span><span class="archive-title">Avis de Tempête — Janvier 2025</span><span class="archive-arrow">→</span></div>
+        <a href="avisdetempete.html" class="archive-item"><span class="archive-num">Déc.</span><span class="archive-title">Avis de Tempête — Décembre 2025</span><span class="archive-arrow">→</span></a>
+        <a href="avisdetempete.html" class="archive-item"><span class="archive-num">Nov.</span><span class="archive-title">Avis de Tempête — Novembre 2025</span><span class="archive-arrow">→</span></a>
+        <a href="avisdetempete.html" class="archive-item"><span class="archive-num">Oct.</span><span class="archive-title">Avis de Tempête — Octobre 2025</span><span class="archive-arrow">→</span></a>
+        <a href="avisdetempete.html" class="archive-item"><span class="archive-num">Sep.</span><span class="archive-title">Avis de Tempête — Septembre 2025</span><span class="archive-arrow">→</span></a>
+        <a href="avisdetempete.html" class="archive-item"><span class="archive-num">Août</span><span class="archive-title">Avis de Tempête — Août 2025</span><span class="archive-arrow">→</span></a>
+        <a href="avisdetempete.html" class="archive-item"><span class="archive-num">Juil.</span><span class="archive-title">Avis de Tempête — Juillet 2025</span><span class="archive-arrow">→</span></a>
+        <a href="avisdetempete.html" class="archive-item"><span class="archive-num">Juin</span><span class="archive-title">Avis de Tempête — Juin 2025</span><span class="archive-arrow">→</span></a>
+        <a href="avisdetempete.html" class="archive-item"><span class="archive-num">Mai</span><span class="archive-title">Avis de Tempête — Mai 2025</span><span class="archive-arrow">→</span></a>
+        <a href="avisdetempete.html" class="archive-item"><span class="archive-num">Avr.</span><span class="archive-title">Avis de Tempête — Avril 2025</span><span class="archive-arrow">→</span></a>
+        <a href="avisdetempete.html" class="archive-item"><span class="archive-num">Mars</span><span class="archive-title">Avis de Tempête — Mars 2025</span><span class="archive-arrow">→</span></a>
+        <a href="avisdetempete.html" class="archive-item"><span class="archive-num">Fév.</span><span class="archive-title">Avis de Tempête — Février 2025</span><span class="archive-arrow">→</span></a>
+        <a href="avisdetempete.html" class="archive-item"><span class="archive-num">Jan.</span><span class="archive-title">Avis de Tempête — Janvier 2025</span><span class="archive-arrow">→</span></a>
 
         <!-- 2024 -->
         <p style="font-family:'Raleway',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(242,240,239,0.3);margin:1rem 0 0.4rem;">2024</p>
-        <div class="archive-item" onclick="openAdt('avisdetempete/202412 AdT Décembre.png','Avis de Tempête — Décembre 2024')"><span class="archive-num">Déc.</span><span class="archive-title">Avis de Tempête — Décembre 2024</span><span class="archive-arrow">→</span></div>
-        <div class="archive-item" onclick="openAdt('avisdetempete/202411 AdT Novembre.png','Avis de Tempête — Novembre 2024')"><span class="archive-num">Nov.</span><span class="archive-title">Avis de Tempête — Novembre 2024</span><span class="archive-arrow">→</span></div>
-        <div class="archive-item" onclick="openAdt('avisdetempete/202410 AdT Octobre.png','Avis de Tempête — Octobre 2024')"><span class="archive-num">Oct.</span><span class="archive-title">Avis de Tempête — Octobre 2024</span><span class="archive-arrow">→</span></div>
-        <div class="archive-item" onclick="openAdt('avisdetempete/202409 AdT Septembre.png','Avis de Tempête — Septembre 2024')"><span class="archive-num">Sep.</span><span class="archive-title">Avis de Tempête — Septembre 2024</span><span class="archive-arrow">→</span></div>
-        <div class="archive-item" onclick="openAdt('avisdetempete/202408 AdT Août.png','Avis de Tempête — Août 2024')"><span class="archive-num">Août</span><span class="archive-title">Avis de Tempête — Août 2024</span><span class="archive-arrow">→</span></div>
-        <div class="archive-item" onclick="openAdt('avisdetempete/202407 AdT Juillet.png','Avis de Tempête — Juillet 2024')"><span class="archive-num">Juil.</span><span class="archive-title">Avis de Tempête — Juillet 2024</span><span class="archive-arrow">→</span></div>
-        <div class="archive-item" onclick="openAdt('avisdetempete/202406 AdT Juin.png','Avis de Tempête — Juin 2024')"><span class="archive-num">Juin</span><span class="archive-title">Avis de Tempête — Juin 2024</span><span class="archive-arrow">→</span></div>
-        <div class="archive-item" onclick="openAdt('avisdetempete/202405 AdT Mai.png','Avis de Tempête — Mai 2024')"><span class="archive-num">Mai</span><span class="archive-title">Avis de Tempête — Mai 2024</span><span class="archive-arrow">→</span></div>
-        <div class="archive-item" onclick="openAdt('avisdetempete/202404 AdT Avril.png','Avis de Tempête — Avril 2024')"><span class="archive-num">Avr.</span><span class="archive-title">Avis de Tempête — Avril 2024</span><span class="archive-arrow">→</span></div>
-        <div class="archive-item" onclick="openAdt('avisdetempete/202403 AdT Mars.png','Avis de Tempête — Mars 2024')"><span class="archive-num">Mars</span><span class="archive-title">Avis de Tempête — Mars 2024</span><span class="archive-arrow">→</span></div>
-        <div class="archive-item" onclick="openAdt('avisdetempete/202402 AdT Février.png','Avis de Tempête — Février 2024')"><span class="archive-num">Fév.</span><span class="archive-title">Avis de Tempête — Février 2024</span><span class="archive-arrow">→</span></div>
-        <div class="archive-item" onclick="openAdt('avisdetempete/202401 AdT Janvier.png','Avis de Tempête — Janvier 2024')"><span class="archive-num">Jan.</span><span class="archive-title">Avis de Tempête — Janvier 2024</span><span class="archive-arrow">→</span></div>
+        <a href="avisdetempete.html" class="archive-item"><span class="archive-num">Déc.</span><span class="archive-title">Avis de Tempête — Décembre 2024</span><span class="archive-arrow">→</span></a>
+        <a href="avisdetempete.html" class="archive-item"><span class="archive-num">Nov.</span><span class="archive-title">Avis de Tempête — Novembre 2024</span><span class="archive-arrow">→</span></a>
+        <a href="avisdetempete.html" class="archive-item"><span class="archive-num">Oct.</span><span class="archive-title">Avis de Tempête — Octobre 2024</span><span class="archive-arrow">→</span></a>
+        <a href="avisdetempete.html" class="archive-item"><span class="archive-num">Sep.</span><span class="archive-title">Avis de Tempête — Septembre 2024</span><span class="archive-arrow">→</span></a>
+        <a href="avisdetempete.html" class="archive-item"><span class="archive-num">Août</span><span class="archive-title">Avis de Tempête — Août 2024</span><span class="archive-arrow">→</span></a>
+        <a href="avisdetempete.html" class="archive-item"><span class="archive-num">Juil.</span><span class="archive-title">Avis de Tempête — Juillet 2024</span><span class="archive-arrow">→</span></a>
+        <a href="avisdetempete.html" class="archive-item"><span class="archive-num">Juin</span><span class="archive-title">Avis de Tempête — Juin 2024</span><span class="archive-arrow">→</span></a>
+        <a href="avisdetempete.html" class="archive-item"><span class="archive-num">Mai</span><span class="archive-title">Avis de Tempête — Mai 2024</span><span class="archive-arrow">→</span></a>
+        <a href="avisdetempete.html" class="archive-item"><span class="archive-num">Avr.</span><span class="archive-title">Avis de Tempête — Avril 2024</span><span class="archive-arrow">→</span></a>
+        <a href="avisdetempete.html" class="archive-item"><span class="archive-num">Mars</span><span class="archive-title">Avis de Tempête — Mars 2024</span><span class="archive-arrow">→</span></a>
+        <a href="avisdetempete.html" class="archive-item"><span class="archive-num">Fév.</span><span class="archive-title">Avis de Tempête — Février 2024</span><span class="archive-arrow">→</span></a>
+        <a href="avisdetempete.html" class="archive-item"><span class="archive-num">Jan.</span><span class="archive-title">Avis de Tempête — Janvier 2024</span><span class="archive-arrow">→</span></a>
       </div>
     </div>
     <div class="tempete-right">
@@ -840,13 +851,13 @@
     <ul class="footer-links">
       <li>Commande & réservation</li>
       <li>Carte cadeau</li>
-      <li>Club lecture</li>
-      <li>Livraison locale</li>
+      <li>🥪 Casse-croûte Littéraire</li>
+      <li>🚲 Livraison locale<br/><span style="font-size:0.75rem;opacity:0.7;font-style:italic;">Gratuite à Guérande sur commande</span></li>
       <li>Mentions légales</li>
     </ul>
   </div>
 </footer>
-<div class="footer-bottom">© 2025 L'Esprit Large · Tous droits réservés</div>
+<div class="footer-bottom">© 2026 L'Esprit Large · Librairie indépendante depuis 2006</div>
 
 <!-- MODAL RÉSERVATION -->
 <div class="modal-overlay" id="reserveModal">
@@ -923,10 +934,10 @@ const BOOKS = [
 
 const EVENTS = [
   {
-    day:"10", month:"Mars", year:"2026", type:"Club lecture",
-    title:"Les Madeleines des bibliothécaires",
-    desc:"Soirée conviviale de partage autour d'un verre. Venez parler de vos dernières lectures !",
-    time:"18h30 – 20h30", lieu:"Librairie L'Esprit Large"
+    day:"12", month:"Mars", year:"2026", type:"🌍 Littérature traduite",
+    title:"Échanges autour du monde hispanophone",
+    desc:"Échanges autour de la littérature traduite. C'est convivial et ouvert à tous.",
+    time:"18h30", lieu:"Librairie L'Esprit Large"
   },
   {
     day:"24", month:"Mars", year:"2026", type:"Rencontre auteur",
@@ -935,16 +946,58 @@ const EVENTS = [
     time:"18h30 – 20h00", lieu:"Librairie L'Esprit Large"
   },
   {
+    day:"26", month:"Mars", year:"2026", type:"🌍 Littérature traduite",
+    title:"Échanges autour de la littérature italienne",
+    desc:"Échanges autour de la littérature traduite. C'est convivial et ouvert à tous.",
+    time:"18h30", lieu:"Librairie L'Esprit Large"
+  },
+  {
+    day:"26", month:"Mars", year:"2026", type:"🥪 Casse-croûte Littéraire",
+    title:"Casse-croûte Littéraire",
+    desc:"On mange ensemble, un jeudi midi par mois pour discuter et échanger autour de vos et nos lectures...",
+    time:"12h00 – 14h00", lieu:"Librairie L'Esprit Large"
+  },
+  {
     day:"26", month:"Mars", year:"2026", type:"Lecture 📖 hebdo",
     title:"Les Lectures d'Adel du Mercredi",
     desc:"Chaque mercredi, Adel vous lit un texte à voix haute. Une parenthèse littéraire régulière et gratuite.",
     time:"19h00", lieu:"Guérande", recurrent:"Tous les mercredis"
   },
   {
-    day:"02", month:"Avr.", year:"2026", type:"Lecture 📖 hebdo",
-    title:"Les Lectures d'Adel du Mercredi",
-    desc:"Chaque mercredi, Adel vous lit un texte à voix haute. Une parenthèse littéraire régulière et gratuite.",
-    time:"19h00", lieu:"Guérande", recurrent:"Tous les mercredis"
+    day:"30", month:"Avr.", year:"2026", type:"🥪 Casse-croûte Littéraire",
+    title:"Casse-croûte Littéraire",
+    desc:"On mange ensemble, un jeudi midi par mois pour discuter et échanger autour de vos et nos lectures...",
+    time:"12h00 – 14h00", lieu:"Librairie L'Esprit Large"
+  },
+  {
+    day:"12", month:"Mai", year:"2026", type:"📚 Les Madeleines des libraires",
+    title:"Les Madeleines des libraires",
+    desc:"Soirée conviviale de partage autour d'un verre. Venez parler de vos dernières lectures !",
+    time:"18h30 – 20h30", lieu:"Librairie L'Esprit Large"
+  },
+  {
+    day:"21", month:"Mai", year:"2026", type:"🥪 Casse-croûte Littéraire",
+    title:"Casse-croûte Littéraire",
+    desc:"On mange ensemble, un jeudi midi par mois pour discuter et échanger autour de vos et nos lectures...",
+    time:"12h00 – 14h00", lieu:"Librairie L'Esprit Large"
+  },
+  {
+    day:"02", month:"Juin", year:"2026", type:"Rencontre auteur",
+    title:"Rencontre autour de « Première Vague »",
+    desc:"Venez échanger autour de ce livre lors d'une rencontre conviviale à la librairie.",
+    time:"18h30", lieu:"Librairie L'Esprit Large"
+  },
+  {
+    day:"11", month:"Juin", year:"2026", type:"🥪 Casse-croûte Littéraire",
+    title:"Casse-croûte Littéraire",
+    desc:"On mange ensemble, un jeudi midi par mois pour discuter et échanger autour de vos et nos lectures...",
+    time:"12h00 – 14h00", lieu:"Librairie L'Esprit Large"
+  },
+  {
+    day:"25", month:"Juin", year:"2026", type:"🌍 Littérature traduite",
+    title:"Échanges autour de la littérature allemande",
+    desc:"Échanges autour de la littérature traduite. C'est convivial et ouvert à tous.",
+    time:"18h30", lieu:"Librairie L'Esprit Large"
   },
   {
     day:"05", month:"Sep.", year:"2026", type:"🎉 Anniversaire",
@@ -959,16 +1012,16 @@ let selectedBook = null;
 
 /* ── SLIDESHOW ── */
 let currentSlide = 0;
-const slides = document.querySelectorAll('.hero-slide');
-const dots = document.querySelectorAll('.dot');
 function goSlide(n) {
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots = document.querySelectorAll('.dot');
   slides[currentSlide].classList.remove('active');
   dots[currentSlide].classList.remove('active');
-  currentSlide = n % slides.length;
+  currentSlide = ((n % slides.length) + slides.length) % slides.length;
   slides[currentSlide].classList.add('active');
   dots[currentSlide].classList.add('active');
 }
-setInterval(() => goSlide((currentSlide + 1) % slides.length), 5000);
+setInterval(() => goSlide(currentSlide + 1), 5000);
 
 /* ── AVIS DE TEMPÊTE ── */
 function openAdt(src, title) {
@@ -1139,4 +1192,13 @@ function showToast(msg) {
 }
 
 /* ── CLOSE ON BACKDROP ── */
-document.getElementById('reserveModal').addEventListener('click', function(e) { if(e.target === this) closeMo
+document.getElementById('reserveModal').addEventListener('click', function(e) { if(e.target === this) closeModal(); });
+document.getElementById('eventModal').addEventListener('click', function(e) { if(e.target === this) closeEventModal(); });
+
+/* ── INIT ── */
+renderBooks(BOOKS);
+renderCoups();
+renderEvents();
+</script>
+</body>
+</html>
