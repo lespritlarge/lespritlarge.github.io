@@ -1,168 +1,844 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-	<title>L'Esprit Large — Librairie</title>
-	<meta name="generator" content="LibreOffice 24.2.4.2 (Windows)"/>
-	<meta name="created" content="00:00:00"/>
-	<meta name="changed" content="2026-03-10T13:52:55.990000000"/>
-	<meta name="" content=""/>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	<style type="text/css">
-		p { font-family: "Lora", serif }
-		h2.cjk { font-family: "NSimSun" }
-		h2.ctl { font-family: "Arial Unicode MS" }
-	</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>L'Esprit Large — Librairie</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400;1,600&family=Lora:ital,wght@0,400;0,500;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #f2f0ef;
+      --warm-white: #f7f5f4;
+      --wood: #8b2e2e;
+      --wood-dark: #5c1a1a;
+      --wood-light: #b86060;
+      --amber: #9e3a3a;
+      --amber-light: #c47070;
+      --ink: #1e1e1e;
+      --ink-soft: #3a3a3a;
+      --moss: #4a6e4a;
+      --dusty-rose: #c4857a;
+      --parchment: #ebe8e8;
+      --shadow: rgba(30,10,10,0.13);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lora', serif;
+      background-color: var(--warm-white);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(242,240,239,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(92,26,26,0.15);
+      padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; font-weight: 800; font-style: italic;
+      color: var(--wood-dark);
+      letter-spacing: -0.02em;
+    }
+    .nav-logo span { color: var(--amber); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em;
+      text-transform: uppercase; text-decoration: none;
+      color: var(--ink-soft);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--wood); }
+    .nav-cart {
+      font-family: 'Raleway', sans-serif; font-size: 0.82rem;
+      font-weight: 600; letter-spacing: 0.05em;
+      background: var(--wood); color: var(--cream);
+      border: none; cursor: pointer;
+      padding: 0.5rem 1.2rem; border-radius: 2px;
+      transition: background 0.2s;
+    }
+    .nav-cart:hover { background: var(--wood-dark); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      background: linear-gradient(160deg, var(--cream) 0%, var(--parchment) 60%, #ddd8d8 100%);
+      display: flex; align-items: center;
+      padding: 80px 4rem 4rem;
+      position: relative; overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute; top: -100px; right: -100px;
+      width: 600px; height: 600px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(158,58,58,0.08) 0%, transparent 70%);
+    }
+    #hero::after {
+      content: '"';
+      position: absolute; right: 8%; bottom: 5%;
+      font-family: 'Playfair Display', serif;
+      font-size: 28rem; font-weight: 800; font-style: italic;
+      color: rgba(92,26,26,0.06); line-height: 1;
+      pointer-events: none;
+    }
+    .hero-content { max-width: 680px; animation: fadeUp 0.9s ease both; }
+    .hero-tag {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--amber);
+      margin-bottom: 1.2rem;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 6vw, 5rem);
+      font-weight: 800; line-height: 1.05;
+      color: var(--wood-dark);
+    }
+    h1 em { font-style: italic; color: var(--wood); }
+    .hero-sub {
+      font-family: 'Lora', serif; font-style: italic;
+      font-size: 1.1rem; line-height: 1.7;
+      color: var(--ink-soft); margin: 1.5rem 0 2.5rem;
+    }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      font-family: 'Raleway', sans-serif; font-weight: 600;
+      font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase;
+      background: var(--wood-dark); color: var(--cream);
+      padding: 0.9rem 2rem; border: none; cursor: pointer;
+      border-radius: 2px; text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--ink); transform: translateY(-1px); }
+    .btn-secondary {
+      font-family: 'Raleway', sans-serif; font-weight: 500;
+      font-size: 0.85rem; letter-spacing: 0.06em;
+      background: transparent; color: var(--wood-dark);
+      padding: 0.9rem 2rem;
+      border: 1.5px solid var(--wood-light); cursor: pointer;
+      border-radius: 2px; text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+      display: inline-block;
+    }
+    .btn-secondary:hover { border-color: var(--wood-dark); color: var(--ink); }
+    .hero-stats {
+      display: flex; gap: 2.5rem; margin-top: 3rem;
+      padding-top: 2rem; border-top: 1px solid rgba(92,26,26,0.2);
+    }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem; font-weight: 700; color: var(--wood);
+    }
+    .stat-label {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--ink-soft); margin-top: 0.2rem;
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 5rem 4rem; }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem; font-weight: 700;
+      color: var(--wood-dark); margin-bottom: 0.5rem;
+    }
+    .section-sub {
+      font-family: 'Lora', serif; font-style: italic;
+      color: var(--ink-soft); font-size: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    .section-header { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem; }
+    .see-all {
+      font-family: 'Raleway', sans-serif; font-size: 0.78rem;
+      font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--amber); text-decoration: none;
+      border-bottom: 1px solid var(--amber-light);
+      padding-bottom: 2px; cursor: pointer;
+    }
+
+    /* ── SEARCH ── */
+    #catalogue { background: var(--warm-white); }
+    .search-bar {
+      display: flex; gap: 0; margin-bottom: 2rem;
+      border: 1.5px solid var(--wood-light); border-radius: 3px;
+      overflow: hidden; max-width: 600px;
+    }
+    .search-bar input {
+      flex: 1; padding: 0.85rem 1.2rem;
+      font-family: 'Lora', serif; font-size: 0.95rem;
+      border: none; background: var(--cream); color: var(--ink);
+      outline: none;
+    }
+    .search-bar input::placeholder { color: rgba(74,55,40,0.4); font-style: italic; }
+    .search-bar button {
+      padding: 0.85rem 1.5rem;
+      background: var(--wood); color: var(--cream);
+      border: none; cursor: pointer;
+      font-family: 'Raleway', sans-serif; font-size: 0.8rem;
+      font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+      transition: background 0.2s;
+    }
+    .search-bar button:hover { background: var(--wood-dark); }
+    .filter-tags { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+    .tag {
+      font-family: 'Raleway', sans-serif; font-size: 0.75rem;
+      font-weight: 500; letter-spacing: 0.06em;
+      padding: 0.35rem 0.9rem; border-radius: 20px; cursor: pointer;
+      border: 1px solid var(--wood-light); color: var(--ink-soft);
+      background: transparent; transition: all 0.2s;
+    }
+    .tag.active, .tag:hover { background: var(--wood); color: var(--cream); border-color: var(--wood); }
+
+    /* ── BOOK GRID ── */
+    .book-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+    .book-card {
+      background: var(--cream); border-radius: 4px;
+      overflow: hidden; cursor: pointer;
+      box-shadow: 0 2px 12px var(--shadow);
+      transition: transform 0.25s, box-shadow 0.25s;
+      animation: fadeUp 0.5s ease both;
+    }
+    .book-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(42,31,20,0.18); }
+    .book-cover {
+      width: 100%; aspect-ratio: 2/3;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3rem; position: relative;
+    }
+    .book-badge {
+      position: absolute; top: 0.6rem; right: 0.6rem;
+      font-family: 'Raleway', sans-serif; font-size: 0.65rem;
+      font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 0.2rem 0.5rem; border-radius: 2px;
+    }
+    .badge-fav { background: var(--amber); color: var(--ink); }
+    .badge-low { background: var(--dusty-rose); color: white; }
+    .badge-out { background: #888; color: white; }
+    .book-info { padding: 1rem; }
+    .book-title {
+      font-family: 'Playfair Display', serif; font-size: 0.95rem;
+      font-weight: 600; color: var(--ink); margin-bottom: 0.2rem;
+      line-height: 1.3;
+    }
+    .book-author {
+      font-family: 'Lora', serif; font-style: italic;
+      font-size: 0.78rem; color: var(--ink-soft); margin-bottom: 0.6rem;
+    }
+    .book-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 0.8rem; }
+    .book-price {
+      font-family: 'Raleway', sans-serif; font-weight: 700;
+      font-size: 1rem; color: var(--wood);
+    }
+    .stock-indicator {
+      font-family: 'Raleway', sans-serif; font-size: 0.68rem;
+      font-weight: 600; letter-spacing: 0.05em;
+    }
+    .stock-ok { color: var(--moss); }
+    .stock-low { color: var(--dusty-rose); }
+    .stock-out { color: #aaa; }
+    .btn-reserve {
+      width: 100%; margin-top: 0.8rem;
+      font-family: 'Raleway', sans-serif; font-size: 0.75rem;
+      font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 0.55rem; border: none; cursor: pointer; border-radius: 2px;
+      transition: all 0.2s;
+    }
+    .btn-reserve.available { background: var(--wood); color: var(--cream); }
+    .btn-reserve.available:hover { background: var(--wood-dark); }
+    .btn-reserve.unavailable { background: #ddd; color: #999; cursor: not-allowed; }
+
+    /* ── COUPS DE CŒUR ── */
+    #coups-de-coeur { background: var(--parchment); }
+    .coup-card {
+      display: grid; grid-template-columns: 100px 1fr;
+      gap: 1.5rem; align-items: center;
+      background: var(--cream); border-radius: 4px;
+      padding: 1.5rem; box-shadow: 0 2px 12px var(--shadow);
+    }
+    .coup-cover {
+      width: 100px; height: 140px; border-radius: 3px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.5rem;
+    }
+    .coup-quote {
+      font-family: 'Lora', serif; font-style: italic;
+      font-size: 0.9rem; line-height: 1.6; color: var(--ink-soft);
+      margin: 0.5rem 0 1rem;
+    }
+    .coup-quote::before { content: '« '; color: var(--amber); }
+    .coup-quote::after { content: ' »'; color: var(--amber); }
+    .coup-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+
+    /* ── ÉVÉNEMENTS ── */
+    #evenements { background: var(--warm-white); }
+    .event-list { display: flex; flex-direction: column; gap: 1rem; }
+    .event-card {
+      display: flex; gap: 1.5rem; align-items: flex-start;
+      background: var(--cream); border-radius: 4px;
+      padding: 1.5rem; box-shadow: 0 2px 10px var(--shadow);
+      border-left: 3px solid var(--amber);
+      transition: transform 0.2s;
+    }
+    .event-card:hover { transform: translateX(4px); }
+    .event-date {
+      min-width: 60px; text-align: center;
+      background: var(--wood-dark); color: var(--cream);
+      border-radius: 3px; padding: 0.6rem 0.5rem;
+    }
+    .event-day {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem; font-weight: 700; line-height: 1;
+    }
+    .event-month {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.65rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      margin-top: 0.2rem;
+    }
+    .event-info { flex: 1; }
+    .event-type {
+      font-family: 'Raleway', sans-serif; font-size: 0.68rem;
+      font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--amber); margin-bottom: 0.3rem;
+    }
+    .event-title {
+      font-family: 'Playfair Display', serif; font-size: 1.05rem;
+      font-weight: 600; color: var(--ink); margin-bottom: 0.3rem;
+    }
+    .event-desc {
+      font-family: 'Lora', serif; font-size: 0.85rem;
+      color: var(--ink-soft); line-height: 1.5;
+    }
+    .btn-event {
+      align-self: center;
+      font-family: 'Raleway', sans-serif; font-size: 0.72rem;
+      font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 0.5rem 1rem; border: 1.5px solid var(--wood);
+      color: var(--wood); background: transparent; cursor: pointer;
+      border-radius: 2px; transition: all 0.2s; white-space: nowrap;
+    }
+    .btn-event:hover { background: var(--wood); color: var(--cream); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink); color: var(--cream);
+      padding: 3rem 4rem;
+      display: grid; grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem; font-weight: 800; font-style: italic;
+      color: var(--amber-light); margin-bottom: 0.8rem;
+    }
+    .footer-desc {
+      font-family: 'Lora', serif; font-size: 0.85rem;
+      line-height: 1.7; color: rgba(245,240,232,0.6);
+    }
+    .footer-h {
+      font-family: 'Raleway', sans-serif; font-size: 0.7rem;
+      font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--amber-light); margin-bottom: 1rem;
+    }
+    .footer-links { list-style: none; }
+    .footer-links li {
+      font-family: 'Lora', serif; font-size: 0.85rem;
+      color: rgba(245,240,232,0.6); margin-bottom: 0.5rem; cursor: pointer;
+      transition: color 0.2s;
+    }
+    .footer-links li:hover { color: var(--cream); }
+    .footer-bottom {
+      background: var(--wood-dark); text-align: center;
+      padding: 1rem; font-family: 'Raleway', sans-serif;
+      font-size: 0.72rem; letter-spacing: 0.06em;
+      color: rgba(245,240,232,0.4);
+    }
+
+    /* ── MODAL ── */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 200;
+      background: rgba(42,31,20,0.6); backdrop-filter: blur(4px);
+      display: none; align-items: center; justify-content: center; padding: 1rem;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: var(--cream); border-radius: 6px;
+      padding: 2.5rem; max-width: 460px; width: 100%;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      animation: fadeUp 0.3s ease;
+    }
+    .modal h2 {
+      font-family: 'Playfair Display', serif; font-size: 1.5rem;
+      font-weight: 700; color: var(--wood-dark); margin-bottom: 0.3rem;
+    }
+    .modal p { font-size: 0.85rem; color: var(--ink-soft); margin-bottom: 1.5rem; font-style: italic; }
+    .modal label {
+      display: block; font-family: 'Raleway', sans-serif;
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--ink-soft); margin-bottom: 0.4rem; margin-top: 1rem;
+    }
+    .modal input, .modal select, .modal textarea {
+      width: 100%; padding: 0.75rem 1rem;
+      font-family: 'Lora', serif; font-size: 0.9rem;
+      border: 1.5px solid rgba(92,26,26,0.25);
+      border-radius: 3px; background: var(--warm-white); color: var(--ink);
+      outline: none; transition: border-color 0.2s;
+    }
+    .modal input:focus, .modal select:focus, .modal textarea:focus {
+      border-color: var(--wood);
+    }
+    .modal textarea { resize: vertical; min-height: 80px; }
+    .modal-btns { display: flex; gap: 0.8rem; margin-top: 1.5rem; }
+    .btn-confirm {
+      flex: 1; font-family: 'Raleway', sans-serif; font-weight: 700;
+      font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase;
+      background: var(--wood-dark); color: var(--cream);
+      padding: 0.85rem; border: none; cursor: pointer; border-radius: 2px;
+      transition: background 0.2s;
+    }
+    .btn-confirm:hover { background: var(--ink); }
+    .btn-cancel {
+      font-family: 'Raleway', sans-serif; font-size: 0.8rem; font-weight: 500;
+      background: transparent; color: var(--ink-soft);
+      padding: 0.85rem 1.2rem; border: 1.5px solid rgba(92,26,26,0.25);
+      cursor: pointer; border-radius: 2px; transition: all 0.2s;
+    }
+    .btn-cancel:hover { background: rgba(92,26,26,0.1); }
+
+    /* ── TOAST ── */
+    .toast {
+      position: fixed; bottom: 2rem; right: 2rem; z-index: 300;
+      background: var(--wood-dark); color: var(--cream);
+      font-family: 'Raleway', sans-serif; font-size: 0.85rem;
+      padding: 1rem 1.5rem; border-radius: 4px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.25);
+      transform: translateY(100px); opacity: 0;
+      transition: all 0.4s cubic-bezier(0.175,0.885,0.32,1.275);
+    }
+    .toast.show { transform: translateY(0); opacity: 1; }
+    .toast .toast-icon { color: var(--amber-light); margin-right: 0.5rem; }
+
+    .nav-tempete {
+      color: var(--wood) !important;
+      font-weight: 700 !important;
+      border-bottom: 2px solid var(--wood-light);
+      padding-bottom: 2px;
+    }
+    .nav-tempete:hover { color: var(--wood-dark) !important; }
+
+    /* ── HERO SLIDESHOW ── */
+    #hero {
+      min-height: 100vh;
+      position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hero-slideshow {
+      position: absolute; inset: 0; z-index: 0;
+    }
+    .hero-slide {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+      opacity: 0; transition: opacity 1.2s ease;
+    }
+    .hero-slide.active { opacity: 1; }
+    .hero-overlay {
+      position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(to bottom, rgba(30,10,10,0.55) 0%, rgba(30,10,10,0.4) 50%, rgba(30,10,10,0.7) 100%);
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; padding: 80px 2rem 4rem;
+      animation: fadeUp 0.9s ease both;
+    }
+    .hero-logo-wrap svg { filter: drop-shadow(0 4px 24px rgba(0,0,0,0.4)); }
+    .btn-secondary-light {
+      font-family: 'Raleway', sans-serif; font-weight: 500;
+      font-size: 0.85rem; letter-spacing: 0.06em;
+      background: transparent; color: var(--cream);
+      padding: 0.9rem 2rem;
+      border: 1.5px solid rgba(242,240,239,0.5); cursor: pointer;
+      border-radius: 2px; text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+      display: inline-block;
+    }
+    .btn-secondary-light:hover { border-color: var(--cream); background: rgba(242,240,239,0.1); }
+    .hero-dots {
+      display: flex; gap: 0.6rem; margin-top: 2rem;
+    }
+    .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(242,240,239,0.35); cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .dot.active { background: var(--cream); transform: scale(1.3); }
+
+    /* ── HERO PHOTOS (old, keep for fallback) ── */
+    .hero-photos { display: none; }
+
+    /* ── PHOTO GALLERY ── */
+    .photo-item {
+      overflow: hidden; position: relative; cursor: pointer;
+    }
+    .photo-item img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.6s ease, filter 0.4s;
+      filter: brightness(0.85);
+    }
+    .photo-item:hover img { transform: scale(1.05); filter: brightness(1); }
+    .photo-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(30,10,10,0.7));
+      color: var(--cream); padding: 1.5rem 1rem 0.8rem;
+      font-family: 'Lora', serif; font-style: italic; font-size: 0.85rem;
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .photo-item:hover .photo-caption { opacity: 1; }
+
+    /* ── NEWSLETTER AVIS DE TEMPÊTE ── */
+    #newsletter {
+      background: linear-gradient(135deg, var(--wood-dark) 0%, #3a1010 50%, #1e1414 100%);
+      padding: 5rem 4rem;
+      position: relative; overflow: hidden;
+    }
+    #newsletter::before {
+      content: '~';
+      position: absolute; left: -2rem; top: 50%; transform: translateY(-50%);
+      font-family: 'Playfair Display', serif;
+      font-size: 30rem; font-weight: 800; color: rgba(242,240,239,0.03);
+      line-height: 1; pointer-events: none;
+    }
+    .tempete-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: center; max-width: 1100px; margin: 0 auto;
+      position: relative; z-index: 1;
+    }
+    .tempete-label {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--amber-light);
+      margin-bottom: 0.8rem;
+    }
+    .tempete-desc {
+      font-family: 'Lora', serif; font-style: italic;
+      font-size: 1rem; line-height: 1.75;
+      color: rgba(242,240,239,0.7); margin: 1rem 0 2rem;
+    }
+    .tempete-archives { margin-top: 1.5rem; }
+    .archive-item {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 0.75rem 0; border-bottom: 1px solid rgba(242,240,239,0.1);
+      cursor: pointer; transition: all 0.2s;
+    }
+    .archive-item:hover { padding-left: 0.5rem; }
+    .archive-num {
+      font-family: 'Raleway', sans-serif; font-size: 0.68rem;
+      font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--amber-light); min-width: 70px;
+    }
+    .archive-title {
+      font-family: 'Lora', serif; font-size: 0.88rem;
+      color: rgba(242,240,239,0.7); flex: 1;
+      transition: color 0.2s;
+    }
+    .archive-item:hover .archive-title { color: var(--cream); }
+    .archive-arrow {
+      color: rgba(242,240,239,0.3); font-size: 1rem;
+      transition: transform 0.2s, color 0.2s;
+    }
+    .archive-item:hover .archive-arrow { transform: translateX(4px); color: var(--cream); }
+    .tempete-form-wrap {
+      background: rgba(242,240,239,0.06);
+      border: 1px solid rgba(242,240,239,0.12);
+      border-radius: 6px; padding: 2.5rem;
+    }
+    .tempete-wave-deco { margin-bottom: 1.5rem; }
+    @media (max-width: 768px) {
+      .tempete-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      #newsletter { padding: 3rem 1.5rem; }
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 0 1rem; }
+      .nav-links { display: none; }
+      #hero { padding: 100px 1.5rem 3rem; }
+      section { padding: 3rem 1.5rem; }
+      footer { grid-template-columns: 1fr; padding: 2rem 1.5rem; }
+      .hero-stats { gap: 1.5rem; }
+      .book-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem; }
+      .coup-grid { grid-template-columns: 1fr; }
+      .event-card { flex-wrap: wrap; }
+      .btn-event { width: 100%; text-align: center; }
+    }
+  </style>
 </head>
-<body lang="fr-FR" dir="ltr"><p><font face="Playfair Display, serif"><i><b>LIBRAIRIE
-L'ESPRIT LARGE L'Esprit Large </b></i></font>
-</p>
-<ul>
-	<li><p style="margin-bottom: 0cm"><a href="#catalogue">Catalogue</a>
-		</p></li>
-	<li><p style="margin-bottom: 0cm"><a href="#coups-de-coeur">Coups de
-	cœur</a> 
-	</p></li>
-	<li><p style="margin-bottom: 0cm"><a href="#evenements">Événements</a>
-		</p></li>
-	<li><p style="margin-bottom: 0cm"><a href="#newsletter">🌊 Avis de
-	Tempête</a> 
-	</p></li>
-	<li><p><a href="#contact">Contact</a> 
-	</p></li>
-</ul>
-<p style="margin-bottom: 0cm">Mon panier 
-</p>
-<p style="margin-bottom: 0cm">LIBRAIRIE LIBRAIRIE INDÉPENDANTE
-DEPUIS 2006 L'ESPRIT LARGE GUÉRANDE — RUE VANNETAISE 
-</p>
-<p style="margin-bottom: 0cm"><a href="#catalogue">Explorer le
-catalogue</a> <a href="#evenements">Voir les événements</a> 
-</p>
-<p style="margin-bottom: 0cm"><img src="../Desktop/PHOTOS/IMG_20220829_145131.jpg" name="Image1" alt="La librairie L'Esprit Large — grande salle" align="bottom" width="161" height="81" border="0"/>
+<body>
 
-</p>
-<p style="margin-bottom: 0cm">La librairie</p>
-<p style="margin-bottom: 0cm"><img src="../Desktop/PHOTOS/350884255_193606970299119_684689304584996683_n.jpg" name="Image2" alt="Rayon Bandes Dessinées" align="bottom" width="161" height="81" border="0"/>
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <img src="images/logo.png" alt="Logo L'Esprit Large" style="width:42px;height:42px;vertical-align:middle;margin-right:0.5rem;object-fit:contain;" />
+    L'<span>Esprit</span> Large
+  </div>
+  <ul class="nav-links">
+    <li><a href="#catalogue">Catalogue</a></li>
+    <li><a href="#coups-de-coeur">Coups de cœur</a></li>
+    <li><a href="#evenements">Événements</a></li>
+    <li><a href="#newsletter" class="nav-tempete">🌊 Avis de Tempête</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-cart" onclick="showToast('🛒 Panier bientôt disponible !')">Mon panier</button>
+</nav>
 
-</p>
-<p style="margin-bottom: 0cm">Rayon Bandes Dessinées</p>
-<p style="margin-bottom: 0cm"><img src="../Desktop/PHOTOS/IMG_20220829_145141.jpg" name="Image3" alt="Espace Jeunesse" align="bottom" width="161" height="81" border="0"/>
+<!-- HERO -->
+<section id="hero">
+  <!-- Slideshow background with real photos -->
+  <div class="hero-slideshow">
+    <div class="hero-slide active" style="background-image:url('images/IMG_20220829_145131.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('images/IMG_20220829_145141.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('images/350884255_193606970299119_684689304584996683_n.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('images/350706999_763684615455681_9098931883408780254_n.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('images/350110694_835607277985386_7956384476186730092_n.jpg')"></div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <!-- Big real logo -->
+    <div class="hero-logo-wrap">
+      <img src="images/logo.png" alt="Librairie L'Esprit Large" style="width:200px;height:200px;object-fit:contain;filter:drop-shadow(0 4px 24px rgba(0,0,0,0.5)) brightness(0) invert(1);opacity:0.92;" />
+    </div>
+    <div class="hero-btns" style="margin-top:2rem;">
+      <a href="#catalogue" class="btn-primary">Explorer le catalogue</a>
+      <a href="#evenements" class="btn-secondary-light">Voir les événements</a>
+    </div>
+    <!-- Slide dots -->
+    <div class="hero-dots">
+      <span class="dot active" onclick="goSlide(0)"></span>
+      <span class="dot" onclick="goSlide(1)"></span>
+      <span class="dot" onclick="goSlide(2)"></span>
+      <span class="dot" onclick="goSlide(3)"></span>
+      <span class="dot" onclick="goSlide(4)"></span>
+    </div>
+  </div>
+</section>
 
-</p>
-<p>Espace Jeunesse</p>
-<h2 class="western">Notre catalogue</h2>
-<p>Stock mis à jour chaque matin...</p>
-<p style="margin-bottom: 0cm">Tout voir → 
-</p>
-<p style="margin-bottom: 0cm">Rechercher 
-</p>
-<p style="margin-bottom: 0cm">Tous Roman Essai Poésie BD Jeunesse
-Voyage 
-</p>
-<div id="bookGrid" dir="ltr"><p style="margin-bottom: 0cm"><br/>
+<!-- GALERIE PHOTOS -->
+<section id="galerie" style="background:var(--ink);padding:0;overflow:hidden;">
+  <div style="display:grid;grid-template-columns:2fr 1fr 1fr;height:380px;gap:3px;">
+    <div class="photo-item">
+      <img src="images/IMG_20220829_145131.jpg" alt="La librairie L'Esprit Large — grande salle" loading="lazy"/>
+      <div class="photo-caption">Murs de pierre, poutres et lumière chaude</div>
+    </div>
+    <div class="photo-item">
+      <img src="images/350884255_193606970299119_684689304584996683_n.jpg" alt="Rayon Bandes Dessinées" loading="lazy"/>
+      <div class="photo-caption">Rayon Bandes Dessinées</div>
+    </div>
+    <div class="photo-item">
+      <img src="images/IMG_20220829_145141.jpg" alt="Espace Jeunesse" loading="lazy"/>
+      <div class="photo-caption">Espace Jeunesse</div>
+    </div>
+  </div>
+</section>
 
-	</p>
-</div>
-<h2 class="western">Les libraires vous conseillent...</h2>
-<p>La sélection de l'équipe, avec amour</p>
-<div id="coupGrid" dir="ltr"><p><br/>
-<br/>
+<!-- CATALOGUE -->
+<section id="catalogue">
+  <div class="section-header">
+    <div>
+      <h2 class="section-title">Notre catalogue</h2>
+      <p class="section-sub">Stock mis à jour en temps réel</p>
+    </div>
+    <span class="see-all">Tout voir →</span>
+  </div>
 
-	</p>
-</div>
-<h2 class="western">Événements</h2>
-<p>Rencontres, lectures &amp; ateliers</p>
-<div id="eventList" dir="ltr"><p><br/>
-<br/>
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Titre, auteur, genre…" oninput="filterBooks()" />
+    <button onclick="filterBooks()">Rechercher</button>
+  </div>
 
-	</p>
+  <div class="filter-tags">
+    <button class="tag active" onclick="setFilter('Tous', this)">Tous</button>
+    <button class="tag" onclick="setFilter('Roman', this)">Roman</button>
+    <button class="tag" onclick="setFilter('Essai', this)">Essai</button>
+    <button class="tag" onclick="setFilter('Poésie', this)">Poésie</button>
+    <button class="tag" onclick="setFilter('BD', this)">BD</button>
+    <button class="tag" onclick="setFilter('Jeunesse', this)">Jeunesse</button>
+    <button class="tag" onclick="setFilter('Voyage', this)">Voyage</button>
+  </div>
+
+  <div class="book-grid" id="bookGrid"></div>
+</section>
+
+<!-- COUPS DE CŒUR -->
+<section id="coups-de-coeur">
+  <div class="section-header">
+    <div>
+      <h2 class="section-title">Nos coups de cœur</h2>
+      <p class="section-sub">La sélection de l'équipe, avec amour</p>
+    </div>
+  </div>
+  <div class="coup-grid" id="coupGrid"></div>
+</section>
+
+<!-- ÉVÉNEMENTS -->
+<section id="evenements">
+  <div class="section-header">
+    <div>
+      <h2 class="section-title">Événements</h2>
+      <p class="section-sub">Rencontres, lectures & ateliers</p>
+    </div>
+  </div>
+  <div class="event-list" id="eventList"></div>
+</section>
+
+<!-- AVIS DE TEMPÊTE — NEWSLETTER -->
+<section id="newsletter">
+  <div class="tempete-inner">
+    <div class="tempete-left">
+      <div class="tempete-label">📨 Newsletter</div>
+      <h2 class="section-title" style="color:var(--cream);">Avis de Tempête</h2>
+      <p class="tempete-desc">Notre newsletter, comme une bouteille à la mer : des coups de cœur, des actualités, des événements à venir et les humeurs de notre équipe. Paraît quand l'inspiration frappe.</p>
+      <div class="tempete-archives">
+        <p style="font-family:'Raleway',sans-serif;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(196,112,112,0.8);margin-bottom:0.8rem;">Derniers numéros</p>
+        <div class="archive-item" onclick="window.open('https://aureldaunay.wixsite.com/lespritlarge/post/avis-de-tempete-f%C3%A9vrier-26','_blank')">
+          <span class="archive-num">N° Fév. 26</span>
+          <span class="archive-title">Avis de Tempête — Février 2026</span>
+          <span class="archive-arrow">→</span>
+        </div>
+        <div class="archive-item" onclick="window.open('https://aureldaunay.wixsite.com/lespritlarge/blog','_blank')">
+          <span class="archive-num">N° Jan. 26</span>
+          <span class="archive-title">Avis de Tempête — Janvier 2026</span>
+          <span class="archive-arrow">→</span>
+        </div>
+      </div>
+    </div>
+    <div class="tempete-right">
+      <div class="tempete-form-wrap">
+        <div class="tempete-wave-deco">
+          <svg viewBox="0 0 300 60" xmlns="http://www.w3.org/2000/svg" style="width:100%;opacity:0.2;">
+            <path d="M0,30 Q37,10 75,30 Q112,50 150,30 Q187,10 225,30 Q262,50 300,30" fill="none" stroke="var(--cream)" stroke-width="2"/>
+            <path d="M0,42 Q37,22 75,42 Q112,62 150,42 Q187,22 225,42 Q262,62 300,42" fill="none" stroke="var(--cream)" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <p style="font-family:'Playfair Display',serif;font-size:1.15rem;font-style:italic;color:var(--cream);margin-bottom:1.5rem;line-height:1.5;">Recevez notre newsletter directement dans votre boîte aux lettres !</p>
+        <label style="display:block;font-family:'Raleway',sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(242,240,239,0.6);margin-bottom:0.4rem;">Prénom</label>
+        <input type="text" id="nlPrenom" placeholder="Marie" style="width:100%;padding:0.75rem 1rem;font-family:'Lora',serif;font-size:0.9rem;border:1.5px solid rgba(242,240,239,0.2);border-radius:3px;background:rgba(242,240,239,0.08);color:var(--cream);outline:none;margin-bottom:1rem;transition:border-color 0.2s;" onfocus="this.style.borderColor='rgba(242,240,239,0.6)'" onblur="this.style.borderColor='rgba(242,240,239,0.2)'" />
+        <label style="display:block;font-family:'Raleway',sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(242,240,239,0.6);margin-bottom:0.4rem;">Adresse e-mail</label>
+        <input type="email" id="nlEmail" placeholder="vous@email.com" style="width:100%;padding:0.75rem 1rem;font-family:'Lora',serif;font-size:0.9rem;border:1.5px solid rgba(242,240,239,0.2);border-radius:3px;background:rgba(242,240,239,0.08);color:var(--cream);outline:none;margin-bottom:1.5rem;transition:border-color 0.2s;" onfocus="this.style.borderColor='rgba(242,240,239,0.6)'" onblur="this.style.borderColor='rgba(242,240,239,0.2)'" />
+        <button onclick="subscribeNewsletter()" style="width:100%;font-family:'Raleway',sans-serif;font-size:0.82rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;background:var(--cream);color:var(--wood-dark);padding:0.9rem;border:none;cursor:pointer;border-radius:2px;transition:all 0.2s;" onmouseover="this.style.background='#fff'" onmouseout="this.style.background='var(--cream)'">
+          🌊 Je m'inscris à l'Avis de Tempête
+        </button>
+        <p style="font-family:'Lora',serif;font-size:0.72rem;font-style:italic;color:rgba(242,240,239,0.4);margin-top:0.8rem;text-align:center;">Pas de spam. Désinscription possible à tout moment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div>
+    <div class="footer-logo">L'Esprit Large</div>
+    <p class="footer-desc">Librairie indépendante au cœur de Guérande.</p>
+    <p class="footer-desc" style="margin-top:0.8rem;">📍 12, Rue Vannetaise, 44350 Guérande<br/>📞 02 40 23 44 44 · 📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="80ece9e2f2e1e9f2e9e5c0e5f3f0f2e9f4adece1f2e7e5aee3efed">[email&#160;protected]</a></p>
+    <p class="footer-desc" style="margin-top:0.8rem;">
+      🕐 <strong style="color:var(--amber-light);">Horaires</strong><br/>
+      Lun : 14h30 – 18h00<br/>
+      Mar, Mer, Ven, Sam : 9h30 – 19h00<br/>
+      Jeu : 9h30 – 12h30 &amp; 14h30 – 18h30<br/>
+      Dim &amp; Fériés : fermé
+    </p>
+  </div>
+  <div>
+    <p class="footer-h">Navigation</p>
+    <ul class="footer-links">
+      <li onclick="document.getElementById('newsletter').scrollIntoView({behavior:'smooth'})">🌊 Avis de Tempête</li>
+      <li onclick="document.getElementById('catalogue').scrollIntoView({behavior:'smooth'})">Catalogue</li>
+      <li onclick="document.getElementById('coups-de-coeur').scrollIntoView({behavior:'smooth'})">Coups de cœur</li>
+      <li onclick="document.getElementById('evenements').scrollIntoView({behavior:'smooth'})">Événements</li>
+      <li>Nos services</li>
+      <li>À propos</li>
+    </ul>
+  </div>
+  <div>
+    <p class="footer-h">Infos pratiques</p>
+    <ul class="footer-links">
+      <li>Commande & réservation</li>
+      <li>Carte cadeau</li>
+      <li>Club lecture</li>
+      <li>Livraison locale</li>
+      <li>Mentions légales</li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">© 2025 L'Esprit Large · Tous droits réservés</div>
+
+<!-- MODAL RÉSERVATION -->
+<div class="modal-overlay" id="reserveModal">
+  <div class="modal">
+    <h2>Réserver un livre</h2>
+    <p id="modalBookTitle">Nous le mettons de côté pour vous !</p>
+    <label>Votre prénom & nom</label>
+    <input type="text" id="rNom" placeholder="Marie Dupont" />
+    <label>Téléphone</label>
+    <input type="tel" id="rTel" placeholder="06 XX XX XX XX" />
+    <label>Email</label>
+    <input type="email" id="rEmail" placeholder="vous@email.com" />
+    <label>Date de retrait souhaitée</label>
+    <input type="date" id="rDate" />
+    <label>Message (facultatif)</label>
+    <textarea id="rMsg" placeholder="Une question ? Un commentaire ?"></textarea>
+    <div class="modal-btns">
+      <button class="btn-cancel" onclick="closeModal()">Annuler</button>
+      <button class="btn-confirm" onclick="confirmReservation()">Confirmer la réservation</button>
+    </div>
+  </div>
 </div>
-<p>📨 Newsletter</p>
-<h2 class="western">Avis de Tempête</h2>
-<p>Notre newsletter, comme une bouteille à la mer : des coups de
-cœur, des actualités, des événements à venir et les humeurs de
-notre équipe. Paraît quand l'inspiration frappe.</p>
-<p style="text-transform: uppercase"><font color="#c47070"><font face="Raleway, sans-serif">Derniers
-numéros</font></font></p>
-<p style="margin-bottom: 0cm">N° Fév. 26 Avis de Tempête —
-Février 2026 → 
-</p>
-<p>N° Jan. 26 Avis de Tempête — Janvier 2026 → 
-</p>
-<p style="line-height: 150%"><font face="Playfair Display, serif"><i>Recevez
-notre newsletter directement dans votre boîte aux lettres !</i></font></p>
-<p>Prénom Adresse e-mail 🌊 Je m'inscris à l'Avis de Tempête 
-</p>
-<p align="center"><font color="#f2f0ef"><font face="Lora, serif"><i>Pas
-de spam. Désinscription possible à tout moment.</i></font></font></p>
-<p>L'Esprit Large</p>
-<p>Librairie indépendante au cœur de Guérande.</p>
-<p>📍 12, Rue Vannetaise, 44350 Guérande<br/>
-📞 02 40 23 44 44
-· 📧 <a href="/cdn-cgi/l/email-protection">[email&nbsp;protected]</a></p>
-<p>🕐 <strong>Horaires</strong><br/>
-Lun : 14h30 – 18h00<br/>
-Mar,
-Mer, Ven, Sam : 9h30 – 19h00<br/>
-Jeu : 9h30 – 12h30 &amp; 14h30
-– 18h30<br/>
-Dim &amp; Fériés : fermé 
-</p>
-<p>Navigation</p>
-<ul>
-	<li><p style="margin-bottom: 0cm">🌊 Avis de Tempête 
-	</p></li>
-	<li><p style="margin-bottom: 0cm">Catalogue 
-	</p></li>
-	<li><p style="margin-bottom: 0cm">Coups de cœur 
-	</p></li>
-	<li><p style="margin-bottom: 0cm">Événements 
-	</p></li>
-	<li><p style="margin-bottom: 0cm">Nos services 
-	</p></li>
-	<li><p>À propos 
-	</p></li>
-</ul>
-<p>Infos pratiques</p>
-<ul>
-	<li><p style="margin-bottom: 0cm">Commande &amp; réservation 
-	</p></li>
-	<li><p style="margin-bottom: 0cm">Carte cadeau 
-	</p></li>
-	<li><p style="margin-bottom: 0cm">Club lecture 
-	</p></li>
-	<li><p style="margin-bottom: 0cm">Livraison locale 
-	</p></li>
-	<li><p>Mentions légales 
-	</p></li>
-</ul>
-<p style="margin-bottom: 0cm">© 2025 L'Esprit Large · Tous droits
-réservés</p>
-<div id="reserveModal" dir="ltr"><h2 class="western">Réserver un
-	livre</h2>
-	<p><a name="modalBookTitle"></a>Nous le mettons de côté pour vous
-	!</p>
-	<p style="margin-bottom: 0cm">Votre prénom &amp; nom Téléphone
-	Email Date de retrait souhaitée Message (facultatif) 
-	</p>
-	<p style="margin-bottom: 0cm">Annuler Confirmer la réservation 
-	</p>
+
+<!-- MODAL ÉVÉNEMENT -->
+<div class="modal-overlay" id="eventModal">
+  <div class="modal">
+    <h2>S'inscrire à l'événement</h2>
+    <p id="modalEventTitle">Réservez votre place !</p>
+    <label>Votre prénom & nom</label>
+    <input type="text" id="eNom" placeholder="Marie Dupont" />
+    <label>Email</label>
+    <input type="email" id="eEmail" placeholder="vous@email.com" />
+    <label>Nombre de personnes</label>
+    <select id="eNb">
+      <option>1</option><option>2</option><option>3</option><option>4</option>
+    </select>
+    <div class="modal-btns">
+      <button class="btn-cancel" onclick="closeEventModal()">Annuler</button>
+      <button class="btn-confirm" onclick="confirmEvent()">Confirmer l'inscription</button>
+    </div>
+  </div>
 </div>
-<div id="eventModal" dir="ltr"><h2 class="western">S'inscrire à
-	l'événement</h2>
-	<p><a name="modalEventTitle"></a>Réservez votre place !</p>
-	<p style="margin-bottom: 0cm">Votre prénom &amp; nom Email Nombre
-	de personnes 1234 
-	</p>
-	<p style="margin-bottom: 0cm">Annuler Confirmer l'inscription 
-	</p>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <span class="toast-icon">✓</span><span id="toastMsg"></span>
 </div>
-<div id="toast" dir="ltr"><p style="margin-bottom: 0cm"><a name="toastMsg"></a>
-	✓ 
-	</p>
-</div>
-<p style="margin-bottom: 0cm"><script>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ── DATA ── */
 const BOOKS = [
   { id:1, title:"La Promesse de l'Aube", author:"Romain Gary", genre:"Roman", price:"9.50 €", stock:5, emoji:"📖", color:"#d4956a", fav:true, favQuote:"Un chef-d'œuvre absolu sur l'amour maternel et le destin. Notre livre préféré de l'année." },
@@ -196,7 +872,7 @@ const dots = document.querySelectorAll('.dot');
 function goSlide(n) {
   slides[currentSlide].classList.remove('active');
   dots[currentSlide].classList.remove('active');
-  currentSlide = n;
+  currentSlide = n % slides.length;
   slides[currentSlide].classList.add('active');
   dots[currentSlide].classList.add('active');
 }
@@ -346,9 +1022,3 @@ function showToast(msg) {
 
 /* ── CLOSE ON BACKDROP ── */
 document.getElementById('reserveModal').addEventListener('click', function(e) { if(e.target === this) closeMo
-
-</script><br/>
-
-</p>
-</body>
-</html>
