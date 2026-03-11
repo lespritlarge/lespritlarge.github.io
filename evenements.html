@@ -400,11 +400,16 @@ async function chargerEvenements() {
     const data = await res.json();
     // Convertir le format JSON (date ISO) vers le format interne {day, month, year}
     EVENTS = (data.evenements || []).map(e => {
-      const d = new Date(e.date);
+      // Découper manuellement pour éviter le bug de fuseau horaire :
+      // new Date("2026-03-11") est interprété UTC → décalage d'1 jour en France
+      const parts = (e.date || '2000-01-01').split('-');
+      const year  = parseInt(parts[0], 10);
+      const month = parseInt(parts[1], 10);
+      const day   = parseInt(parts[2], 10);
       return {
-        day:       d.getDate(),
-        month:     d.getMonth() + 1,
-        year:      d.getFullYear(),
+        day,
+        month,
+        year,
         title:     e.titre,
         type:      e.type     || '',
         desc:      e.desc     || '',
