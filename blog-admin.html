@@ -320,7 +320,7 @@ async function ghRead(file) {
   const data = await r.json();
 
   // Récupérer le SHA séparément (nécessaire pour écrire)
-  const sha = await ghSha(file);
+  const sha = await ghGetSha(file, getToken());
   return { data, sha };
 }
 
