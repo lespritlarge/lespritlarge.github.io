@@ -344,8 +344,11 @@ async function ghWrite(file, data, message) {
   const sha = await ghSha(file);
 
   const json = JSON.stringify(data, null, 2);
+  // Encodage base64 robuste (fonctionne sur grands fichiers, accents compris)
   const bytes = new TextEncoder().encode(json);
-  const encoded = btoa(String.fromCharCode(...bytes));
+  let binary = '';
+  for (let i = 0; i < bytes.length; i++) binary += String.fromCharCode(bytes[i]);
+  const encoded = btoa(binary);
   const body = { message, content: encoded };
   if (sha) body.sha = sha;
 
