@@ -128,80 +128,6 @@ details[open] .rblock summary::before{transform:rotate(90deg);}
     <input type="password" id="pwdInput" placeholder="••••••••" onkeydown="if(event.key==='Enter')login()" autocomplete="current-password"/>
     <button onclick="login()">Accéder →</button>
     <p class="lerr" id="lerr">Mot de passe incorrect.</p>
-  <!-- AVIS DE TEMPÊTE -->
-  <div class="panel" id="panel-tempete">
-    <div style="flex:1;overflow-y:auto;padding:2rem;background:var(--warm);max-width:760px;margin:0 auto;width:100%;">
-      <div class="fhead">🌊 Avis de Tempête</div>
-      <p style="font-family:'Lora',serif;font-style:italic;font-size:.88rem;color:var(--soft);margin-bottom:1.5rem;line-height:1.6;">
-        Ajoutez chaque nouvelle newsletter. L'image doit déjà être uploadée dans le dossier <strong>avisdetempete/</strong> sur GitHub.
-      </p>
-
-      <!-- Liste des numéros existants -->
-      <div id="tempeteList" style="margin-bottom:2rem;"></div>
-
-      <!-- Formulaire ajout -->
-      <div style="background:var(--cream);border:1.5px solid rgba(92,26,26,.15);border-radius:6px;padding:1.5rem;">
-        <div class="fhead" style="font-size:.9rem;margin-bottom:1rem;">Ajouter un numéro</div>
-        <div class="frow">
-          <div class="f">
-            <label>Mois *</label>
-            <select id="tMois">
-              <option value="">— Choisir —</option>
-              <option>Janvier</option><option>Février</option><option>Mars</option>
-              <option>Avril</option><option>Mai</option><option>Juin</option>
-              <option>Juillet</option><option>Août</option><option>Septembre</option>
-              <option>Octobre</option><option>Novembre</option><option>Décembre</option>
-            </select>
-          </div>
-          <div class="f">
-            <label>Année *</label>
-            <input type="number" id="tAnnee" placeholder="2026" min="2020" max="2099" value="2026"/>
-          </div>
-        </div>
-        <div class="f">
-          <label>Fichier image *</label>
-          <input type="file" id="tFichierFile" accept="image/*,application/pdf" style="font-size:.8rem;margin-bottom:.5rem;width:100%;" onchange="Tempete.previewFichier()"/>
-          <div id="tApercu" style="display:none;margin:.5rem 0;padding:.8rem;background:var(--warm);border-radius:4px;">
-            <img id="tApercuImg" src="" alt="" style="max-height:140px;border-radius:3px;" onerror="this.style.display='none'"/>
-            <div id="tApercuNom" style="font-family:'Raleway',sans-serif;font-size:.75rem;color:var(--soft);margin-top:.4rem;"></div>
-          </div>
-          <small>Le fichier sera uploadé automatiquement dans <code>avisdetempete/</code> sur GitHub.</small>
-        </div>
-        <div class="fbtns" style="gap:.8rem;flex-wrap:wrap;">
-          <button class="btn-save" onclick="Tempete.ajouter()">🌊 Ajouter ce numéro</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- À PROPOS -->
-  <div class="panel" id="panel-apropos">
-    <div style="flex:1;overflow-y:auto;padding:2rem;background:var(--warm);max-width:760px;margin:0 auto;width:100%;">
-      <div class="fhead">👥 Page À propos</div>
-      <p style="font-family:'Lora',serif;font-style:italic;font-size:.88rem;color:var(--soft);margin-bottom:1.5rem;line-height:1.6;">
-        Modifiez les présentations des libraires et les valeurs. Les photos doivent être uploadées dans <strong>images/</strong> sur GitHub.
-      </p>
-
-      <!-- LIBRAIRES -->
-      <div style="background:var(--cream);border:1.5px solid rgba(92,26,26,.15);border-radius:6px;padding:1.5rem;margin-bottom:1.5rem;">
-        <div class="fhead" style="font-size:.9rem;margin-bottom:1.2rem;">Les libraires</div>
-        <div id="librairesForms"></div>
-        <button style="margin-top:.5rem;padding:.5rem 1rem;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(92,26,26,.08);color:var(--wood);border:1.5px solid rgba(92,26,26,.2);border-radius:3px;cursor:pointer;" onclick="Apropos.ajouterLibraire()">+ Ajouter un libraire</button>
-      </div>
-
-      <!-- VALEURS -->
-      <div style="background:var(--cream);border:1.5px solid rgba(92,26,26,.15);border-radius:6px;padding:1.5rem;margin-bottom:1.5rem;">
-        <div class="fhead" style="font-size:.9rem;margin-bottom:1.2rem;">Les valeurs</div>
-        <div id="valeursForms"></div>
-        <button style="margin-top:.5rem;padding:.5rem 1rem;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(92,26,26,.08);color:var(--wood);border:1.5px solid rgba(92,26,26,.2);border-radius:3px;cursor:pointer;" onclick="Apropos.ajouterValeur()">+ Ajouter une valeur</button>
-      </div>
-
-      <div class="fbtns">
-        <button class="btn-save" onclick="Apropos.sauvegarder()">💾 Publier la page À propos</button>
-      </div>
-    </div>
-  </div>
-
   </div>
 </div>
 
@@ -374,6 +300,71 @@ details[open] .rblock summary::before{transform:rotate(90deg);}
         </div>
       </div>
     </div>
+  <!-- AVIS DE TEMPÊTE -->
+  <div class="panel" id="panel-tempete">
+    <div style="flex:1;overflow-y:auto;padding:2rem;background:var(--warm);max-width:760px;margin:0 auto;width:100%;">
+      <div class="fhead">🌊 Avis de Tempête</div>
+      <p style="font-family:'Lora',serif;font-style:italic;font-size:.88rem;color:var(--soft);margin-bottom:1.5rem;line-height:1.6;">
+        Sélectionnez le fichier image et renseignez le mois et l'année. L'image sera uploadée automatiquement sur GitHub.
+      </p>
+      <div id="tempeteList" style="margin-bottom:2rem;"></div>
+      <div style="background:var(--cream);border:1.5px solid rgba(92,26,26,.15);border-radius:6px;padding:1.5rem;">
+        <div class="fhead" style="font-size:.9rem;margin-bottom:1rem;">Ajouter un numéro</div>
+        <div class="frow">
+          <div class="f">
+            <label>Mois *</label>
+            <select id="tMois">
+              <option value="">— Choisir —</option>
+              <option>Janvier</option><option>Février</option><option>Mars</option>
+              <option>Avril</option><option>Mai</option><option>Juin</option>
+              <option>Juillet</option><option>Août</option><option>Septembre</option>
+              <option>Octobre</option><option>Novembre</option><option>Décembre</option>
+            </select>
+          </div>
+          <div class="f">
+            <label>Année *</label>
+            <input type="number" id="tAnnee" placeholder="2026" min="2020" max="2099" value="2026"/>
+          </div>
+        </div>
+        <div class="f">
+          <label>Fichier image *</label>
+          <input type="file" id="tFichierFile" accept="image/*,application/pdf" style="font-size:.8rem;margin-bottom:.5rem;width:100%;" onchange="Tempete.previewFichier()"/>
+          <div id="tApercu" style="display:none;margin:.5rem 0;padding:.8rem;background:var(--warm);border-radius:4px;">
+            <img id="tApercuImg" src="" alt="" style="max-height:140px;border-radius:3px;" onerror="this.style.display='none'"/>
+            <div id="tApercuNom" style="font-family:'Raleway',sans-serif;font-size:.75rem;color:var(--soft);margin-top:.4rem;"></div>
+          </div>
+          <small>Le fichier sera uploadé automatiquement dans <code>avisdetempete/</code> sur GitHub.</small>
+        </div>
+        <div class="fbtns">
+          <button class="btn-save" onclick="Tempete.ajouter()">🌊 Ajouter ce numéro</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- À PROPOS -->
+  <div class="panel" id="panel-apropos">
+    <div style="flex:1;overflow-y:auto;padding:2rem;background:var(--warm);max-width:760px;margin:0 auto;width:100%;">
+      <div class="fhead">👥 Page À propos</div>
+      <p style="font-family:'Lora',serif;font-style:italic;font-size:.88rem;color:var(--soft);margin-bottom:1.5rem;line-height:1.6;">
+        Modifiez les présentations des libraires et les valeurs. Les photos sont uploadées automatiquement sur GitHub lors de la sauvegarde.
+      </p>
+      <div style="background:var(--cream);border:1.5px solid rgba(92,26,26,.15);border-radius:6px;padding:1.5rem;margin-bottom:1.5rem;">
+        <div class="fhead" style="font-size:.9rem;margin-bottom:1.2rem;">Les libraires</div>
+        <div id="librairesForms"></div>
+        <button style="margin-top:.5rem;padding:.5rem 1rem;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(92,26,26,.08);color:var(--wood);border:1.5px solid rgba(92,26,26,.2);border-radius:3px;cursor:pointer;" onclick="Apropos.ajouterLibraire()">+ Ajouter un libraire</button>
+      </div>
+      <div style="background:var(--cream);border:1.5px solid rgba(92,26,26,.15);border-radius:6px;padding:1.5rem;margin-bottom:1.5rem;">
+        <div class="fhead" style="font-size:.9rem;margin-bottom:1.2rem;">Les valeurs</div>
+        <div id="valeursForms"></div>
+        <button style="margin-top:.5rem;padding:.5rem 1rem;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(92,26,26,.08);color:var(--wood);border:1.5px solid rgba(92,26,26,.2);border-radius:3px;cursor:pointer;" onclick="Apropos.ajouterValeur()">+ Ajouter une valeur</button>
+      </div>
+      <div class="fbtns">
+        <button class="btn-save" onclick="Apropos.sauvegarder()">💾 Publier la page À propos</button>
+      </div>
+    </div>
+  </div>
+
   </div>
 
   </div>
