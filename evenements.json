@@ -1,6 +1,19 @@
 {
-  "mis_a_jour": "2026-03-11T09:12:28.287Z",
+  "mis_a_jour": "2026-03-11T09:13:15.831Z",
   "evenements": [
+    {
+      "id": "1773220395831",
+      "titre": "Les lectures d'Adel",
+      "date": "2026-03-11",
+      "time": "10h30-12h",
+      "type": "Lecture hebdo 📖",
+      "lieu": "Librairie L'Esprit Large",
+      "desc": "Des lectures d'albums pour petits et grands enfants..",
+      "affiche": "Lectures_Adel.png",
+      "special": false,
+      "recurrent": true,
+      "fermeture": false
+    },
     {
       "id": "1742601600000",
       "titre": "Rencontre avec Séverine Cressan",
