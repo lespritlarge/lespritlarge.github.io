@@ -526,14 +526,27 @@ var Evts = (() => {
     renderList();
   }
 
+  function parseLocalDate(str) {
+    // Crée une date en heure locale (évite le décalage UTC)
+    const [y,m,d] = str.split('-').map(Number);
+    return new Date(y, m-1, d);
+  }
+  function toLocalISO(d) {
+    // Formate YYYY-MM-DD en heure locale (pas UTC)
+    const y = d.getFullYear();
+    const m = String(d.getMonth()+1).padStart(2,'0');
+    const day = String(d.getDate()).padStart(2,'0');
+    return y+'-'+m+'-'+day;
+  }
   function genDates(start, freq, end) {
-    const dates = [], fin = new Date(end);
-    let cur = new Date(start);
+    const dates = [];
+    const fin = parseLocalDate(end);
+    let cur = parseLocalDate(start);
     while (cur <= fin && dates.length < 200) {
-      dates.push(cur.toISOString().split('T')[0]);
-      if      (freq === 'weekly')    cur.setDate(cur.getDate() + 7);
-      else if (freq === 'biweekly')  cur.setDate(cur.getDate() + 14);
-      else if (freq === 'monthly')   cur.setMonth(cur.getMonth() + 1);
+      dates.push(toLocalISO(cur));
+      if      (freq === 'weekly')   cur.setDate(cur.getDate() + 7);
+      else if (freq === 'biweekly') cur.setDate(cur.getDate() + 14);
+      else if (freq === 'monthly')  cur.setMonth(cur.getMonth() + 1);
       else break;
     }
     return dates;
@@ -575,10 +588,25 @@ var Evts = (() => {
       // Création avec récurrence → générer toutes les occurrences
       const dates = genDates(date, freq, fin);
       if (!dates.length) { toast('⚠️ Aucune date générée.'); return; }
-      dates.forEach((d, i) => items.push({ ...base, id: (Date.now()+i).toString(), date: d, recurrent: true }));
-      items.sort((a,b) => new Date(a.date) - new Date(b.date));
-      const ok = await ghWrite('evenements.json', { mis_a_jour: new Date().toISOString(), evenements: items }, '📅 ' + titre + ' (×' + dates.length + ')');
-      if (ok) { toast('✅ ' + dates.length + ' occurrences créées !'); renderList(); nouveau(); }
+
+      // Snapshot des items actuels + nouvelles occurrences
+      const nouvelles = dates.map((d, i) => ({
+        ...base,
+        id: Date.now().toString(36) + '_r' + i,
+        date: d,
+        recurrent: true
+      }));
+      const tousItems = [...items, ...nouvelles];
+      tousItems.sort((a,b) => new Date(a.date) - new Date(b.date));
+
+      toast('⏳ Publication de ' + dates.length + ' occurrences…');
+      const ok = await ghWrite('evenements.json', { mis_a_jour: new Date().toISOString(), evenements: tousItems }, '📅 ' + titre + ' (×' + dates.length + ')');
+      if (ok) {
+        items = tousItems; // Mettre à jour la mémoire locale
+        toast('✅ ' + dates.length + ' occurrences créées !');
+        renderList();
+        nouveau();
+      }
     } else {
       // Création simple ou modification
       const evt = { ...base, id: idx !== null ? items[idx].id : Date.now().toString(), date, recurrent: false };
