@@ -1,4 +1,15 @@
 {
-  "mis_a_jour": "2026-03-10T00:00:00.000Z",
-  "articles": []
+  "mis_a_jour": "2026-03-11T08:31:29.107Z",
+  "articles": [
+    {
+      "id": "1773217889106",
+      "titre": "Nouveau site internet...",
+      "categorie": "Vie de la librairie",
+      "date": "2026-03-11",
+      "texte": "La librairie fait peau neuve avec son site... Le catalogue sera mis à jour plus régulièrement et nous essaierons de toujours mettre nos actualités et nos événements à jour",
+      "image": "https://asso.librairies-alip.fr/wp-content/uploads/2017/11/Esprit-large-devanture.jpg",
+      "lien": "",
+      "lien_label": ""
+    }
+  ]
 }
