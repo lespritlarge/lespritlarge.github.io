@@ -425,11 +425,21 @@ async function ghGet(file) {
   return { data: JSON.parse(atob(d.content.replace(/\n/g,''))), sha: d.sha };
 }
 
-async function ghPut(file, content, sha, message) {
+async function ghPut(file, content, _sha, message) {
   const token = getToken();
   if (!token) { toast('⚠️ Configurez votre GitHub Token d\'abord.'); return false; }
+
+  // Toujours relire le SHA actuel avant d'écrire pour éviter les conflits de version
+  let currentSha = _sha;
+  try {
+    const headers = { 'Accept': 'application/vnd.github+json', 'Authorization': `Bearer ${token}` };
+    const check = await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${file}`, { headers });
+    if (check.ok) { const d = await check.json(); currentSha = d.sha; }
+    else if (check.status === 404) { currentSha = null; }
+  } catch(e) { /* garde le SHA passé en paramètre */ }
+
   const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(content, null, 2))));
-  const body = { message, content: encoded, ...(sha ? { sha } : {}) };
+  const body = { message, content: encoded, ...(currentSha ? { sha: currentSha } : {}) };
   const r = await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${file}`, {
     method: 'PUT',
     headers: {
@@ -439,7 +449,7 @@ async function ghPut(file, content, sha, message) {
     },
     body: JSON.stringify(body)
   });
-  if (r.ok || r.status === 201) { const d = await r.json(); return d.content?.sha || sha || true; }
+  if (r.ok || r.status === 201) { const d = await r.json(); return d.content?.sha || currentSha || true; }
   const err = await r.json();
   toast(`❌ Erreur GitHub : ${err.message}`);
   return false;
