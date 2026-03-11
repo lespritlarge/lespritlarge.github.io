@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Qui sommes-nous — L'Esprit Large</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400;1,600&family=Lora:ital,wght@0,400;0,500;1,400&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream:#f2f0ef;--parchment:#e8e2d9;--wood:#8b2e2e;--wood-dark:#5c1a1a;
+      --wood-light:#b86060;--amber:#9e3a3a;--amber-light:#c47070;
+      --ink:#1e1e1e;--ink-soft:#3a3a3a;--warm-white:#f7f5f4;--shadow:rgba(42,31,20,0.1);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Lora',serif;background:var(--warm-white);color:var(--ink);line-height:1.7;}
+
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(242,240,239,0.97);
+      backdrop-filter:blur(8px);border-bottom:1px solid rgba(92,26,26,0.12);
+      padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:80px;}
+    .nav-logo{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:800;font-style:italic;
+      color:var(--wood-dark);letter-spacing:-0.02em;white-space:nowrap;
+      display:flex;align-items:center;gap:0.75rem;text-decoration:none;}
+    .nav-logo span{color:var(--amber);}
+    .nav-links{display:flex;gap:1.4rem;list-style:none;}
+    .nav-links a{font-family:'Raleway',sans-serif;font-size:0.75rem;font-weight:500;
+      letter-spacing:0.07em;text-transform:uppercase;text-decoration:none;
+      color:var(--ink-soft);white-space:nowrap;transition:color 0.2s;}
+    .nav-links a:hover,.nav-links a.active{color:var(--wood);}
+    .nav-cart{font-family:'Raleway',sans-serif;font-size:0.75rem;font-weight:600;
+      letter-spacing:0.05em;background:var(--wood);color:var(--cream);
+      border:none;cursor:pointer;padding:0.35rem 1rem;border-radius:2px;transition:background 0.2s;}
+    .nav-cart:hover{background:var(--wood-dark);}
+
+    .hero{margin-top:80px;background:linear-gradient(160deg,var(--wood-dark) 0%,#3a0f0f 100%);
+      padding:5rem 2rem 4.5rem;text-align:center;position:relative;overflow:hidden;}
+    .hero::before{content:'';position:absolute;inset:0;
+      background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");}
+    .hero-label{font-family:'Raleway',sans-serif;font-size:0.7rem;font-weight:700;
+      letter-spacing:0.15em;text-transform:uppercase;color:var(--amber-light);margin-bottom:1rem;}
+    .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3.5rem);
+      font-weight:800;font-style:italic;color:var(--cream);line-height:1.2;margin-bottom:1.2rem;}
+    .hero p{font-family:'Lora',serif;font-style:italic;font-size:1.05rem;
+      color:rgba(242,240,239,0.72);max-width:520px;margin:0 auto;}
+
+    .container{max-width:1100px;margin:0 auto;padding:0 2rem;}
+    .section-label{font-family:'Raleway',sans-serif;font-size:0.68rem;font-weight:700;
+      letter-spacing:0.15em;text-transform:uppercase;color:var(--amber);margin-bottom:0.5rem;}
+    .section-title{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.2rem);
+      font-weight:700;color:var(--wood-dark);line-height:1.25;}
+    .fade-in{opacity:0;transform:translateY(22px);transition:opacity 0.65s ease,transform 0.65s ease;}
+    .fade-in.visible{opacity:1;transform:none;}
+
+    /* ÉQUIPE */
+    .equipe{padding:5.5rem 0;background:var(--cream);}
+    .equipe-header{margin-bottom:3.5rem;}
+    .equipe-header p{font-style:italic;color:var(--ink-soft);font-size:0.97rem;line-height:1.8;max-width:560px;margin-top:0.8rem;}
+    .equipe-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3rem;}
+    .libraire-card{display:grid;grid-template-columns:200px 1fr;gap:2rem;align-items:start;
+      background:var(--warm-white);border-radius:6px;padding:2rem;
+      box-shadow:0 2px 20px var(--shadow);transition:transform 0.25s,box-shadow 0.25s;}
+    .libraire-card:hover{transform:translateY(-3px);box-shadow:0 10px 40px rgba(42,31,20,0.14);}
+    .libraire-photo{width:100%;aspect-ratio:3/4;border-radius:4px;background:var(--parchment);
+      overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;}
+    .libraire-photo img{width:100%;height:100%;object-fit:cover;}
+    .ph-icon{font-size:3.5rem;margin-bottom:0.5rem;}
+    .ph-hint{position:absolute;bottom:0;left:0;right:0;background:rgba(92,26,26,0.65);color:var(--cream);
+      font-family:'Raleway',sans-serif;font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;
+      text-align:center;padding:0.4rem;}
+    .libraire-info{display:flex;flex-direction:column;gap:0.6rem;}
+    .libraire-prenom{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--wood-dark);}
+    .libraire-role{font-family:'Raleway',sans-serif;font-size:0.65rem;font-weight:700;
+      letter-spacing:0.12em;text-transform:uppercase;color:var(--amber);}
+    .libraire-bio{font-size:0.87rem;color:var(--ink-soft);line-height:1.75;}
+    .libraire-genres{display:flex;flex-wrap:wrap;gap:0.35rem;margin-top:0.2rem;}
+    .genre-tag{font-family:'Raleway',sans-serif;font-size:0.62rem;font-weight:600;
+      letter-spacing:0.06em;text-transform:uppercase;background:var(--parchment);
+      border:1px solid rgba(92,26,26,0.15);color:var(--wood);padding:0.18rem 0.5rem;border-radius:2px;}
+    .libraire-citation{margin-top:0.5rem;padding-top:0.8rem;border-top:1px solid rgba(92,26,26,0.1);
+      font-style:italic;font-size:0.83rem;color:var(--ink-soft);line-height:1.6;}
+    .libraire-citation::before{content:'«\00a0';color:var(--wood-light);}
+    .libraire-citation::after{content:'\00a0»';color:var(--wood-light);}
+
+    /* VALEURS */
+    .valeurs{padding:5.5rem 0;background:var(--wood-dark);}
+    .valeurs .section-label{color:var(--amber-light);}
+    .valeurs .section-title{color:var(--cream);}
+    .valeurs-intro{font-family:'Lora',serif;font-style:italic;color:rgba(242,240,239,0.65);
+      font-size:0.97rem;max-width:540px;margin-top:0.8rem;line-height:1.8;}
+    .valeurs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3rem;}
+    .valeur-card{padding:2rem 1.5rem;border:1px solid rgba(242,240,239,0.1);border-radius:4px;transition:background 0.2s;}
+    .valeur-card:hover{background:rgba(242,240,239,0.05);}
+    .valeur-icone{font-size:2rem;margin-bottom:0.9rem;}
+    .valeur-titre{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;
+      font-style:italic;color:var(--cream);margin-bottom:0.6rem;}
+    .valeur-texte{font-size:0.84rem;color:rgba(242,240,239,0.62);line-height:1.75;}
+
+    /* GALERIE */
+    .galerie{padding:5.5rem 0;background:var(--warm-white);}
+    .galerie-header{margin-bottom:2.5rem;}
+    .galerie-header p{font-style:italic;color:var(--ink-soft);font-size:0.92rem;margin-top:0.6rem;max-width:480px;}
+    .galerie-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:0.8rem;}
+    .gal-item{border-radius:4px;overflow:hidden;background:var(--parchment);cursor:pointer;position:relative;}
+    .gal-item:nth-child(1){grid-column:span 5;grid-row:span 2;}
+    .gal-item:nth-child(2){grid-column:span 4;}
+    .gal-item:nth-child(3){grid-column:span 3;}
+    .gal-item:nth-child(4){grid-column:span 4;}
+    .gal-item:nth-child(5){grid-column:span 3;}
+    .gal-item:nth-child(6){grid-column:span 4;grid-row:span 2;}
+    .gal-item:nth-child(7){grid-column:span 4;}
+    .gal-item:nth-child(8){grid-column:span 4;}
+    .gal-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.35s;}
+    .gal-item:hover img{transform:scale(1.04);}
+    .gal-ph{min-height:180px;display:flex;flex-direction:column;align-items:center;
+      justify-content:center;color:var(--wood-light);padding:1.5rem;text-align:center;transition:background 0.2s;}
+    .gal-item:hover .gal-ph{background:#ddd5cb;}
+    .gal-ph .ph-icon{font-size:2rem;margin-bottom:0.5rem;}
+    .gal-ph .ph-txt{font-family:'Raleway',sans-serif;font-size:0.62rem;letter-spacing:0.09em;text-transform:uppercase;opacity:0.7;}
+    .gal-item .gal-overlay{position:absolute;inset:0;background:rgba(92,26,26,0);
+      transition:background 0.3s;display:flex;align-items:flex-end;}
+    .gal-item:hover .gal-overlay{background:rgba(92,26,26,0.25);}
+    .gal-legende{font-family:'Raleway',sans-serif;font-size:0.65rem;font-weight:600;
+      letter-spacing:0.08em;text-transform:uppercase;color:var(--cream);padding:0.6rem 0.8rem;
+      opacity:0;transform:translateY(4px);transition:all 0.25s;text-shadow:0 1px 4px rgba(0,0,0,0.4);}
+    .gal-item:hover .gal-legende{opacity:1;transform:none;}
+    .lightbox{display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,0.9);
+      align-items:center;justify-content:center;}
+    .lightbox.open{display:flex;}
+    .lightbox img{max-width:90vw;max-height:88vh;border-radius:3px;object-fit:contain;}
+    .lightbox-close{position:fixed;top:1.5rem;right:2rem;font-size:2rem;color:white;
+      cursor:pointer;background:none;border:none;opacity:0.7;transition:opacity 0.2s;}
+    .lightbox-close:hover{opacity:1;}
+    .gal-add-hint{margin-top:1.2rem;font-family:'Raleway',sans-serif;
+      font-size:0.75rem;color:var(--ink-soft);font-style:italic;opacity:0.7;}
+    code{font-size:0.85em;background:var(--parchment);padding:0.1em 0.3em;border-radius:2px;}
+
+    /* FOOTER */
+    footer{background:var(--ink);color:var(--cream);padding:3rem 2rem 2rem;
+      display:grid;grid-template-columns:2fr 1fr;gap:3rem;}
+    .footer-logo{font-family:'Playfair Display',serif;font-size:1.2rem;
+      font-weight:800;font-style:italic;color:var(--cream);margin-bottom:0.75rem;}
+    .footer-desc{font-size:0.82rem;opacity:0.65;line-height:1.6;}
+    .footer-desc a{color:inherit;}
+    .footer-h{font-family:'Raleway',sans-serif;font-size:0.65rem;font-weight:700;
+      letter-spacing:0.12em;text-transform:uppercase;color:var(--amber-light);margin-bottom:0.9rem;}
+    .footer-links{list-style:none;}
+    .footer-links li{font-size:0.82rem;opacity:0.7;margin-bottom:0.4rem;}
+    .footer-links li:hover{opacity:1;}
+    .footer-links a{color:inherit;text-decoration:none;}
+    .footer-bottom{background:var(--ink);color:rgba(242,240,239,0.4);text-align:center;
+      padding:1rem;font-family:'Raleway',sans-serif;font-size:0.7rem;letter-spacing:0.06em;}
+
+    @media(max-width:900px){
+      .nav-links{display:none;}
+      .equipe-grid{grid-template-columns:1fr;}
+      .libraire-card{grid-template-columns:140px 1fr;gap:1.2rem;padding:1.2rem;}
+      .valeurs-grid{grid-template-columns:repeat(2,1fr);}
+      .galerie-grid{grid-template-columns:repeat(2,1fr);}
+      .gal-item:nth-child(n){grid-column:span 1;grid-row:span 1;}
+      footer{grid-template-columns:1fr;}
+    }
+    @media(max-width:500px){
+      .valeurs-grid{grid-template-columns:1fr;}
+      .libraire-card{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="images/logo.png" alt="Logo L'Esprit Large" style="width:64px;height:64px;object-fit:contain;" />
+    L'<span>Esprit</span> Large
+  </a>
+  <ul class="nav-links">
+    <li><a href="catalogue.html">Catalogue</a></li>
+    <li><a href="index.html#coups-de-coeur">Coups de cœur</a></li>
+    <li><a href="evenements.html">Événements</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="escapades.html" style="color:var(--amber);font-weight:600;">🎒 Escapades</a></li>
+    <li><a href="avisdetempete.html">🌊 Avis de Tempête</a></li>
+    <li><a href="a-propos.html" class="active">À propos</a></li>
+  </ul>
+  <button class="nav-cart">Mon panier</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-label">La librairie</div>
+  <h1>Qui sommes-nous ?</h1>
+  <p>Une équipe de libraires passionnés, au cœur de Guérande, depuis 2006.</p>
+</div>
+
+<!-- ÉQUIPE -->
+<section class="equipe">
+  <div class="container">
+    <div class="equipe-header fade-in">
+      <div class="section-label">L'équipe</div>
+      <h2 class="section-title">Les libraires</h2>
+      <p>Ce sont eux qui choisissent les livres, rédigent les coups de cœur et accueillent chaque lecteur avec la même attention.</p>
+    </div>
+    <div class="equipe-grid">
+
+      <!-- LIBRAIRE 1 — remplacez les textes et ajoutez une photo -->
+      <div class="libraire-card fade-in">
+        <div class="libraire-photo">
+          <!--
+            Pour ajouter une photo :
+            <img src="images/prenom.jpg" alt="Prénom" />
+          -->
+          <div class="ph-icon">🧑‍💼</div>
+          <div class="ph-hint">Photo à ajouter</div>
+        </div>
+        <div class="libraire-info">
+          <div class="libraire-prenom">Prénom</div>
+          <div class="libraire-role">Libraire · Co-fondateur·rice</div>
+          <p class="libraire-bio">
+            Quelques lignes de présentation : parcours, ce qui vous a amené à ce métier,
+            ce que vous aimez dans votre quotidien à la librairie…
+          </p>
+          <div class="libraire-genres">
+            <span class="genre-tag">Littérature française</span>
+            <span class="genre-tag">Essais</span>
+            <span class="genre-tag">Poésie</span>
+          </div>
+          <div class="libraire-citation">Une phrase ou citation qui vous ressemble.</div>
+        </div>
+      </div>
+
+      <!-- LIBRAIRE 2 -->
+      <div class="libraire-card fade-in" style="transition-delay:0.12s">
+        <div class="libraire-photo">
+          <div class="ph-icon">🧑‍💼</div>
+          <div class="ph-hint">Photo à ajouter</div>
+        </div>
+        <div class="libraire-info">
+          <div class="libraire-prenom">Prénom</div>
+          <div class="libraire-role">Libraire</div>
+          <p class="libraire-bio">
+            Quelques lignes de présentation : parcours, ce qui vous a amené à ce métier,
+            ce que vous aimez dans votre quotidien à la librairie…
+          </p>
+          <div class="libraire-genres">
+            <span class="genre-tag">Jeunesse</span>
+            <span class="genre-tag">Littérature étrangère</span>
+          </div>
+          <div class="libraire-citation">Une phrase ou citation qui vous ressemble.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- VALEURS -->
+<section class="valeurs">
+  <div class="container">
+    <div class="fade-in">
+      <div class="section-label">Notre philosophie</div>
+      <h2 class="section-title">Ce en quoi nous croyons</h2>
+      <p class="valeurs-intro">Vingt ans de librairie indépendante, c'est aussi vingt ans à affiner ce qui compte vraiment.</p>
+    </div>
+    <div class="valeurs-grid">
+      <div class="valeur-card fade-in" style="transition-delay:0.05s">
+        <div class="valeur-icone">📖</div>
+        <div class="valeur-titre">Le conseil humain</div>
+        <p class="valeur-texte">Pas d'algorithme ici. Chaque recommandation vient d'un libraire qui a lu, aimé (ou pas), et qui prend le temps de comprendre ce que vous cherchez — même quand vous ne le savez pas encore.</p>
+      </div>
+      <div class="valeur-card fade-in" style="transition-delay:0.1s">
+        <div class="valeur-icone">🌍</div>
+        <div class="valeur-titre">L'ouverture au monde</div>
+        <p class="valeur-texte">Littératures traduites, voix peu entendues, regards différents… Nous croyons que les livres sont le meilleur moyen d'aller au-delà de sa propre expérience.</p>
+      </div>
+      <div class="valeur-card fade-in" style="transition-delay:0.15s">
+        <div class="valeur-icone">🤝</div>
+        <div class="valeur-titre">Ancrage local</div>
+        <p class="valeur-texte">Librairie indépendante à Guérande depuis 2006, nous faisons partie de la vie de la presqu'île. Soutenir L'Esprit Large, c'est soutenir un commerce qui vous ressemble.</p>
+      </div>
+      <div class="valeur-card fade-in" style="transition-delay:0.2s">
+        <div class="valeur-icone">🎉</div>
+        <div class="valeur-titre">La librairie vivante</div>
+        <p class="valeur-texte">Rencontres, lectures, casse-croûtes… nous aimons que la librairie soit un endroit où on revient, où on reste, où l'on se retrouve autour de ce qui nous lie : les histoires.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="galerie">
+  <div class="container">
+    <div class="galerie-header fade-in">
+      <div class="section-label">La librairie en images</div>
+      <h2 class="section-title">Notre espace</h2>
+      <p>Uploadez vos photos dans <code>images/galerie/</code> sur GitHub et remplacez les placeholders ci-dessous.</p>
+    </div>
+    <div class="galerie-grid">
+      <div class="gal-item fade-in" onclick="openLightbox(this)">
+        <!-- <img src="images/galerie/photo1.jpg" alt="La librairie" data-legende="La librairie" /> -->
+        <div class="gal-ph"><div class="ph-icon">🏠</div><div class="ph-txt">Vue d'ensemble</div></div>
+        <div class="gal-overlay"><span class="gal-legende"></span></div>
+      </div>
+      <div class="gal-item fade-in" style="transition-delay:0.06s" onclick="openLightbox(this)">
+        <!-- <img src="images/galerie/photo2.jpg" alt="Les rayons" data-legende="Les rayons" /> -->
+        <div class="gal-ph"><div class="ph-icon">📚</div><div class="ph-txt">Les rayons</div></div>
+        <div class="gal-overlay"><span class="gal-legende"></span></div>
+      </div>
+      <div class="gal-item fade-in" style="transition-delay:0.09s" onclick="openLightbox(this)">
+        <!-- <img src="images/galerie/photo3.jpg" alt="La vitrine" data-legende="La vitrine" /> -->
+        <div class="gal-ph"><div class="ph-icon">🪟</div><div class="ph-txt">La vitrine</div></div>
+        <div class="gal-overlay"><span class="gal-legende"></span></div>
+      </div>
+      <div class="gal-item fade-in" style="transition-delay:0.12s" onclick="openLightbox(this)">
+        <!-- <img src="images/galerie/photo4.jpg" alt="Un événement" data-legende="Un événement" /> -->
+        <div class="gal-ph"><div class="ph-icon">🎪</div><div class="ph-txt">Un événement</div></div>
+        <div class="gal-overlay"><span class="gal-legende"></span></div>
+      </div>
+      <div class="gal-item fade-in" style="transition-delay:0.15s" onclick="openLightbox(this)">
+        <!-- <img src="images/galerie/photo5.jpg" alt="L'ambiance" data-legende="L'ambiance" /> -->
+        <div class="gal-ph"><div class="ph-icon">☕</div><div class="ph-txt">L'ambiance</div></div>
+        <div class="gal-overlay"><span class="gal-legende"></span></div>
+      </div>
+      <div class="gal-item fade-in" style="transition-delay:0.18s" onclick="openLightbox(this)">
+        <!-- <img src="images/galerie/photo6.jpg" alt="Coin lecture" data-legende="Coin lecture" /> -->
+        <div class="gal-ph"><div class="ph-icon">📖</div><div class="ph-txt">Coin lecture</div></div>
+        <div class="gal-overlay"><span class="gal-legende"></span></div>
+      </div>
+      <div class="gal-item fade-in" style="transition-delay:0.21s" onclick="openLightbox(this)">
+        <!-- <img src="images/galerie/photo7.jpg" alt="Les détails" data-legende="Les détails" /> -->
+        <div class="gal-ph"><div class="ph-icon">🌿</div><div class="ph-txt">Les détails</div></div>
+        <div class="gal-overlay"><span class="gal-legende"></span></div>
+      </div>
+      <div class="gal-item fade-in" style="transition-delay:0.24s" onclick="openLightbox(this)">
+        <!-- <img src="images/galerie/photo8.jpg" alt="Guérande" data-legende="Guérande" /> -->
+        <div class="gal-ph"><div class="ph-icon">🗺️</div><div class="ph-txt">Guérande</div></div>
+        <div class="gal-overlay"><span class="gal-legende"></span></div>
+      </div>
+    </div>
+    <p class="gal-add-hint fade-in">
+      💡 Pour ajouter une photo : uploadez-la dans <code>images/galerie/</code> sur GitHub,
+      puis décommentez la ligne <code>&lt;img src=...&gt;</code> correspondante dans <code>a-propos.html</code>.
+    </p>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightboxImg" src="" alt="" />
+</div>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div>
+    <div class="footer-logo">L'Esprit Large</div>
+    <p class="footer-desc">Librairie indépendante au cœur de Guérande.</p>
+    <p class="footer-desc" style="margin-top:0.8rem;">
+      📍 12, Rue Vannetaise, 44350 Guérande<br/>
+      📞 02 40 23 44 44 · 📧 <a href="mailto:librairie@esprit-large.com">librairie@esprit-large.com</a>
+    </p>
+    <p class="footer-desc" style="margin-top:0.8rem;">
+      🕐 <strong style="color:var(--amber-light);">Horaires</strong><br/>
+      Lun : 14h30 – 18h00<br/>
+      Mar, Mer, Ven, Sam : 9h30 – 19h00<br/>
+      Jeu : 9h30 – 12h30 &amp; 14h30 – 18h30<br/>
+      Dim &amp; Fériés : fermé
+    </p>
+  </div>
+  <div>
+    <p class="footer-h">Navigation</p>
+    <ul class="footer-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="catalogue.html">Catalogue</a></li>
+      <li><a href="evenements.html">Événements</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="escapades.html">🎒 Escapades</a></li>
+      <li><a href="avisdetempete.html">🌊 Avis de Tempête</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">© 2026 L'Esprit Large · Librairie indépendante depuis 2006</div>
+
+<script>
+  const obs = new IntersectionObserver(
+    es => es.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }),
+    { threshold: 0.1 }
+  );
+  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+  function openLightbox(el) {
+    const img = el.querySelector('img');
+    if (!img) return;
+    document.getElementById('lightboxImg').src = img.src;
+    document.getElementById('lightboxImg').alt = img.dataset.legende || '';
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => { if(e.key==='Escape') closeLightbox(); });
+</script>
+</body>
+</html>
