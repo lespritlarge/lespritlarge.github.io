@@ -1,5 +1,5 @@
 {
-  "mis_a_jour": "2026-03-11T08:56:31.129Z",
+  "mis_a_jour": "2026-03-11T08:56:40.489Z",
   "evenements": [
     {
       "id": "1742601600000",
@@ -42,12 +42,12 @@
     },
     {
       "id": "1741651200000",
-      "titre": "Inventaire Ã¢ÂÂ Fermeture exceptionnelle",
+      "titre": "Inventaire : Fermeture exceptionnelle",
       "date": "2026-03-31",
       "time": "Toute la journÃÂ©e",
-      "type": "Ã°ÂÂÂ Fermeture exceptionnelle",
+      "type": "",
       "lieu": "Librairie L'Esprit Large",
-      "desc": "La librairie est fermÃÂ©e pour inventaire les lundi 31 mars et mardi 1er avril. Nous vous retrouvons le mercredi 2 avril !",
+      "desc": "La librairie est fermée pour inventaire les lundi 31 mars et mardi 1er avril. Nous vous retrouvons le mercredi 2 avril !",
       "affiche": "",
       "special": false,
       "recurrent": false,
