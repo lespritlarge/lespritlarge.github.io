@@ -1,5 +1,5 @@
 {
-  "mis_a_jour": "2026-03-11T08:54:06.016Z",
+  "mis_a_jour": "2026-03-11T08:55:56.081Z",
   "evenements": [
     {
       "id": "1742601600000",
@@ -107,12 +107,12 @@
     },
     {
       "id": "1749340800000",
-      "titre": "Rencontre autour de ÃÂ« PremiÃÂ¨re Vague ÃÂ»",
+      "titre": "Rencontre autour de \"Première Vague\"",
       "date": "2026-06-02",
       "time": "18h30",
       "type": "Rencontre auteur",
       "lieu": "Librairie L'Esprit Large",
-      "desc": "Venez ÃÂ©changer autour de ce livre lors d'une rencontre conviviale ÃÂ  la librairie.",
+      "desc": "Venez échanger sur les lectures de première vague, le prix BD de la librairie et des médiathèques alentours!",
       "affiche": "",
       "special": false,
       "recurrent": false,
