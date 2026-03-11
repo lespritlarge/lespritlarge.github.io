@@ -234,8 +234,8 @@ details[open] .rblock summary::before{transform:rotate(90deg);}
 
           <!-- RÉCURRENCE -->
           <details id="recurDetails">
+            <summary>🔁 Répéter cet événement plusieurs fois</summary>
             <div class="rblock">
-              <summary>🔁 Répéter cet événement plusieurs fois</summary>
               <div class="frow" style="margin-top:.8rem;">
                 <div class="f"><label>Fréquence</label>
                   <select id="rFreq" onchange="Evts.updatePreview()">
@@ -537,12 +537,29 @@ var Evts = (() => {
   function renderList() {
     const el = document.getElementById('evtList');
     if (!items.length) { el.innerHTML = '<div class="lempty">Aucun événement.<br/>Créez le premier !</div>'; return; }
-    el.innerHTML = items.map((e,i) => `
-      <div class="li ${i===idx?'active':''}" onclick="Evts.select(${i})">
-        <div class="li-dot ${e.fermeture?'grey':e.special?'gold':''}"></div>
-        <div><div class="li-t">${e.titre||'(Sans titre)'}</div>
-        <div class="li-m">${fmt(e.date)}${e.time?' · '+e.time:''}</div></div>
-      </div>`).join('');
+
+    // Regrouper visuellement : afficher un séparateur pour les groupes récurrents
+    let html = '';
+    const groupesVus = new Set();
+    items.forEach((e, i) => {
+      const estGroupe = e.groupe_id && !groupesVus.has(e.groupe_id);
+      const memeGroupe = e.groupe_id && groupesVus.has(e.groupe_id);
+      if (e.groupe_id) groupesVus.add(e.groupe_id);
+
+      const nbGroupe = e.groupe_id ? items.filter(x => x.groupe_id === e.groupe_id).length : 0;
+      const badge = e.groupe_id
+        ? `<span style="font-size:.65rem;background:rgba(92,26,26,.12);color:var(--wood);padding:.1rem .4rem;border-radius:2px;margin-left:.3rem;">🔁 ×${nbGroupe}</span>`
+        : '';
+
+      html += `<div class="li ${i===idx?'active':''}" onclick="Evts.select(${i})" style="${memeGroupe?'padding-left:2rem;border-left:2px solid rgba(92,26,26,.2);':''}">
+        <div class="li-dot ${e.fermeture?'grey':e.special?'gold':e.groupe_id?'':''}"></div>
+        <div style="flex:1;min-width:0;">
+          <div class="li-t">${e.titre||'(Sans titre)'}${estGroupe?badge:''}</div>
+          <div class="li-m">${fmt(e.date)}${e.time?' · '+e.time:''}</div>
+        </div>
+      </div>`;
+    });
+    el.innerHTML = html;
   }
 
   function select(i) {
@@ -557,11 +574,26 @@ var Evts = (() => {
     document.getElementById('eAffiche').value = e.affiche  || '';
     document.getElementById('eSpecial').checked   = !!e.special;
     document.getElementById('eFermeture').checked = !!e.fermeture;
-    // Récurrence : reset (modification = 1 seul événement)
-    document.getElementById('rFreq').value    = '';
-    document.getElementById('rJusquau').value = '';
-    document.getElementById('recurPreview').innerHTML = '<em>La récurrence ne s\'applique qu\'à la création.</em>';
-    document.getElementById('recurDetails').removeAttribute('open');
+
+    // Si récurrent : afficher les infos du groupe
+    const details = document.getElementById('recurDetails');
+    if (e.groupe_id) {
+      const groupe = items.filter(x => x.groupe_id === e.groupe_id);
+      const dates = groupe.map(x => x.date).sort();
+      const f = d => { const [y,m,j] = d.split('-'); return new Date(y,m-1,j).toLocaleDateString('fr-FR',{weekday:'short',day:'numeric',month:'short'}); };
+      document.getElementById('recurPreview').innerHTML =
+        `<strong style="color:var(--wood)">Groupe de ${groupe.length} occurrences :</strong><br>` +
+        dates.map(d => '• ' + f(d)).join('<br>') +
+        `<br><br><button onclick="Evts.supprimerGroupe()" style="font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:rgba(200,50,50,.12);color:#a33;border:1.5px solid rgba(200,50,50,.25);border-radius:3px;padding:.4rem .9rem;cursor:pointer;">🗑️ Supprimer toutes les occurrences</button>`;
+      document.getElementById('rFreq').value    = '';
+      document.getElementById('rJusquau').value = '';
+      details.setAttribute('open','');
+    } else {
+      document.getElementById('rFreq').value    = '';
+      document.getElementById('rJusquau').value = '';
+      document.getElementById('recurPreview').innerHTML = '<em>La récurrence ne s\'applique qu\'à la création.</em>';
+      details.removeAttribute('open');
+    }
     document.getElementById('eDel').style.display = 'inline-block';
     renderList();
   }
@@ -586,12 +618,10 @@ var Evts = (() => {
   }
 
   function parseLocalDate(str) {
-    // Crée une date en heure locale (évite le décalage UTC)
     const [y,m,d] = str.split('-').map(Number);
     return new Date(y, m-1, d);
   }
   function toLocalISO(d) {
-    // Formate YYYY-MM-DD en heure locale (pas UTC)
     const y = d.getFullYear();
     const m = String(d.getMonth()+1).padStart(2,'0');
     const day = String(d.getDate()).padStart(2,'0');
@@ -619,7 +649,7 @@ var Evts = (() => {
     if (!date || !freq || !fin) { el.innerHTML = '<em>Choisissez une fréquence et une date de fin…</em>'; return; }
     const dates = genDates(date, freq, fin);
     if (!dates.length) { el.innerHTML = '<em>Aucune date — vérifiez la date de fin.</em>'; return; }
-    const f = d => new Date(d).toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'});
+    const f = d => { const [y,m,j] = d.split('-'); return new Date(y,m-1,j).toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'}); };
     el.innerHTML = dates.map(d => '• ' + f(d)).join('<br>') + '<br><strong style="color:var(--wood)">' + dates.length + ' occurrence(s)</strong>';
   }
 
@@ -644,33 +674,36 @@ var Evts = (() => {
     const fin  = document.getElementById('rJusquau').value;
 
     if (idx === null && freq && fin) {
-      // Création avec récurrence → générer toutes les occurrences
+      // Création avec récurrence → générer toutes les occurrences avec un groupe_id commun
       const dates = genDates(date, freq, fin);
       if (!dates.length) { toast('⚠️ Aucune date générée.'); return; }
 
-      // Snapshot des items actuels + nouvelles occurrences
+      const groupe_id = Date.now().toString(36) + '_g';
       const nouvelles = dates.map((d, i) => ({
         ...base,
-        id: Date.now().toString(36) + '_r' + i,
+        id: groupe_id + '_' + i,
         date: d,
-        recurrent: true
+        recurrent: true,
+        groupe_id,
       }));
       const tousItems = [...items, ...nouvelles];
-      tousItems.sort((a,b) => new Date(a.date) - new Date(b.date));
+      tousItems.sort((a,b) => (a.date > b.date ? 1 : -1));
 
       toast('⏳ Publication de ' + dates.length + ' occurrences…');
       const ok = await ghWrite('evenements.json', { mis_a_jour: new Date().toISOString(), evenements: tousItems }, '📅 ' + titre + ' (×' + dates.length + ')');
       if (ok) {
-        items = tousItems; // Mettre à jour la mémoire locale
+        items = tousItems;
         toast('✅ ' + dates.length + ' occurrences créées !');
         renderList();
         nouveau();
       }
     } else {
       // Création simple ou modification
+      const groupe_id_existant = idx !== null ? items[idx].groupe_id : undefined;
       const evt = { ...base, id: idx !== null ? items[idx].id : Date.now().toString(), date, recurrent: false };
+      if (groupe_id_existant) { evt.groupe_id = groupe_id_existant; evt.recurrent = true; }
       if (idx !== null) items[idx] = evt; else items.push(evt);
-      items.sort((a,b) => new Date(a.date) - new Date(b.date));
+      items.sort((a,b) => (a.date > b.date ? 1 : -1));
       idx = items.findIndex(e => e.id === evt.id);
       const ok = await ghWrite('evenements.json', { mis_a_jour: new Date().toISOString(), evenements: items }, '📅 ' + titre);
       if (ok) { toast('✅ Événement publié !'); renderList(); }
@@ -679,13 +712,33 @@ var Evts = (() => {
 
   async function supprimer() {
     if (idx === null) return;
-    if (!confirm('Supprimer « ' + items[idx].titre + ' » ?')) return;
+    const e = items[idx];
+    // Si appartient à un groupe, proposer de supprimer toutes les occurrences
+    if (e.groupe_id) {
+      const nbGroupe = items.filter(x => x.groupe_id === e.groupe_id).length;
+      const choix = confirm(`Supprimer TOUTES les ${nbGroupe} occurrences du groupe « ${e.titre} » ?\n\nOK = tout supprimer   Annuler = supprimer seulement cette date`);
+      if (choix) return supprimerGroupe();
+    } else {
+      if (!confirm('Supprimer « ' + e.titre + ' » ?')) return;
+    }
     items.splice(idx, 1); idx = null;
     const ok = await ghWrite('evenements.json', { mis_a_jour: new Date().toISOString(), evenements: items }, '🗑️ Suppression événement');
     if (ok) { toast('🗑️ Événement supprimé.'); nouveau(); }
   }
 
-  return { charger, select, nouveau, sauvegarder, supprimer, updatePreview };
+  async function supprimerGroupe() {
+    if (idx === null) return;
+    const gid = items[idx].groupe_id;
+    if (!gid) return supprimer();
+    const nb = items.filter(x => x.groupe_id === gid).length;
+    if (!confirm(`Supprimer les ${nb} occurrences de ce groupe ?`)) return;
+    items = items.filter(x => x.groupe_id !== gid);
+    idx = null;
+    const ok = await ghWrite('evenements.json', { mis_a_jour: new Date().toISOString(), evenements: items }, '🗑️ Suppression groupe récurrent');
+    if (ok) { toast('🗑️ ' + nb + ' occurrences supprimées.'); nouveau(); }
+  }
+
+  return { charger, select, nouveau, sauvegarder, supprimer, supprimerGroupe, updatePreview };
 })();
 
 // ── UTILS ─────────────────────────────────
