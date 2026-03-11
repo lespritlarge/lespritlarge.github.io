@@ -1,156 +1,197 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Catalogue — Librairie L'Esprit Large</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,800;1,600&family=Lora:ital,wght@0,400;1,400&family=Raleway:wght@400;600;700&display=swap" rel="stylesheet"/>
-<style>
-:root{--cream:#f2f0ef;--warm:#f7f5f4;--wood:#8b2e2e;--dark:#5c1a1a;--ink:#1e1e1e;--soft:#3a3a3a;--parch:#ebe8e4;--amber:#c4854a;}
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Raleway',sans-serif;background:var(--warm);color:var(--ink);}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catalogue — L'Esprit Large</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400;1,600&family=Lora:ital,wght@0,400;0,500;1,400&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream:#f2f0ef;--warm-white:#f7f5f4;--wood:#8b2e2e;--wood-dark:#5c1a1a;
+      --wood-light:#b86060;--amber:#9e3a3a;--ink:#1e1e1e;--ink-soft:#3a3a3a;
+      --moss:#4a6e4a;--parchment:#ebe8e8;--shadow:rgba(30,10,10,0.13);
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Lora',serif;background:var(--warm-white);color:var(--ink);}
 
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(242,240,239,.97);backdrop-filter:blur(8px);border-bottom:1px solid rgba(92,26,26,.12);padding:0 2rem;height:80px;display:flex;align-items:center;justify-content:space-between;}
-.nav-logo{display:flex;align-items:center;gap:.75rem;text-decoration:none;font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:800;font-style:italic;color:var(--dark);}
-.nav-logo img{width:56px;height:56px;object-fit:contain;}
-.nav-logo span{color:var(--amber);}
-.nav-back{font-family:'Raleway',sans-serif;font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--soft);text-decoration:none;border:1px solid rgba(92,26,26,.2);padding:.4rem 1rem;border-radius:2px;transition:all .2s;}
-.nav-back:hover{color:var(--wood);border-color:var(--wood);}
+    nav{position:sticky;top:0;z-index:100;background:rgba(242,240,239,0.97);
+      backdrop-filter:blur(8px);border-bottom:1px solid rgba(92,26,26,0.12);
+      padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:80px;}
+    .nav-logo{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:800;
+      font-style:italic;color:var(--wood-dark);letter-spacing:-0.02em;
+      text-decoration:none;display:flex;align-items:center;gap:0.75rem;}
+    .nav-logo img{height:44px;width:auto;}
+    .nav-links{display:flex;gap:1.4rem;list-style:none;}
+    .nav-links a{font-family:'Raleway',sans-serif;font-size:0.75rem;font-weight:500;
+      letter-spacing:0.07em;text-transform:uppercase;text-decoration:none;
+      color:var(--ink-soft);white-space:nowrap;transition:color 0.2s;}
+    .nav-links a:hover,.nav-links a.active{color:var(--wood);}
 
-.hero{margin-top:80px;background:var(--dark);padding:3rem 4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:800;font-style:italic;color:var(--cream);}
-.hero h1 span{color:#e8b97a;}
-.hero-stats{display:flex;gap:2rem;flex-wrap:wrap;}
-.stat{text-align:center;}
-.stat-n{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:800;color:#e8b97a;}
-.stat-l{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(242,240,239,.5);}
+    .page-header{background:var(--wood-dark);color:var(--cream);padding:3rem 4rem 2.5rem;}
+    .page-header h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);
+      font-weight:800;font-style:italic;margin-bottom:0.4rem;}
+    .page-header p{font-family:'Lora',serif;font-style:italic;font-size:1rem;opacity:0.7;}
 
-.toolbar{background:var(--cream);border-bottom:1px solid rgba(92,26,26,.1);padding:1rem 2rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;position:sticky;top:80px;z-index:50;}
-.search-wrap{flex:1;min-width:200px;position:relative;}
-.search-wrap input{width:100%;padding:.65rem 1rem .65rem 2.4rem;font-family:'Lora',serif;font-size:.9rem;border:1.5px solid rgba(92,26,26,.18);border-radius:3px;background:var(--warm);color:var(--ink);outline:none;transition:border-color .2s;}
-.search-wrap input:focus{border-color:var(--wood);}
-.search-wrap::before{content:'🔍';position:absolute;left:.75rem;top:50%;transform:translateY(-50%);font-size:.8rem;pointer-events:none;}
-.filters{display:flex;gap:.4rem;flex-wrap:wrap;}
-.tag{font-family:'Raleway',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.35rem .85rem;border-radius:20px;cursor:pointer;border:1.5px solid rgba(92,26,26,.15);color:var(--soft);background:var(--warm);transition:all .2s;white-space:nowrap;}
-.tag:hover{border-color:var(--wood);color:var(--wood);}
-.tag.active{background:var(--dark);color:var(--cream);border-color:var(--dark);}
-.sort-sel{font-family:'Raleway',sans-serif;font-size:.72rem;font-weight:600;padding:.5rem .8rem;border:1.5px solid rgba(92,26,26,.18);border-radius:3px;background:var(--warm);color:var(--ink);cursor:pointer;outline:none;}
+    .toolbar{background:var(--cream);border-bottom:1px solid var(--parchment);
+      padding:1.2rem 4rem;display:flex;align-items:center;gap:1rem;
+      flex-wrap:wrap;position:sticky;top:80px;z-index:50;}
+    .search-wrap{display:flex;align-items:center;background:white;
+      border:1.5px solid var(--parchment);border-radius:3px;padding:0 1rem;
+      flex:1;max-width:360px;transition:border-color 0.2s;}
+    .search-wrap:focus-within{border-color:var(--wood);}
+    .search-wrap input{border:none;outline:none;background:transparent;
+      font-family:'Lora',serif;font-size:0.9rem;color:var(--ink);padding:0.65rem 0;width:100%;}
+    .search-wrap span{color:var(--ink-soft);}
+    .filters{display:flex;gap:0.5rem;flex-wrap:wrap;}
+    .tag{font-family:'Raleway',sans-serif;font-size:0.7rem;font-weight:600;
+      letter-spacing:0.05em;text-transform:uppercase;padding:0.3rem 0.85rem;
+      border-radius:20px;cursor:pointer;border:1px solid var(--wood-light);
+      color:var(--ink-soft);background:transparent;transition:all 0.2s;}
+    .tag.active,.tag:hover{background:var(--wood);color:var(--cream);border-color:var(--wood);}
+    .results-count{font-family:'Raleway',sans-serif;font-size:0.75rem;
+      color:var(--ink-soft);margin-left:auto;white-space:nowrap;}
 
-.results-bar{padding:.6rem 2rem;font-family:'Lora',serif;font-style:italic;font-size:.82rem;color:var(--soft);background:var(--warm);}
+    .catalogue-body{padding:2.5rem 4rem;}
+    .book-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:1.8rem;}
+    .book-card{background:var(--cream);border-radius:4px;overflow:hidden;
+      box-shadow:0 2px 12px var(--shadow);transition:transform 0.25s,box-shadow 0.25s;
+      animation:fadeUp 0.4s ease both;}
+    .book-card:hover{transform:translateY(-4px);box-shadow:0 8px 28px rgba(42,31,20,0.18);}
+    .book-cover{width:100%;aspect-ratio:2/3;display:flex;align-items:center;
+      justify-content:center;background:#e8e4e0;position:relative;overflow:hidden;}
+    .book-cover img{width:100%;height:100%;object-fit:cover;}
+    .book-badge{position:absolute;top:0.5rem;right:0.5rem;font-family:'Raleway',sans-serif;
+      font-size:0.6rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;
+      padding:0.15rem 0.45rem;border-radius:2px;}
+    .badge-fav{background:var(--amber);color:white;}
+    .badge-out{background:#999;color:white;}
+    .book-info{padding:0.9rem;}
+    .book-title{font-family:'Playfair Display',serif;font-size:0.9rem;font-weight:600;
+      color:var(--ink);margin-bottom:0.2rem;line-height:1.3;
+      display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+    .book-author{font-family:'Lora',serif;font-style:italic;font-size:0.75rem;
+      color:var(--ink-soft);margin-bottom:0.5rem;
+      display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;}
+    .book-genre{font-family:'Raleway',sans-serif;font-size:0.62rem;letter-spacing:.06em;
+      text-transform:uppercase;background:var(--parchment);color:var(--ink-soft);
+      padding:.12rem .45rem;border-radius:2px;display:inline-block;}
+    .book-footer{display:flex;justify-content:space-between;align-items:center;margin-top:0.7rem;}
+    .book-price{font-family:'Raleway',sans-serif;font-weight:700;font-size:0.95rem;color:var(--wood);}
+    .stock-ok{font-family:'Raleway',sans-serif;font-size:0.65rem;font-weight:600;color:var(--moss);}
+    .stock-out{font-family:'Raleway',sans-serif;font-size:0.65rem;font-weight:600;color:#aaa;}
+    .btn-reserve{width:100%;margin-top:0.7rem;font-family:'Raleway',sans-serif;
+      font-size:0.72rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;
+      padding:0.5rem;border:none;cursor:pointer;border-radius:2px;transition:all 0.2s;}
+    .btn-reserve.available{background:var(--wood);color:var(--cream);}
+    .btn-reserve.available:hover{background:var(--wood-dark);}
+    .btn-reserve.unavailable{background:#ddd;color:#999;cursor:not-allowed;}
 
-.book-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:1.2rem;padding:1.5rem 2rem;}
-.book-card{background:var(--cream);border-radius:6px;overflow:hidden;box-shadow:0 2px 10px rgba(30,10,10,.07);transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column;}
-.book-card:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(30,10,10,.13);}
-.book-cover{height:220px;position:relative;background:#e8e4e0;display:flex;align-items:center;justify-content:center;overflow:hidden;}
-.book-cover img{width:100%;height:100%;object-fit:cover;}
-.book-cover .no-cover{font-size:3rem;}
-.book-badge{position:absolute;top:.5rem;left:.5rem;font-family:'Raleway',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.2rem .6rem;border-radius:2px;}
-.badge-fav{background:var(--dark);color:var(--cream);}
-.badge-low{background:#c4854a;color:var(--cream);}
-.badge-out{background:#888;color:var(--cream);}
-.book-info{padding:.9rem;flex:1;display:flex;flex-direction:column;gap:.3rem;}
-.book-title{font-family:'Lora',serif;font-size:.88rem;font-weight:500;color:var(--ink);line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
-.book-author{font-size:.75rem;color:var(--soft);}
-.book-genre{font-size:.63rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--parch);color:var(--soft);padding:.15rem .5rem;border-radius:2px;width:fit-content;}
-.book-footer{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:.5rem;}
-.book-price{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;color:var(--dark);}
-.stock-ok{color:#2d7a3a;font-size:.68rem;font-weight:600;}
-.stock-low{color:#c4854a;font-size:.68rem;font-weight:600;}
-.stock-out{color:#888;font-size:.68rem;}
-.btn-reserve{width:100%;margin-top:.5rem;padding:.55rem;font-family:'Raleway',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:none;cursor:pointer;border-radius:2px;transition:background .2s;}
-.btn-reserve.available{background:var(--dark);color:var(--cream);}
-.btn-reserve.available:hover{background:var(--ink);}
-.btn-reserve.unavailable{background:#e0dbd8;color:#999;cursor:not-allowed;}
+    .pagination{display:flex;justify-content:center;align-items:center;
+      gap:0.5rem;padding:3rem 0 4rem;}
+    .page-btn{font-family:'Raleway',sans-serif;font-size:0.78rem;font-weight:600;
+      padding:0.5rem 0.9rem;border:1.5px solid var(--parchment);background:white;
+      color:var(--ink-soft);cursor:pointer;border-radius:3px;transition:all 0.2s;
+      min-width:2.4rem;text-align:center;}
+    .page-btn:hover,.page-btn.active{background:var(--wood);color:white;border-color:var(--wood);}
+    .page-btn:disabled{opacity:0.3;cursor:not-allowed;}
 
-.pagination{display:flex;justify-content:center;align-items:center;gap:.5rem;padding:2rem;flex-wrap:wrap;}
-.page-btn{font-family:'Raleway',sans-serif;font-size:.75rem;font-weight:700;width:36px;height:36px;display:flex;align-items:center;justify-content:center;border:1.5px solid rgba(92,26,26,.18);border-radius:3px;cursor:pointer;background:var(--cream);color:var(--soft);transition:all .2s;}
-.page-btn:hover{border-color:var(--wood);color:var(--wood);}
-.page-btn.active{background:var(--dark);color:var(--cream);border-color:var(--dark);}
-.page-btn.dots{cursor:default;border:none;background:none;}
+    .empty,.loading{grid-column:1/-1;text-align:center;font-family:'Lora',serif;
+      font-style:italic;color:var(--ink-soft);padding:4rem 0;}
 
-/* MODAL */
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:200;display:none;align-items:center;justify-content:center;padding:1rem;}
-.modal-overlay.open{display:flex;}
-.modal{background:var(--cream);border-radius:8px;padding:2rem;max-width:500px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.3);position:relative;}
-.modal-close{position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.2rem;cursor:pointer;color:var(--soft);}
-.modal h3{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:800;font-style:italic;color:var(--dark);margin-bottom:1.2rem;}
-.modal .f{margin-bottom:.9rem;}
-.modal label{display:block;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);margin-bottom:.3rem;}
-.modal input{width:100%;padding:.7rem .9rem;font-family:'Lora',serif;font-size:.9rem;border:1.5px solid rgba(92,26,26,.18);border-radius:3px;background:var(--warm);color:var(--ink);outline:none;}
-.modal input:focus{border-color:var(--wood);}
-.modal-btn{width:100%;padding:.85rem;font-weight:700;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;background:var(--dark);color:var(--cream);border:none;cursor:pointer;border-radius:2px;margin-top:.5rem;transition:background .2s;}
-.modal-btn:hover{background:var(--ink);}
+    .modal-overlay{display:none;position:fixed;inset:0;background:rgba(30,10,10,0.5);
+      z-index:999;align-items:center;justify-content:center;}
+    .modal-overlay.open{display:flex;}
+    .modal{background:var(--cream);border-radius:4px;padding:2.5rem;
+      max-width:480px;width:90%;box-shadow:0 20px 60px rgba(30,10,10,0.35);}
+    .modal h3{font-family:'Playfair Display',serif;font-size:1.4rem;margin-bottom:1rem;}
+    .modal input,.modal textarea{width:100%;padding:0.65rem 0.9rem;margin-bottom:0.9rem;
+      border:1.5px solid var(--parchment);border-radius:3px;font-family:'Lora',serif;
+      font-size:0.9rem;background:white;outline:none;transition:border-color 0.2s;}
+    .modal input:focus,.modal textarea:focus{border-color:var(--wood);}
+    .modal-btns{display:flex;gap:0.8rem;justify-content:flex-end;margin-top:0.5rem;}
+    .btn-cancel{font-family:'Raleway',sans-serif;font-size:0.78rem;font-weight:600;
+      padding:0.6rem 1.4rem;background:transparent;border:1.5px solid var(--parchment);
+      color:var(--ink-soft);cursor:pointer;border-radius:2px;}
+    .btn-send{font-family:'Raleway',sans-serif;font-size:0.78rem;font-weight:600;
+      padding:0.6rem 1.4rem;background:var(--wood);color:white;border:none;
+      cursor:pointer;border-radius:2px;transition:background 0.2s;}
+    .btn-send:hover{background:var(--wood-dark);}
 
-.toast{position:fixed;bottom:2rem;right:2rem;z-index:999;background:var(--dark);color:var(--cream);font-size:.85rem;font-family:'Lora',serif;padding:.9rem 1.4rem;border-radius:4px;box-shadow:0 6px 24px rgba(0,0,0,.25);transform:translateY(120px);opacity:0;transition:all .4s cubic-bezier(.175,.885,.32,1.275);}
-.toast.show{transform:translateY(0);opacity:1;}
+    .toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(2rem);
+      background:var(--wood-dark);color:var(--cream);font-family:'Raleway',sans-serif;
+      font-size:0.85rem;padding:0.9rem 2rem;border-radius:4px;
+      box-shadow:0 4px 20px rgba(30,10,10,0.3);opacity:0;transition:all 0.35s;
+      pointer-events:none;z-index:9999;}
+    .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
 
-footer{text-align:center;padding:2rem;font-family:'Lora',serif;font-style:italic;font-size:.82rem;color:var(--soft);border-top:1px solid rgba(92,26,26,.1);}
-footer a{color:var(--wood);text-decoration:none;}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
 
-@media(max-width:768px){
-  .hero{padding:2rem 1.2rem;}
-  .toolbar{padding:.8rem 1rem;top:80px;}
-  .book-grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:.8rem;padding:1rem;}
-  .book-cover{height:180px;}
-}
-</style>
+    @media(max-width:768px){
+      .page-header,.toolbar,.catalogue-body{padding-left:1.5rem;padding-right:1.5rem;}
+      .toolbar{top:0;}
+      .book-grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:1rem;}
+      nav{padding:0 1rem;}
+      .nav-links{display:none;}
+    }
+  </style>
 </head>
 <body>
 
 <nav>
   <a href="index.html" class="nav-logo">
     <img src="images/logo.png" alt="L'Esprit Large" onerror="this.style.display='none'"/>
-    L'<span>Esprit</span> Large
+    L'Esprit Large
   </a>
-  <a href="index.html" class="nav-back">← Retour</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="catalogue.html" class="active">Catalogue</a></li>
+    <li><a href="evenements.html">Événements</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="escapades.html" style="color:#c8a96e;font-weight:600;">🎒 Escapades</a></li>
+    <li><a href="avisdetempete.html">🌊 Avis de Tempête</a></li>
+  </ul>
 </nav>
 
-<div class="hero">
-  <div>
-    <h1>Notre <span>Catalogue</span></h1>
-    <p style="font-family:'Lora',serif;font-style:italic;font-size:.92rem;color:rgba(242,240,239,.6);margin-top:.4rem;">Stock mis à jour en temps réel</p>
-  </div>
-  <div class="hero-stats">
-    <div class="stat"><div class="stat-n" id="statTotal">—</div><div class="stat-l">Titres</div></div>
-    <div class="stat"><div class="stat-n" id="statDispo">—</div><div class="stat-l">En stock</div></div>
-    <div class="stat"><div class="stat-n" id="statGenres">—</div><div class="stat-l">Genres</div></div>
-  </div>
+<div class="page-header">
+  <h1>Notre catalogue</h1>
+  <p id="headerSub">Chargement en cours…</p>
 </div>
 
 <div class="toolbar">
   <div class="search-wrap">
-    <input type="text" id="searchInput" placeholder="Titre, auteur, éditeur…" oninput="filtrer()"/>
+    <span>🔍&nbsp;</span>
+    <input type="text" id="searchInput" placeholder="Titre, auteur, éditeur…" oninput="filterBooks()" />
   </div>
-  <div class="filters" id="filterTags">
-    <span class="tag active" onclick="setFilter('Tous',this)">Tous</span>
+  <div class="filters" id="filterBtns">
+    <button class="tag active" onclick="setFilter('Tous',this)">Tous</button>
   </div>
-  <select class="sort-sel" id="sortSel" onchange="filtrer()">
-    <option value="titre">Titre A→Z</option>
-    <option value="auteur">Auteur A→Z</option>
-    <option value="prix">Prix croissant</option>
-    <option value="stock">Stock décroissant</option>
-  </select>
+  <span class="results-count" id="resultsCount"></span>
 </div>
 
-<div class="results-bar" id="resultsBar">Chargement…</div>
-<div class="book-grid" id="bookGrid"></div>
-<div class="pagination" id="pagination"></div>
+<div class="catalogue-body">
+  <div class="book-grid" id="bookGrid">
+    <p class="loading">⏳ Chargement du catalogue…</p>
+  </div>
+  <div class="pagination" id="pagination"></div>
+</div>
 
 <!-- MODAL RÉSERVATION -->
 <div class="modal-overlay" id="reserveModal">
   <div class="modal">
-    <button class="modal-close" onclick="closeModal()">✕</button>
-    <h3>Réserver ce livre</h3>
-    <p style="font-family:'Lora',serif;font-style:italic;font-size:.88rem;color:var(--soft);margin-bottom:1.2rem;" id="modalTitle"></p>
-    <div class="f"><label>Votre nom *</label><input type="text" id="rNom" placeholder="Prénom Nom"/></div>
-    <div class="f"><label>Téléphone *</label><input type="tel" id="rTel" placeholder="06 …"/></div>
-    <div class="f"><label>Email</label><input type="email" id="rEmail" placeholder="vous@email.fr"/></div>
-    <button class="modal-btn" onclick="soumettre()">Confirmer la réservation</button>
-    <p style="font-family:'Lora',serif;font-style:italic;font-size:.72rem;color:rgba(60,40,40,.4);margin-top:.8rem;text-align:center;">Nous vous confirmerons la mise de côté par téléphone.</p>
+    <h3>Réserver un exemplaire</h3>
+    <p style="font-family:'Lora',serif;font-style:italic;font-size:.9rem;color:var(--ink-soft);margin-bottom:1.2rem;" id="reserveBookTitle"></p>
+    <input type="text" id="rNom" placeholder="Votre nom" />
+    <input type="tel" id="rTel" placeholder="Votre téléphone" />
+    <input type="email" id="rEmail" placeholder="Votre e-mail" />
+    <textarea id="rMsg" placeholder="Message (facultatif)" rows="2" style="resize:vertical;"></textarea>
+    <div class="modal-btns">
+      <button class="btn-cancel" onclick="closeReserve()">Annuler</button>
+      <button class="btn-send" onclick="sendReserve()">Envoyer la réservation</button>
+    </div>
   </div>
 </div>
 
-<footer>© 2026 Librairie L'Esprit Large · 12 Rue Vannetaise, Guérande · <a href="tel:0240234444">02 40 23 44 44</a> · <a href="index.html">Retour au site</a></footer>
 <div class="toast" id="toast"></div>
 
 <script>
@@ -158,214 +199,203 @@ let BOOKS = [];
 let filtered = [];
 let currentFilter = 'Tous';
 let currentPage = 1;
-const PER_PAGE = 30;
-let selectedBook = null;
+const PER_PAGE = 40;
+let reserveBook = null;
 
-// ── CHARGEMENT ─────────────────────────
-async function init() {
+async function chargerStock() {
   try {
     const r = await fetch('stock.json?t=' + Date.now());
     if (!r.ok) throw new Error();
     const data = await r.json();
     BOOKS = (data.livres || []).map((b, i) => ({
-      id:         i + 1,
-      ean:        b.ean,
-      title:      b.titre     || '(Sans titre)',
-      author:     b.auteur    || '',
-      editeur:    b.editeur   || '',
-      genre:      devinerGenre(b.titre, b.editeur),
-      price:      b.prix      || '',
-      prixNum:    parseFloat((b.prix || '0').replace(',','.').replace(/[^\d.]/g,'')) || 0,
-      stock:      b.quantite  || 0,
-      couverture: b.couverture|| '',
-      fav:        false,
+      id: i + 1,
+      ean: b.ean,
+      title: b.titre || '',
+      author: b.auteur || '',
+      editeur: b.editeur || '',
+      genre: devinerGenre(b.titre, b.auteur, b.editeur),
+      price: (b.prix || '').replace(' EUR','€').replace(' €','€').trim(),
+      stock: b.quantite || 0,
+      couverture: b.couverture || '',
+      fav: false,
     }));
 
-    // Charger les coups de coeur
+    // Coups de cœur
     try {
-      const r2 = await fetch('coups.json?t=' + Date.now());
-      if (r2.ok) {
-        const d2 = await r2.json();
-        const eans = (d2.coups || []).map(c => c.ean);
+      const rc = await fetch('coups.json?t=' + Date.now());
+      if (rc.ok) {
+        const dc = await rc.json();
+        const eans = (dc.coups || []).map(c => c.ean);
         BOOKS.forEach(b => { b.fav = eans.includes(b.ean); });
       }
-    } catch(_) {}
+    } catch(e) {}
 
-    // Stats
-    const dispo = BOOKS.filter(b => b.stock > 0).length;
-    const genres = [...new Set(BOOKS.map(b => b.genre))].length;
-    document.getElementById('statTotal').textContent = BOOKS.length;
-    document.getElementById('statDispo').textContent = dispo;
-    document.getElementById('statGenres').textContent = genres;
-
-    // Filtres dynamiques
-    const genresList = ['Tous', ...new Set(BOOKS.map(b => b.genre)).values()].sort();
-    const tagsEl = document.getElementById('filterTags');
-    tagsEl.innerHTML = genresList.map(g =>
-      `<span class="tag${g==='Tous'?' active':''}" onclick="setFilter('${g}',this)">${g}</span>`
-    ).join('');
-
-    filtrer();
+    buildFilters();
+    document.getElementById('headerSub').textContent =
+      BOOKS.length + ' titres disponibles en librairie ou à la commande';
+    filterBooks();
   } catch(e) {
-    document.getElementById('bookGrid').innerHTML = '<p style="grid-column:1/-1;padding:3rem;text-align:center;font-style:italic;color:#999;">Le catalogue sera bientôt disponible.</p>';
+    document.getElementById('bookGrid').innerHTML =
+      '<p class="loading">Le catalogue sera bientôt disponible.</p>';
   }
 }
 
-// ── FILTRES ────────────────────────────
-function devinerGenre(titre, editeur) {
+function buildFilters() {
+  const counts = {};
+  BOOKS.forEach(b => { counts[b.genre] = (counts[b.genre]||0) + 1; });
+  const sorted = Object.entries(counts).sort((a,b) => b[1]-a[1]).map(e => e[0]);
+  const wrap = document.getElementById('filterBtns');
+  wrap.innerHTML = '<button class="tag active" onclick="setFilter(\'Tous\',this)">Tous</button>';
+  sorted.forEach(g => {
+    const btn = document.createElement('button');
+    btn.className = 'tag';
+    btn.textContent = g;
+    btn.onclick = function() { setFilter(g, this); };
+    wrap.appendChild(btn);
+  });
+}
+
+function devinerGenre(titre, auteur, editeur) {
   const t = ((titre||'') + ' ' + (editeur||'')).toLowerCase();
   if (t.includes('manga')||t.includes('shonen')||t.includes('seinen')) return 'Manga';
-  if (t.includes('bande dessin')||t.includes(' bd ')||t.includes('dupuis')||t.includes('dargaud')||t.includes('casterman')||t.includes('comics')) return 'Bande dessinée';
+  if (t.includes('bande dessin')||t.includes('comics')||t.includes('dupuis')||t.includes('dargaud')||t.includes('casterman')) return 'Bande dessinée';
   if (t.includes('jeunesse')||t.includes('école des loisirs')||t.includes('bayard')||t.includes('gallimard jeun')) return 'Jeunesse';
   if (t.includes('policier')||t.includes('thriller')||t.includes('crime')||t.includes('noir')) return 'Policier';
   if (t.includes('science-fiction')||t.includes(' sf ')||t.includes('fantasy')||t.includes('fantastique')) return 'SF / Fantasy';
-  if (t.includes('poésie')||t.includes('poème')) return 'Poésie';
-  if (t.includes('essai')||t.includes('biograph')||t.includes('document')) return 'Essai / Document';
+  if (t.includes('poésie')||t.includes('poeme')||t.includes('poème')) return 'Poésie';
+  if (t.includes('document')||t.includes('essai')||t.includes('biograph')) return 'Essai / Document';
   return 'Littérature';
 }
 
 function setFilter(genre, el) {
   currentFilter = genre;
+  currentPage = 1;
   document.querySelectorAll('.tag').forEach(t => t.classList.remove('active'));
   el.classList.add('active');
-  currentPage = 1;
-  filtrer();
+  filterBooks();
 }
 
-function filtrer() {
+function filterBooks() {
   const q = document.getElementById('searchInput').value.toLowerCase().trim();
-  const sort = document.getElementById('sortSel').value;
-  filtered = BOOKS.filter(b => {
-    if (currentFilter !== 'Tous' && b.genre !== currentFilter) return false;
-    if (q) {
-      return b.title.toLowerCase().includes(q) ||
-             b.author.toLowerCase().includes(q) ||
-             b.editeur.toLowerCase().includes(q) ||
-             b.ean.includes(q);
-    }
-    return true;
-  });
-  // Tri
-  filtered.sort((a, b) => {
-    if (sort === 'titre')  return a.title.localeCompare(b.title, 'fr');
-    if (sort === 'auteur') return a.author.localeCompare(b.author, 'fr');
-    if (sort === 'prix')   return a.prixNum - b.prixNum;
-    if (sort === 'stock')  return b.stock - a.stock;
-    return 0;
-  });
+  filtered = BOOKS;
+  if (currentFilter !== 'Tous') filtered = filtered.filter(b => b.genre === currentFilter);
+  if (q) filtered = filtered.filter(b =>
+    b.title.toLowerCase().includes(q) ||
+    b.author.toLowerCase().includes(q) ||
+    b.editeur.toLowerCase().includes(q)
+  );
   currentPage = 1;
-  afficher();
+  renderPage();
 }
 
-// ── AFFICHAGE ──────────────────────────
-function afficher() {
+function renderPage() {
+  const grid = document.getElementById('bookGrid');
+  const total = filtered.length;
+  const pages = Math.ceil(total / PER_PAGE);
   const start = (currentPage - 1) * PER_PAGE;
-  const page  = filtered.slice(start, start + PER_PAGE);
-  const grid  = document.getElementById('bookGrid');
+  const slice = filtered.slice(start, start + PER_PAGE);
 
-  document.getElementById('resultsBar').textContent =
-    `${filtered.length} livre${filtered.length>1?'s':''} trouvé${filtered.length>1?'s':''}` +
-    (currentFilter !== 'Tous' ? ` · ${currentFilter}` : '');
+  document.getElementById('resultsCount').textContent =
+    total === BOOKS.length ? total + ' livres' : total + ' résultat' + (total>1?'s':'');
 
-  if (!page.length) {
-    grid.innerHTML = '<p style="grid-column:1/-1;padding:3rem;text-align:center;font-style:italic;color:#999;">Aucun livre trouvé.</p>';
+  if (!slice.length) {
+    grid.innerHTML = '<p class="empty">Aucun livre trouvé pour cette recherche.</p>';
     document.getElementById('pagination').innerHTML = '';
     return;
   }
 
-  grid.innerHTML = page.map(b => {
-    const sc = b.stock === 0 ? 'stock-out' : b.stock <= 2 ? 'stock-low' : 'stock-ok';
-    const sl = b.stock === 0 ? 'Épuisé' : b.stock <= 2 ? `Plus que ${b.stock}` : `${b.stock} ex.`;
+  grid.innerHTML = slice.map((b, i) => {
+    const sClass = b.stock > 0 ? 'stock-ok' : 'stock-out';
+    const sLabel = b.stock > 0 ? '● En stock' : '● À la commande';
     const badge = b.fav ? '<span class="book-badge badge-fav">❤ Coup de cœur</span>'
-                : b.stock === 0 ? '<span class="book-badge badge-out">Épuisé</span>'
-                : b.stock <= 2  ? '<span class="book-badge badge-low">Derniers ex.</span>' : '';
-    const couv = b.couverture
-      ? `<img src="${b.couverture}" alt="${b.title}" loading="lazy" onerror="this.parentNode.innerHTML='<span class=no-cover>📖</span>'">`
-      : `<span class="no-cover">📖</span>`;
-    return `<div class="book-card">
-      <div class="book-cover">${badge}${couv}</div>
-      <div class="book-info">
-        <div class="book-title">${b.title}</div>
-        <div class="book-author">${b.author}</div>
-        <span class="book-genre">${b.genre}</span>
-        <div class="book-footer">
-          <span class="book-price">${b.price}</span>
-          <span class="${sc}">● ${sl}</span>
-        </div>
-        <button class="btn-reserve ${b.stock>0?'available':'unavailable'}" onclick="openReserve(${b.id})" ${b.stock===0?'disabled':''}>
-          ${b.stock>0?'Réserver':'Indisponible'}
-        </button>
-      </div>
-    </div>`;
+                : b.stock === 0 ? '<span class="book-badge badge-out">Commande</span>' : '';
+    const btnClass = b.stock > 0 ? 'available' : 'unavailable';
+    const btnLabel = b.stock > 0 ? 'Réserver' : 'Me prévenir';
+    const imgHtml = b.couverture
+      ? '<img src="' + b.couverture + '" alt="' + b.title.replace(/"/g,'') + '" loading="lazy"' +
+        ' onerror="this.style.display=\'none\';this.nextElementSibling.style.cssText=\'display:flex;font-size:2.5rem;align-items:center;justify-content:center;width:100%;height:100%;\'">' +
+        '<span style="display:none">📖</span>'
+      : '<span style="font-size:2.5rem;">📖</span>';
+    return '<div class="book-card" style="animation-delay:' + (i%PER_PAGE*0.025) + 's">' +
+      '<div class="book-cover">' + badge + imgHtml + '</div>' +
+      '<div class="book-info">' +
+        '<div class="book-title">' + b.title + '</div>' +
+        '<div class="book-author">' + b.author + '</div>' +
+        '<span class="book-genre">' + b.genre + '</span>' +
+        '<div class="book-footer">' +
+          '<span class="book-price">' + b.price + '</span>' +
+          '<span class="' + sClass + '">' + sLabel + '</span>' +
+        '</div>' +
+        '<button class="btn-reserve ' + btnClass + '" onclick="openReserve(' + b.id + ')">' + btnLabel + '</button>' +
+      '</div></div>';
   }).join('');
 
-  renderPagination();
-  window.scrollTo({top: document.querySelector('.toolbar').offsetTop - 82, behavior: 'smooth'});
+  renderPagination(pages);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// ── PAGINATION ─────────────────────────
-function renderPagination() {
-  const total = Math.ceil(filtered.length / PER_PAGE);
-  if (total <= 1) { document.getElementById('pagination').innerHTML = ''; return; }
-  let html = '';
-  const p = currentPage;
-  const pages = [];
-  pages.push(1);
-  if (p > 3) pages.push('…');
-  for (let i = Math.max(2, p-1); i <= Math.min(total-1, p+1); i++) pages.push(i);
-  if (p < total - 2) pages.push('…');
-  if (total > 1) pages.push(total);
-
-  if (p > 1) html += `<div class="page-btn" onclick="goPage(${p-1})">←</div>`;
-  pages.forEach(pg => {
-    if (pg === '…') html += `<div class="page-btn dots">…</div>`;
-    else html += `<div class="page-btn ${pg===p?'active':''}" onclick="goPage(${pg})">${pg}</div>`;
-  });
-  if (p < total) html += `<div class="page-btn" onclick="goPage(${p+1})">→</div>`;
-  document.getElementById('pagination').innerHTML = html;
+function renderPagination(pages) {
+  const wrap = document.getElementById('pagination');
+  if (pages <= 1) { wrap.innerHTML = ''; return; }
+  let html = '<button class="page-btn" onclick="goPage(' + (currentPage-1) + ')"' + (currentPage===1?' disabled':'') + '>‹</button>';
+  for (let p = 1; p <= pages; p++) {
+    if (p === 1 || p === pages || Math.abs(p - currentPage) <= 2) {
+      html += '<button class="page-btn' + (p===currentPage?' active':'') + '" onclick="goPage(' + p + ')">' + p + '</button>';
+    } else if (Math.abs(p - currentPage) === 3) {
+      html += '<span style="padding:0 .3rem;color:var(--ink-soft);">…</span>';
+    }
+  }
+  html += '<button class="page-btn" onclick="goPage(' + (currentPage+1) + ')"' + (currentPage===pages?' disabled':'') + '>›</button>';
+  wrap.innerHTML = html;
 }
 
-function goPage(n) { currentPage = n; afficher(); }
+function goPage(p) { currentPage = p; renderPage(); }
 
-// ── RÉSERVATION ────────────────────────
 function openReserve(id) {
-  selectedBook = BOOKS.find(b => b.id === id);
-  if (!selectedBook) return;
-  document.getElementById('modalTitle').textContent = `${selectedBook.title} — ${selectedBook.author}`;
-  ['rNom','rTel','rEmail'].forEach(id => document.getElementById(id).value = '');
+  reserveBook = BOOKS.find(b => b.id === id);
+  if (!reserveBook) return;
+  document.getElementById('reserveBookTitle').textContent = '« ' + reserveBook.title + ' » — ' + reserveBook.author;
   document.getElementById('reserveModal').classList.add('open');
 }
-function closeModal() { document.getElementById('reserveModal').classList.remove('open'); }
-
-async function soumettre() {
-  const nom = document.getElementById('rNom').value.trim();
-  const tel = document.getElementById('rTel').value.trim();
-  if (!nom || !tel) { toast('⚠️ Nom et téléphone requis.'); return; }
-  try {
-    await fetch('https://formspree.io/f/mvzwkqzn', {
-      method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body: JSON.stringify({
-        _subject: `Réservation : ${selectedBook.title}`,
-        livre: selectedBook.title, auteur: selectedBook.author, ean: selectedBook.ean,
-        nom, tel, email: document.getElementById('rEmail').value.trim()
-      })
-    });
-    closeModal();
-    toast('✅ Réservation envoyée ! Nous vous confirmons par téléphone.');
-  } catch(e) { toast('⚠️ Erreur. Appelez-nous au 02 40 23 44 44.'); }
+function closeReserve() {
+  document.getElementById('reserveModal').classList.remove('open');
+  ['rNom','rTel','rEmail','rMsg'].forEach(id => { document.getElementById(id).value = ''; });
+}
+document.getElementById('reserveModal').addEventListener('click', function(e) {
+  if (e.target === this) closeReserve();
+});
+function sendReserve() {
+  const nom   = document.getElementById('rNom').value.trim();
+  const email = document.getElementById('rEmail').value.trim();
+  const tel   = document.getElementById('rTel').value.trim();
+  const msg   = document.getElementById('rMsg').value.trim();
+  if (!nom || !email) { showToast('⚠️ Veuillez renseigner votre nom et e-mail.'); return; }
+  const titre = reserveBook ? reserveBook.title : '?';
+  fetch('https://formspree.io/f/mvzwkqzn', {
+    method:'POST',
+    headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body: JSON.stringify({ _subject:'Réservation : ' + titre, nom, tel, email, livre: titre, message: msg })
+  }).then(r=>r.json()).then(d => {
+    if (d.ok) { closeReserve(); showToast('✅ Réservation envoyée pour « ' + titre + ' » !'); }
+    else showToast('⚠️ Une erreur est survenue, réessayez.');
+  }).catch(() => showToast('⚠️ Une erreur est survenue, réessayez.'));
 }
 
-function toast(msg) {
+function showToast(msg) {
   const t = document.getElementById('toast');
   t.textContent = msg; t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 4000);
+  setTimeout(() => t.classList.remove('show'), 3500);
 }
 
-document.getElementById('reserveModal').addEventListener('click', e => {
-  if (e.target === e.currentTarget) closeModal();
+chargerStock().then(() => {
+  // Pré-remplir la recherche depuis l'URL (?q=...)
+  const params = new URLSearchParams(window.location.search);
+  const q = params.get('q');
+  if (q) {
+    document.getElementById('searchInput').value = q;
+    filterBooks();
+  }
 });
-
-init();
 </script>
 </body>
 </html>

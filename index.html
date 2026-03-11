@@ -709,17 +709,23 @@
 </section>
 
 <!-- CATALOGUE -->
-<section id="catalogue">
-  <div class="section-header">
-    <div>
-      <h2 class="section-title">Notre catalogue</h2>
-      <p class="section-sub">Une sélection de nos livres en stock</p>
+<section id="catalogue" style="background:var(--cream);padding:3rem 2rem;">
+  <div style="max-width:680px;margin:0 auto;text-align:center;">
+    <div style="font-family:'Raleway',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--amber);margin-bottom:0.5rem;">Recherche</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--wood-dark);margin-bottom:1.2rem;">Trouvez votre prochain livre</h2>
+    <div style="display:flex;gap:0;box-shadow:0 2px 16px var(--shadow);border-radius:3px;overflow:hidden;">
+      <input type="text" id="searchInput" placeholder="Titre, auteur, genre…"
+        style="flex:1;padding:1rem 1.4rem;font-family:'Lora',serif;font-size:0.95rem;border:none;outline:none;background:white;color:var(--ink);"
+        onkeydown="if(event.key==='Enter') goSearch()" />
+      <button onclick="goSearch()"
+        style="padding:1rem 1.8rem;background:var(--wood);color:var(--cream);border:none;cursor:pointer;font-family:'Raleway',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;transition:background 0.2s;white-space:nowrap;"
+        onmouseover="this.style.background='var(--wood-dark)'" onmouseout="this.style.background='var(--wood)'">
+        Rechercher →
+      </button>
     </div>
-    <a href="catalogue.html" class="see-all" style="text-decoration:none;">Tout voir →</a>
-  </div>
-  <div class="book-grid" id="bookGrid" style="grid-template-columns:repeat(5,1fr);gap:1.2rem;"></div>
-  <div style="text-align:center;margin-top:2rem;">
-    <a href="catalogue.html" style="display:inline-block;font-family:'Raleway',sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;background:var(--wood);color:var(--cream);padding:0.85rem 2.5rem;border-radius:2px;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='var(--wood-dark)'" onmouseout="this.style.background='var(--wood)'">Explorer tout le catalogue →</a>
+    <p style="margin-top:1rem;font-family:'Lora',serif;font-style:italic;font-size:0.82rem;color:var(--ink-soft);">
+      Ou <a href="catalogue.html" style="color:var(--wood);text-decoration:underline;">parcourez tout le catalogue</a>
+    </p>
   </div>
 </section>
 
