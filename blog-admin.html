@@ -944,20 +944,23 @@ var Tempete = (() => {
       return;
     }
     const parAnnee = {};
-    items.forEach(n => { if (!parAnnee[n.annee]) parAnnee[n.annee] = []; parAnnee[n.annee].push(n); });
-    el.innerHTML = Object.keys(parAnnee).sort((a,b) => b-a).map(annee => `
-      <div style="margin-bottom:1.2rem;">
-        <div style="font-family:'Raleway',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--wood);margin-bottom:.5rem;">${annee}</div>
-        ${parAnnee[annee].map(n => `
-          <div style="display:flex;align-items:center;gap:.8rem;padding:.6rem .8rem;background:var(--warm);border-radius:4px;margin-bottom:.3rem;border:1px solid rgba(92,26,26,.08);">
-            <img src="avisdetempete/${n.fichier}" style="width:36px;height:50px;object-fit:cover;border-radius:2px;flex-shrink:0;" onerror="this.style.opacity='.3'"/>
-            <div style="flex:1;font-family:'Lora',serif;font-size:.88rem;">${n.mois} ${n.annee}</div>
-            <div style="font-size:.7rem;color:var(--soft);font-family:'Raleway',sans-serif;">${n.fichier}</div>
-            <button onclick="Tempete.supprimer('${n.fichier}')" style="background:none;border:none;cursor:pointer;font-size:1rem;color:#c0392b;padding:.2rem;" title="Supprimer">🗑</button>
-          </div>`).join('')}
-      </div>`).join('');
+    items.forEach(function(n) { if (!parAnnee[n.annee]) parAnnee[n.annee] = []; parAnnee[n.annee].push(n); });
+    let html = '';
+    Object.keys(parAnnee).sort(function(a,b){ return b-a; }).forEach(function(annee) {
+      html += '<div style="margin-bottom:1.2rem;">';
+      html += '<div style="font-family:Raleway,sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--wood);margin-bottom:.5rem;">' + annee + '</div>';
+      parAnnee[annee].forEach(function(n) {
+        html += '<div style="display:flex;align-items:center;gap:.8rem;padding:.6rem .8rem;background:var(--warm);border-radius:4px;margin-bottom:.3rem;border:1px solid rgba(92,26,26,.08);">';
+        html += '<img src="avisdetempete/' + n.fichier + '" style="width:36px;height:50px;object-fit:cover;border-radius:2px;flex-shrink:0;" onerror="this.style.opacity=0.3"/>';
+        html += '<div style="flex:1;font-family:Lora,serif;font-size:.88rem;">' + n.mois + ' ' + n.annee + '</div>';
+        html += '<div style="font-size:.7rem;color:var(--soft);">' + n.fichier + '</div>';
+        html += '<button onclick="Tempete.supprimer(\'' + n.fichier + '\')" style="background:none;border:none;cursor:pointer;font-size:1rem;color:#c0392b;padding:.2rem;" title="Supprimer">🗑</button>';
+        html += '</div>';
+      });
+      html += '</div>';
+    });
+    el.innerHTML = html;
   }
-
   function previewFichier() {
     const fileInput = document.getElementById('tFichierFile');
     if (!fileInput.files.length) return;
@@ -1061,48 +1064,52 @@ var Apropos = (() => {
   }
 
   function renderForms() {
-    // Libraires
     const lEl = document.getElementById('librairesForms');
-    lEl.innerHTML = libraires.map((l, i) => {
-      const photoPreview = l.photo
-        ? '<img src="' + l.photo + '" style="width:56px;height:74px;object-fit:cover;border-radius:3px;flex-shrink:0;" onerror="this.style.display='none'" id="lPhotoPreview' + i + '"/>'
-        : '<div id="lPhotoPreview' + i + '" style="width:56px;height:74px;background:var(--parchment);border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0;">🧑‍💼</div>';
-      return '<div style="border:1px solid rgba(92,26,26,.12);border-radius:5px;padding:1.2rem;margin-bottom:1rem;background:var(--warm);position:relative;">'
-        + '<button onclick="Apropos.supprimerLibraire(' + i + ')" style="position:absolute;top:.6rem;right:.6rem;background:none;border:none;cursor:pointer;font-size:1rem;color:#c0392b;" title="Supprimer">🗑</button>'
-        + '<div class="frow">'
-        + '<div class="f"><label>Prénom *</label><input type="text" id="lPrenom' + i + '" value="' + (l.prenom||'').replace(/"/g,'&quot;') + '"/></div>'
-        + '<div class="f"><label>Rôle</label><input type="text" id="lRole' + i + '" value="' + (l.role||'').replace(/"/g,'&quot;') + '" placeholder="Libraire · Co-fondateur·rice"/></div>'
-        + '</div>'
-        + '<div class="f"><label>Bio</label><textarea id="lBio' + i + '" style="min-height:80px;">' + (l.bio||'') + '</textarea></div>'
-        + '<div class="frow">'
-        + '<div class="f">'
-        + '<label>Photo</label>'
-        + '<div style="display:flex;gap:.6rem;align-items:flex-start;flex-wrap:wrap;margin-top:.3rem;">'
-        + photoPreview
-        + '<div style="flex:1;min-width:160px;">'
-        + '<input type="file" id="lPhotoFile' + i + '" accept="image/*" style="font-size:.75rem;margin-bottom:.4rem;width:100%;" onchange="Apropos.previewPhoto(' + i + ')"/>'
-        + '<input type="text" id="lPhoto' + i + '" value="' + (l.photo||'').replace(/"/g,'&quot;') + '" placeholder="images/prenom.jpg" style="font-size:.75rem;margin-top:.2rem;"/>'
-        + '<small style="color:var(--soft);display:block;margin-top:.2rem;">Sélectionnez un fichier — uploadé automatiquement sur GitHub.</small>'
-        + '</div></div></div>'
-        + '<div class="f"><label>Citation</label><input type="text" id="lCitation' + i + '" value="' + (l.citation||'').replace(/"/g,'&quot;') + '"/></div>'
-        + '</div>'
-        + '<div class="f"><label>Genres (séparés par des virgules)</label><input type="text" id="lGenres' + i + '" value="' + (l.genres||[]).join(', ').replace(/"/g,'&quot;') + '" placeholder="Littérature française, Essais"/></div>'
-        + '</div>';
-    }).join('') || '<p style="font-style:italic;color:var(--soft);font-size:.85rem;">Aucun libraire — cliquez sur « + Ajouter ».</p>';
+    if (!libraires.length) {
+      lEl.innerHTML = '<p style="font-style:italic;color:var(--soft);font-size:.85rem;">Aucun libraire — cliquez sur « + Ajouter ».</p>';
+    } else {
+      let lHtml = '';
+      libraires.forEach(function(l, i) {
+        const prevImg = l.photo
+          ? "<img src=\"" + l.photo + "\" style=\"width:56px;height:74px;object-fit:cover;border-radius:3px;flex-shrink:0;\" onerror=\"this.style.display='none'\" id=\"lPhotoPreview" + i + "\"/>"
+          : "<div id=\"lPhotoPreview" + i + "\" style=\"width:56px;height:74px;background:var(--parchment);border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0;\">🧑‍💼</div>";
+        lHtml += '<div style="border:1px solid rgba(92,26,26,.12);border-radius:5px;padding:1.2rem;margin-bottom:1rem;background:var(--warm);position:relative;">';
+        lHtml += '<button onclick="Apropos.supprimerLibraire(' + i + ')" style="position:absolute;top:.6rem;right:.6rem;background:none;border:none;cursor:pointer;font-size:1rem;color:#c0392b;" title="Supprimer">🗑</button>';
+        lHtml += '<div class="frow">';
+        lHtml += '<div class="f"><label>Prénom *</label><input type="text" id="lPrenom' + i + '" value="' + (l.prenom||'').replace(/"/g,'&quot;') + '"/></div>';
+        lHtml += '<div class="f"><label>Rôle</label><input type="text" id="lRole' + i + '" value="' + (l.role||'').replace(/"/g,'&quot;') + '" placeholder="Libraire · Co-fondateur·rice"/></div>';
+        lHtml += '</div>';
+        lHtml += '<div class="f"><label>Bio</label><textarea id="lBio' + i + '" style="min-height:80px;">' + (l.bio||'') + '</textarea></div>';
+        lHtml += '<div class="frow"><div class="f"><label>Photo</label>';
+        lHtml += '<div style="display:flex;gap:.6rem;align-items:flex-start;flex-wrap:wrap;margin-top:.3rem;">';
+        lHtml += prevImg;
+        lHtml += '<div style="flex:1;min-width:160px;">';
+        lHtml += '<input type="file" id="lPhotoFile' + i + '" accept="image/*" style="font-size:.75rem;margin-bottom:.4rem;width:100%;" onchange="Apropos.previewPhoto(' + i + ')"/>';
+        lHtml += '<input type="text" id="lPhoto' + i + '" value="' + (l.photo||'').replace(/"/g,'&quot;') + '" placeholder="images/prenom.jpg" style="font-size:.75rem;margin-top:.2rem;"/>';
+        lHtml += '<small style="color:var(--soft);display:block;margin-top:.2rem;">Sélectionnez un fichier — uploadé automatiquement sur GitHub.</small>';
+        lHtml += '</div></div></div>';
+        lHtml += '<div class="f"><label>Citation</label><input type="text" id="lCitation' + i + '" value="' + (l.citation||'').replace(/"/g,'&quot;') + '"/></div>';
+        lHtml += '</div>';
+        lHtml += '<div class="f"><label>Genres (séparés par des virgules)</label><input type="text" id="lGenres' + i + '" value="' + (l.genres||[]).join(', ').replace(/"/g,'&quot;') + '" placeholder="Littérature française, Essais"/></div>';
+        lHtml += '</div>';
+      });
+      lEl.innerHTML = lHtml;
+    }
 
-    // Valeurs
     const vEl = document.getElementById('valeursForms');
-    vEl.innerHTML = valeurs.map((v, i) => `
-      <div style="border:1px solid rgba(92,26,26,.12);border-radius:5px;padding:1rem;margin-bottom:.8rem;background:var(--warm);position:relative;">
-        <button onclick="Apropos.supprimerValeur(${i})" style="position:absolute;top:.5rem;right:.5rem;background:none;border:none;cursor:pointer;font-size:1rem;color:#c0392b;">🗑</button>
-        <div class="frow">
-          <div class="f" style="max-width:80px;"><label>Icône</label><input type="text" id="vIcone${i}" value="${v.icone||''}"/></div>
-          <div class="f"><label>Titre *</label><input type="text" id="vTitre${i}" value="${v.titre||''}"/></div>
-        </div>
-        <div class="f"><label>Texte</label><textarea id="vTexte${i}" style="min-height:60px;">${v.texte||''}</textarea></div>
-      </div>`).join('');
+    let vHtml = '';
+    valeurs.forEach(function(v, i) {
+      vHtml += '<div style="border:1px solid rgba(92,26,26,.12);border-radius:5px;padding:1rem;margin-bottom:.8rem;background:var(--warm);position:relative;">';
+      vHtml += '<button onclick="Apropos.supprimerValeur(' + i + ')" style="position:absolute;top:.5rem;right:.5rem;background:none;border:none;cursor:pointer;font-size:1rem;color:#c0392b;">🗑</button>';
+      vHtml += '<div class="frow">';
+      vHtml += '<div class="f" style="max-width:80px;"><label>Icône</label><input type="text" id="vIcone' + i + '" value="' + (v.icone||'') + '"/></div>';
+      vHtml += '<div class="f"><label>Titre *</label><input type="text" id="vTitre' + i + '" value="' + (v.titre||'').replace(/"/g,'&quot;') + '"/></div>';
+      vHtml += '</div>';
+      vHtml += '<div class="f"><label>Texte</label><textarea id="vTexte' + i + '" style="min-height:60px;">' + (v.texte||'') + '</textarea></div>';
+      vHtml += '</div>';
+    });
+    vEl.innerHTML = vHtml;
   }
-
   function lireFormulaires() {
     const nb = document.querySelectorAll('[id^="lPrenom"]').length;
     libraires = [];
