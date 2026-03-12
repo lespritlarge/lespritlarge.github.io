@@ -1,5 +1,5 @@
 {
-  "mis_a_jour": "2026-03-11T15:12:56.948Z",
+  "mis_a_jour": "2026-03-12T18:34:53.024Z",
   "evenements": [
     {
       "titre": "Les lectures d'Adel",
@@ -54,19 +54,6 @@
       "recurrent": true
     },
     {
-      "id": "1742774400000",
-      "titre": "Casse-croûte Littéraire",
-      "date": "2026-03-26",
-      "time": "12h30 à 14h00",
-      "type": "",
-      "lieu": "Librairie L'Esprit Large",
-      "desc": "On mange ensemble, un jeudi midi par mois pour discuter et échanger autour de vos et nos lectures...",
-      "affiche": "",
-      "special": false,
-      "recurrent": true,
-      "fermeture": false
-    },
-    {
       "id": "1742860800000",
       "titre": "Échanges autour de la littérature italienne",
       "date": "2026-03-26",
@@ -77,6 +64,19 @@
       "affiche": "",
       "special": false,
       "recurrent": false,
+      "fermeture": false
+    },
+    {
+      "id": "1742774400000",
+      "titre": "Casse-croûte Littéraire",
+      "date": "2026-03-26",
+      "time": "12h30 à 14h00",
+      "type": "",
+      "lieu": "Librairie L'Esprit Large",
+      "desc": "On mange ensemble, un jeudi midi par mois pour discuter et échanger autour de vos et nos lectures...",
+      "affiche": "",
+      "special": false,
+      "recurrent": true,
       "fermeture": false
     },
     {
@@ -119,6 +119,19 @@
       "recurrent": true
     },
     {
+      "titre": "Rencontre autour de l'œuf avec Servanne",
+      "time": "",
+      "type": "🥪 Casse-croûte Littéraire",
+      "lieu": "",
+      "desc": "Rencontre autour de l'œuf avec Servanne",
+      "affiche": "",
+      "special": false,
+      "fermeture": false,
+      "id": "1773340493024",
+      "date": "2026-04-07",
+      "recurrent": false
+    },
+    {
       "titre": "Les lectures d'Adel",
       "time": "10h30-12h",
       "type": "Lecture hebdo 📖",
@@ -129,6 +142,19 @@
       "fermeture": false,
       "id": "mmm6hm5w_r3",
       "date": "2026-04-08",
+      "recurrent": true
+    },
+    {
+      "titre": "Les lectures d'Adel",
+      "time": "10h30-12h",
+      "type": "Lecture hebdo 📖",
+      "lieu": "Librairie L'Esprit Large",
+      "desc": "Lectures d'albums jeunesses pour petits et grands enfants...",
+      "affiche": "Lectures_Adel.png",
+      "special": false,
+      "fermeture": false,
+      "id": "mmm6hm5w_r4",
+      "date": "2026-04-15",
       "recurrent": true
     },
     {
@@ -143,19 +169,6 @@
       "id": "1773234352126",
       "date": "2026-04-15",
       "recurrent": false
-    },
-    {
-      "titre": "Les lectures d'Adel",
-      "time": "10h30-12h",
-      "type": "Lecture hebdo 📖",
-      "lieu": "Librairie L'Esprit Large",
-      "desc": "Lectures d'albums jeunesses pour petits et grands enfants...",
-      "affiche": "Lectures_Adel.png",
-      "special": false,
-      "fermeture": false,
-      "id": "mmm6hm5w_r4",
-      "date": "2026-04-15",
-      "recurrent": true
     },
     {
       "titre": "Les lectures d'Adel",
