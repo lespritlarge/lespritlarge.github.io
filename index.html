@@ -265,6 +265,21 @@
     .btn-reserve.unavailable { background: #ddd; color: #999; cursor: not-allowed; }
 
     /* ── COUPS DE CŒUR ── */
+    #blog-home { background: var(--cream); }
+    .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.8rem; margin-top: 2rem; }
+    .blog-card { background: #fff; border-radius: 6px; overflow: hidden; box-shadow: 0 2px 12px rgba(42,31,20,.08); transition: transform .2s, box-shadow .2s; display: flex; flex-direction: column; }
+    .blog-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(42,31,20,.15); }
+    .blog-card-img { width: 100%; height: 180px; object-fit: cover; background: var(--parchment); display: flex; align-items: center; justify-content: center; font-size: 3rem; }
+    .blog-card-img img { width: 100%; height: 100%; object-fit: cover; }
+    .blog-card-body { padding: 1.4rem; flex: 1; display: flex; flex-direction: column; }
+    .blog-card-cat { font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--wood); margin-bottom: .4rem; }
+    .blog-card-titre { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--ink); margin-bottom: .6rem; line-height: 1.35; }
+    .blog-card-extrait { font-family: 'Lora', serif; font-size: .85rem; color: var(--ink-soft); line-height: 1.6; flex: 1; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    .blog-card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .blog-card-date { font-size: .72rem; color: var(--ink-soft); }
+    .blog-card-lire { font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--wood); text-decoration: none; }
+    .blog-card-lire:hover { text-decoration: underline; }
+    .blog-empty { font-family: 'Lora', serif; font-style: italic; color: var(--ink-soft); text-align: center; padding: 2rem; }
     #coups-de-coeur { background: var(--parchment); }
     .coup-card {
       display: grid; grid-template-columns: 100px 1fr;
@@ -709,6 +724,19 @@
 </section>
 
 <!-- CATALOGUE -->
+<section id="blog-home">
+  <div class="section-header">
+    <div>
+      <h2 class="section-title">Le blog de la librairie</h2>
+      <p class="section-sub">Nos coups de plume, lectures du moment et actualités</p>
+    </div>
+    <a href="blog.html" class="voir-tout">Tous les articles →</a>
+  </div>
+  <div class="blog-grid" id="blogHomeGrid">
+    <p class="blog-empty">Chargement…</p>
+  </div>
+</section>
+
 <section id="catalogue" style="background:var(--cream);padding:3rem 2rem;">
   <div style="max-width:680px;margin:0 auto;text-align:center;">
     <div style="font-family:'Raleway',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--amber);margin-bottom:0.5rem;">Recherche</div>
@@ -966,6 +994,49 @@ async function chargerStock() {
   const apercu = enStock.sort(() => Math.random() - 0.5).slice(0, 5);
   renderBooks(apercu, true); // true = mode accueil (1 ligne)
   chargerCoups();
+  chargerBlog();
+}
+
+async function chargerBlog() {
+  const grid = document.getElementById('blogHomeGrid');
+  if (!grid) return;
+  try {
+    const r = await fetch('blog.json?t=' + Date.now());
+    if (!r.ok) throw new Error();
+    const data = await r.json();
+    const articles = (data.articles || [])
+      .sort((a, b) => new Date(b.date) - new Date(a.date))
+      .slice(0, 3); // 3 derniers articles
+
+    if (!articles.length) {
+      grid.innerHTML = '<p class="blog-empty">Aucun article pour le moment — revenez bientôt !</p>';
+      return;
+    }
+
+    grid.innerHTML = articles.map(a => {
+      const imgHtml = a.image
+        ? '<img src="' + a.image + '" alt="' + (a.titre||'').replace(/"/g,'') + '" onerror="this.parentElement.textContent=String.fromCodePoint(128221)">'
+        : '📝';
+      const extrait = (a.texte || '').replace(/<[^>]+>/g, '').slice(0, 160) + '…';
+      const dateLabel = a.date ? new Date(a.date).toLocaleDateString('fr-FR', { day:'numeric', month:'long', year:'numeric' }) : '';
+      const lienHref  = a.lien || 'blog.html';
+      const lienLabel = a.lien_label || 'Lire la suite';
+      return '<div class="blog-card">' +
+        '<div class="blog-card-img">' + imgHtml + '</div>' +
+        '<div class="blog-card-body">' +
+          (a.categorie ? '<div class="blog-card-cat">' + a.categorie + '</div>' : '') +
+          '<div class="blog-card-titre">' + (a.titre || '') + '</div>' +
+          '<div class="blog-card-extrait">' + extrait + '</div>' +
+          '<div class="blog-card-footer">' +
+            '<span class="blog-card-date">' + dateLabel + '</span>' +
+            '<a href="' + lienHref + '" class="blog-card-lire">' + lienLabel + ' →</a>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+    }).join('');
+  } catch(e) {
+    grid.innerHTML = '<p class="blog-empty">Impossible de charger les articles.</p>';
+  }
 }
 
 async function chargerCoups() {

@@ -34,8 +34,10 @@
     .page-header p{font-family:'Lora',serif;font-style:italic;font-size:1rem;opacity:0.7;}
 
     .toolbar{background:var(--cream);border-bottom:1px solid var(--parchment);
-      padding:1.2rem 4rem;display:flex;align-items:center;gap:1rem;
-      flex-wrap:wrap;position:sticky;top:80px;z-index:50;}
+      padding:1rem 4rem;position:sticky;top:80px;z-index:50;}
+    .toolbar-filters{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.6rem;align-items:center;}
+    .filter-group select{font-family:'Raleway',sans-serif;font-size:.78rem;border:1px solid var(--wood-light);border-radius:3px;padding:.3rem .6rem;background:var(--cream);color:var(--ink);cursor:pointer;min-width:150px;}
+    .filter-group select:focus{outline:none;border-color:var(--wood);}
     .search-wrap{display:flex;align-items:center;background:white;
       border:1.5px solid var(--parchment);border-radius:3px;padding:0 1rem;
       flex:1;max-width:360px;transition:border-color 0.2s;}
@@ -195,31 +197,79 @@
     <span>🔍&nbsp;</span>
     <input type="text" id="searchInput" placeholder="Titre, auteur, éditeur…" oninput="filterBooks()" />
   </div>
-  <div class="filters" id="filterBtns">
-    <button class="tag active" onclick="setFilter('Tous',this)">Tous</button>
-  </div>
-  <div class="filters" id="filterLang" style="margin-top:.4rem;">
-    <span style="font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin-right:.4rem;">Langue</span>
-    <button class="tag active" onclick="setLangFilter('Tous',this)">Toutes</button>
-    <button class="tag" onclick="setLangFilter('Français',this)">Français</button>
-    <button class="tag" onclick="setLangFilter('Anglais',this)">Anglais</button>
-    <button class="tag" onclick="setLangFilter('Autre',this)">Autre</button>
-  </div>
-  <div class="filters" style="margin-top:.4rem;">
-    <span style="font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin-right:.4rem;">Dispo</span>
-    <button class="tag active" onclick="setDispoFilter('Tous',this)">Tous</button>
-    <button class="tag" onclick="setDispoFilter('stock',this)">En stock</button>
-    <button class="tag" onclick="setDispoFilter('commande',this)">Sur commande</button>
-  </div>
-  <div style="display:flex;align-items:center;gap:.5rem;margin-top:.5rem;">
-    <span style="font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);">Trier par</span>
-    <select id="sortSelect" onchange="setSort(this.value)" style="font-family:'Raleway',sans-serif;font-size:.75rem;border:1px solid var(--wood-light);border-radius:3px;padding:.25rem .5rem;background:var(--cream);color:var(--ink);cursor:pointer;">
-      <option value="nouveautes">Nouveautés d'abord</option>
-      <option value="titre">Titre A→Z</option>
-      <option value="auteur">Auteur A→Z</option>
-      <option value="prix_asc">Prix croissant</option>
-      <option value="prix_desc">Prix décroissant</option>
-    </select>
+  <div class="toolbar-filters">
+    <!-- Catégorie hiérarchique -->
+    <div class="filter-group">
+      <select id="selectCat" onchange="setCatFilter(this.value)">
+        <option value="">Tous les genres</option>
+        <optgroup label="Fiction">
+          <option value="Romans">Romans</option>
+          <option value="Policier &amp; Thriller">Policier &amp; Thriller</option>
+          <option value="Science-fiction">Science-fiction</option>
+          <option value="Fantasy &amp; Fantastique">Fantasy &amp; Fantastique</option>
+          <option value="Fantastique &amp; Horreur">Fantastique &amp; Horreur</option>
+          <option value="Nouvelles">Nouvelles</option>
+          <option value="Poésie">Poésie</option>
+          <option value="Théâtre">Théâtre</option>
+          <option value="Littérature">Littérature générale</option>
+          <option value="Littérature sentimentale">Littérature sentimentale</option>
+        </optgroup>
+        <optgroup label="Non-fiction">
+          <option value="Histoire">Histoire</option>
+          <option value="Biographies &amp; Mémoires">Biographies &amp; Mémoires</option>
+          <option value="Essais">Essais</option>
+          <option value="Sciences humaines">Sciences humaines</option>
+          <option value="Philosophie">Philosophie</option>
+          <option value="Psychologie">Psychologie</option>
+          <option value="Voyage &amp; Guides">Voyage &amp; Guides</option>
+          <option value="Nature &amp; Jardinage">Nature &amp; Jardinage</option>
+          <option value="Cuisine &amp; Gastronomie">Cuisine &amp; Gastronomie</option>
+          <option value="Arts">Arts</option>
+          <option value="Santé &amp; Bien-être">Santé &amp; Bien-être</option>
+          <option value="Développement personnel">Développement personnel</option>
+          <option value="Sciences">Sciences</option>
+          <option value="Économie &amp; Gestion">Économie &amp; Gestion</option>
+          <option value="Droit">Droit</option>
+          <option value="Religion &amp; Spiritualité">Religion &amp; Spiritualité</option>
+          <option value="Musique">Musique</option>
+        </optgroup>
+        <optgroup label="Jeunesse">
+          <option value="Jeunesse">Jeunesse (tous)</option>
+          <option value="Albums jeunesse">Albums jeunesse</option>
+        </optgroup>
+        <optgroup label="BD &amp; Mangas">
+          <option value="BD &amp; Comics">BD &amp; Comics</option>
+          <option value="Mangas">Mangas</option>
+        </optgroup>
+      </select>
+    </div>
+    <!-- Langue -->
+    <div class="filter-group">
+      <select id="selectLang" onchange="setLangFilter(this.value)">
+        <option value="">Toutes les langues</option>
+        <option value="Français">Français</option>
+        <option value="Anglais">Anglais</option>
+        <option value="Autre">Autre langue</option>
+      </select>
+    </div>
+    <!-- Disponibilité -->
+    <div class="filter-group">
+      <select id="selectDispo" onchange="setDispoFilter(this.value)">
+        <option value="">Toutes dispos</option>
+        <option value="stock">En stock</option>
+        <option value="commande">Sur commande</option>
+      </select>
+    </div>
+    <!-- Tri -->
+    <div class="filter-group">
+      <select id="sortSelect" onchange="setSort(this.value)">
+        <option value="nouveautes">Nouveautés d'abord</option>
+        <option value="titre">Titre A→Z</option>
+        <option value="auteur">Auteur A→Z</option>
+        <option value="prix_asc">Prix croissant</option>
+        <option value="prix_desc">Prix décroissant</option>
+      </select>
+    </div>
   </div>
   <span class="results-count" id="resultsCount"></span>
 </div>
@@ -229,6 +279,15 @@
     <p class="loading">⏳ Chargement du catalogue…</p>
   </div>
   <div class="pagination" id="pagination"></div>
+</div>
+
+<!-- MODAL FICHE LIVRE -->
+<div class="fiche-overlay" id="ficheOverlay">
+  <div class="fiche-modal">
+    <button class="fiche-close" onclick="closeFiche()">✕</button>
+    <div class="fiche-header" id="ficheHeader"></div>
+    <div class="fiche-body" id="ficheBody"></div>
+  </div>
 </div>
 
 <!-- MODAL RÉSERVATION -->
@@ -325,8 +384,7 @@ async function chargerStock() {
       }
     } catch(e) {}
 
-    buildFilters();
-    document.getElementById('headerSub').textContent =
+      document.getElementById('headerSub').textContent =
       BOOKS.length + ' titres disponibles en librairie ou à la commande';
     filterBooks();
   } catch(e) {
@@ -335,20 +393,6 @@ async function chargerStock() {
   }
 }
 
-function buildFilters() {
-  const counts = {};
-  BOOKS.forEach(b => { counts[b.genre] = (counts[b.genre]||0) + 1; });
-  const sorted = Object.entries(counts).sort((a,b) => b[1]-a[1]).map(e => e[0]);
-  const wrap = document.getElementById('filterBtns');
-  wrap.innerHTML = '<button class="tag active" onclick="setFilter(\'Tous\',this)">Tous</button>';
-  sorted.forEach(g => {
-    const btn = document.createElement('button');
-    btn.className = 'tag';
-    btn.textContent = g;
-    btn.onclick = function() { setFilter(g, this); };
-    wrap.appendChild(btn);
-  });
-}
 
 function devinerGenre(titre, auteur, editeur) {
   const t = ((titre||'') + ' ' + (editeur||'')).toLowerCase();
@@ -362,23 +406,26 @@ function devinerGenre(titre, auteur, editeur) {
   return 'Littérature';
 }
 
-function setLangFilter(lang, el) {
-  currentLangFilter = lang;
-  document.querySelectorAll('#filterLang .tag').forEach(b => b.classList.remove('active'));
-  el.classList.add('active');
+function setCatFilter(val) {
+  currentFilter = val || 'Tous';
   currentPage = 1;
   filterBooks();
 }
 
-function setDispoFilter(dispo, el) {
-  currentDispoFilter = dispo;
-  el.closest('.filters').querySelectorAll('.tag').forEach(b => b.classList.remove('active'));
-  el.classList.add('active');
+function setLangFilter(val) {
+  currentLangFilter = val || 'Tous';
+  currentPage = 1;
+  filterBooks();
+}
+
+function setDispoFilter(val) {
+  currentDispoFilter = val || 'Tous';
   currentPage = 1;
   filterBooks();
 }
 
 function setFilter(genre, el) {
+  // Gardé pour compatibilité (coups de cœur etc.)
   currentFilter = genre;
   currentPage = 1;
   document.querySelectorAll('.tag').forEach(t => t.classList.remove('active'));
@@ -595,6 +642,10 @@ function closeFiche() {
   document.getElementById('ficheOverlay').classList.remove('open');
   document.body.style.overflow = '';
 }
+
+document.getElementById('ficheOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closeFiche();
+});
 
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeFiche();
