@@ -238,10 +238,9 @@ let reserveBook = null;
 function coverUrl(ean, idx) {
   if (!ean) return '';
   const sources = [
-    'https://catalogue.bnf.fr/couverture?appName=NE&idArk=&isbn=' + ean + '&nqaip=2',
     'https://covers.openlibrary.org/b/isbn/' + ean + '-L.jpg',
     'https://covers.openlibrary.org/b/isbn/' + ean + '-M.jpg',
-    'https://books.google.com/books/content?vid=ISBN' + ean + '&printsec=frontcover&img=1&zoom=1',
+    'https://books.google.com/books/content?vid=ISBN' + ean + '&printsec=frontcover&img=1&zoom=1&source=gbs_api',
   ];
   return sources[idx] || '';
 }
@@ -270,15 +269,7 @@ function coverFallback(img) {
   }
 }
 
-// Détecter les images BNF "vides" (placeholder ~1-3 Ko) après chargement
-function checkBnfPlaceholder(img) {
-  // On ne peut pas lire la taille depuis le browser sans fetch
-  // Donc on fait confiance au onerror pour les 404 réels
-  // et on vérifie via naturalWidth pour les images 1x1 ou transparentes
-  if (img.naturalWidth <= 1 || img.naturalHeight <= 1) {
-    coverFallback(img);
-  }
-}
+
 
 async function chargerStock() {
   try {
@@ -396,13 +387,9 @@ function renderPage() {
                 : b.stock === 0 ? '<span class="book-badge badge-out">Commande</span>' : '';
     const btnClass = b.stock > 0 ? 'available' : 'unavailable';
     const btnLabel = b.stock > 0 ? 'Réserver' : 'Me prévenir';
-    const bnfCover = b.cover && b.cover.includes('bnf.fr') ? b.cover : '';
-    const firstSrc = bnfCover || coverUrl(b.ean, bnfCover ? 0 : 1);
-    const startIdx = bnfCover ? 0 : 1;
-    const imgHtml = b.ean || b.cover
-      ? '<img src="' + (firstSrc || coverUrl(b.ean, 0)) + '" alt="' + b.title.replace(/"/g,'&quot;') + '" loading="lazy"' +
-        ' data-ean="' + b.ean + '" data-src-idx="' + startIdx + '"' +
-        ' onload="checkBnfPlaceholder(this)"' +
+    const imgHtml = b.ean
+      ? '<img src="' + coverUrl(b.ean, 0) + '" alt="' + b.title.replace(/"/g,'&quot;') + '" loading="lazy"' +
+        ' data-ean="' + b.ean + '" data-src-idx="0"' +
         ' onerror="coverFallback(this)">' +
         '<span style="display:none;font-size:2.5rem;">📖</span>'
       : '<span style="font-size:2.5rem;">📖</span>';
@@ -483,13 +470,9 @@ function openFiche(id) {
   if (!b) return;
 
   // Header : couverture + méta
-    const bnfCoverF = b.cover && b.cover.includes('bnf.fr') ? b.cover : '';
-  const firstSrcF = bnfCoverF || coverUrl(b.ean, 1);
-  const startIdxF = bnfCoverF ? 0 : 1;
-  const coverHtml = (b.cover || b.ean)
-    ? '<img class="fiche-cover" src="' + firstSrcF + '" alt="' + b.title.replace(/"/g,'&quot;') + '"'
-      + ' data-ean="' + b.ean + '" data-src-idx="' + startIdxF + '"'
-      + ' onload="checkBnfPlaceholder(this)" onerror="coverFallback(this)">'
+    const coverHtml = b.ean
+    ? '<img class="fiche-cover" src="' + coverUrl(b.ean, 0) + '" alt="' + b.title.replace(/"/g,'&quot;') + '"'
+      + ' data-ean="' + b.ean + '" data-src-idx="0" onerror="coverFallback(this)">'
     : '<div class="fiche-cover-ph">📖</div>';
 
   const dispo = b.stock > 0
