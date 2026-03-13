@@ -1,5 +1,5 @@
 {
-  "mis_a_jour": "2026-03-13T16:33:38.247Z",
+  "mis_a_jour": "2026-03-13T16:34:22.480Z",
   "coups": [
     {
       "ean": "9791040806493",
@@ -41,6 +41,15 @@
       "auteur": "Marion Richez",
       "couverture": "https://books.google.com/books/content?id=vu_U0QEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
       "citation": "La lumière au bout du couloir...",
+      "libraire": "Aurélien",
+      "categorie": "Roman"
+    },
+    {
+      "ean": "9782848056012",
+      "titre": "Plomb : roman",
+      "auteur": "Timothée Zourabichvili",
+      "couverture": "https://couverture.geobib.fr/api/v1/9782848056012/large",
+      "citation": "Un roman coup de poing, à lire en apnée...",
       "libraire": "Aurélien",
       "categorie": "Roman"
     }
