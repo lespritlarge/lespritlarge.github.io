@@ -417,6 +417,107 @@
     .footer-links a:hover { opacity: 1; }
     .footer-bottom { background: #3a0e0e; text-align: center; font-size: 0.72rem; padding: 0.8rem; opacity: 0.5; }
 
+    /* ── PRIX EN COURS ── */
+    .prix-en-cours-bandeau {
+      max-width: 960px;
+      margin: 0 auto 3rem;
+      padding: 0 2rem;
+    }
+    .pec-header {
+      background: var(--wood-dark);
+      border-radius: 8px 8px 0 0;
+      padding: 2rem 2.5rem 1.8rem;
+      text-align: center;
+    }
+    .pec-badge {
+      display: inline-block;
+      font-family: 'Raleway', sans-serif;
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      background: rgba(201,168,76,.15);
+      border: 1px solid rgba(201,168,76,.3);
+      border-radius: 20px;
+      padding: .25rem .9rem;
+      margin-bottom: .9rem;
+    }
+    .pec-titre {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 800;
+      color: var(--cream);
+      margin-bottom: .6rem;
+    }
+    .pec-desc {
+      font-family: 'Lora', serif;
+      font-size: .88rem;
+      color: rgba(242,240,239,.6);
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    .pec-grid {
+      background: var(--parchment);
+      padding: 1.8rem 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 1.2rem;
+    }
+    .pec-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: .5rem;
+    }
+    .pec-cover {
+      width: 80px;
+      height: 112px;
+      object-fit: cover;
+      border-radius: 3px;
+      box-shadow: 0 3px 12px rgba(0,0,0,.2);
+    }
+    .pec-cover-ph {
+      width: 80px;
+      height: 112px;
+      background: #fff;
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      box-shadow: 0 3px 12px rgba(0,0,0,.1);
+    }
+    .pec-titre-bd {
+      font-family: 'Lora', serif;
+      font-size: .78rem;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.3;
+    }
+    .pec-auteur-bd {
+      font-family: 'Lora', serif;
+      font-size: .72rem;
+      font-style: italic;
+      color: var(--ink-soft);
+      line-height: 1.2;
+    }
+    .pec-footer {
+      background: var(--wood);
+      border-radius: 0 0 8px 8px;
+      padding: .9rem 2rem;
+      text-align: center;
+    }
+    .pec-vote-info {
+      font-family: 'Raleway', sans-serif;
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .05em;
+      color: rgba(242,240,239,.75);
+    }
+
     /* ── LOADING ── */
     .loading { text-align: center; padding: 3rem; font-family: 'Lora', serif; font-style: italic; color: var(--ink-soft); }
   </style>
@@ -464,39 +565,61 @@
 
 <!-- ── PRIX PREMIÈRE VAGUE ── -->
 <div class="prix-section" id="section-vague">
+
   <div class="prix-desc-block">
     <h2>Prix Première Vague</h2>
     <div class="prix-desc-divider"></div>
     <p id="desc-vague">En partenariat avec les médiathèques de la région, ce prix célèbre la bande dessinée indépendante et les voix émergentes.</p>
   </div>
 
-  <div class="regles-grid">
-    <div class="regle-card">
-      <div class="regle-icon">📚</div>
-      <strong>La sélection</strong>
-      <p>6 bandes dessinées choisies chaque année : parues dans l'année précédente, « one shot » sans suite, d'auteur·rice peu ou méconnu·e.</p>
-    </div>
-    <div class="regle-card">
-      <div class="regle-icon">🗓️</div>
-      <strong>Le calendrier</strong>
-      <p>6 mois de lecture, de rencontres et de débats organisés par la librairie et les médiathèques partenaires.</p>
-    </div>
-    <div class="regle-card">
-      <div class="regle-icon">🗳️</div>
-      <strong>Le vote</strong>
-      <p>5 points à distribuer sur 3 BD maximum. Vote nominatif et non anonyme. Plusieurs votes par famille acceptés.</p>
-    </div>
-    <div class="regle-card">
-      <div class="regle-icon">🤝</div>
-      <strong>Les partenaires</strong>
-      <p id="partenaires-vague">En partenariat avec les médiathèques de la région.</p>
+  <!-- BANDEAU PRIX EN COURS -->
+  <div id="prix-en-cours-block" style="display:none;">
+    <div class="prix-en-cours-bandeau">
+      <div class="pec-header">
+        <div class="pec-badge">🌊 Prix en cours</div>
+        <h3 class="pec-titre">Sélection <span id="pec-annee">2026</span> — Vote ouvert</h3>
+        <p class="pec-desc">Lisez les 6 BD sélectionnées et votez avant la clôture. 5 points à distribuer sur 3 BD maximum.</p>
+      </div>
+      <div class="pec-grid" id="pec-selection"></div>
+      <div class="pec-footer">
+        <p class="pec-vote-info">🗳️ Vote nominatif · Plusieurs votes par famille acceptés · En partenariat avec les médiathèques</p>
+      </div>
     </div>
   </div>
 
+  <!-- PALMARÈS -->
   <div class="palmares-titre">✦ Palmarès</div>
   <div class="palmares-grid" id="palmares-vague">
     <div class="loading">Chargement du palmarès…</div>
   </div>
+
+  <!-- RÈGLES -->
+  <div class="regles-section">
+    <div class="palmares-titre" style="margin-top:3rem;">✦ Comment ça marche ?</div>
+    <div class="regles-grid">
+      <div class="regle-card">
+        <div class="regle-icon">📚</div>
+        <strong>La sélection</strong>
+        <p>6 bandes dessinées choisies chaque année : parues dans l'année précédente, « one shot » sans suite, d'auteur·rice peu ou méconnu·e.</p>
+      </div>
+      <div class="regle-card">
+        <div class="regle-icon">🗓️</div>
+        <strong>Le calendrier</strong>
+        <p>6 mois de lecture, de rencontres et de débats organisés par la librairie et les médiathèques partenaires.</p>
+      </div>
+      <div class="regle-card">
+        <div class="regle-icon">🗳️</div>
+        <strong>Le vote</strong>
+        <p>5 points à distribuer sur 3 BD maximum. Vote nominatif et non anonyme. Plusieurs votes par famille acceptés.</p>
+      </div>
+      <div class="regle-card">
+        <div class="regle-icon">🤝</div>
+        <strong>Les partenaires</strong>
+        <p id="partenaires-vague">En partenariat avec les médiathèques de la région.</p>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <!-- FOOTER -->
@@ -623,7 +746,35 @@ async function chargerPrix() {
     if (pv) {
       document.getElementById('desc-vague').textContent = pv.description || '';
       if (pv.partenaires) document.getElementById('partenaires-vague').textContent = pv.partenaires;
-      renderPalmares(pv.editions, 'palmares-vague');
+
+      // Détecter l'édition en cours = la plus récente sans lauréat défini
+      const editions = pv.editions || [];
+      const anneeActuelle = new Date().getFullYear();
+      const enCours = editions
+        .slice()
+        .sort((a, b) => b.annee - a.annee)
+        .find(e => !e.titre || e.titre === 'À compléter' || e.annee >= anneeActuelle);
+
+      if (enCours && enCours.selection && enCours.selection.length > 0) {
+        document.getElementById('prix-en-cours-block').style.display = 'block';
+        document.getElementById('pec-annee').textContent = enCours.annee;
+
+        const grid = document.getElementById('pec-selection');
+        grid.innerHTML = enCours.selection.map(s => {
+          const cover = s.couverture
+            ? `<img class="pec-cover" src="${s.couverture}" alt="${s.titre}" onerror="this.outerHTML='<div class=pec-cover-ph>🎨</div>'">`
+            : `<div class="pec-cover-ph">🎨</div>`;
+          return `<div class="pec-item">
+            ${cover}
+            <div class="pec-titre-bd">${s.titre || ''}</div>
+            ${s.auteur ? `<div class="pec-auteur-bd">${s.auteur}</div>` : ''}
+          </div>`;
+        }).join('');
+      }
+
+      // Palmarès = éditions avec un lauréat
+      const avecLaureat = editions.filter(e => e.titre && e.titre !== 'À compléter' && (!enCours || e.annee !== enCours.annee));
+      renderPalmares(avecLaureat.length ? avecLaureat : editions, 'palmares-vague');
     }
 
   } catch(e) {
