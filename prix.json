@@ -113,7 +113,14 @@
         "auteur": "Valentine Choquet",
         "editeur": "Editions de la Gouttiere",
         "couverture": "https://cdn.prod.website-files.com/63ece03295abd3bc7702ae5f/65cf28e7d89c7b791e324b34__QJF_couverture_RVBHD-p-2000.webp",
-        "note": ""
+        "note": "",
+        "selection": [
+          {
+            "titre": "L'orfèvre ",
+            "auteur": "Aurélien LOZES",
+            "couverture": "https://www.komics-initiative.com/app/uploads/2024/06/Capture-decran-2024-06-24-232454.png"
+          }
+        ]
       },
       {
         "annee": 2024,
