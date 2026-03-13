@@ -1,5 +1,5 @@
 {
-  "mis_a_jour": "2026-03-13T13:19:04.232Z",
+  "mis_a_jour": "2026-03-13T13:25:36.186Z",
   "coups": [
     {
       "ean": "9791040806493",
@@ -21,6 +21,14 @@
       "auteur": "Sébastien Dulude",
       "couverture": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1766128452i/241531435.jpg",
       "citation": "Un roman éblouissant touchant à l'universel, où bien plus qu'un minéral toxique, l'amiante se fait le symbole de la dure réalité du monde.",
+      "libraire": "Aurélien"
+    },
+    {
+      "ean": "9782344057360",
+      "titre": "La mise à mort du tétras lyre",
+      "auteur": "David Combet",
+      "couverture": "https://couverture.geobib.fr/api/v1/9782344057360/large",
+      "citation": "Tu seras un homme, mon fils.",
       "libraire": "Aurélien"
     }
   ]
