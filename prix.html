@@ -311,6 +311,28 @@
       margin-top: .4rem;
       line-height: 1.5;
     }
+    .palmares-selection {
+      margin-top: .6rem;
+      padding-top: .6rem;
+      border-top: 1px solid var(--parchment);
+    }
+    .palmares-selection-label {
+      font-family: 'Raleway', sans-serif;
+      font-size: .62rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--wood-light);
+      margin-bottom: .3rem;
+    }
+    .palmares-selection-item {
+      font-family: 'Lora', serif;
+      font-size: .76rem;
+      color: var(--ink-soft);
+      line-height: 1.5;
+    }
+    .sel-titre { font-weight: 500; color: var(--ink); }
+    .sel-auteur { font-style: italic; }
     .palmares-vide .palmares-titre-livre {
       color: var(--parchment);
       font-style: italic;
@@ -463,6 +485,15 @@ function renderPalmares(editions, containerId) {
       ? `<img class="palmares-cover" src="${e.couverture}" alt="${e.titre}" onerror="this.outerHTML='<div class=palmares-cover-ph>📖</div>'">`
       : `<div class="palmares-cover-ph">${containerId.includes('vague') ? '🎨' : '📖'}</div>`;
 
+    const selectionHtml = (e.selection && e.selection.length)
+      ? `<div class="palmares-selection">
+          <div class="palmares-selection-label">Sélection ${e.annee}</div>
+          ${e.selection.map(s => `<div class="palmares-selection-item">
+            <span class="sel-titre">${s.titre||''}</span>
+            ${s.auteur ? `<span class="sel-auteur"> — ${s.auteur}</span>` : ''}
+          </div>`).join('')}
+        </div>` : '';
+
     return `<div class="palmares-card${isLatest ? ' laureat-latest' : ''}${vide ? ' palmares-vide' : ''}">
       <div class="palmares-annee">
         <div class="annee-num">${e.annee}</div>
@@ -475,6 +506,7 @@ function renderPalmares(editions, containerId) {
         ${e.auteur && e.auteur !== 'À compléter' ? `<div class="palmares-auteur">${e.auteur}</div>` : ''}
         ${e.editeur ? `<div class="palmares-editeur">${e.editeur}</div>` : ''}
         ${e.note ? `<div class="palmares-note">${e.note}</div>` : ''}
+        ${selectionHtml}
       </div>
     </div>`;
   }).join('');

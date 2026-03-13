@@ -372,26 +372,43 @@ details[open] .rblock summary::before{transform:rotate(90deg);}
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
 
       <!-- Prix du Premier Roman -->
-      <div style="background:#fff;border-radius:8px;padding:1.5rem;box-shadow:0 2px 12px rgba(42,31,20,.08);">
-        <h3 style="font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--wood-dark);margin-bottom:.3rem;">🏆 Prix du Premier Roman</h3>
-        <p style="font-family:'Lora',serif;font-size:.8rem;color:#888;font-style:italic;margin-bottom:1.2rem;">12 éditions — cliquez sur une ligne pour modifier</p>
-        <label style="display:block;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#888;margin-bottom:.3rem;">Description du prix</label>
-        <textarea id="prix-roman-desc" rows="3" style="width:100%;padding:.6rem;font-family:'Lora',serif;font-size:.85rem;border:1.5px solid #e0d8d8;border-radius:4px;resize:vertical;margin-bottom:1.2rem;"></textarea>
-        <div id="prix-roman-list" style="display:flex;flex-direction:column;gap:.6rem;"></div>
-        <button style="margin-top:1rem;padding:.5rem 1rem;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(92,26,26,.08);color:var(--wood);border:1.5px solid rgba(92,26,26,.2);border-radius:3px;cursor:pointer;" onclick="Prix.ajouterEditionRoman()">+ Ajouter une édition</button>
-        <button class="btn-save" style="margin-top:1rem;" onclick="Prix.sauvegarder()">💾 Publier les Prix</button>
+      <div style="background:#fff;border-radius:8px;padding:1.5rem;box-shadow:0 2px 12px rgba(42,31,20,.08);display:flex;flex-direction:column;gap:.8rem;">
+        <div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--wood-dark);margin-bottom:.2rem;">🏆 Prix du Premier Roman</h3>
+          <p style="font-family:'Lora',serif;font-size:.8rem;color:#888;font-style:italic;">12 éditions</p>
+        </div>
+        <div>
+          <label style="display:block;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#888;margin-bottom:.3rem;">Description du prix</label>
+          <textarea id="prix-roman-desc" rows="3" style="width:100%;padding:.6rem;font-family:'Lora',serif;font-size:.85rem;border:1.5px solid #e0d8d8;border-radius:4px;resize:vertical;"></textarea>
+        </div>
+        <div>
+          <p style="font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#888;margin-bottom:.5rem;">Éditions & lauréats</p>
+          <div id="prix-roman-list" style="display:flex;flex-direction:column;gap:.6rem;max-height:500px;overflow-y:auto;padding-right:.2rem;"></div>
+          <button style="margin-top:.8rem;padding:.5rem 1rem;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(92,26,26,.08);color:var(--wood);border:1.5px solid rgba(92,26,26,.2);border-radius:3px;cursor:pointer;width:100%;" onclick="Prix.ajouterEditionRoman()">+ Ajouter une édition</button>
+        </div>
+        <button class="btn-save" onclick="Prix.sauvegarder()">💾 Publier les deux prix</button>
       </div>
 
       <!-- Prix Première Vague -->
-      <div style="background:#fff;border-radius:8px;padding:1.5rem;box-shadow:0 2px 12px rgba(42,31,20,.08);">
-        <h3 style="font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--wood-dark);margin-bottom:.3rem;">🌊 Prix Première Vague</h3>
-        <p style="font-family:'Lora',serif;font-size:.8rem;color:#888;font-style:italic;margin-bottom:1.2rem;">BD indépendante — en partenariat avec les médiathèques</p>
-        <label style="display:block;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#888;margin-bottom:.3rem;">Description du prix</label>
-        <textarea id="prix-vague-desc" rows="3" style="width:100%;padding:.6rem;font-family:'Lora',serif;font-size:.85rem;border:1.5px solid #e0d8d8;border-radius:4px;resize:vertical;margin-bottom:.8rem;"></textarea>
-        <label style="display:block;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#888;margin-bottom:.3rem;">Partenaires</label>
-        <input type="text" id="prix-vague-partenaires" style="width:100%;padding:.6rem;font-family:'Lora',serif;font-size:.85rem;border:1.5px solid #e0d8d8;border-radius:4px;margin-bottom:1.2rem;" />
-        <div id="prix-vague-list" style="display:flex;flex-direction:column;gap:.6rem;"></div>
-        <button style="margin-top:1rem;padding:.5rem 1rem;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(92,26,26,.08);color:var(--wood);border:1.5px solid rgba(92,26,26,.2);border-radius:3px;cursor:pointer;" onclick="Prix.ajouterEditionVague()">+ Ajouter une édition</button>
+      <div style="background:#fff;border-radius:8px;padding:1.5rem;box-shadow:0 2px 12px rgba(42,31,20,.08);display:flex;flex-direction:column;gap:.8rem;">
+        <div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--wood-dark);margin-bottom:.2rem;">🌊 Prix Première Vague</h3>
+          <p style="font-family:'Lora',serif;font-size:.8rem;color:#888;font-style:italic;">BD indépendante — médiathèques partenaires</p>
+        </div>
+        <div>
+          <label style="display:block;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#888;margin-bottom:.3rem;">Description du prix</label>
+          <textarea id="prix-vague-desc" rows="3" style="width:100%;padding:.6rem;font-family:'Lora',serif;font-size:.85rem;border:1.5px solid #e0d8d8;border-radius:4px;resize:vertical;"></textarea>
+        </div>
+        <div>
+          <label style="display:block;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#888;margin-bottom:.3rem;">Partenaires</label>
+          <input type="text" id="prix-vague-partenaires" style="width:100%;padding:.6rem;font-family:'Lora',serif;font-size:.85rem;border:1.5px solid #e0d8d8;border-radius:4px;" />
+        </div>
+        <div>
+          <p style="font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#888;margin-bottom:.5rem;">Éditions & lauréats</p>
+          <div id="prix-vague-list" style="display:flex;flex-direction:column;gap:.6rem;max-height:500px;overflow-y:auto;padding-right:.2rem;"></div>
+          <button style="margin-top:.8rem;padding:.5rem 1rem;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(92,26,26,.08);color:var(--wood);border:1.5px solid rgba(92,26,26,.2);border-radius:3px;cursor:pointer;width:100%;" onclick="Prix.ajouterEditionVague()">+ Ajouter une édition</button>
+        </div>
+        <button class="btn-save" onclick="Prix.sauvegarder()">💾 Publier les deux prix</button>
       </div>
 
     </div>
@@ -1276,34 +1293,63 @@ var Apropos = (() => {
 var Prix = (() => {
   let _data = null;
 
+  function selectionHtml(selection, type, i) {
+    if (!selection || !selection.length) return '';
+    return selection.map((s, j) => `
+      <div style="display:grid;grid-template-columns:1fr 1fr auto;gap:.3rem;align-items:center;margin-top:.3rem;">
+        <input type="text" value="${s.titre||''}" placeholder="Titre BD sélectionnée"
+          style="padding:.3rem .5rem;font-family:'Lora',serif;font-size:.78rem;border:1px solid #ddd;border-radius:3px;"
+          oninput="Prix._updateSelection('${type}',${i},${j},'titre',this.value)"/>
+        <input type="text" value="${s.auteur||''}" placeholder="Auteur·rice"
+          style="padding:.3rem .5rem;font-family:'Lora',serif;font-size:.78rem;border:1px solid #ddd;border-radius:3px;font-style:italic;"
+          oninput="Prix._updateSelection('${type}',${i},${j},'auteur',this.value)"/>
+        <button onclick="Prix._supprimerSelection('${type}',${i},${j})" style="background:none;border:none;cursor:pointer;color:#c0392b;font-size:.9rem;" title="Retirer">✕</button>
+      </div>
+    `).join('');
+  }
+
   function renderEditions(editions, containerId, type) {
     const cont = document.getElementById(containerId);
     if (!cont) return;
-    cont.innerHTML = (editions || []).map((e, i) => `
+    const isVague = type === 'vague';
+    cont.innerHTML = (editions || []).sort((a,b) => b.annee - a.annee).map((e, i) => `
       <div style="background:var(--warm-white);border-radius:4px;padding:.8rem 1rem;border:1px solid #e8e0e0;">
-        <div style="display:grid;grid-template-columns:80px 1fr 1fr auto;gap:.5rem;align-items:center;">
+        <div style="display:grid;grid-template-columns:70px 1fr 1fr auto;gap:.4rem;align-items:center;">
           <input type="number" value="${e.annee||''}" placeholder="Année"
-            style="padding:.4rem;font-family:'Raleway',sans-serif;font-size:.85rem;border:1px solid #ddd;border-radius:3px;width:100%;"
+            style="padding:.4rem;font-family:'Raleway',sans-serif;font-size:.82rem;border:1px solid #ddd;border-radius:3px;width:100%;font-weight:700;"
             oninput="Prix._updateField('${type}',${i},'annee',parseInt(this.value)||this.value)"/>
-          <input type="text" value="${e.titre||''}" placeholder="Titre du livre"
-            style="padding:.4rem;font-family:'Lora',serif;font-size:.85rem;border:1px solid #ddd;border-radius:3px;width:100%;"
+          <input type="text" value="${e.titre||''}" placeholder="Titre lauréat"
+            style="padding:.4rem;font-family:'Lora',serif;font-size:.82rem;border:1px solid #ddd;border-radius:3px;width:100%;"
             oninput="Prix._updateField('${type}',${i},'titre',this.value)"/>
           <input type="text" value="${e.auteur||''}" placeholder="Auteur·rice"
-            style="padding:.4rem;font-family:'Lora',serif;font-size:.85rem;border:1px solid #ddd;border-radius:3px;width:100%;font-style:italic;"
+            style="padding:.4rem;font-family:'Lora',serif;font-size:.82rem;border:1px solid #ddd;border-radius:3px;width:100%;font-style:italic;"
             oninput="Prix._updateField('${type}',${i},'auteur',this.value)"/>
           <button onclick="Prix._supprimer('${type}',${i})" style="background:none;border:none;cursor:pointer;color:#c0392b;font-size:1rem;padding:.2rem;" title="Supprimer">🗑</button>
         </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:.4rem;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.4rem;margin-top:.4rem;">
           <input type="text" value="${e.editeur||''}" placeholder="Éditeur"
-            style="padding:.4rem;font-family:'Lora',serif;font-size:.8rem;border:1px solid #ddd;border-radius:3px;width:100%;"
+            style="padding:.35rem .5rem;font-family:'Lora',serif;font-size:.78rem;border:1px solid #ddd;border-radius:3px;width:100%;"
             oninput="Prix._updateField('${type}',${i},'editeur',this.value)"/>
-          <input type="text" value="${e.couverture||''}" placeholder="URL couverture (optionnel)"
-            style="padding:.4rem;font-family:'Lora',serif;font-size:.8rem;border:1px solid #ddd;border-radius:3px;width:100%;"
+          <input type="text" value="${e.couverture||''}" placeholder="URL couverture"
+            style="padding:.35rem .5rem;font-family:'Lora',serif;font-size:.78rem;border:1px solid #ddd;border-radius:3px;width:100%;"
             oninput="Prix._updateField('${type}',${i},'couverture',this.value)"/>
         </div>
         <input type="text" value="${e.note||''}" placeholder="Note ou citation (optionnel)"
-          style="padding:.4rem;font-family:'Lora',serif;font-size:.8rem;border:1px solid #ddd;border-radius:3px;width:100%;margin-top:.4rem;font-style:italic;"
+          style="padding:.35rem .5rem;font-family:'Lora',serif;font-size:.78rem;border:1px solid #ddd;border-radius:3px;width:100%;margin-top:.4rem;font-style:italic;"
           oninput="Prix._updateField('${type}',${i},'note',this.value)"/>
+        ${isVague ? `
+        <details style="margin-top:.6rem;">
+          <summary style="font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--wood);cursor:pointer;list-style:none;display:flex;align-items:center;gap:.4rem;">
+            <span>▶</span> Sélection ${e.annee||''} (${(e.selection||[]).length}/6 BD)
+          </summary>
+          <div style="margin-top:.5rem;padding:.6rem;background:#fff;border-radius:3px;border:1px solid #ede5e5;">
+            <div id="selection-${type}-${i}">${selectionHtml(e.selection||[], type, i)}</div>
+            <button onclick="Prix._ajouterSelection('${type}',${i})"
+              style="margin-top:.5rem;padding:.3rem .7rem;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:rgba(92,26,26,.07);color:var(--wood);border:1.5px solid rgba(92,26,26,.18);border-radius:3px;cursor:pointer;">
+              + Ajouter une BD à la sélection
+            </button>
+          </div>
+        </details>` : ''}
       </div>
     `).join('');
   }
@@ -1334,6 +1380,27 @@ var Prix = (() => {
       if (!confirm('Supprimer cette édition ?')) return;
       const key = type === 'roman' ? 'prix_premier_roman' : 'prix_premiere_vague';
       _data[key].editions.splice(idx, 1);
+      renderEditions(_data[key].editions, 'prix-' + type + '-list', type);
+    },
+
+    _ajouterSelection: function(type, edIdx) {
+      const key = type === 'roman' ? 'prix_premier_roman' : 'prix_premiere_vague';
+      if (!_data[key].editions[edIdx].selection) _data[key].editions[edIdx].selection = [];
+      if (_data[key].editions[edIdx].selection.length >= 6) { toast('⚠️ Maximum 6 BD par sélection'); return; }
+      _data[key].editions[edIdx].selection.push({ titre: '', auteur: '' });
+      renderEditions(_data[key].editions, 'prix-' + type + '-list', type);
+    },
+
+    _updateSelection: function(type, edIdx, selIdx, field, val) {
+      const key = type === 'roman' ? 'prix_premier_roman' : 'prix_premiere_vague';
+      if (_data[key].editions[edIdx].selection) {
+        _data[key].editions[edIdx].selection[selIdx][field] = val;
+      }
+    },
+
+    _supprimerSelection: function(type, edIdx, selIdx) {
+      const key = type === 'roman' ? 'prix_premier_roman' : 'prix_premiere_vague';
+      _data[key].editions[edIdx].selection.splice(selIdx, 1);
       renderEditions(_data[key].editions, 'prix-' + type + '-list', type);
     },
 
