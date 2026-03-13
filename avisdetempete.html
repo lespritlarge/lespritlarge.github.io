@@ -253,7 +253,7 @@
 
 <!-- NAV -->
 <nav>
-  <a href="index.html" class="nav-logo">
+  <a href="https://esprit-large.com/index.html" class="nav-logo">
     <img src="images/logo.png" alt="Logo" />
     <span>L'Esprit Large</span>
   </a>
@@ -274,126 +274,11 @@
 </div>
 
 <!-- YEAR TABS -->
-<div class="year-tabs">
-  <button class="year-tab active" onclick="showYear('2026', this)">2026</button>
-  <button class="year-tab" onclick="showYear('2025', this)">2025</button>
-  <button class="year-tab" onclick="showYear('2024', this)">2024</button>
+<div class="year-tabs" id="yearTabs">
+  <span style="font-family:'Raleway',sans-serif;font-size:.75rem;color:var(--ink-soft);font-style:italic;">⏳ Chargement…</span>
 </div>
 
-<!-- CARROUSELS -->
-<div class="carousel-section">
-
-  <!-- 2026 -->
-  <div class="year-section active" id="year-2026">
-    <div class="view-toggle">
-      <button class="view-btn active" onclick="setView('2026','carousel',this)">🎞 Carrousel</button>
-      <button class="view-btn" onclick="setView('2026','grid',this)">⊞ Grille</button>
-    </div>
-    <div class="carousel-wrap" id="carousel-2026">
-      <div class="carousel-track">
-        <div class="carousel-slide active"><img src="avisdetempete/AdT2026Mars.png" alt="Mars 2026" onclick="openLightbox(this.src)" /></div>
-        <div class="carousel-slide"><img src="avisdetempete/AdT2026Février.png" alt="Février 2026" onclick="openLightbox(this.src)" /></div>
-        <div class="carousel-slide"><img src="avisdetempete/AdT2026Janvier.png" alt="Janvier 2026" onclick="openLightbox(this.src)" /></div>
-      </div>
-      <button class="carousel-btn prev" onclick="moveCarousel('2026',-1)">‹</button>
-      <button class="carousel-btn next" onclick="moveCarousel('2026',1)">›</button>
-      <div class="carousel-label" id="label-2026">Mars 2026</div>
-      <div class="carousel-counter" id="counter-2026">1 / 3</div>
-      <div class="carousel-dots" id="dots-2026"></div>
-    </div>
-    <div class="grid-view" id="grid-2026">
-      <div class="grid-item" onclick="openLightbox('avisdetempete/AdT2026Mars.png')"><img src="avisdetempete/AdT2026Mars.png" alt="Mars 2026"/><div class="grid-item-label">Mars 2026</div></div>
-      <div class="grid-item" onclick="openLightbox('avisdetempete/AdT2026Février.png')"><img src="avisdetempete/AdT2026Février.png" alt="Fév. 2026"/><div class="grid-item-label">Fév. 2026</div></div>
-      <div class="grid-item" onclick="openLightbox('avisdetempete/AdT2026Janvier.png')"><img src="avisdetempete/AdT2026Janvier.png" alt="Jan. 2026"/><div class="grid-item-label">Jan. 2026</div></div>
-    </div>
-  </div>
-
-  <!-- 2025 -->
-  <div class="year-section" id="year-2025">
-    <div class="view-toggle">
-      <button class="view-btn active" onclick="setView('2025','carousel',this)">🎞 Carrousel</button>
-      <button class="view-btn" onclick="setView('2025','grid',this)">⊞ Grille</button>
-    </div>
-    <div class="carousel-wrap" id="carousel-2025">
-      <div class="carousel-track">
-        <div class="carousel-slide active"><img src="avisdetempete/2025AdT Décembre.png" alt="Décembre 2025" onclick="openLightbox(this.src)" /></div>
-        <div class="carousel-slide"><img src="avisdetempete/2025AdT Novembre.png" alt="Novembre 2025" onclick="openLightbox(this.src)" /></div>
-        <div class="carousel-slide"><img src="avisdetempete/2025AdT Octobre.png" alt="Octobre 2025" onclick="openLightbox(this.src)" /></div>
-        <div class="carousel-slide"><img src="avisdetempete/2025AdT Septembre.png" alt="Septembre 2025" onclick="openLightbox(this.src)" /></div>
-        <div class="carousel-slide"><img src="avisdetempete/2025AdT Aout.png" alt="Août 2025" onclick="openLightbox(this.src)" /></div>
-        <div class="carousel-slide"><img src="avisdetempete/2025AdT Juillet.png" alt="Juillet 2025" onclick="openLightbox(this.src)" /></div>
-        <div class="carousel-slide"><img src="avisdetempete/2025AdT Juin.png" alt="Juin 2025" onclick="openLightbox(this.src)" /></div>
-        <div class="carousel-slide"><img src="avisdetempete/2025AdT Mai.png" alt="Mai 2025" onclick="openLightbox(this.src)" /></div>
-        <div class="carousel-slide"><img src="avisdetempete/2025AdT Avril.png" alt="Avril 2025" onclick="openLightbox(this.src)" /></div>
-        <div class="carousel-slide"><img src="avisdetempete/2025AdT Mars.png" alt="Mars 2025" onclick="openLightbox(this.src)" /></div>
-        <div class="carousel-slide"><img src="avisdetempete/2025AdTFévrier.jpg" alt="Février 2025" onclick="openLightbox(this.src)" /></div>
-        <div class="carousel-slide"><img src="avisdetempete/2025AdT Janvier.png" alt="Janvier 2025" onclick="openLightbox(this.src)" /></div>
-      </div>
-      <button class="carousel-btn prev" onclick="moveCarousel('2025',-1)">‹</button>
-      <button class="carousel-btn next" onclick="moveCarousel('2025',1)">›</button>
-      <div class="carousel-label" id="label-2025">Décembre 2025</div>
-      <div class="carousel-counter" id="counter-2025">1 / 12</div>
-      <div class="carousel-dots" id="dots-2025"></div>
-    </div>
-    <div class="grid-view" id="grid-2025">
-      <div class="grid-item" onclick="openLightbox('avisdetempete/2025AdT Décembre.png')"><img src="avisdetempete/2025AdT Décembre.png" alt="Déc. 2025"/><div class="grid-item-label">Déc. 2025</div></div>
-      <div class="grid-item" onclick="openLightbox('avisdetempete/2025AdT Novembre.png')"><img src="avisdetempete/2025AdT Novembre.png" alt="Nov. 2025"/><div class="grid-item-label">Nov. 2025</div></div>
-      <div class="grid-item" onclick="openLightbox('avisdetempete/2025AdT Octobre.png')"><img src="avisdetempete/2025AdT Octobre.png" alt="Oct. 2025"/><div class="grid-item-label">Oct. 2025</div></div>
-      <div class="grid-item" onclick="openLightbox('avisdetempete/2025AdT Septembre.png')"><img src="avisdetempete/2025AdT Septembre.png" alt="Sep. 2025"/><div class="grid-item-label">Sep. 2025</div></div>
-      <div class="grid-item" onclick="openLightbox('avisdetempete/2025AdT Août.png')"><img src="avisdetempete/2025AdT Aout.png" alt="Août 2025"/><div class="grid-item-label">Août 2025</div></div>
-      <div class="grid-item" onclick="openLightbox('avisdetempete/2025AdT Juillet.png')"><img src="avisdetempete/2025AdT Juillet.png" alt="Juil. 2025"/><div class="grid-item-label">Juil. 2025</div></div>
-      <div class="grid-item" onclick="openLightbox('avisdetempete/2025AdT Juin.png')"><img src="avisdetempete/2025AdT Juin.png" alt="Juin 2025"/><div class="grid-item-label">Juin 2025</div></div>
-      <div class="grid-item" onclick="openLightbox('avisdetempete/2025AdT Mai.png')"><img src="avisdetempete/2025AdT Mai.png" alt="Mai 2025"/><div class="grid-item-label">Mai 2025</div></div>
-      <div class="grid-item" onclick="openLightbox('avisdetempete/2025AdT Avril.png')"><img src="avisdetempete/2025AdT Avril.png" alt="Avr. 2025"/><div class="grid-item-label">Avr. 2025</div></div>
-      <div class="grid-item" onclick="openLightbox('avisdetempete/2025AdT Mars.png')"><img src="avisdetempete/2025AdT Mars.png" alt="Mars 2025"/><div class="grid-item-label">Mars 2025</div></div>
-      <div class="grid-item" onclick="openLightbox('avisdetempete/2025AdTFévrier.jpg')"><img src="avisdetempete/2025AdTFévrier.jpg" alt="Fév. 2025"/><div class="grid-item-label">Fév. 2025</div></div>
-      <div class="grid-item" onclick="openLightbox('avisdetempete/2025AdT Janvier.png')"><img src="avisdetempete/2025AdT Janvier.png" alt="Jan. 2025"/><div class="grid-item-label">Jan. 2025</div></div>
-    </div>
-  </div>
-
-  <!-- 2024 -->
-  <div class="year-section" id="year-2024">
-    <div class="view-toggle">
-      <button class="view-btn active" onclick="setView('2024','carousel',this)">🎞 Carrousel</button>
-      <button class="view-btn" onclick="setView('2024','grid',this)">⊞ Grille</button>
-    </div>
-    <div class="carousel-wrap" id="carousel-2024">
-      <div class="carousel-track">
-        <div class="carousel-slide active"><img src="avisdetempete/202412AdT Décembre.png" alt="Décembre 2024" onclick="openLightbox(this.src)" /></div>
-        <div class="carousel-slide"><img src="avisdetempete/202411AdT Novembre.jpg" alt="Novembre 2024" onclick="openLightbox(this.src)" /></div>
-        <div class="carousel-slide"><img src="avisdetempete/202410AdT Octobre.jpg" alt="Octobre 2024" onclick="openLightbox(this.src)" /></div>
-        <div class="carousel-slide"><img src="avisdetempete/202409AdT Septembre.jpg" alt="Septembre 2024" onclick="openLightbox(this.src)" /></div>
-        <div class="carousel-slide"><img src="avisdetempete/202408AdT Aout.jpg" alt="Août 2024" onclick="openLightbox(this.src)" /></div>
-        <div class="carousel-slide"><img src="avisdetempete/202407AdT Juillet.png" alt="Juillet 2024" onclick="openLightbox(this.src)" /></div>
-        <div class="carousel-slide"><img src="avisdetempete/202406AdT Juin.jpg" alt="Juin 2024" onclick="openLightbox(this.src)" /></div>
-        <div class="carousel-slide"><img src="avisdetempete/202405AdT MAI.png" alt="Mai 2024" onclick="openLightbox(this.src)" /></div>
-        <div class="carousel-slide"><img src="avisdetempete/202404AdT Avril.png" alt="Avril 2024" onclick="openLightbox(this.src)" /></div>
-        <div class="carousel-slide"><img src="avisdetempete/202403AdT Mars.jpg" alt="Mars 2024" onclick="openLightbox(this.src)" /></div>
-        <div class="carousel-slide"><img src="avisdetempete/202402 AdT Février.jpg" alt="Février 2024" onclick="openLightbox(this.src)" /></div>
-        <div class="carousel-slide"><img src="avisdetempete/202401 AdT Janvier.jpg" alt="Janvier 2024" onclick="openLightbox(this.src)" /></div>
-      </div>
-      <button class="carousel-btn prev" onclick="moveCarousel('2024',-1)">‹</button>
-      <button class="carousel-btn next" onclick="moveCarousel('2024',1)">›</button>
-      <div class="carousel-label" id="label-2024">Décembre 2024</div>
-      <div class="carousel-counter" id="counter-2024">1 / 12</div>
-      <div class="carousel-dots" id="dots-2024"></div>
-    </div>
-    <div class="grid-view" id="grid-2024">
-      <div class="grid-item" onclick="openLightbox('avisdetempete/202412AdT Décembre.png')"><img src="avisdetempete/202412AdT Décembre.png" alt="Déc. 2024"/><div class="grid-item-label">Déc. 2024</div></div>
-      <div class="grid-item" onclick="openLightbox('avisdetempete/202411AdT Novembre.jpg')"><img src="avisdetempete/202411AdT Novembre.jpg" alt="Nov. 2024"/><div class="grid-item-label">Nov. 2024</div></div>
-      <div class="grid-item" onclick="openLightbox('avisdetempete/202410AdT Octobre.jpg')"><img src="avisdetempete/202410AdT Octobre.jpg" alt="Oct. 2024"/><div class="grid-item-label">Oct. 2024</div></div>
-      <div class="grid-item" onclick="openLightbox('avisdetempete/202409AdT Septembre.jpg')"><img src="avisdetempete/202409AdT Septembre.jpg" alt="Sep. 2024"/><div class="grid-item-label">Sep. 2024</div></div>
-      <div class="grid-item" onclick="openLightbox('avisdetempete/202408AdT Aout.jpg')"><img src="avisdetempete/202408AdT Aout.jpg" alt="Août 2024"/><div class="grid-item-label">Août 2024</div></div>
-      <div class="grid-item" onclick="openLightbox('avisdetempete/202407AdT Juillet.png')"><img src="avisdetempete/202407AdT Juillet.png" alt="Juil. 2024"/><div class="grid-item-label">Juil. 2024</div></div>
-      <div class="grid-item" onclick="openLightbox('avisdetempete/202406AdT Juin.jpg')"><img src="avisdetempete/202406AdT Juin.jpg" alt="Juin 2024"/><div class="grid-item-label">Juin 2024</div></div>
-      <div class="grid-item" onclick="openLightbox('avisdetempete/202405AdT MAI.png')"><img src="avisdetempete/202405AdT MAI.png" alt="Mai 2024"/><div class="grid-item-label">Mai 2024</div></div>
-      <div class="grid-item" onclick="openLightbox('avisdetempete/202404AdT Avril.png')"><img src="avisdetempete/202404AdT Avril.png" alt="Avr. 2024"/><div class="grid-item-label">Avr. 2024</div></div>
-      <div class="grid-item" onclick="openLightbox('avisdetempete/202403AdT Mars.jpg')"><img src="avisdetempete/202403AdT Mars.jpg" alt="Mars 2024"/><div class="grid-item-label">Mars 2024</div></div>
-      <div class="grid-item" onclick="openLightbox('avisdetempete/202402 AdT Février.jpg')"><img src="avisdetempete/202402 AdT Février.jpg" alt="Fév. 2024"/><div class="grid-item-label">Fév. 2024</div></div>
-      <div class="grid-item" onclick="openLightbox('avisdetempete/202401 AdT Janvier.jpg')"><img src="avisdetempete/202401 AdT Janvier.jpg" alt="Jan. 2024"/><div class="grid-item-label">Jan. 2024</div></div>
-    </div>
-  </div>
-
+<div class="carousel-section" id="carouselSection">
 </div>
 
 <!-- LIGHTBOX -->
@@ -404,7 +289,7 @@
 
 <!-- FOOTER -->
 <div class="page-footer">
-  <a href="index.html">← Retour à la librairie</a>
+  <a href="https://esprit-large.com/index.html">← Retour à la librairie</a>
   <p style="font-family:'Lora',serif;font-style:italic;font-size:0.82rem;color:rgba(242,240,239,0.3);margin-top:0.8rem;">© 2026 Librairie L'Esprit Large · Guérande</p>
 </div>
 
@@ -439,6 +324,63 @@ function goTo(year, n) {
   dots[state.current].classList.add('active');
   document.getElementById(`label-${year}`).textContent = state.labels[state.current];
   document.getElementById(`counter-${year}`).textContent = `${state.current + 1} / ${slides.length}`;
+}
+
+async function chargerArchives() {
+  try {
+    const r = await fetch('avisdetempete.json?t=' + Date.now());
+    if (!r.ok) throw new Error();
+    const data = await r.json();
+    const numeros = data.numeros || [];
+
+    // Grouper par année
+    const parAnnee = {};
+    numeros.forEach(n => {
+      if (!parAnnee[n.annee]) parAnnee[n.annee] = [];
+      parAnnee[n.annee].push(n);
+    });
+    const annees = Object.keys(parAnnee).map(Number).sort((a,b) => b-a);
+
+    // Générer les onglets années
+    document.getElementById('yearTabs').innerHTML = annees.map((a,i) =>
+      `<button class="year-tab ${i===0?'active':''}" onclick="showYear('${a}', this)">${a}</button>`
+    ).join('');
+
+    // Générer les sections carrousels
+    document.getElementById('carouselSection').innerHTML = annees.map((a, ai) => {
+      const nums = parAnnee[a];
+      const slides = nums.map((n,i) =>
+        `<div class="carousel-slide ${i===0?'active':''}"><img src="avisdetempete/${n.fichier}" alt="${n.mois} ${n.annee}" onclick="openLightbox(this.src)" /></div>`
+      ).join('');
+      const grids = nums.map(n =>
+        `<div class="grid-item" onclick="openLightbox('avisdetempete/${n.fichier}')"><img src="avisdetempete/${n.fichier}" alt="${n.mois} ${n.annee}"/><div class="grid-item-label">${n.mois} ${n.annee}</div></div>`
+      ).join('');
+      return `
+      <div class="year-section ${ai===0?'active':''}" id="year-${a}">
+        <div class="view-toggle">
+          <button class="view-btn active" onclick="setView('${a}','carousel',this)">🎞 Carrousel</button>
+          <button class="view-btn" onclick="setView('${a}','grid',this)">⊞ Grille</button>
+        </div>
+        <div class="carousel-wrap" id="carousel-${a}">
+          <div class="carousel-track">${slides}</div>
+          <button class="carousel-btn prev" onclick="moveCarousel('${a}',-1)">‹</button>
+          <button class="carousel-btn next" onclick="moveCarousel('${a}',1)">›</button>
+          <div class="carousel-label" id="label-${a}">${nums[0].mois} ${a}</div>
+          <div class="carousel-counter" id="counter-${a}">1 / ${nums.length}</div>
+          <div class="carousel-dots" id="dots-${a}"></div>
+        </div>
+        <div class="grid-view" id="grid-${a}">${grids}</div>
+      </div>`;
+    }).join('');
+
+    // Init carrousels
+    annees.forEach(a => initCarousel(String(a)));
+    activeYear = String(annees[0]);
+
+  } catch(e) {
+    document.getElementById('carouselSection').innerHTML =
+      '<p style="text-align:center;font-style:italic;padding:3rem;color:#888;">Archives bientôt disponibles.</p>';
+  }
 }
 
 function moveCarousel(year, dir) {
@@ -484,7 +426,7 @@ document.addEventListener('keydown', e => {
   if (e.key === 'ArrowRight') moveCarousel(activeYear, 1);
 });
 
-initDots();
+chargerArchives();
 </script>
 </body>
 </html>
