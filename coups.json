@@ -1,5 +1,5 @@
 {
-  "mis_a_jour": "2026-03-13T16:33:04.660Z",
+  "mis_a_jour": "2026-03-13T16:33:13.132Z",
   "coups": [
     {
       "ean": "9791040806493",
@@ -32,7 +32,8 @@
       "auteur": "David Combet",
       "couverture": "https://couverture.geobib.fr/api/v1/9782344057360/large",
       "citation": "Tu seras un homme, mon fils.",
-      "libraire": "Aurélien"
+      "libraire": "Aurélien",
+      "categorie": "BD"
     }
   ]
 }
