@@ -177,7 +177,49 @@
         "auteur": "Bea Lema",
         "editeur": "Sarbacane",
         "couverture": "https://editions-sarbacane.com/media/pages/bd/des-maux-a-dire/f61b41b70b-1689580666/des-maux-a-dire_couv_web-400x-q80.webp",
-        "note": ""
+        "note": "",
+        "selection": [
+          {
+            "titre": "Vague de froid",
+            "auteur": "Jean Cremers",
+            "couverture": "https://www.bedetheque.com/media/Couvertures/Couv_465979.jpg"
+          },
+          {
+            "titre": "Dark Quentin",
+            "auteur": "Matao",
+            "couverture": "https://www.bdfugue.com/media/catalog/product/cache/0d950bd4d3aaddc02a824ea154d9c41e/9/7/9782352121817_1_75.webp"
+          },
+          {
+            "titre": "Sans panique",
+            "auteur": "Coline Hégron",
+            "couverture": "https://www.editions-delcourt.fr/sites/default/files/styles/image_list/public/product/9782413047650.jpg?itok=wqyVsM8W"
+          },
+          {
+            "titre": "Motorossa",
+            "auteur": "Jean Auberty - Adèle Albrespy",
+            "couverture": "https://bdi.dlpdomain.com/album/9782205206395/couv/M650x880/motorossa.jpg"
+          },
+          {
+            "titre": "Des Maux à dire",
+            "auteur": "Bea Lema",
+            "couverture": "https://editions-sarbacane.com/media/pages/bd/des-maux-a-dire/f61b41b70b-1689580666/des-maux-a-dire_couv_web-400x-q80.webp"
+          },
+          {
+            "titre": "Clocki",
+            "auteur": "Mathias Martinez",
+            "couverture": "https://www.planetebd.com/dynamicImages/album/cover/large/51/27/album-cover-large-51271.jpg"
+          },
+          {
+            "titre": "Shiki",
+            "auteur": "Rosalie Stroesser",
+            "couverture": "https://viragesgraphiques.com/wp-content/uploads/2023/07/SHIKI-765x1024.png"
+          },
+          {
+            "titre": "Eye contact",
+            "auteur": "Simon Beuret",
+            "couverture": "https://atrabile.org/wp-content/uploads/2023/01/eyecontact_couvrvb-562x765.jpg"
+          }
+        ]
       },
       {
         "annee": 2023,
