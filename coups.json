@@ -1,11 +1,18 @@
 {
-  "mis_a_jour": "2026-03-13T13:09:20.465Z",
+  "mis_a_jour": "2026-03-13T13:18:01.446Z",
   "coups": [
     {
       "ean": "9791040806493",
       "titre": "Karl",
       "couverture": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1768984404i/241524838.jpg",
       "citation": "Est-ce que l'amitié Femme-Robot peut exister, surtout si celui-ci à tuer votre père ?",
+      "libraire": "Aurélien"
+    },
+    {
+      "ean": "9782754848091",
+      "titre": "Arrière-cuisine",
+      "couverture": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1763621948i/240184316.jpg",
+      "citation": "Cuisine et dépendance",
       "libraire": "Aurélien"
     }
   ]
