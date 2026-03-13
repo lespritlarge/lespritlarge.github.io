@@ -1,6 +1,16 @@
 {
-  "mis_a_jour": "2026-03-13T15:03:56.337Z",
+  "mis_a_jour": "2026-03-13T15:04:50.951Z",
   "articles": [
+    {
+      "id": "1773414290951",
+      "titre": "Le site de la librairie fait peau neuve...",
+      "categorie": "Vie de la librairie",
+      "date": "2026-03-13",
+      "texte": "Nouveau site, catalogue mis à jour, pas encore de possibilité de commander via le site mais on y travaille... N'hésitez pas à l'explorer... Et a nous dire ce qu'il manque ou ce qu'il ne va pas !",
+      "image": "",
+      "lien": "",
+      "lien_label": ""
+    },
     {
       "id": "1773414213015",
       "titre": "Fermeture pour inventaire",
