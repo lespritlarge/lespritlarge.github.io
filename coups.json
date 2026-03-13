@@ -1,4 +1,12 @@
 {
-  "mis_a_jour": "2026-03-11T15:12:00.049Z",
-  "coups": []
+  "mis_a_jour": "2026-03-13T10:35:41.071Z",
+  "coups": [
+    {
+      "ean": "9791040806493",
+      "titre": "Karl",
+      "couverture": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1768984404i/241524838.jpg",
+      "citation": "Est-ce que l'amitié Femme-Robot peut exister, surtout si celui-ci à tuer votre père ?",
+      "libraire": "Aurélien"
+    }
+  ]
 }
