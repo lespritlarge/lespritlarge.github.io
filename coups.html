@@ -77,6 +77,7 @@
     <li><a href="https://esprit-large.com/evenements.html">Événements</a></li>
     <li><a href="https://esprit-large.com/blog.html">Blog</a></li>
     <li><a href="https://esprit-large.com/avisdetempete.html">🌊 Avis de Tempête</a></li>
+    <li><a href="https://esprit-large.com/escapades.html">🧳 Escapades</a></li>
     <li><a href="https://esprit-large.com/prix.html">🏆 Nos Prix</a></li>
     <li><a href="https://esprit-large.com/a-propos.html">À propos</a></li>
   </ul>
@@ -107,7 +108,7 @@
   <div>
     <div class="f-logo">L'Esprit Large</div>
     <p class="f-desc">Librairie indépendante au cœur de Guérande.</p>
-    <p class="f-desc" style="margin-top:.8rem;">📍 12, Rue Vannetaise, 44350 Guérande<br/>📞 02 40 23 44 44<br/>📧 <a href="mailto:contact@esprit-large.com">contact@esprit-large.com</a></p>
+    <p class="f-desc" style="margin-top:.8rem;">📍 12, Rue Vannetaise, 44350 Guérande<br/>📞 02 40 23 44 44<br/>📧 <a href="/cdn-cgi/l/email-protection#bfdcd0d1cbdedccbffdacccfcdd6cb92d3decdd8da91dcd0d2"><span class="__cf_email__" data-cfemail="86e5e9e8f2e7e5f2c6e3f5f6f4eff2abeae7f4e1e3a8e5e9eb">[email&#160;protected]</span></a></p>
     <p class="f-desc" style="margin-top:.8rem;">🕐 <strong style="color:#b86060;">Horaires</strong><br/>Lun : 14h30–18h00<br/>Mar/Mer/Ven/Sam : 9h30–19h00<br/>Jeu : 9h30–12h30 &amp; 14h30–18h30<br/>Dim &amp; Fériés : fermé</p>
   </div>
   <div>
@@ -136,7 +137,7 @@
 </footer>
 <div class="site-footer-bottom">© 2026 L'Esprit Large · Librairie indépendante depuis 2006</div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 var tousLesCoups = [];
 var filtreActif = 'tous';
 var EMOJI = { Roman: '&#x1F4D6;', BD: '&#x1F3A8;', Jeunesse: '&#x1F31F;', Essai: '&#x1F4A1;' };
@@ -236,15 +237,4 @@ async function charger() {
   try {
     var r = await fetch('https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/coups.json?t=' + Date.now());
     if (!r.ok) throw new Error('HTTP ' + r.status);
-    var data = await r.json();
-    tousLesCoups = data.coups || [];
-    renderCoups();
-  } catch(e) {
-    document.getElementById('coups-grid').innerHTML = '<div class="coups-vide">Impossible de charger les coups de coeur.</div>';
-  }
-}
-
-charger();
-</script>
-</body>
-</html>
+    var data = await 

@@ -733,6 +733,7 @@
     <li><a href="https://esprit-large.com/evenements.html">Événements</a></li>
     <li><a href="https://esprit-large.com/blog.html">Blog</a></li>
     <li><a href="https://esprit-large.com/avisdetempete.html">🌊 Avis de Tempête</a></li>
+    <li><a href="https://esprit-large.com/escapades.html">🧳 Escapades</a></li>
     <li><a href="https://esprit-large.com/prix.html">🏆 Nos Prix</a></li>
     <li><a href="https://esprit-large.com/a-propos.html">À propos</a></li>
   </ul>
@@ -854,7 +855,7 @@
   <div>
     <div class="f-logo">L'Esprit Large</div>
     <p class="f-desc">Librairie indépendante au cœur de Guérande.</p>
-    <p class="f-desc" style="margin-top:.8rem;">📍 12, Rue Vannetaise, 44350 Guérande<br/>📞 02 40 23 44 44<br/>📧 <a href="mailto:contact@esprit-large.com">contact@esprit-large.com</a></p>
+    <p class="f-desc" style="margin-top:.8rem;">📍 12, Rue Vannetaise, 44350 Guérande<br/>📞 02 40 23 44 44<br/>📧 <a href="/cdn-cgi/l/email-protection#492a26273d282a3d092c3a393b203d6425283b2e2c672a2624"><span class="__cf_email__" data-cfemail="41222e2f35202235012432313328356c2d203326246f222e2c">[email&#160;protected]</span></a></p>
     <p class="f-desc" style="margin-top:.8rem;">🕐 <strong style="color:#b86060;">Horaires</strong><br/>Lun : 14h30–18h00<br/>Mar/Mer/Ven/Sam : 9h30–19h00<br/>Jeu : 9h30–12h30 &amp; 14h30–18h30<br/>Dim &amp; Fériés : fermé</p>
   </div>
   <div>
@@ -941,7 +942,7 @@
 
 
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ── COUPS DE CŒUR (depuis JSON GitHub) ── */
 async function chargerCoups() {
   try {
@@ -1070,13 +1071,4 @@ function showToast(msg) {
 /* ── MODALS ── */
 function closeModal() { document.getElementById('reserveModal').classList.remove('open'); document.body.style.overflow=''; }
 function closeEventModal() { document.getElementById('eventModal').classList.remove('open'); document.body.style.overflow=''; }
-function closeAdtModal() { var m=document.getElementById('adtModal'); if(m){ m.classList.remove('open'); document.body.style.overflow=''; } }
-document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ closeModal(); closeEventModal(); closeAdtModal(); } });
-
-/* ── INIT ── */
-chargerCoups();
-chargerEvenements();
-chargerBlog();
-</script>
-</body>
-</html>
+function closeAdtModal() { var m=document.getElementById('adtModal'); if(m){ m.classList.remove('open'); document.body.s
