@@ -3,10 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Coups de cœur — L'Esprit Large</title>
+  <title>Coups de coeur — L'Esprit Large</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,800;0,900;1,400&family=Lora:ital,wght@0,400;0,500;1,400&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    :root { --cream:#f2f0ef; --warm-white:#f7f5f4; --wood:#8b2e2e; --wood-dark:#5c1a1a; --wood-light:#b86060; --ink:#1e1e1e; --ink-soft:#5a4a4a; --parchment:#ebe8e8; --shadow:rgba(30,10,10,0.13); }
+    :root {
+      --cream:#f2f0ef; --warm-white:#f7f5f4;
+      --wood:#8b2e2e; --wood-dark:#5c1a1a; --wood-light:#b86060;
+      --ink:#1e1e1e; --ink-soft:#5a4a4a; --parchment:#ebe8e8;
+      --shadow:rgba(30,10,10,0.13);
+    }
     * { margin:0; padding:0; box-sizing:border-box; }
     body { font-family:'Lora',serif; background:var(--warm-white); color:var(--ink); }
 
@@ -33,6 +38,10 @@
     .site-footer .f-links li { margin-bottom:.4rem; }
     .site-footer .f-links a { font-size:.82rem; opacity:.7; text-decoration:none; color:#f2f0ef; transition:opacity .2s; }
     .site-footer .f-links a:hover { opacity:1; }
+    .page-hero { background:var(--wood-dark); padding:3rem 2.5rem 2.5rem; border-bottom:3px solid var(--wood-light); }
+    .page-hero-label { font-family:'Raleway',sans-serif; font-size:.68rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--wood-light); margin-bottom:.6rem; }
+    .page-hero h1 { font-family:'Playfair Display',serif; font-size:clamp(1.8rem,4vw,3rem); font-weight:900; font-style:italic; color:var(--cream); line-height:1.1; margin-bottom:.5rem; }
+    .page-hero p { font-family:'Lora',serif; font-size:.92rem; font-style:italic; color:rgba(242,240,239,.6); }
     .filtres-bar { background:#fff; border-bottom:1px solid var(--parchment); padding:.9rem 2rem; display:flex; justify-content:center; gap:.6rem; flex-wrap:wrap; position:sticky; top:55px; z-index:90; }
     .filtre-btn { font-family:'Raleway',sans-serif; font-size:.72rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-soft); background:var(--warm-white); border:1.5px solid var(--parchment); border-radius:20px; padding:.4rem 1.1rem; cursor:pointer; transition:all .2s; }
     .filtre-btn:hover { border-color:var(--wood-light); color:var(--wood); }
@@ -43,19 +52,16 @@
     .coup-card { background:#fff; border-radius:8px; overflow:hidden; box-shadow:0 2px 12px var(--shadow); display:flex; flex-direction:column; transition:transform .2s,box-shadow .2s; }
     .coup-card:hover { transform:translateY(-4px); box-shadow:0 10px 28px rgba(42,31,20,.15); }
     .coup-cover-wrap { position:relative; padding-top:140%; background:var(--parchment); overflow:hidden; }
-    .coup-cover { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform .3s; }
-    .coup-card:hover .coup-cover { transform:scale(1.04); }
+    .coup-cover { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
     .coup-cover-ph { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:3rem; }
     .coup-cat-badge { position:absolute; top:.6rem; left:.6rem; font-family:'Raleway',sans-serif; font-size:.58rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; background:var(--wood); color:var(--cream); border-radius:3px; padding:.2rem .5rem; }
     .coup-body { padding:1rem 1.1rem 1.2rem; flex:1; display:flex; flex-direction:column; gap:.35rem; }
     .coup-titre { font-family:'Playfair Display',serif; font-size:.95rem; font-weight:700; color:var(--ink); line-height:1.3; }
     .coup-auteur { font-family:'Lora',serif; font-size:.8rem; font-style:italic; color:var(--ink-soft); }
     .coup-citation { font-family:'Lora',serif; font-size:.8rem; font-style:italic; color:var(--ink-soft); line-height:1.55; flex:1; margin-top:.3rem; padding-top:.5rem; border-top:1px solid var(--parchment); }
-    .coup-citation::before { content:'\00AB '; color:var(--wood-light); }
-    .coup-citation::after  { content:' \00BB'; color:var(--wood-light); }
     .coup-libraire { font-family:'Raleway',sans-serif; font-size:.65rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--wood); }
     .coups-vide { grid-column:1/-1; text-align:center; padding:4rem 2rem; font-style:italic; color:var(--ink-soft); }
-    @media(max-width:600px){ .coups-grid{ grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:1rem; } }
+    @media(max-width:600px) { .coups-grid { grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:1rem; } }
   </style>
 </head>
 <body>
@@ -76,10 +82,10 @@
   </ul>
 </nav>
 
-<div style="background:var(--wood-dark);padding:3rem 2.5rem 2.5rem;border-bottom:3px solid var(--wood-light);">
-  <div style="font-family:'Raleway',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--wood-light);margin-bottom:.6rem;">✦ L'Esprit Large</div>
-  <h1 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:900;font-style:italic;color:var(--cream);line-height:1.1;margin-bottom:.5rem;">Nos Coups de cœur</h1>
-  <p style="font-family:'Lora',serif;font-size:.92rem;font-style:italic;color:rgba(242,240,239,.6);">La sélection de l'équipe, avec amour</p>
+<div class="page-hero">
+  <div class="page-hero-label">&#10022; L'Esprit Large</div>
+  <h1>Nos Coups de c&#339;ur</h1>
+  <p>La s&#233;lection de l'&#233;quipe, avec amour</p>
 </div>
 
 <div class="filtres-bar">
@@ -93,7 +99,7 @@
 <div class="coups-container">
   <div class="coups-count" id="coups-count"></div>
   <div class="coups-grid" id="coups-grid">
-    <div style="grid-column:1/-1;text-align:center;padding:3rem;font-style:italic;color:var(--ink-soft);">Chargement…</div>
+    <div style="grid-column:1/-1;text-align:center;padding:3rem;font-style:italic;color:var(--ink-soft);">Chargement&#8230;</div>
   </div>
 </div>
 
@@ -131,55 +137,113 @@
 <div class="site-footer-bottom">© 2026 L'Esprit Large · Librairie indépendante depuis 2006</div>
 
 <script>
-let tousLesCoups = [];
-let filtreActif = 'tous';
-const EMOJI = { Roman:'📖', BD:'🎨', Jeunesse:'🌟', Essai:'💡' };
+var tousLesCoups = [];
+var filtreActif = 'tous';
+var EMOJI = { Roman: '&#x1F4D6;', BD: '&#x1F3A8;', Jeunesse: '&#x1F31F;', Essai: '&#x1F4A1;' };
 
 function filtrer(cat, btn) {
   filtreActif = cat;
-  document.querySelectorAll('.filtre-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.filtre-btn').forEach(function(b) { b.classList.remove('active'); });
   btn.classList.add('active');
   renderCoups();
 }
 
 function renderCoups() {
-  const grid = document.getElementById('coups-grid');
-  const countEl = document.getElementById('coups-count');
-  const visibles = filtreActif === 'tous' ? tousLesCoups : tousLesCoups.filter(c => c.categorie === filtreActif);
-  countEl.textContent = visibles.length + ' coup' + (visibles.length > 1 ? 's' : '') + ' de coeur';
-  if (!visibles.length) {
-    grid.innerHTML = '<div class="coups-vide">Aucun coup de coeur dans cette catégorie.</div>';
+  var grid = document.getElementById('coups-grid');
+  var countEl = document.getElementById('coups-count');
+  var visibles = filtreActif === 'tous'
+    ? tousLesCoups
+    : tousLesCoups.filter(function(c) { return c.categorie === filtreActif; });
+  var nb = visibles.length;
+  countEl.textContent = nb + ' coup' + (nb > 1 ? 's' : '') + ' de coeur';
+  if (!nb) {
+    grid.innerHTML = '<div class="coups-vide">Aucun coup de coeur dans cette cat&#233;gorie.</div>';
     return;
   }
-  grid.innerHTML = visibles.map(c => {
-    const emoji = EMOJI[c.categorie] || '📖';
-    const cover = c.couverture
-      ? '<img class="coup-cover" src="' + c.couverture + '" alt="' + (c.titre||'') + '" loading="lazy" onerror="this.outerHTML='<div class=coup-cover-ph>' + emoji + '</div>'">'
-      : '<div class="coup-cover-ph">' + emoji + '</div>';
-    return '<div class="coup-card">'
-      + '<div class="coup-cover-wrap">' + cover
-      + (c.categorie ? '<div class="coup-cat-badge">' + c.categorie + '</div>' : '')
-      + '</div>'
-      + '<div class="coup-body">'
-      + '<div class="coup-titre">' + (c.titre || '(Sans titre)') + '</div>'
-      + (c.auteur ? '<div class="coup-auteur">' + c.auteur + '</div>' : '')
-      + (c.citation ? '<div class="coup-citation">' + c.citation + '</div>' : '')
-      + (c.libraire ? '<div class="coup-libraire">— ' + c.libraire + '</div>' : '')
-      + '</div></div>';
-  }).join('');
+  // Construire le HTML sans apostrophes imbriquees
+  var frag = document.createDocumentFragment();
+  visibles.forEach(function(c) {
+    var card = document.createElement('div');
+    card.className = 'coup-card';
+
+    // Wrap couverture
+    var wrap = document.createElement('div');
+    wrap.className = 'coup-cover-wrap';
+
+    if (c.couverture) {
+      var img = document.createElement('img');
+      img.className = 'coup-cover';
+      img.src = c.couverture;
+      img.alt = c.titre || '';
+      img.loading = 'lazy';
+      img.onerror = function() {
+        var ph = document.createElement('div');
+        ph.className = 'coup-cover-ph';
+        ph.textContent = EMOJI[c.categorie] || '&#x1F4D6;';
+        this.parentNode.replaceChild(ph, this);
+      };
+      wrap.appendChild(img);
+    } else {
+      var ph = document.createElement('div');
+      ph.className = 'coup-cover-ph';
+      ph.textContent = EMOJI[c.categorie] || '&#x1F4D6;';
+      wrap.appendChild(ph);
+    }
+
+    if (c.categorie) {
+      var badge = document.createElement('div');
+      badge.className = 'coup-cat-badge';
+      badge.textContent = c.categorie;
+      wrap.appendChild(badge);
+    }
+    card.appendChild(wrap);
+
+    // Body
+    var body = document.createElement('div');
+    body.className = 'coup-body';
+
+    var titre = document.createElement('div');
+    titre.className = 'coup-titre';
+    titre.textContent = c.titre || '(Sans titre)';
+    body.appendChild(titre);
+
+    if (c.auteur) {
+      var auteur = document.createElement('div');
+      auteur.className = 'coup-auteur';
+      auteur.textContent = c.auteur;
+      body.appendChild(auteur);
+    }
+    if (c.citation) {
+      var cit = document.createElement('div');
+      cit.className = 'coup-citation';
+      cit.textContent = c.citation;
+      body.appendChild(cit);
+    }
+    if (c.libraire) {
+      var lib = document.createElement('div');
+      lib.className = 'coup-libraire';
+      lib.textContent = '\u2014 ' + c.libraire;
+      body.appendChild(lib);
+    }
+    card.appendChild(body);
+    frag.appendChild(card);
+  });
+  grid.innerHTML = '';
+  grid.appendChild(frag);
 }
 
 async function charger() {
   try {
-    const r = await fetch('https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/coups.json?t=' + Date.now());
-    if (!r.ok) throw new Error();
-    const data = await r.json();
+    var r = await fetch('https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/coups.json?t=' + Date.now());
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    var data = await r.json();
     tousLesCoups = data.coups || [];
     renderCoups();
   } catch(e) {
     document.getElementById('coups-grid').innerHTML = '<div class="coups-vide">Impossible de charger les coups de coeur.</div>';
   }
 }
+
 charger();
 </script>
 </body>
