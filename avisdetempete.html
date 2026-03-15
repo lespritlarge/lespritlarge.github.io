@@ -408,13 +408,9 @@ async function chargerArchives() {
     // Init carrousels
     annees.forEach(function(a) {
       var yr = String(a);
-      var slides = document.querySelectorAll('#carousel-' + yr + ' .carousel-slide');
-      if (!carouselState[yr]) {
-        carouselState[yr] = { current: 0, total: slides.length };
-      } else {
-        carouselState[yr].total = slides.length;
-        carouselState[yr].current = 0;
-      }
+      var nums = parAnnee[a];
+      var labels = nums.map(function(n) { return n.mois + ' ' + n.annee; });
+      carouselState[yr] = { current: 0, labels: labels };
     });
     initDots();
     activeYear = String(annees[0]);
