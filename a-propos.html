@@ -394,10 +394,16 @@
           <div class="valeur-icone">${v.icone}</div>
           <div class="valeur-titre">${v.titre}</div>
           <p class="valeur-texte">${v.texte}</p>
-  
-  }  }
+        </div>`).join('');
 
-chargerApropos();
+    } catch(e) {
+      document.getElementById('libraireGrid').innerHTML =
+        '<p style="font-style:italic;color:var(--ink-soft);">Contenu bientôt disponible.</p>';
+    }
+    observeAll();
+  }
+
+  chargerApropos();
 </script>
 </body>
 </html>
