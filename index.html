@@ -908,82 +908,6 @@
 </div>
 
 <script>
-const EVENTS = [
-  {
-    day:"12", month:"Mars", year:"2026", type:"🌍 Littérature traduite",
-    title:"Échanges autour du monde hispanophone",
-    desc:"Échanges autour de la littérature traduite. C'est convivial et ouvert à tous.",
-    time:"18h30", lieu:"Librairie L'Esprit Large"
-  },
-  {
-    day:"24", month:"Mars", year:"2026", type:"Rencontre auteur",
-    title:"Rencontre avec Séverine Cressan",
-    desc:"Dédicace et échanges autour de son dernier roman. Une soirée à ne pas manquer.",
-    time:"18h30 – 20h00", lieu:"Librairie L'Esprit Large"
-  },
-  {
-    day:"26", month:"Mars", year:"2026", type:"🌍 Littérature traduite",
-    title:"Échanges autour de la littérature italienne",
-    desc:"Échanges autour de la littérature traduite. C'est convivial et ouvert à tous.",
-    time:"18h30", lieu:"Librairie L'Esprit Large"
-  },
-  {
-    day:"26", month:"Mars", year:"2026", type:"🥪 Casse-croûte Littéraire",
-    title:"Casse-croûte Littéraire",
-    desc:"On mange ensemble, un jeudi midi par mois pour discuter et échanger autour de vos et nos lectures...",
-    time:"12h30 – 14h00", lieu:"Librairie L'Esprit Large"
-  },
-  {
-    day:"26", month:"Mars", year:"2026", type:"Lecture 📖 hebdo",
-    title:"Les Lectures d'Adel du Mercredi",
-    desc:"Chaque mercredi, une lectrice de l'équipée d'Adel vous lit un texte à voix haute. Pour petits et grands enfants... et gratuit.",
-    time:"19h00", lieu:"Guérande", recurrent:"Tous les mercredis"
-  },
-  {
-    day:"30", month:"Avr.", year:"2026", type:"🥪 Casse-croûte Littéraire",
-    title:"Casse-croûte Littéraire",
-    desc:"On mange ensemble, un jeudi midi par mois pour discuter et échanger autour de vos et nos lectures...",
-    time:"12h30 – 14h00", lieu:"Librairie L'Esprit Large"
-  },
-  {
-    day:"12", month:"Mai", year:"2026", type:"📚 Les Madeleines des libraires",
-    title:"Les Madeleines des libraires",
-    desc:"Soirée conviviale de partage autour d'un verre. Venez parler de vos dernières lectures !",
-    time:"18h30 – 20h30", lieu:"Librairie L'Esprit Large"
-  },
-  {
-    day:"21", month:"Mai", year:"2026", type:"🥪 Casse-croûte Littéraire",
-    title:"Casse-croûte Littéraire",
-    desc:"On mange ensemble, un jeudi midi par mois pour discuter et échanger autour de vos et nos lectures...",
-    time:"12h30 – 14h00", lieu:"Librairie L'Esprit Large"
-  },
-  {
-    day:"02", month:"Juin", year:"2026", type:"Rencontre auteur",
-    title:"Rencontre autour de « Première Vague »",
-    desc:"Venez échanger autour de ce livre lors d'une rencontre conviviale à la librairie.",
-    time:"18h30", lieu:"Librairie L'Esprit Large"
-  },
-  {
-    day:"11", month:"Juin", year:"2026", type:"🥪 Casse-croûte Littéraire",
-    title:"Casse-croûte Littéraire",
-    desc:"On mange ensemble, un jeudi midi par mois pour discuter et échanger autour de vos et nos lectures...",
-    time:"12h30 – 14h00", lieu:"Librairie L'Esprit Large"
-  },
-  {
-    day:"25", month:"Juin", year:"2026", type:"🌍 Littérature traduite",
-    title:"Échanges autour de la littérature allemande",
-    desc:"Échanges autour de la littérature traduite. C'est convivial et ouvert à tous.",
-    time:"18h30", lieu:"Librairie L'Esprit Large"
-  },
-  {
-    day:"05", month:"Sep.", year:"2026", type:"🎉 Anniversaire",
-    title:"Fête des 20 ans de la Librairie !",
-    desc:"L'Esprit Large souffle ses 20 bougies ! Grande fête avec animations, surprises, auteurs et beaucoup de joie. Tout le monde est invité !",
-    time:"À confirmer", lieu:"Guérande", special:true
-  },
-];
-
-let currentFilter = 'Tous';
 let selectedBook = null;
 
 /* ── SLIDESHOW ── */
@@ -1040,46 +964,14 @@ function subscribeNewsletter() {
 function filterBooks() {}
 
 
-function setFilter(genre, el) {
-  currentFilter = genre;
-  document.querySelectorAll('.tag').forEach(t => t.classList.remove('active'));
-  el.classList.add('active');
-  // filterBooks();
-}
+
 
 
 /* ── ÉVÉNEMENTS ── */
-function renderEvents() {
-  const list = document.getElementById('eventList');
-  list.innerHTML = EVENTS.map(e => `
-    <div class="event-card${e.special ? ' event-special' : ''}">
-      <div class="event-date" style="${e.special ? 'background:var(--amber);' : ''}">
-        <div class="event-day">${e.day}</div>
-        <div class="event-month">${e.month}</div>
-        <div class="event-month" style="font-size:0.6rem;opacity:0.7;">${e.year}</div>
-      </div>
-      <div class="event-info">
-        <div class="event-type">${e.type}${e.recurrent ? ' · <span style="font-style:italic;font-weight:400;">'+e.recurrent+'</span>' : ''}</div>
-        <div class="event-title">${e.title}</div>
-        <div class="event-desc">${e.desc}
-          <br/><span style="font-family:Raleway,sans-serif;font-size:0.72rem;color:var(--wood);font-weight:600;margin-top:0.3rem;display:inline-block;">🕐 ${e.time}${e.lieu ? ' · 📍 '+e.lieu : ''}</span>
-        </div>
-      </div>
-      <button class="btn-event" onclick="openEventModal('${e.title.replace(/'/g,"\\'")}')">Je m'inscris</button>
-    </div>
-  `).join('');
-}
+
 
 /* ── MODALS ── */
-function openReserve(id) {
-  const book = null;
-  if (!book || book.stock === 0) return;
-  selectedBook = book;
-  document.getElementById('modalBookTitle').textContent = `« ${book.title} » par ${book.author}`;
-  const d = new Date(); d.setDate(d.getDate() + 1);
-  document.getElementById('rDate').value = d.toISOString().split('T')[0];
-  document.getElementById('reserveModal').classList.add('open');
-}
+
 function closeModal() { document.getElementById('reserveModal').classList.remove('open'); }
 
 function openEventModal(title) {
@@ -1120,12 +1012,8 @@ document.getElementById('reserveModal').addEventListener('click', function(e) { 
 document.getElementById('eventModal').addEventListener('click', function(e) { if(e.target === this) closeEventModal(); });
 
 /* ── INIT ── */
-renderCoups();
-renderEvents();
-</script>
+// (renderCoups et renderEvents remplacés par les fonctions dynamiques ci-dessous)
 
-
-<script>
 /* ── NAVIGATION ── */
 function goSearch() {
   const q = document.getElementById('searchInput').value.trim();
@@ -1204,7 +1092,7 @@ async function chargerEvenements() {
     }).slice(0, 4);
     const list = document.getElementById('evtHomeList');
     if (!prochains.length) {
-      list.innerHTML = '<p style="font-family:Lora,serif;font-style:italic;color:var(--ink-soft);text-align:center;padding:1rem;">Aucun événement dans les 2 prochaines semaines. <a href="https://esprit-large.com/evenements.html" style="color:var(--wood);">Voir tout l'agenda →</a></p>';
+      list.innerHTML = '<p style="font-family:Lora,serif;font-style:italic;color:var(--ink-soft);text-align:center;padding:1rem;">Aucun événement dans les 2 prochaines semaines. <a href="https://esprit-large.com/evenements.html" style="color:var(--wood);">Voir tout l&rsquo;agenda →</a></p>';
       return;
     }
     const MOIS = ['jan','fév','mar','avr','mai','jun','jul','aoû','sep','oct','nov','déc'];
