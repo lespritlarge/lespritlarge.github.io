@@ -951,14 +951,19 @@ async function chargerCoups() {
     var coups = (data.coups || []).filter(function(c){ return c.titre; });
     if (!coups.length) return;
     var grid = document.getElementById('coupGrid');
-    grid.innerHTML = coups.map(function(c) {
-      var imgHtml = c.couverture
-        ? '<img src="' + c.couverture + '" alt="" style="width:80px;height:116px;object-fit:cover;border-radius:3px;box-shadow:0 4px 12px rgba(0,0,0,.2);" onerror="this.style.display='none'">'
-        : '<div style="width:80px;height:116px;background:var(--parchment);border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:2rem;">📖</div>';
+    var html = '';
+    coups.forEach(function(c) {
+      var cover = c.couverture
+        ? '<img src="' + c.couverture + '" alt="" style="width:80px;height:116px;object-fit:cover;border-radius:3px;box-shadow:0 4px 12px rgba(0,0,0,.2);" class="coup-img-load">'
+        : '<div style="width:80px;height:116px;background:var(--parchment);border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:2rem;">&#x1F4D6;</div>';
       var badge = c.categorie ? '<span style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;background:var(--wood);color:#fff;padding:.1rem .4rem;border-radius:3px;">' + c.categorie + '</span> ' : '';
       var citation = c.citation ? '<div style="font-family:Lora,serif;font-style:italic;font-size:.82rem;color:var(--ink-soft);margin-top:.4rem;line-height:1.6;">&laquo;&nbsp;' + c.citation + '&nbsp;&raquo;' + (c.libraire ? ' &mdash; ' + c.libraire : '') + '</div>' : '';
-      return '<div class="coup-card"><div class="coup-cover">' + imgHtml + '</div><div><div class="book-title" style="font-size:1.05rem;">' + c.titre + '</div><div class="book-author">' + (c.auteur||'') + '</div>' + badge + citation + '</div></div>';
-    }).join('');
+      html += '<div class="coup-card"><div class="coup-cover">' + cover + '</div><div><div class="book-title" style="font-size:1.05rem;">' + c.titre + '</div><div class="book-author">' + (c.auteur || '') + '</div>' + badge + citation + '</div></div>';
+    });
+    grid.innerHTML = html;
+    grid.querySelectorAll('.coup-img-load').forEach(function(img) {
+      img.onerror = function() { this.style.display = 'none'; };
+    });
     // Masquer le bouton si tout tient sur une ligne
     setTimeout(function() {
       var w = document.getElementById('coups-wrapper');
