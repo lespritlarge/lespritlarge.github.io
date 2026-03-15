@@ -13,10 +13,6 @@
     }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     body{font-family:'Lora',serif;background:var(--warm-white);color:var(--ink);line-height:1.7;}
-
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(242,240,239,0.97);
-      backdrop-filter:blur(8px);border-bottom:1px solid rgba(92,26,26,0.12);
-      padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:80px;}
     .nav-logo{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:800;font-style:italic;
       color:var(--wood-dark);letter-spacing:-0.02em;white-space:nowrap;
       display:flex;align-items:center;gap:0.75rem;text-decoration:none;}
@@ -26,10 +22,6 @@
       letter-spacing:0.07em;text-transform:uppercase;text-decoration:none;
       color:var(--ink-soft);white-space:nowrap;transition:color 0.2s;}
     .nav-links a:hover,.nav-links a.active{color:var(--wood);}
-    .nav-cart{font-family:'Raleway',sans-serif;font-size:0.75rem;font-weight:600;
-      letter-spacing:0.05em;background:var(--wood);color:var(--cream);
-      border:none;cursor:pointer;padding:0.35rem 1rem;border-radius:2px;transition:background 0.2s;}
-    .nav-cart:hover{background:var(--wood-dark);}
 
     .hero{margin-top:0;background:linear-gradient(160deg,var(--wood-dark) 0%,#3a0f0f 100%);
       padding:5rem 2rem 4.5rem;text-align:center;position:relative;overflow:hidden;}
@@ -206,7 +198,18 @@
     .footer-links a { font-size:.82rem; opacity:.7; text-decoration:none; color:var(--cream); transition:opacity .2s; }
     .footer-links a:hover { opacity:1; }
     .footer-bottom { background:#3a0e0e; text-align:center; font-size:.72rem; padding:.8rem; opacity:.5; font-family:'Raleway',sans-serif; }
-  </style>
+  
+    /* NAV */
+    nav { position:sticky; top:0; z-index:100; background:var(--wood-dark,#5c1a1a); display:flex; align-items:center; justify-content:space-between; padding:0.7rem 2.5rem; box-shadow:0 2px 12px rgba(0,0,0,.3); }
+    .nav-logo { display:flex; align-items:center; gap:.55rem; text-decoration:none; flex-shrink:0; }
+    .nav-logo img { width:40px; height:40px; object-fit:contain; }
+    .nav-logo-text { font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:800; color:#f2f0ef; }
+    .nav-logo-text em { color:#b86060; font-style:italic; }
+    .nav-links { display:flex; gap:0; list-style:none; }
+    .nav-links a { font-family:'Raleway',sans-serif; font-size:.72rem; font-weight:600; letter-spacing:.07em; text-transform:uppercase; color:rgba(242,240,239,.72); text-decoration:none; padding:.45rem .75rem; border-radius:3px; transition:color .2s,background .2s; }
+    .nav-links a:hover { color:#f2f0ef; background:rgba(255,255,255,.08); }
+    .nav-links a.nav-active { color:#f2f0ef; background:rgba(255,255,255,.15); font-weight:700; }
+    @media(max-width:800px){ .nav-links{display:none;} }</style>
 </head>
 <body>
 

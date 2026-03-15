@@ -544,6 +544,30 @@
     .site-footer .f-links li { margin-bottom:.4rem; }
     .site-footer .f-links a { font-size:.82rem; opacity:.7; text-decoration:none; color:#f2f0ef; transition:opacity .2s; }
     .site-footer .f-links a:hover { opacity:1; }
+  
+    /* NAV */
+    nav { position:sticky; top:0; z-index:100; background:var(--wood-dark,#5c1a1a); display:flex; align-items:center; justify-content:space-between; padding:0.7rem 2.5rem; box-shadow:0 2px 12px rgba(0,0,0,.3); }
+    .nav-logo { display:flex; align-items:center; gap:.55rem; text-decoration:none; flex-shrink:0; }
+    .nav-logo img { width:40px; height:40px; object-fit:contain; }
+    .nav-logo-text { font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:800; color:#f2f0ef; }
+    .nav-logo-text em { color:#b86060; font-style:italic; }
+    .nav-links { display:flex; gap:0; list-style:none; }
+    .nav-links a { font-family:'Raleway',sans-serif; font-size:.72rem; font-weight:600; letter-spacing:.07em; text-transform:uppercase; color:rgba(242,240,239,.72); text-decoration:none; padding:.45rem .75rem; border-radius:3px; transition:color .2s,background .2s; }
+    .nav-links a:hover { color:#f2f0ef; background:rgba(255,255,255,.08); }
+    .nav-links a.nav-active { color:#f2f0ef; background:rgba(255,255,255,.15); font-weight:700; }
+    @media(max-width:800px){ .nav-links{display:none;} }
+
+    /* FOOTER */
+    .site-footer { background:#5c1a1a; color:#f2f0ef; padding:3rem 4rem; display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:2rem; margin-top:3rem; }
+    .site-footer-bottom { background:#3a0e0e; text-align:center; font-size:.72rem; padding:.8rem; opacity:.5; font-family:'Raleway',sans-serif; color:#f2f0ef; }
+    .site-footer .f-logo { font-family:'Playfair Display',serif; font-size:1.4rem; font-weight:800; font-style:italic; margin-bottom:.6rem; }
+    .site-footer .f-desc { font-size:.82rem; opacity:.65; line-height:1.7; }
+    .site-footer .f-desc a { color:#f2f0ef; }
+    .site-footer .f-h { font-family:'Raleway',sans-serif; font-size:.68rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:#b86060; margin-bottom:.8rem; }
+    .site-footer .f-links { list-style:none; }
+    .site-footer .f-links li { margin-bottom:.4rem; }
+    .site-footer .f-links a { font-size:.82rem; opacity:.7; text-decoration:none; color:#f2f0ef; transition:opacity .2s; }
+    .site-footer .f-links a:hover { opacity:1; }
   </style>
 </head>
 <body>
@@ -657,7 +681,7 @@
   <div>
     <div class="f-logo">L'Esprit Large</div>
     <p class="f-desc">Librairie indépendante au cœur de Guérande.</p>
-    <p class="f-desc" style="margin-top:.8rem;">📍 12, Rue Vannetaise, 44350 Guérande<br/>📞 02 40 23 44 44<br/>📧 <a href="/cdn-cgi/l/email-protection#75161a1b0114160135100605071c015819140712105b161a18"><span class="__cf_email__" data-cfemail="63000c0d1702001723061013110a174e0f021104064d000c0e">[email&#160;protected]</span></a></p>
+    <p class="f-desc" style="margin-top:.8rem;">📍 12, Rue Vannetaise, 44350 Guérande<br/>📞 02 40 23 44 44<br/>📧 <a href="mailto:contact@esprit-large.com">contact@esprit-large.com</a></p>
     <p class="f-desc" style="margin-top:.8rem;">🕐 <strong style="color:#b86060;">Horaires</strong><br/>Lun : 14h30–18h00<br/>Mar/Mer/Ven/Sam : 9h30–19h00<br/>Jeu : 9h30–12h30 &amp; 14h30–18h30<br/>Dim &amp; Fériés : fermé</p>
   </div>
   <div>
@@ -684,6 +708,7 @@
     </ul>
   </div>
 </footer>
+<div class="site-footer-bottom">© 2026 L'Esprit Large · Librairie indépendante depuis 2006</div>
 <div class="site-footer-bottom">© 2026 L'Esprit Large · Librairie indépendante depuis 2006</div>
 <div class="footer-bottom">© 2026 L'Esprit Large · Librairie indépendante depuis 2006</div>
 
@@ -835,3 +860,11 @@ async function chargerPrix() {
 
   } catch(e) {
     document.getElementById('palmares-roman
+    document.getElementById('palmares-roman').innerHTML = '<p>Chargement impossible.</p>';
+    document.getElementById('palmares-vague').innerHTML = '<p>Chargement impossible.</p>';
+  }
+}
+chargerPrix();
+</script>
+</body>
+</html>
