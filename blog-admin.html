@@ -183,7 +183,24 @@ details[open] .rblock summary::before{transform:rotate(90deg);}
             <div class="f"><label>Date</label><input type="date" id="bDate"/></div>
           </div>
           <div class="f"><label>Texte *</label><textarea id="bTexte" style="min-height:200px" placeholder="Écrivez votre article ici…"></textarea></div>
-          <div class="f"><label>Image (URL ou chemin)</label><input type="text" id="bImage" placeholder="images/ma-photo.jpg"/><small>Uploadez d'abord dans images/ sur GitHub.</small></div>
+          <div class="f">
+              <label>Image (URL ou chemin)</label>
+              <div style="display:flex;gap:.5rem;align-items:center;">
+                <input type="text" id="bImage" placeholder="https://… ou images/photo.jpg" style="flex:1;"/>
+                <button type="button" onclick="Blog.ouvrirGalerieAdt()" style="white-space:nowrap;padding:.5rem .9rem;font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:rgba(92,26,26,.1);color:var(--wood);border:1.5px solid rgba(92,26,26,.2);border-radius:3px;cursor:pointer;">🌊 Avis de Tempête</button>
+              </div>
+              <small>URL directe, chemin GitHub, ou choisissez depuis les archives Avis de Tempête.</small>
+              <!-- Galerie Avis de Tempête -->
+              <div id="adtGalerie" style="display:none;margin-top:.8rem;border:1.5px solid rgba(92,26,26,.15);border-radius:6px;background:var(--cream);padding:.8rem;">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem;">
+                  <span style="font-family:'Raleway',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--wood);">Choisir une image</span>
+                  <button type="button" onclick="document.getElementById('adtGalerie').style.display='none'" style="background:none;border:none;cursor:pointer;font-size:1rem;color:var(--ink-soft);">✕</button>
+                </div>
+                <div id="adtGalerieGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:.5rem;">
+                  <p style="font-style:italic;font-size:.8rem;color:var(--soft);">Chargement…</p>
+                </div>
+              </div>
+            </div>
           <div class="frow">
             <div class="f"><label>Lien externe</label><input type="url" id="bLien" placeholder="https://…"/></div>
             <div class="f"><label>Texte du bouton</label><input type="text" id="bLienLabel" placeholder="En savoir plus…"/></div>
@@ -644,7 +661,40 @@ var Blog = (() => {
     if (ok) { toast('🗑️ Article supprimé.'); nouveau(); }
   }
 
-  return { charger, select, nouveau, sauvegarder, supprimer };
+
+  async function ouvrirGalerieAdt() {
+    const galerie = document.getElementById('adtGalerie');
+    const grid    = document.getElementById('adtGalerieGrid');
+    galerie.style.display = 'block';
+    grid.innerHTML = '<p style="font-style:italic;font-size:.8rem;color:var(--soft);">Chargement...</p>';
+    try {
+      const r = await fetch('https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/avisdetempete.json?t=' + Date.now());
+      if (!r.ok) throw new Error();
+      const data = await r.json();
+      const numeros = data.numeros || [];
+      if (!numeros.length) {
+        grid.innerHTML = '<p style="font-style:italic;font-size:.8rem;">Aucune image disponible.</p>';
+        return;
+      }
+      grid.innerHTML = numeros.map(n => {
+        const fullUrl = 'https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/avisdetempete/' + n.fichier;
+        return '<div onclick="Blog.choisirImageAdt('' + fullUrl + '')" style="cursor:pointer;border-radius:4px;overflow:hidden;border:2px solid transparent;transition:border-color .2s;" onmouseover="this.style.borderColor='var(--wood)'" onmouseout="this.style.borderColor='transparent'">'
+          + '<img src="' + fullUrl + '" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" loading="lazy" />'
+          + '<div style="font-size:.6rem;text-align:center;padding:.2rem;font-family:Raleway,sans-serif;color:var(--soft);">' + n.mois + ' ' + n.annee + '</div>'
+          + '</div>';
+      }).join('');
+    } catch(e) {
+      grid.innerHTML = '<p style="font-style:italic;font-size:.8rem;">Impossible de charger les images.</p>';
+    }
+  }
+
+  function choisirImageAdt(url) {
+    document.getElementById('bImage').value = url;
+    document.getElementById('adtGalerie').style.display = 'none';
+    toast('Image selectionnee !');
+  }
+
+  return { charger, select, nouveau, sauvegarder, supprimer, ouvrirGalerieAdt, choisirImageAdt };
 })();
 
 // ══════════════════════════════════════════
