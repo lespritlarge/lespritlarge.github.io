@@ -558,17 +558,22 @@ async function ghGetSha(file, token) {
   }
 }
 
+// Cache local des SHA pour éviter les 409
+const _shaCache = {};
+
 async function ghWrite(file, data, message) {
   const token = getToken();
   if (!token) { toast('⚠️ Token GitHub requis pour publier.'); return false; }
 
   const encoded = encodeContent(data);
 
-  // Essai 1 : lire le SHA frais et écrire
   for (let tentative = 1; tentative <= 5; tentative++) {
-    let sha = null;
-    try { sha = await ghGetSha(file, token); }
-    catch(e) { toast('⚠️ Impossible de lire le fichier sur GitHub : ' + e.message); return false; }
+    // Utiliser le SHA en cache si dispo, sinon relire depuis GitHub
+    let sha = _shaCache[file] || null;
+    if (!sha || tentative > 1) {
+      try { sha = await ghGetSha(file, token); }
+      catch(e) { toast('⚠️ Impossible de lire le fichier sur GitHub : ' + e.message); return false; }
+    }
 
     const body = { message, content: encoded };
     if (sha) body.sha = sha;
@@ -585,21 +590,31 @@ async function ghWrite(file, data, message) {
       body: JSON.stringify(body)
     });
 
-    if (r.ok || r.status === 201) return true;
+    if (r.ok || r.status === 201) {
+      // Mettre à jour le cache avec le nouveau SHA retourné par GitHub
+      try {
+        const d = await r.json();
+        if (d.content && d.content.sha) _shaCache[file] = d.content.sha;
+        else delete _shaCache[file]; // forcer relecture au prochain appel
+      } catch(_) { delete _shaCache[file]; }
+      return true;
+    }
 
     const err = await r.json().catch(() => ({}));
     const msg = err.message || '';
 
-    // "does not match" = SHA périmé → on réessaie avec un SHA frais
-    if (msg.includes('does not match') && tentative < 3) {
-      console.warn(`SHA périmé (tentative ${tentative}), nouvelle lecture…`);
-      await new Promise(res => setTimeout(res, 800 * tentative)); // pause pour sync GitHub
+    if (msg.includes('does not match')) {
+      // SHA périmé → vider le cache et réessayer
+      delete _shaCache[file];
+      console.warn('SHA périmé (tentative ' + tentative + '), nouvelle lecture…');
+      await new Promise(res => setTimeout(res, 500 * tentative));
       continue;
     }
 
     toast('❌ Erreur GitHub : ' + (msg || r.status));
     return false;
   }
+  toast('❌ Impossible d\'écrire après 5 tentatives. Réessayez dans quelques secondes.');
   return false;
 }
 
