@@ -115,62 +115,6 @@
     .gal-add-hint{margin-top:1.2rem;font-family:'Raleway',sans-serif;
       font-size:0.75rem;color:var(--ink-soft);font-style:italic;opacity:0.7;}
     code{font-size:0.85em;background:var(--parchment);padding:0.1em 0.3em;border-radius:2px;}
-
-    /* FOOTER */
-    footer{background:var(--ink);color:var(--cream);padding:3rem 2rem 2rem;
-      display:grid;grid-template-columns:2fr 1fr;gap:3rem;}
-    .footer-logo{font-family:'Playfair Display',serif;font-size:1.2rem;
-      font-weight:800;font-style:italic;color:var(--cream);margin-bottom:0.75rem;}
-    .footer-desc{font-size:0.82rem;opacity:0.65;line-height:1.6;}
-    .footer-desc a{color:inherit;}
-    .footer-h{font-family:'Raleway',sans-serif;font-size:0.65rem;font-weight:700;
-      letter-spacing:0.12em;text-transform:uppercase;color:var(--amber-light);margin-bottom:0.9rem;}
-    .footer-links{list-style:none;}
-    .footer-links li{font-size:0.82rem;opacity:0.7;margin-bottom:0.4rem;}
-    .footer-links li:hover{opacity:1;}
-    .footer-links a{color:inherit;text-decoration:none;}
-    .footer-bottom{background:var(--ink);color:rgba(242,240,239,0.4);text-align:center;
-      padding:1rem;font-family:'Raleway',sans-serif;font-size:0.7rem;letter-spacing:0.06em;}
-
-    @media(max-width:900px){
-      .equipe-grid{grid-template-columns:1fr;}
-      .libraire-card{grid-template-columns:140px 1fr;gap:1.2rem;padding:1.2rem;}
-      .valeurs-grid{grid-template-columns:repeat(2,1fr);}
-      .galerie-grid{grid-template-columns:repeat(2,1fr);}
-      .gal-item:nth-child(n){grid-column:span 1;grid-row:span 1;}
-      footer{grid-template-columns:1fr;}
-    }
-    @media(max-width:500px){
-      .valeurs-grid{grid-template-columns:1fr;}
-      .libraire-card{grid-template-columns:1fr;}
-    }
-      /* ── NAV ── */
-    @media(max-width:800px){ }
-    /* ── FOOTER ── */
-    footer { background:var(--wood-dark); color:var(--cream); padding:3rem 4rem; display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:2rem; margin-top:3rem; }
-    .footer-logo { font-family:'Playfair Display',serif; font-size:1.4rem; font-weight:800; font-style:italic; margin-bottom:.6rem; }
-    .footer-desc { font-size:.82rem; opacity:.65; line-height:1.7; }
-    .footer-desc a { color:var(--cream); }
-    .footer-h { font-family:'Raleway',sans-serif; font-size:.68rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:var(--wood-light); margin-bottom:.8rem; }
-    .footer-links { list-style:none; }
-    .footer-links li { margin-bottom:.4rem; }
-    .footer-links a { font-size:.82rem; opacity:.7; text-decoration:none; color:var(--cream); transition:opacity .2s; }
-    .footer-links a:hover { opacity:1; }
-    .footer-bottom { background:#3a0e0e; text-align:center; font-size:.72rem; padding:.8rem; opacity:.5; font-family:'Raleway',sans-serif; }
-      /* ── NAV ── */
-    @media(max-width:800px){ }
-    /* ── FOOTER ── */
-    footer { background:var(--wood-dark); color:var(--cream); padding:3rem 4rem; display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:2rem; margin-top:3rem; }
-    .footer-logo { font-family:'Playfair Display',serif; font-size:1.4rem; font-weight:800; font-style:italic; margin-bottom:.6rem; }
-    .footer-desc { font-size:.82rem; opacity:.65; line-height:1.7; }
-    .footer-desc a { color:var(--cream); }
-    .footer-h { font-family:'Raleway',sans-serif; font-size:.68rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:var(--wood-light); margin-bottom:.8rem; }
-    .footer-links { list-style:none; }
-    .footer-links li { margin-bottom:.4rem; }
-    .footer-links a { font-size:.82rem; opacity:.7; text-decoration:none; color:var(--cream); transition:opacity .2s; }
-    .footer-links a:hover { opacity:1; }
-    .footer-bottom { background:#3a0e0e; text-align:center; font-size:.72rem; padding:.8rem; opacity:.5; font-family:'Raleway',sans-serif; }
-  @media(max-width:800px){ }
     /* NAV */
     nav { position:sticky; top:0; z-index:100; background:var(--wood-dark,#5c1a1a); display:flex; align-items:center; justify-content:space-between; padding:0.7rem 2.5rem; box-shadow:0 2px 12px rgba(0,0,0,.3); }
     .nav-logo { display:flex; align-items:center; gap:.55rem; text-decoration:none; flex-shrink:0; }
@@ -182,20 +126,30 @@
     .nav-links a:hover { color:#f2f0ef; background:rgba(255,255,255,.08); }
     .nav-links a.nav-active { color:#f2f0ef; background:rgba(255,255,255,.15); font-weight:700; }
     @media(max-width:800px){ .nav-links{display:none;} }
-    /* PARTENAIRES */
-    .partenaires { padding:5rem 0; background:var(--cream); }
-    .partenaires .section-title { color:var(--wood-dark); }
-    .partenaires-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:2rem; margin-top:2.5rem; }
-    .partenaire-card { background:var(--warm-white); border-radius:6px; padding:2rem; box-shadow:0 2px 16px var(--shadow); display:flex; flex-direction:column; gap:1rem; transition:transform .25s,box-shadow .25s; }
-    .partenaire-card:hover { transform:translateY(-3px); box-shadow:0 8px 32px rgba(42,31,20,.14); }
-    .partenaire-header { display:flex; align-items:center; gap:.8rem; }
-    .partenaire-emoji { font-size:2rem; }
-    .partenaire-nom { font-family:'Playfair Display',serif; font-size:1.15rem; font-weight:700; color:var(--wood-dark); }
-    .partenaire-accroche { font-family:'Raleway',sans-serif; font-size:.7rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--amber); }
-    .partenaire-desc { font-family:'Lora',serif; font-size:.87rem; color:var(--ink-soft); line-height:1.75; }
-    .partenaire-photo { width:100%; max-height:200px; object-fit:cover; border-radius:4px; }
-    .partenaire-lien { display:inline-block; margin-top:auto; font-family:'Raleway',sans-serif; font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--cream); background:var(--wood); padding:.55rem 1.2rem; border-radius:3px; text-decoration:none; transition:background .2s; align-self:flex-start; }
-    .partenaire-lien:hover { background:var(--wood-dark); }
+
+    /* NAV */
+    nav { position:sticky; top:0; z-index:100; background:var(--wood-dark,#5c1a1a); display:flex; align-items:center; justify-content:space-between; padding:0.7rem 2.5rem; box-shadow:0 2px 12px rgba(0,0,0,.3); }
+    .nav-logo { display:flex; align-items:center; gap:.55rem; text-decoration:none; flex-shrink:0; }
+    .nav-logo img { width:40px; height:40px; object-fit:contain; }
+    .nav-logo-text { font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:800; color:#f2f0ef; }
+    .nav-logo-text em { color:#b86060; font-style:italic; }
+    .nav-links { display:flex; gap:0; list-style:none; }
+    .nav-links a { font-family:'Raleway',sans-serif; font-size:.72rem; font-weight:600; letter-spacing:.07em; text-transform:uppercase; color:rgba(242,240,239,.72); text-decoration:none; padding:.45rem .75rem; border-radius:3px; transition:color .2s,background .2s; }
+    .nav-links a:hover { color:#f2f0ef; background:rgba(255,255,255,.08); }
+    .nav-links a.nav-active { color:#f2f0ef; background:rgba(255,255,255,.15); font-weight:700; }
+    @media(max-width:800px){ .nav-links{display:none;} }
+
+    /* FOOTER */
+    .site-footer { background:#5c1a1a; color:#f2f0ef; padding:3rem 4rem; display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:2rem; margin-top:3rem; }
+    .site-footer-bottom { background:#3a0e0e; text-align:center; font-size:.72rem; padding:.8rem; opacity:.5; font-family:'Raleway',sans-serif; color:#f2f0ef; }
+    .site-footer .f-logo { font-family:'Playfair Display',serif; font-size:1.4rem; font-weight:800; font-style:italic; margin-bottom:.6rem; }
+    .site-footer .f-desc { font-size:.82rem; opacity:.65; line-height:1.7; }
+    .site-footer .f-desc a { color:#f2f0ef; }
+    .site-footer .f-h { font-family:'Raleway',sans-serif; font-size:.68rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:#b86060; margin-bottom:.8rem; }
+    .site-footer .f-links { list-style:none; }
+    .site-footer .f-links li { margin-bottom:.4rem; }
+    .site-footer .f-links a { font-size:.82rem; opacity:.7; text-decoration:none; color:#f2f0ef; transition:opacity .2s; }
+    .site-footer .f-links a:hover { opacity:1; }
   </style>
 </head>
 <body>
@@ -247,39 +201,59 @@
   </div>
 </section>
 
-
-<!-- PARTENAIRES -->
-<section class="partenaires">
-  <div class="container">
-    <div class="fade-in">
-      <div class="section-label">Ils font partie de l'aventure</div>
-      <h2 class="section-title">Nos partenaires</h2>
-    </div>
-    <div class="partenaires-grid" id="partenairesGrid"></div>
-  </div>
-</section>
-
 <!-- GALERIE -->
 <section class="galerie">
   <div class="container">
     <div class="galerie-header fade-in">
       <div class="section-label">La librairie en images</div>
       <h2 class="section-title">Notre espace</h2>
-      <p>Les photos sont gérées depuis l'interface d'administration.</p>
+      <p>Uploadez vos photos dans <code>images/galerie/</code> sur GitHub et remplacez les placeholders ci-dessous.</p>
     </div>
-    <div class="galerie-grid" id="galerieGrid">
-      <!-- Chargé dynamiquement depuis apropos.json -->
-      <div class="gal-item fade-in"><div class="gal-ph"><div class="ph-icon">🏠</div><div class="ph-txt">Vue d'ensemble</div></div><div class="gal-overlay"><span class="gal-legende"></span></div></div>
-      <div class="gal-item fade-in"><div class="gal-ph"><div class="ph-icon">📚</div><div class="ph-txt">Les rayons</div></div><div class="gal-overlay"><span class="gal-legende"></span></div></div>
-      <div class="gal-item fade-in"><div class="gal-ph"><div class="ph-icon">🪟</div><div class="ph-txt">La vitrine</div></div><div class="gal-overlay"><span class="gal-legende"></span></div></div>
-      <div class="gal-item fade-in"><div class="gal-ph"><div class="ph-icon">🎪</div><div class="ph-txt">Un événement</div></div><div class="gal-overlay"><span class="gal-legende"></span></div></div>
-      <div class="gal-item fade-in"><div class="gal-ph"><div class="ph-icon">☕</div><div class="ph-txt">L'ambiance</div></div><div class="gal-overlay"><span class="gal-legende"></span></div></div>
-      <div class="gal-item fade-in"><div class="gal-ph"><div class="ph-icon">📖</div><div class="ph-txt">Coin lecture</div></div><div class="gal-overlay"><span class="gal-legende"></span></div></div>
-      <div class="gal-item fade-in"><div class="gal-ph"><div class="ph-icon">🌿</div><div class="ph-txt">Les détails</div></div><div class="gal-overlay"><span class="gal-legende"></span></div></div>
-      <div class="gal-item fade-in"><div class="gal-ph"><div class="ph-icon">🗺️</div><div class="ph-txt">Guérande</div></div><div class="gal-overlay"><span class="gal-legende"></span></div></div>
+    <div class="galerie-grid">
+      <div class="gal-item fade-in" onclick="openLightbox(this)">
+        <!-- <img src="images/galerie/photo1.jpg" alt="La librairie" data-legende="La librairie" /> -->
+        <div class="gal-ph"><div class="ph-icon">🏠</div><div class="ph-txt">Vue d'ensemble</div></div>
+        <div class="gal-overlay"><span class="gal-legende"></span></div>
+      </div>
+      <div class="gal-item fade-in" style="transition-delay:0.06s" onclick="openLightbox(this)">
+        <!-- <img src="images/galerie/photo2.jpg" alt="Les rayons" data-legende="Les rayons" /> -->
+        <div class="gal-ph"><div class="ph-icon">📚</div><div class="ph-txt">Les rayons</div></div>
+        <div class="gal-overlay"><span class="gal-legende"></span></div>
+      </div>
+      <div class="gal-item fade-in" style="transition-delay:0.09s" onclick="openLightbox(this)">
+        <!-- <img src="images/galerie/photo3.jpg" alt="La vitrine" data-legende="La vitrine" /> -->
+        <div class="gal-ph"><div class="ph-icon">🪟</div><div class="ph-txt">La vitrine</div></div>
+        <div class="gal-overlay"><span class="gal-legende"></span></div>
+      </div>
+      <div class="gal-item fade-in" style="transition-delay:0.12s" onclick="openLightbox(this)">
+        <!-- <img src="images/galerie/photo4.jpg" alt="Un événement" data-legende="Un événement" /> -->
+        <div class="gal-ph"><div class="ph-icon">🎪</div><div class="ph-txt">Un événement</div></div>
+        <div class="gal-overlay"><span class="gal-legende"></span></div>
+      </div>
+      <div class="gal-item fade-in" style="transition-delay:0.15s" onclick="openLightbox(this)">
+        <!-- <img src="images/galerie/photo5.jpg" alt="L'ambiance" data-legende="L'ambiance" /> -->
+        <div class="gal-ph"><div class="ph-icon">☕</div><div class="ph-txt">L'ambiance</div></div>
+        <div class="gal-overlay"><span class="gal-legende"></span></div>
+      </div>
+      <div class="gal-item fade-in" style="transition-delay:0.18s" onclick="openLightbox(this)">
+        <!-- <img src="images/galerie/photo6.jpg" alt="Coin lecture" data-legende="Coin lecture" /> -->
+        <div class="gal-ph"><div class="ph-icon">📖</div><div class="ph-txt">Coin lecture</div></div>
+        <div class="gal-overlay"><span class="gal-legende"></span></div>
+      </div>
+      <div class="gal-item fade-in" style="transition-delay:0.21s" onclick="openLightbox(this)">
+        <!-- <img src="images/galerie/photo7.jpg" alt="Les détails" data-legende="Les détails" /> -->
+        <div class="gal-ph"><div class="ph-icon">🌿</div><div class="ph-txt">Les détails</div></div>
+        <div class="gal-overlay"><span class="gal-legende"></span></div>
+      </div>
+      <div class="gal-item fade-in" style="transition-delay:0.24s" onclick="openLightbox(this)">
+        <!-- <img src="images/galerie/photo8.jpg" alt="Guérande" data-legende="Guérande" /> -->
+        <div class="gal-ph"><div class="ph-icon">🗺️</div><div class="ph-txt">Guérande</div></div>
+        <div class="gal-overlay"><span class="gal-legende"></span></div>
+      </div>
     </div>
-    <p class="gal-add-hint fade-in" id="galerieHint">
-      💡 Gérez vos photos depuis l'interface d'administration.
+    <p class="gal-add-hint fade-in">
+      💡 Pour ajouter une photo : uploadez-la dans <code>images/galerie/</code> sur GitHub,
+      puis décommentez la ligne <code>&lt;img src=...&gt;</code> correspondante dans <code>a-propos.html</code>.
     </p>
   </div>
 </section>
@@ -291,38 +265,6 @@
 </div>
 
 <!-- FOOTER -->
-<footer id="contact">
-  <div>
-    <div class="footer-logo">L'Esprit Large</div>
-    <p class="footer-desc">Librairie indépendante au cœur de Guérande.</p>
-    <p class="footer-desc" style="margin-top:.8rem;">📍 12, Rue Vannetaise, 44350 Guérande<br/>📞 02 40 23 44 44 · 📧 <a href="/cdn-cgi/l/email-protection#771418190316140337120407051e035a1b160510125914181a"><span class="__cf_email__" data-cfemail="70131f1e04111304301503000219045d1c110217155e131f1d">[email&#160;protected]</span></a></p>
-    <p class="footer-desc" style="margin-top:.8rem;">🕐 <strong style="color:var(--wood-light);">Horaires</strong><br/>Lun : 14h30 – 18h00<br/>Mar, Mer, Ven, Sam : 9h30 – 19h00<br/>Jeu : 9h30 – 12h30 &amp; 14h30 – 18h30<br/>Dim &amp; Fériés : fermé</p>
-  </div>
-  <div>
-    <p class="footer-h">Navigation</p>
-    <ul class="footer-links">
-      <li><a href="https://esprit-large.com/catalogue.html">Catalogue</a></li>
-      <li><a href="https://esprit-large.com/coups.html">❤️ Coups de cœur</a></li>
-      <li><a href="https://esprit-large.com/evenements.html">Événements</a></li>
-      <li><a href="https://esprit-large.com/blog.html">Blog</a></li>
-      <li><a href="https://esprit-large.com/avisdetempete.html">🌊 Avis de Tempête</a></li>
-      <li><a href="https://esprit-large.com/escapades.html">Les Escapades</a></li>
-      <li><a href="https://esprit-large.com/prix.html">🏆 Nos Prix</a></li>
-      <li><a href="https://esprit-large.com/a-propos.html">À propos</a></li>
-    </ul>
-  </div>
-  <div>
-    <p class="footer-h">Infos pratiques</p>
-    <ul class="footer-links">
-      <li>Commande &amp; réservation</li><li>Carte cadeau</li>
-      <li>🥪 Casse-croûte Littéraire</li><li>🚲 Livraison locale</li>
-      <li>Mentions légales</li>
-    </ul>
-  </div>
-</footer>
-<div class="footer-bottom">© 2026 L'Esprit Large · Librairie indépendante depuis 2006</div>
-
-
 <script>
   // Animations scroll
   const obs = new IntersectionObserver(
@@ -365,50 +307,6 @@
           <p class="valeur-texte">${v.texte}</p>
         </div>`).join('');
 
-      // Partenaires
-      const partenaires = data.partenaires || [];
-      const pgrid = document.getElementById('partenairesGrid');
-      if (partenaires.length) {
-        pgrid.innerHTML = partenaires.map((p, i) => `
-          <div class="partenaire-card fade-in" style="transition-delay:${i*0.1}s">
-            <div class="partenaire-header">
-              <div class="partenaire-emoji">${p.emoji || '🤝'}</div>
-              <div>
-                <div class="partenaire-nom">${p.nom}</div>
-                ${p.accroche ? `<div class="partenaire-accroche">${p.accroche}</div>` : ''}
-              </div>
-            </div>
-            ${p.photo ? `<img class="partenaire-photo" src="${p.photo}" alt="${p.nom}" loading="lazy"/>` : ''}
-            ${p.description ? `<div class="partenaire-desc">${p.description}</div>` : ''}
-            ${p.lien ? `<a class="partenaire-lien" href="${p.lien}" target="_blank" rel="noopener">${p.lien_label || 'En savoir plus →'}</a>` : ''}
-          </div>`).join('');
-      } else {
-        pgrid.style.display = 'none';
-        pgrid.closest('section').style.display = 'none';
-      }
-
-      // Galerie dynamique
-      const galerie = data.galerie || [];
-      const galerieGrid = document.getElementById('galerieGrid');
-      if (galerie.length && galerieGrid) {
-        galerieGrid.innerHTML = galerie.map(function(g, i) {
-          var delay = (i * 0.06).toFixed(2);
-          if (g.url) {
-            return '<div class="gal-item fade-in" style="transition-delay:' + delay + 's" onclick="openLightbox(this)">'
-              + '<img src="' + g.url + '" alt="' + (g.legende||'Photo librairie') + '" data-legende="' + (g.legende||'') + '" loading="lazy"/>'
-              + '<div class="gal-overlay"><span class="gal-legende">' + (g.legende||'') + '</span></div>'
-              + '</div>';
-          } else {
-            return '<div class="gal-item fade-in" style="transition-delay:' + delay + 's">'
-              + '<div class="gal-ph"><div class="ph-icon">🖼️</div><div class="ph-txt">Photo à venir</div></div>'
-              + '<div class="gal-overlay"><span class="gal-legende"></span></div>'
-              + '</div>';
-          }
-        }).join('');
-        var hint = document.getElementById('galerieHint');
-        if (hint) hint.style.display = 'none';
-      }
-
     } catch(e) {
       document.getElementById('libraireGrid').innerHTML =
         '<p style="font-style:italic;color:var(--ink-soft);">Contenu bientôt disponible.</p>';
@@ -418,5 +316,39 @@
 
   chargerApropos();
 </script>
+
+<footer class="site-footer" id="contact">
+  <div>
+    <div class="f-logo">L'Esprit Large</div>
+    <p class="f-desc">Librairie indépendante au cœur de Guérande.</p>
+    <p class="f-desc" style="margin-top:.8rem;">📍 12, Rue Vannetaise, 44350 Guérande<br/>📞 02 40 23 44 44<br/>📧 <a href="mailto:contact@esprit-large.com">contact@esprit-large.com</a></p>
+    <p class="f-desc" style="margin-top:.8rem;">🕐 <strong style="color:#b86060;">Horaires</strong><br/>Lun : 14h30–18h00<br/>Mar/Mer/Ven/Sam : 9h30–19h00<br/>Jeu : 9h30–12h30 &amp; 14h30–18h30<br/>Dim &amp; Fériés : fermé</p>
+  </div>
+  <div>
+    <p class="f-h">Navigation</p>
+    <ul class="f-links">
+      <li><a href="https://esprit-large.com/catalogue.html">Catalogue</a></li>
+      <li><a href="https://esprit-large.com/coups.html">❤️ Coups de cœur</a></li>
+      <li><a href="https://esprit-large.com/evenements.html">Événements</a></li>
+      <li><a href="https://esprit-large.com/blog.html">Blog</a></li>
+      <li><a href="https://esprit-large.com/avisdetempete.html">🌊 Avis de Tempête</a></li>
+      <li><a href="https://esprit-large.com/escapades.html">🧳 Escapades</a></li>
+      <li><a href="https://esprit-large.com/prix.html">🏆 Nos Prix</a></li>
+      <li><a href="https://esprit-large.com/a-propos.html">À propos</a></li>
+    </ul>
+  </div>
+  <div>
+    <p class="f-h">Infos pratiques</p>
+    <ul class="f-links">
+      <li>Commande &amp; réservation</li>
+      <li>Carte cadeau</li>
+      <li>🥪 Casse-croûte Littéraire</li>
+      <li>🚲 Livraison locale</li>
+      <li>Mentions légales</li>
+    </ul>
+  </div>
+</footer>
+<div class="site-footer-bottom">© 2026 L'Esprit Large · Librairie indépendante depuis 2006</div>
+
 </body>
 </html>

@@ -17,30 +17,6 @@
     html { scroll-behavior:smooth; }
     body { font-family:'Lora',serif; background:var(--warm-white); color:var(--ink); }
 
-    /* NAV */
-    nav {
-      position:fixed; top:0; left:0; right:0; z-index:100;
-      background:rgba(242,240,239,0.97); backdrop-filter:blur(8px);
-      border-bottom:1px solid rgba(92,26,26,0.12);
-      padding:0 2rem; height:80px;
-      display:flex; align-items:center; justify-content:space-between;
-    }
-    .nav-logo {
-      display:flex; align-items:center; gap:0.75rem; text-decoration:none;
-      font-family:'Playfair Display',serif; font-size:1.25rem;
-      font-weight:800; font-style:italic; color:var(--wood-dark);
-    }
-    .nav-logo img { width:64px; height:64px; object-fit:contain; }
-    .nav-logo span { color:var(--amber); }
-    .nav-back {
-      font-family:'Raleway',sans-serif; font-size:0.75rem; font-weight:600;
-      letter-spacing:0.08em; text-transform:uppercase;
-      color:var(--ink-soft); text-decoration:none;
-      border:1px solid rgba(92,26,26,0.2); padding:0.4rem 1rem;
-      border-radius:2px; transition:all 0.2s;
-    }
-    .nav-back:hover { color:var(--wood); border-color:var(--wood); }
-
     /* HEADER */
     .page-header {
       padding: 6rem 4rem 3rem;
@@ -195,6 +171,7 @@
       .article-modal { padding:90px 0.5rem 2rem; }
     }
   
+
     /* NAV */
     nav { position:sticky; top:0; z-index:100; background:var(--wood-dark,#5c1a1a); display:flex; align-items:center; justify-content:space-between; padding:0.7rem 2.5rem; box-shadow:0 2px 12px rgba(0,0,0,.3); }
     .nav-logo { display:flex; align-items:center; gap:.55rem; text-decoration:none; flex-shrink:0; }
@@ -365,11 +342,12 @@ function formaterDate(iso) {
 
 charger();
 </script>
+
 <footer class="site-footer" id="contact">
   <div>
     <div class="f-logo">L'Esprit Large</div>
     <p class="f-desc">Librairie indépendante au cœur de Guérande.</p>
-    <p class="f-desc" style="margin-top:.8rem;">📍 12, Rue Vannetaise, 44350 Guérande<br/>📞 02 40 23 44 44<br/>📧 <a href="/cdn-cgi/l/email-protection#b1d2dedfc5d0d2c5f1d4c2c1c3d8c59cddd0c3d6d49fd2dedc"><span class="__cf_email__" data-cfemail="a2c1cdccd6c3c1d6e2c7d1d2d0cbd68fcec3d0c5c78cc1cdcf">[email&#160;protected]</span></a></p>
+    <p class="f-desc" style="margin-top:.8rem;">📍 12, Rue Vannetaise, 44350 Guérande<br/>📞 02 40 23 44 44<br/>📧 <a href="mailto:contact@esprit-large.com">contact@esprit-large.com</a></p>
     <p class="f-desc" style="margin-top:.8rem;">🕐 <strong style="color:#b86060;">Horaires</strong><br/>Lun : 14h30–18h00<br/>Mar/Mer/Ven/Sam : 9h30–19h00<br/>Jeu : 9h30–12h30 &amp; 14h30–18h30<br/>Dim &amp; Fériés : fermé</p>
   </div>
   <div>
@@ -380,7 +358,7 @@ charger();
       <li><a href="https://esprit-large.com/evenements.html">Événements</a></li>
       <li><a href="https://esprit-large.com/blog.html">Blog</a></li>
       <li><a href="https://esprit-large.com/avisdetempete.html">🌊 Avis de Tempête</a></li>
-      <li><a href="https://esprit-large.com/escapades.html">Les Escapades</a></li>
+      <li><a href="https://esprit-large.com/escapades.html">🧳 Escapades</a></li>
       <li><a href="https://esprit-large.com/prix.html">🏆 Nos Prix</a></li>
       <li><a href="https://esprit-large.com/a-propos.html">À propos</a></li>
     </ul>
@@ -393,10 +371,10 @@ charger();
       <li>🥪 Casse-croûte Littéraire</li>
       <li>🚲 Livraison locale</li>
       <li>Mentions légales</li>
-
     </ul>
   </div>
 </footer>
 <div class="site-footer-bottom">© 2026 L'Esprit Large · Librairie indépendante depuis 2006</div>
+
 </body>
 </html>

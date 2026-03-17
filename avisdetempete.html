@@ -28,34 +28,6 @@
       overflow-x: hidden;
     }
 
-    /* ── NAV ── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(30,10,10,0.92);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(196,112,112,0.15);
-      padding: 0 2rem; height: 48px;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .nav-logo {
-      display: flex; align-items: center; gap: 0.5rem;
-      text-decoration: none;
-    }
-    .nav-logo img { width: 32px; height: 32px; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.85; }
-    .nav-logo span {
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem; font-weight: 800; font-style: italic;
-      color: var(--cream); letter-spacing: -0.02em;
-    }
-    .nav-back {
-      font-family: 'Raleway', sans-serif; font-size: 0.75rem;
-      font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
-      color: rgba(242,240,239,0.6); text-decoration: none;
-      border: 1px solid rgba(242,240,239,0.2); padding: 0.3rem 0.9rem;
-      border-radius: 2px; transition: all 0.2s;
-    }
-    .nav-back:hover { color: var(--cream); border-color: rgba(242,240,239,0.5); }
-
     /* ── HEADER ── */
     .page-header {
       padding: 7rem 4rem 3rem;
@@ -248,30 +220,7 @@
       .carousel-wrap { max-width: 100%; }
     }
   
-    /* NAV */
-    nav { position:sticky; top:0; z-index:100; background:var(--wood-dark,#5c1a1a); display:flex; align-items:center; justify-content:space-between; padding:0.7rem 2.5rem; box-shadow:0 2px 12px rgba(0,0,0,.3); }
-    .nav-logo { display:flex; align-items:center; gap:.55rem; text-decoration:none; flex-shrink:0; }
-    .nav-logo img { width:40px; height:40px; object-fit:contain; }
-    .nav-logo-text { font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:800; color:#f2f0ef; }
-    .nav-logo-text em { color:#b86060; font-style:italic; }
-    .nav-links { display:flex; gap:0; list-style:none; }
-    .nav-links a { font-family:'Raleway',sans-serif; font-size:.72rem; font-weight:600; letter-spacing:.07em; text-transform:uppercase; color:rgba(242,240,239,.72); text-decoration:none; padding:.45rem .75rem; border-radius:3px; transition:color .2s,background .2s; }
-    .nav-links a:hover { color:#f2f0ef; background:rgba(255,255,255,.08); }
-    .nav-links a.nav-active { color:#f2f0ef; background:rgba(255,255,255,.15); font-weight:700; }
-    @media(max-width:800px){ .nav-links{display:none;} }
 
-    /* FOOTER */
-    .site-footer { background:#5c1a1a; color:#f2f0ef; padding:3rem 4rem; display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:2rem; margin-top:3rem; }
-    .site-footer-bottom { background:#3a0e0e; text-align:center; font-size:.72rem; padding:.8rem; opacity:.5; font-family:'Raleway',sans-serif; color:#f2f0ef; }
-    .site-footer .f-logo { font-family:'Playfair Display',serif; font-size:1.4rem; font-weight:800; font-style:italic; margin-bottom:.6rem; }
-    .site-footer .f-desc { font-size:.82rem; opacity:.65; line-height:1.7; }
-    .site-footer .f-desc a { color:#f2f0ef; }
-    .site-footer .f-h { font-family:'Raleway',sans-serif; font-size:.68rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:#b86060; margin-bottom:.8rem; }
-    .site-footer .f-links { list-style:none; }
-    .site-footer .f-links li { margin-bottom:.4rem; }
-    .site-footer .f-links a { font-size:.82rem; opacity:.7; text-decoration:none; color:#f2f0ef; transition:opacity .2s; }
-    .site-footer .f-links a:hover { opacity:1; }
-  
     /* NAV */
     nav { position:sticky; top:0; z-index:100; background:var(--wood-dark,#5c1a1a); display:flex; align-items:center; justify-content:space-between; padding:0.7rem 2.5rem; box-shadow:0 2px 12px rgba(0,0,0,.3); }
     .nav-logo { display:flex; align-items:center; gap:.55rem; text-decoration:none; flex-shrink:0; }
@@ -491,11 +440,12 @@ document.addEventListener('keydown', e => {
 
 chargerArchives();
 </script>
+
 <footer class="site-footer" id="contact">
   <div>
     <div class="f-logo">L'Esprit Large</div>
     <p class="f-desc">Librairie indépendante au cœur de Guérande.</p>
-    <p class="f-desc" style="margin-top:.8rem;">📍 12, Rue Vannetaise, 44350 Guérande<br/>📞 02 40 23 44 44<br/>📧 <a href="/cdn-cgi/l/email-protection#32515d5c4653514672574142405b461f5e534055571c515d5f"><span class="__cf_email__" data-cfemail="6f0c00011b0e0c1b2f0a1c1f1d061b42030e1d080a410c0002">[email&#160;protected]</span></a></p>
+    <p class="f-desc" style="margin-top:.8rem;">📍 12, Rue Vannetaise, 44350 Guérande<br/>📞 02 40 23 44 44<br/>📧 <a href="mailto:contact@esprit-large.com">contact@esprit-large.com</a></p>
     <p class="f-desc" style="margin-top:.8rem;">🕐 <strong style="color:#b86060;">Horaires</strong><br/>Lun : 14h30–18h00<br/>Mar/Mer/Ven/Sam : 9h30–19h00<br/>Jeu : 9h30–12h30 &amp; 14h30–18h30<br/>Dim &amp; Fériés : fermé</p>
   </div>
   <div>
@@ -506,7 +456,7 @@ chargerArchives();
       <li><a href="https://esprit-large.com/evenements.html">Événements</a></li>
       <li><a href="https://esprit-large.com/blog.html">Blog</a></li>
       <li><a href="https://esprit-large.com/avisdetempete.html">🌊 Avis de Tempête</a></li>
-      <li><a href="https://esprit-large.com/escapades.html">Les Escapades</a></li>
+      <li><a href="https://esprit-large.com/escapades.html">🧳 Escapades</a></li>
       <li><a href="https://esprit-large.com/prix.html">🏆 Nos Prix</a></li>
       <li><a href="https://esprit-large.com/a-propos.html">À propos</a></li>
     </ul>
@@ -519,3 +469,10 @@ chargerArchives();
       <li>🥪 Casse-croûte Littéraire</li>
       <li>🚲 Livraison locale</li>
       <li>Mentions légales</li>
+    </ul>
+  </div>
+</footer>
+<div class="site-footer-bottom">© 2026 L'Esprit Large · Librairie indépendante depuis 2006</div>
+
+</body>
+</html>

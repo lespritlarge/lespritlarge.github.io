@@ -27,35 +27,6 @@
       color: var(--ink); overflow-x: hidden;
     }
 
-    /* ── NAV ── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(242,240,239,0.96);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(92,26,26,0.1);
-      padding: 0 2rem; height: 48px;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .nav-logo {
-      display: flex; align-items: center; gap: 0.5rem;
-      text-decoration: none;
-    }
-    .nav-logo img { width: 32px; height: 32px; object-fit: contain; }
-    .nav-logo span {
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem; font-weight: 800; font-style: italic;
-      color: var(--wood-dark);
-    }
-    .nav-logo span em { color: var(--amber); font-style: normal; }
-    .nav-back {
-      font-family: 'Raleway', sans-serif; font-size: 0.75rem;
-      font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
-      color: var(--ink-soft); text-decoration: none;
-      border: 1px solid rgba(92,26,26,0.2); padding: 0.3rem 0.9rem;
-      border-radius: 2px; transition: all 0.2s;
-    }
-    .nav-back:hover { color: var(--wood); border-color: var(--wood); }
-
     /* ── HEADER ── */
     .page-header {
       padding: 5rem 4rem 3rem;
@@ -286,33 +257,8 @@
       transition: all 0.4s cubic-bezier(0.175,0.885,0.32,1.275);
     }
     .toast.show { transform: translateY(0); opacity: 1; }
-
-    /* ── FOOTER ── */
-    .page-footer {
-      text-align: center; padding: 3rem 2rem;
-      border-top: 1px solid rgba(92,26,26,0.1);
-      margin-top: 3rem;
-      font-family: 'Lora', serif; font-style: italic;
-      font-size: 0.82rem; color: var(--ink-soft);
-    }
-    .page-footer a {
-      font-family: 'Raleway', sans-serif; font-size: 0.78rem;
-      font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--wood); text-decoration: none;
-    }
-
-    @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
-
-    @media (max-width: 768px) {
-      .page-header { padding: 5rem 1.5rem 2rem; }
-      .view-toggle { padding: 1rem 1.5rem 0; }
-      .main { padding: 1.5rem; }
-      .event-card { flex-wrap: wrap; }
-      .btn-inscris { width: 100%; text-align: center; }
-      .calendar-grid { font-size: 0.7rem; }
-      .cal-day { min-height: 60px; }
-    }
   
+
     /* NAV */
     nav { position:sticky; top:0; z-index:100; background:var(--wood-dark,#5c1a1a); display:flex; align-items:center; justify-content:space-between; padding:0.7rem 2.5rem; box-shadow:0 2px 12px rgba(0,0,0,.3); }
     .nav-logo { display:flex; align-items:center; gap:.55rem; text-decoration:none; flex-shrink:0; }
@@ -624,11 +570,12 @@ function showToast(msg) {
 /* ── INIT ── */
 chargerEvenements();
 </script>
+
 <footer class="site-footer" id="contact">
   <div>
     <div class="f-logo">L'Esprit Large</div>
     <p class="f-desc">Librairie indépendante au cœur de Guérande.</p>
-    <p class="f-desc" style="margin-top:.8rem;">📍 12, Rue Vannetaise, 44350 Guérande<br/>📞 02 40 23 44 44<br/>📧 <a href="/cdn-cgi/l/email-protection#7b1814150f1a180f3b1e080b09120f56171a091c1e55181416"><span class="__cf_email__" data-cfemail="50333f3e24313324103523202239247d3c312237357e333f3d">[email&#160;protected]</span></a></p>
+    <p class="f-desc" style="margin-top:.8rem;">📍 12, Rue Vannetaise, 44350 Guérande<br/>📞 02 40 23 44 44<br/>📧 <a href="mailto:contact@esprit-large.com">contact@esprit-large.com</a></p>
     <p class="f-desc" style="margin-top:.8rem;">🕐 <strong style="color:#b86060;">Horaires</strong><br/>Lun : 14h30–18h00<br/>Mar/Mer/Ven/Sam : 9h30–19h00<br/>Jeu : 9h30–12h30 &amp; 14h30–18h30<br/>Dim &amp; Fériés : fermé</p>
   </div>
   <div>
@@ -639,7 +586,7 @@ chargerEvenements();
       <li><a href="https://esprit-large.com/evenements.html">Événements</a></li>
       <li><a href="https://esprit-large.com/blog.html">Blog</a></li>
       <li><a href="https://esprit-large.com/avisdetempete.html">🌊 Avis de Tempête</a></li>
-      <li><a href="https://esprit-large.com/escapades.html">Les Escapades</a></li>
+      <li><a href="https://esprit-large.com/escapades.html">🧳 Escapades</a></li>
       <li><a href="https://esprit-large.com/prix.html">🏆 Nos Prix</a></li>
       <li><a href="https://esprit-large.com/a-propos.html">À propos</a></li>
     </ul>
@@ -652,10 +599,10 @@ chargerEvenements();
       <li>🥪 Casse-croûte Littéraire</li>
       <li>🚲 Livraison locale</li>
       <li>Mentions légales</li>
-
     </ul>
   </div>
 </footer>
 <div class="site-footer-bottom">© 2026 L'Esprit Large · Librairie indépendante depuis 2006</div>
+
 </body>
 </html>

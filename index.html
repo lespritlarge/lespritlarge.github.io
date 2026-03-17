@@ -8,7 +8,6 @@
   <style>
 
 
-
     :root {
       --cream: #f2f0ef;
       --warm-white: #f7f5f4;
@@ -37,6 +36,23 @@
     }
 
     /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(242,240,239,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(92,26,26,0.1);
+      padding: 0 1.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 48px;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem; font-weight: 800; font-style: italic;
+      color: var(--wood-dark);
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+    }
+    .nav-logo span { color: var(--amber); }
     .nav-links { display: flex; gap: 1.4rem; list-style: none; flex-wrap: nowrap; }
     .nav-links a {
       font-family: 'Raleway', sans-serif;
@@ -620,6 +636,7 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
+      nav { padding: 0 1rem; }
       .nav-links { display: none; }
       #hero { padding: 100px 1.5rem 3rem; }
       section { padding: 3rem 1.5rem; }
@@ -775,7 +792,6 @@
     .bas-btn-label { font-family:'Raleway',sans-serif; font-size:.65rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:#b86060; }
     .bas-btn-text { font-family:'Lora',serif; font-style:italic; font-size:.88rem; color:#f2f0ef; text-align:center; }
   
-
     /* NAV */
     nav { position:sticky; top:0; z-index:100; background:var(--wood-dark,#5c1a1a); display:flex; align-items:center; justify-content:space-between; padding:0.7rem 2.5rem; box-shadow:0 2px 12px rgba(0,0,0,.3); }
     .nav-logo { display:flex; align-items:center; gap:.55rem; text-decoration:none; flex-shrink:0; }
@@ -799,53 +815,6 @@
     .site-footer .f-links li { margin-bottom:.4rem; }
     .site-footer .f-links a { font-size:.82rem; opacity:.7; text-decoration:none; color:#f2f0ef; transition:opacity .2s; }
     .site-footer .f-links a:hover { opacity:1; }
-    /* ── SECTIONS ── */
-    .section-wrap { padding: 3rem 4rem; }
-    @media(max-width:700px){ .section-wrap{ padding:2rem 1.2rem; } }
-    .section-header { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:1.8rem; }
-    .section-title { font-family:'Playfair Display',serif; font-size:1.6rem; font-weight:800; color:var(--wood-dark); }
-    .section-sub { font-family:'Lora',serif; font-size:.88rem; font-style:italic; color:var(--ink-soft); margin-top:.2rem; }
-    .voir-tout { font-family:'Raleway',sans-serif; font-size:.7rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--wood); text-decoration:none; border:1.5px solid rgba(139,46,46,.3); border-radius:20px; padding:.35rem 1rem; transition:all .2s; white-space:nowrap; }
-    .voir-tout:hover { background:var(--wood); color:#fff; }
-    /* ── COUPS ── */
-    #coups-de-coeur { background:var(--parchment,#ebe8e8); }
-    #coups-wrapper { overflow:hidden; transition:max-height .5s ease; max-height:260px; position:relative; }
-    #coups-fade { position:absolute; bottom:0; left:0; right:0; height:80px; background:linear-gradient(transparent,var(--parchment,#ebe8e8)); pointer-events:none; }
-    #toggle-coups-btn { display:block; margin:1rem auto 0; font-family:'Raleway',sans-serif; font-size:.7rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--wood); background:none; border:1.5px solid rgba(139,46,46,.3); border-radius:20px; padding:.4rem 1.2rem; cursor:pointer; transition:all .2s; }
-    #toggle-coups-btn:hover { background:var(--wood); color:#fff; }
-    /* ── ÉVÉNEMENTS ── */
-    #evenements-home { background:var(--warm-white,#f7f5f4); }
-    .evt-liste { display:flex; flex-direction:row; gap:1rem; overflow-x:auto; padding-bottom:.5rem; }
-    .evt-carte { flex:0 0 220px; background:#fff; border-radius:6px; box-shadow:0 2px 8px rgba(30,10,10,.08); padding:1rem 1.1rem; display:flex; flex-direction:column; gap:.3rem; }
-    .evt-jour { font-family:'Playfair Display',serif; font-size:2rem; font-weight:800; color:var(--wood); line-height:1; }
-    .evt-mois { font-family:'Raleway',sans-serif; font-size:.65rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-soft); }
-    .evt-type { font-family:'Raleway',sans-serif; font-size:.62rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--wood-light,#b86060); }
-    .evt-titre { font-family:'Playfair Display',serif; font-size:.95rem; font-weight:700; color:var(--ink); line-height:1.3; }
-    .evt-lieu { font-size:.75rem; color:var(--ink-soft); }
-    /* ── BLOG ── */
-    #blog-home { background:var(--cream,#f2f0ef); }
-    .blog-cards { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:1.5rem; }
-    .blog-card { background:#fff; border-radius:6px; overflow:hidden; box-shadow:0 2px 10px rgba(30,10,10,.08); display:flex; flex-direction:column; }
-    .blog-card-img { height:150px; background:var(--parchment,#ebe8e8); display:flex; align-items:center; justify-content:center; font-size:2.5rem; overflow:hidden; }
-    .blog-card-img img { width:100%; height:100%; object-fit:cover; }
-    .blog-card-body { padding:1rem 1.2rem; flex:1; display:flex; flex-direction:column; gap:.3rem; }
-    .blog-card-cat { font-family:'Raleway',sans-serif; font-size:.62rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--wood); }
-    .blog-card-titre { font-family:'Playfair Display',serif; font-size:.98rem; font-weight:700; color:var(--ink); line-height:1.3; }
-    .blog-card-extrait { font-family:'Lora',serif; font-size:.83rem; color:var(--ink-soft); line-height:1.6; flex:1; }
-    .blog-card-lire { font-family:'Raleway',sans-serif; font-size:.68rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--wood); text-decoration:none; margin-top:.5rem; }
-    /* ── CATALOGUE ── */
-    #catalogue-search { background:var(--parchment,#ebe8e8); }
-    .search-bar-wrap { max-width:560px; margin:1.5rem auto 0; display:flex; box-shadow:0 2px 16px rgba(30,10,10,.1); border-radius:3px; overflow:hidden; }
-    .search-bar-wrap input { flex:1; padding:1rem 1.4rem; font-family:'Lora',serif; font-size:.95rem; border:none; outline:none; background:#fff; }
-    .search-bar-wrap button { padding:1rem 1.8rem; background:var(--wood); color:#fff; border:none; cursor:pointer; font-family:'Raleway',sans-serif; font-size:.75rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; white-space:nowrap; transition:background .2s; }
-    .search-bar-wrap button:hover { background:var(--wood-dark); }
-    /* ── BOUTONS BAS ── */
-    #bas-boutons { background:var(--wood-dark,#5c1a1a); padding:2.5rem 4rem; display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1.5rem; }
-    .bas-btn { display:flex; flex-direction:column; align-items:center; gap:.5rem; text-decoration:none; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); border-radius:8px; padding:1.5rem 1rem; transition:background .2s; }
-    .bas-btn:hover { background:rgba(255,255,255,.15); }
-    .bas-btn-icon { font-size:1.8rem; }
-    .bas-btn-label { font-family:'Raleway',sans-serif; font-size:.65rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:#b86060; }
-    .bas-btn-text { font-family:'Lora',serif; font-style:italic; font-size:.88rem; color:#f2f0ef; text-align:center; }
   </style>
 </head>
 <body>
@@ -868,7 +837,6 @@
 </nav>
 
 <!-- HERO -->
-
 
 
 <section id="hero">
@@ -949,8 +917,6 @@
 
 
 
-
-
 <!-- CATALOGUE -->
 <section id="catalogue-search" class="section-wrap">
   <div class="section-header">
@@ -1017,6 +983,7 @@
   </div>
 </footer>
 <div class="site-footer-bottom">© 2026 L'Esprit Large · Librairie indépendante depuis 2006</div>
+<div class="site-footer-bottom">© 2026 L'Esprit Large · Librairie indépendante depuis 2006</div>
 
 <!-- MODAL RÉSERVATION -->
 <div class="modal-overlay" id="reserveModal">
@@ -1078,9 +1045,7 @@
 
 
 
-
-
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ── COUPS DE CŒUR (depuis JSON GitHub) ── */
 async function chargerCoups() {
   try {
@@ -1209,13 +1174,4 @@ function showToast(msg) {
 /* ── MODALS ── */
 function closeModal() { document.getElementById('reserveModal').classList.remove('open'); document.body.style.overflow=''; }
 function closeEventModal() { document.getElementById('eventModal').classList.remove('open'); document.body.style.overflow=''; }
-function closeAdtModal() { var m=document.getElementById('adtModal'); if(m){ m.classList.remove('open'); document.body.style.overflow=''; } }
-document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ closeModal(); closeEventModal(); closeAdtModal(); } });
-
-/* ── INIT ── */
-chargerCoups();
-chargerEvenements();
-chargerBlog();
-</script>
-</body>
-</html>
+function closeAdtModal() { var m=document.getElementById('adtModal'); if(m){ m.classList.remove('open'); document.body.s
