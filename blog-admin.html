@@ -1246,13 +1246,13 @@ var Apropos = (() => {
           pHtml += '<button onclick="Apropos.supprimerPartenaire(' + i + ')" style="position:absolute;top:.6rem;right:.6rem;background:none;border:none;cursor:pointer;font-size:1rem;color:#c0392b;" title="Supprimer">🗑</button>';
           pHtml += '<div class="frow">';
           pHtml += '<div class="f" style="max-width:70px;"><label>Emoji</label><input type="text" id="pEmoji' + i + '" value="' + (p.emoji||'🤝') + '"/></div>';
-          pHtml += '<div class="f"><label>Nom *</label><input type="text" id="pNom' + i + '" value="' + (p.nom||'').replace(/"/g,'&quot;') + '" placeholder="L'Équipée d'Adel"/></div>';
+          pHtml += '<div class="f"><label>Nom</label><input type="text" id="pNom' + i + '" value="' + (p.nom||'').replace(/"/g,'&quot;') + '" placeholder="Nom du partenaire"/></div>';
           pHtml += '</div>';
           pHtml += '<div class="f"><label>Accroche courte</label><input type="text" id="pAccroche' + i + '" value="' + (p.accroche||'').replace(/"/g,'&quot;') + '" placeholder="Association des amis de la librairie…"/></div>';
           pHtml += '<div class="f"><label>Description</label><textarea id="pDesc' + i + '" style="min-height:70px;">' + (p.description||'') + '</textarea></div>';
           pHtml += '<div class="frow">';
-          pHtml += '<div class="f"><label>Lien (site, adhésion…)</label><input type="url" id="pLien' + i + '" value="' + (p.lien||'') + '" placeholder="https://…"/></div>';
-          pHtml += '<div class="f"><label>Texte du bouton lien</label><input type="text" id="pLienLabel' + i + '" value="' + (p.lien_label||'').replace(/"/g,'&quot;') + '" placeholder="Rejoindre l'association"/></div>';
+          pHtml += '<div class="f"><label>Lien</label><input type="url" id="pLien' + i + '" value="' + (p.lien||'') + '" placeholder="https://…"/></div>';
+          pHtml += '<div class="f"><label>Texte bouton</label><input type="text" id="pLienLabel' + i + '" value="' + (p.lien_label||'').replace(/"/g,'&quot;') + '" placeholder="En savoir plus"/></div>';
           pHtml += '</div>';
           pHtml += '<div class="f"><label>Photo / image (URL)</label><input type="text" id="pPhoto' + i + '" value="' + (p.photo||'').replace(/"/g,'&quot;') + '" placeholder="https://… ou images/partenaire.jpg"/>';
           pHtml += '<button type="button" onclick="Apropos.choisirImagePartenaire(' + i + ')" style="margin-top:.3rem;padding:.3rem .8rem;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:rgba(92,26,26,.08);color:var(--wood);border:1.5px solid rgba(92,26,26,.2);border-radius:3px;cursor:pointer;">📁 Depuis mon ordi</button>';
