@@ -370,17 +370,13 @@ details[open] .rblock summary::before{transform:rotate(90deg);}
         <div id="valeursForms"></div>
         <button style="margin-top:.5rem;padding:.5rem 1rem;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(92,26,26,.08);color:var(--wood);border:1.5px solid rgba(92,26,26,.2);border-radius:3px;cursor:pointer;" onclick="Apropos.ajouterValeur()">+ Ajouter une valeur</button>
       </div>
-      <!-- GALERIE -->
       <div style="background:var(--cream);border:1.5px solid rgba(92,26,26,.15);border-radius:6px;padding:1.5rem;margin-bottom:1.5rem;">
         <div class="fhead" style="font-size:.9rem;margin-bottom:.4rem;">📸 Galerie photos</div>
-        <p style="font-family:'Lora',serif;font-style:italic;font-size:.82rem;color:var(--soft);margin-bottom:1rem;line-height:1.5;">Uploadez vos photos — elles remplacent les placeholders de la section galerie.</p>
         <div id="galerieForms"></div>
         <button style="margin-top:.5rem;padding:.5rem 1rem;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(92,26,26,.08);color:var(--wood);border:1.5px solid rgba(92,26,26,.2);border-radius:3px;cursor:pointer;" onclick="Apropos.ajouterPhoto()">+ Ajouter une photo</button>
       </div>
-
-      <!-- PARTENAIRES -->
       <div style="background:var(--cream);border:1.5px solid rgba(92,26,26,.15);border-radius:6px;padding:1.5rem;margin-bottom:1.5rem;">
-        <div class="fhead" style="font-size:.9rem;margin-bottom:1.2rem;">🤝 Partenaires & associations</div>
+        <div class="fhead" style="font-size:.9rem;margin-bottom:1.2rem;">🤝 Partenaires</div>
         <div id="partenairesForms"></div>
         <button style="margin-top:.5rem;padding:.5rem 1rem;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(92,26,26,.08);color:var(--wood);border:1.5px solid rgba(92,26,26,.2);border-radius:3px;cursor:pointer;" onclick="Apropos.ajouterPartenaire()">+ Ajouter un partenaire</button>
       </div>
@@ -1243,57 +1239,80 @@ var Apropos = (() => {
     });
     vEl.innerHTML = vHtml;
 
-    // Galerie
-    const gEl = document.getElementById('galerieForms');
+    // Galerie photos
+    var gEl = document.getElementById('galerieForms');
     if (gEl) {
+      gEl.innerHTML = '';
       if (!galerie.length) {
-        gEl.innerHTML = '<p style="font-style:italic;color:var(--soft);font-size:.85rem;">Aucune photo — cliquez sur « + Ajouter ».</p>';
+        var gp = document.createElement('p');
+        gp.style.cssText = 'font-style:italic;color:var(--soft);font-size:.85rem;';
+        gp.textContent = 'Aucune photo. Cliquez sur + Ajouter.';
+        gEl.appendChild(gp);
       } else {
-        let gHtml = '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:.8rem;">';
-        galerie.forEach(function(g, i) {
-          gHtml += '<div style="border:1px solid rgba(92,26,26,.12);border-radius:5px;padding:.8rem;background:var(--warm);position:relative;">';
-          gHtml += '<button onclick="Apropos.supprimerPhoto(' + i + ')" style="position:absolute;top:.4rem;right:.4rem;background:rgba(255,255,255,.8);border:none;cursor:pointer;font-size:.9rem;color:#c0392b;border-radius:50%;width:22px;height:22px;line-height:1;" title="Supprimer">✕</button>';
+        var gGrid = document.createElement('div');
+        gGrid.style.cssText = 'display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:.8rem;';
+        galerie.forEach(function(g, idx) {
+          var wrap = document.createElement('div');
+          wrap.style.cssText = 'border:1px solid rgba(92,26,26,.12);border-radius:5px;padding:.8rem;background:var(--warm);position:relative;';
+          var del = document.createElement('button');
+          del.style.cssText = 'position:absolute;top:.4rem;right:.4rem;background:rgba(255,255,255,.8);border:none;cursor:pointer;font-size:.9rem;color:#c0392b;border-radius:50%;width:22px;height:22px;line-height:1;';
+          del.textContent = 'x';
+          del.title = 'Supprimer';
+          del.onclick = (function(n){ return function(){ Apropos.supprimerPhoto(n); }; })(idx);
+          wrap.appendChild(del);
           if (g.url) {
-            gHtml += '<img src="' + g.url + '" style="width:100%;height:100px;object-fit:cover;border-radius:3px;display:block;margin-bottom:.5rem;" onerror="this.style.display='none'"/>';
+            var im = document.createElement('img');
+            im.src = g.url;
+            im.style.cssText = 'width:100%;height:100px;object-fit:cover;border-radius:3px;display:block;margin-bottom:.5rem;';
+            im.onerror = function(){ this.style.display = 'none'; };
+            wrap.appendChild(im);
           } else {
-            gHtml += '<div style="width:100%;height:100px;background:var(--parchment);border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:2rem;margin-bottom:.5rem;">🖼️</div>';
+            var ph2 = document.createElement('div');
+            ph2.style.cssText = 'width:100%;height:100px;background:var(--parchment);border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:2rem;margin-bottom:.5rem;';
+            ph2.textContent = '[photo]';
+            wrap.appendChild(ph2);
           }
-          gHtml += '<input type="text" id="gLegende' + i + '" value="' + (g.legende||'').replace(/"/g,'&quot;') + '" placeholder="Légende" style="width:100%;font-size:.72rem;padding:.3rem .4rem;border:1px solid #ddd;border-radius:3px;font-family:Raleway,sans-serif;"/>';
-          gHtml += '<input type="file" id="gFile' + i + '" accept="image/*" style="display:none;" onchange="Apropos.uploadPhoto(' + i + ')">';
-          gHtml += '<button onclick="document.getElementById('gFile' + i + '').click()" style="margin-top:.4rem;width:100%;padding:.3rem;font-size:.65rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:rgba(92,26,26,.07);color:var(--wood);border:1.5px solid rgba(92,26,26,.18);border-radius:3px;cursor:pointer;">📁 Changer</button>';
-          gHtml += '</div>';
+          var leg = document.createElement('input');
+          leg.type = 'text'; leg.id = 'gLegende' + idx;
+          leg.value = g.legende || ''; leg.placeholder = 'Legende';
+          leg.style.cssText = 'width:100%;font-size:.72rem;padding:.3rem .4rem;border:1px solid #ddd;border-radius:3px;margin-bottom:.4rem;';
+          wrap.appendChild(leg);
+          var fi = document.createElement('input');
+          fi.type = 'file'; fi.id = 'gFile' + idx; fi.accept = 'image/*';
+          fi.style.display = 'none';
+          fi.onchange = (function(n){ return function(){ Apropos.uploadPhoto(n); }; })(idx);
+          wrap.appendChild(fi);
+          var gbtn = document.createElement('button');
+          gbtn.type = 'button';
+          gbtn.style.cssText = 'width:100%;padding:.3rem;font-size:.65rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:rgba(92,26,26,.07);color:var(--wood);border:1.5px solid rgba(92,26,26,.18);border-radius:3px;cursor:pointer;';
+          gbtn.textContent = 'Changer la photo';
+          gbtn.onclick = (function(n){ return function(){ document.getElementById('gFile'+n).click(); }; })(idx);
+          wrap.appendChild(gbtn);
+          gGrid.appendChild(wrap);
         });
-        gHtml += '</div>';
-        gEl.innerHTML = gHtml;
+        gEl.appendChild(gGrid);
       }
     }
-
     // Partenaires
-    const pEl = document.getElementById('partenairesForms');
-    if (pEl) {
+    var pEl2 = document.getElementById('partenairesForms');
+    if (pEl2) {
       if (!partenaires.length) {
-        pEl.innerHTML = '<p style="font-style:italic;color:var(--soft);font-size:.85rem;">Aucun partenaire — cliquez sur « + Ajouter ».</p>';
+        pEl2.innerHTML = '<p style="font-style:italic;color:var(--soft);font-size:.85rem;">Aucun partenaire.</p>';
       } else {
-        let pHtml = '';
+        var pH = '';
         partenaires.forEach(function(p, i) {
-          pHtml += '<div style="border:1px solid rgba(92,26,26,.12);border-radius:5px;padding:1.2rem;margin-bottom:1rem;background:var(--warm);position:relative;">';
-          pHtml += '<button onclick="Apropos.supprimerPartenaire(' + i + ')" style="position:absolute;top:.6rem;right:.6rem;background:none;border:none;cursor:pointer;font-size:1rem;color:#c0392b;" title="Supprimer">🗑</button>';
-          pHtml += '<div class="frow">';
-          pHtml += '<div class="f" style="max-width:70px;"><label>Emoji</label><input type="text" id="pEmoji' + i + '" value="' + (p.emoji||'🤝') + '"/></div>';
-          pHtml += '<div class="f"><label>Nom</label><input type="text" id="pNom' + i + '" value="' + (p.nom||'').replace(/"/g,'&quot;') + '" placeholder="Nom du partenaire"/></div>';
-          pHtml += '</div>';
-          pHtml += '<div class="f"><label>Accroche courte</label><input type="text" id="pAccroche' + i + '" value="' + (p.accroche||'').replace(/"/g,'&quot;') + '" placeholder="Association des amis de la librairie…"/></div>';
-          pHtml += '<div class="f"><label>Description</label><textarea id="pDesc' + i + '" style="min-height:70px;">' + (p.description||'') + '</textarea></div>';
-          pHtml += '<div class="frow">';
-          pHtml += '<div class="f"><label>Lien</label><input type="url" id="pLien' + i + '" value="' + (p.lien||'') + '" placeholder="https://…"/></div>';
-          pHtml += '<div class="f"><label>Texte bouton</label><input type="text" id="pLienLabel' + i + '" value="' + (p.lien_label||'').replace(/"/g,'&quot;') + '" placeholder="En savoir plus"/></div>';
-          pHtml += '</div>';
-          pHtml += '<div class="f"><label>Photo / image (URL)</label><input type="text" id="pPhoto' + i + '" value="' + (p.photo||'').replace(/"/g,'&quot;') + '" placeholder="https://… ou images/partenaire.jpg"/>';
-          pHtml += '<button type="button" onclick="Apropos.choisirImagePartenaire(' + i + ')" style="margin-top:.3rem;padding:.3rem .8rem;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:rgba(92,26,26,.08);color:var(--wood);border:1.5px solid rgba(92,26,26,.2);border-radius:3px;cursor:pointer;">📁 Depuis mon ordi</button>';
-          pHtml += '<input type="file" id="pPhotoFile' + i + '" accept="image/*" style="display:none;" onchange="Apropos.previewPartenaire(' + i + ')"/></div>';
-          pHtml += '</div>';
+          pH += '<div style="border:1px solid rgba(92,26,26,.12);border-radius:5px;padding:1.2rem;margin-bottom:1rem;background:var(--warm);position:relative;">';
+          pH += '<button onclick="Apropos.supprimerPartenaire(' + i + ')" style="position:absolute;top:.6rem;right:.6rem;background:none;border:none;cursor:pointer;font-size:1rem;color:#c0392b;">X</button>';
+          pH += '<div class="frow"><div class="f" style="max-width:70px;"><label>Emoji</label><input type="text" id="pEmoji' + i + '" value="' + (p.emoji||'').replace(/"/g,'&quot;') + '"/></div>';
+          pH += '<div class="f"><label>Nom</label><input type="text" id="pNom' + i + '" value="' + (p.nom||'').replace(/"/g,'&quot;') + '" placeholder="Nom du partenaire"/></div></div>';
+          pH += '<div class="f"><label>Accroche</label><input type="text" id="pAccroche' + i + '" value="' + (p.accroche||'').replace(/"/g,'&quot;') + '"/></div>';
+          pH += '<div class="f"><label>Description</label><textarea id="pDesc' + i + '" style="min-height:60px;">' + (p.description||'') + '</textarea></div>';
+          pH += '<div class="frow"><div class="f"><label>Lien</label><input type="url" id="pLien' + i + '" value="' + (p.lien||'') + '"/></div>';
+          pH += '<div class="f"><label>Bouton</label><input type="text" id="pLienLabel' + i + '" value="' + (p.lien_label||'').replace(/"/g,'&quot;') + '"/></div></div>';
+          pH += '<div class="f"><label>Photo URL</label><input type="text" id="pPhoto' + i + '" value="' + (p.photo||'').replace(/"/g,'&quot;') + '"/></div>';
+          pH += '</div>';
         });
-        pEl.innerHTML = pHtml;
+        pEl2.innerHTML = pH;
       }
     }
   }
@@ -1320,23 +1339,21 @@ var Apropos = (() => {
       });
     }
     const nbG = document.querySelectorAll('[id^="gLegende"]').length;
-    // Ne pas écraser galerie ici — les URLs sont gérées par uploadPhoto
     for (let i = 0; i < nbG; i++) {
-      const leg = document.getElementById('gLegende'+i);
-      if (leg && galerie[i] !== undefined) galerie[i].legende = leg.value.trim();
+      const elG = document.getElementById('gLegende'+i);
+      if (elG && galerie[i]) galerie[i].legende = elG.value.trim();
     }
-
     const nbP = document.querySelectorAll('[id^="pNom"]').length;
     partenaires = [];
     for (let i = 0; i < nbP; i++) {
       partenaires.push({
-        emoji:      document.getElementById('pEmoji'+i).value.trim(),
-        nom:        document.getElementById('pNom'+i).value.trim(),
-        accroche:   document.getElementById('pAccroche'+i).value.trim(),
-        description:document.getElementById('pDesc'+i).value.trim(),
-        lien:       document.getElementById('pLien'+i).value.trim(),
-        lien_label: document.getElementById('pLienLabel'+i).value.trim(),
-        photo:      document.getElementById('pPhoto'+i).value.trim(),
+        emoji:       (document.getElementById('pEmoji'+i)||{value:''}).value.trim(),
+        nom:         (document.getElementById('pNom'+i)||{value:''}).value.trim(),
+        accroche:    (document.getElementById('pAccroche'+i)||{value:''}).value.trim(),
+        description: (document.getElementById('pDesc'+i)||{value:''}).value.trim(),
+        lien:        (document.getElementById('pLien'+i)||{value:''}).value.trim(),
+        lien_label:  (document.getElementById('pLienLabel'+i)||{value:''}).value.trim(),
+        photo:       (document.getElementById('pPhoto'+i)||{value:''}).value.trim(),
       });
     }
   }
@@ -1379,8 +1396,8 @@ var Apropos = (() => {
       mis_a_jour: new Date().toISOString(),
       libraires,
       valeurs,
-      partenaires,
       galerie,
+      partenaires,
     }, '👥 Mise à jour page À propos');
     if (ok) toast('✅ Page À propos publiée !');
   }
@@ -1447,90 +1464,42 @@ var Apropos = (() => {
     return true;
   }
 
-  function ajouterPartenaire() {
-    lireFormulaires();
-    partenaires.push({ emoji:'🤝', nom:'', accroche:'', description:'', lien:'', lien_label:'', photo:'' });
-    renderForms();
-    document.getElementById('partenairesForms').lastElementChild.scrollIntoView({ behavior:'smooth' });
-  }
-  function supprimerPartenaire(i) {
-    lireFormulaires();
-    if (!confirm('Supprimer ce partenaire ?')) return;
-    partenaires.splice(i, 1);
-    renderForms();
-  }
-  function choisirImagePartenaire(i) {
-    document.getElementById('pPhotoFile'+i).click();
-  }
-  function previewPartenaire(i) {
-    const file = document.getElementById('pPhotoFile'+i).files[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = function(e) {
-      document.getElementById('pPhoto'+i).value = e.target.result;
-    };
-    reader.readAsDataURL(file);
-  }
-
-  function ajouterPhoto() {
-    lireFormulaires();
-    galerie.push({ url: '', legende: '' });
-    renderForms();
-    setTimeout(function() {
-      const items = document.querySelectorAll('#galerieForms [id^="gFile"]');
-      if (items.length) items[items.length-1].parentElement.scrollIntoView({ behavior:'smooth' });
-    }, 100);
-  }
-
-  function supprimerPhoto(i) {
-    lireFormulaires();
-    if (!confirm('Supprimer cette photo de la galerie ?')) return;
-    galerie.splice(i, 1);
-    renderForms();
-  }
-
+  function ajouterPhoto() { lireFormulaires(); galerie.push({ url:'', legende:'' }); renderForms(); }
+  function supprimerPhoto(i) { lireFormulaires(); if (!confirm('Supprimer ?')) return; galerie.splice(i,1); renderForms(); }
   async function uploadPhoto(i) {
-    const file = document.getElementById('gFile'+i).files[0];
+    var file = document.getElementById('gFile'+i).files[0];
     if (!file) return;
-    const token = getToken();
-    if (!token) { toast('⚠️ Token GitHub requis.'); return; }
-
-    toast('⏳ Upload en cours…');
-    const ext = file.name.split('.').pop().toLowerCase();
-    const nom = 'images/galerie/photo' + Date.now() + '.' + ext;
-
-    const b64 = await new Promise(function(res, rej) {
-      const r = new FileReader();
-      r.onload = function() { res(r.result.split(',')[1]); };
-      r.onerror = rej;
-      r.readAsDataURL(file);
+    var token = getToken();
+    if (!token) { toast('Token GitHub requis.'); return; }
+    toast('Upload en cours...');
+    var ext = file.name.split('.').pop().toLowerCase();
+    var nom = 'images/galerie/photo' + Date.now() + '.' + ext;
+    var b64 = await new Promise(function(res, rej) {
+      var rd = new FileReader();
+      rd.onload = function() { res(rd.result.split(',')[1]); };
+      rd.onerror = rej; rd.readAsDataURL(file);
     });
-
-    let sha = null;
+    var sha = null;
     try { sha = await ghGetSha(nom, token); } catch(_) {}
-    const body = { message: '📸 Galerie : ' + nom, content: b64 };
+    var body = { message: 'Galerie : ' + nom, content: b64 };
     if (sha) body.sha = sha;
-
-    const r = await fetch('https://api.github.com/repos/' + GH_OWNER + '/' + GH_REPO + '/contents/' + nom, {
-      method: 'PUT',
-      mode: 'cors', credentials: 'omit',
+    var resp = await fetch('https://api.github.com/repos/' + GH_OWNER + '/' + GH_REPO + '/contents/' + nom, {
+      method: 'PUT', mode: 'cors', credentials: 'omit',
       headers: { 'Authorization': 'Bearer ' + token, 'Accept': 'application/vnd.github+json', 'Content-Type': 'application/json' },
       body: JSON.stringify(body)
     });
-
-    if (r.ok || r.status === 201) {
-      const url = 'https://raw.githubusercontent.com/' + GH_OWNER + '/' + GH_REPO + '/main/' + nom;
-      lireFormulaires();
-      if (galerie[i] !== undefined) galerie[i].url = url;
-      renderForms();
-      toast('✅ Photo uploadée !');
+    if (resp.ok || resp.status === 201) {
+      var url = 'https://raw.githubusercontent.com/' + GH_OWNER + '/' + GH_REPO + '/main/' + nom;
+      lireFormulaires(); if (galerie[i]) galerie[i].url = url; renderForms(); toast('Photo uploadee !');
     } else {
-      const err = await r.json().catch(function(){return {};});
-      toast('❌ Erreur upload : ' + (err.message || r.status));
+      var err = await resp.json().catch(function(){ return {}; });
+      toast('Erreur : ' + (err.message || resp.status));
     }
   }
+  function ajouterPartenaire() { lireFormulaires(); partenaires.push({ emoji:'', nom:'', accroche:'', description:'', lien:'', lien_label:'', photo:'' }); renderForms(); }
+  function supprimerPartenaire(i) { lireFormulaires(); if (!confirm('Supprimer ?')) return; partenaires.splice(i,1); renderForms(); }
 
-  return { charger, ajouterLibraire, supprimerLibraire, ajouterValeur, supprimerValeur, sauvegarder, previewPhoto, ajouterPartenaire, supprimerPartenaire, choisirImagePartenaire, previewPartenaire, ajouterPhoto, supprimerPhoto, uploadPhoto };
+  return { charger, ajouterLibraire, supprimerLibraire, ajouterValeur, supprimerValeur, sauvegarder, previewPhoto, ajouterPhoto, supprimerPhoto, uploadPhoto, ajouterPartenaire, supprimerPartenaire };
 })();
 
 var Prix = (() => {
