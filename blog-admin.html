@@ -1188,22 +1188,33 @@ var Tempete = (() => {
     });
 
     const chemin = 'avisdetempete/' + fichier;
-    let sha = null;
-    try { sha = await ghGetSha(chemin, token); } catch(_) {}
-    const body = { message: '🌊 Avis de Tempête : ' + mois + ' ' + annee, content: b64 };
-    if (sha) body.sha = sha;
 
-    const r = await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${chemin}`, {
-      method: 'PUT',
-      headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github+json', 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
-    });
+    // Tentative 1 : upload sans SHA (nouveau fichier)
+    let uploadOk = false;
+    for (let tentative = 1; tentative <= 2; tentative++) {
+      let sha = null;
+      if (tentative === 2) {
+        // Tentative 2 : récupérer le SHA si le fichier existe déjà
+        try { sha = await ghGetSha(chemin, token); } catch(_) {}
+      }
+      const body = { message: '🌊 Avis de Tempête : ' + mois + ' ' + annee, content: b64 };
+      if (sha) body.sha = sha;
 
-    if (!r.ok && r.status !== 201) {
-      const err = await r.json().catch(()=>({}));
-      toast('❌ Erreur upload image : ' + (err.message || r.status));
-      return;
+      const r = await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${chemin}`, {
+        method: 'PUT',
+        headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github+json', 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+      });
+
+      if (r.ok || r.status === 201) { uploadOk = true; break; }
+      if (tentative === 2) {
+        const err = await r.json().catch(()=>({}));
+        toast('❌ Erreur upload image : ' + (err.message || r.status));
+        return;
+      }
+      // Si 422 (SHA requis) on réessaie avec SHA
     }
+    if (!uploadOk) return;
 
     // Ajouter dans la liste et sauvegarder
     items.unshift({ mois, annee: parseInt(annee), fichier });
