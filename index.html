@@ -876,7 +876,7 @@
   <div>
     <div class="f-logo">L'Esprit Large</div>
     <p class="f-desc">Librairie indépendante au cœur de Guérande.</p>
-    <p class="f-desc" style="margin-top:.8rem;">📍 12, Rue Vannetaise, 44350 Guérande<br/>📞 02 40 23 44 44<br/>📧 <a href="mailto:contact@esprit-large.com">contact@esprit-large.com</a></p>
+    <p class="f-desc" style="margin-top:.8rem;">📍 12, Rue Vannetaise, 44350 Guérande<br/>📞 02 40 23 44 44<br/>📧 <a href="/cdn-cgi/l/email-protection#5a3935342e3b392e1a3f292a28332e77363b283d3f74393537"><span class="__cf_email__" data-cfemail="d8bbb7b6acb9bbac98bdaba8aab1acf5b4b9aabfbdf6bbb7b5">[email&#160;protected]</span></a></p>
     <p class="f-desc" style="margin-top:.8rem;">🕐 <strong style="color:#b86060;">Horaires</strong><br/>Lun : 14h30–18h00<br/>Mar/Mer/Ven/Sam : 9h30–19h00<br/>Jeu : 9h30–12h30 &amp; 14h30–18h30<br/>Dim &amp; Fériés : fermé</p>
   </div>
   <div>
@@ -965,14 +965,15 @@
 
 
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ── COUPS DE CŒUR (depuis JSON GitHub) ── */
 async function chargerCoups() {
   try {
     var r = await fetch('https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/coups.json?t=' + Date.now());
     if (!r.ok) return;
     var data = await r.json();
-    var coups = (data.coups || []).filter(function(c){ return c.titre; });
+    var tous = (data.coups || []).filter(function(c){ return c.titre; });
+    var coups = tous.filter(function(c){ return c.epingle; }).concat(tous.filter(function(c){ return !c.epingle; }));
     if (!coups.length) return;
     var grid = document.getElementById('coupGrid');
     var html = '';
@@ -1094,13 +1095,4 @@ function showToast(msg) {
 /* ── MODALS ── */
 function closeModal() { document.getElementById('reserveModal').classList.remove('open'); document.body.style.overflow=''; }
 function closeEventModal() { document.getElementById('eventModal').classList.remove('open'); document.body.style.overflow=''; }
-function closeAdtModal() { var m=document.getElementById('adtModal'); if(m){ m.classList.remove('open'); document.body.style.overflow=''; } }
-document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ closeModal(); closeEventModal(); closeAdtModal(); } });
-
-/* ── INIT ── */
-chargerCoups();
-chargerEvenements();
-chargerBlog();
-</script>
-</body>
-</html>
+function closeAdtModal() { var m=document.getElementById('adtModal'); if(m){ m.classList.remove('open'); document.body.s
