@@ -1,5 +1,5 @@
 {
-  "mis_a_jour": "2026-03-15T17:32:27.794Z",
+  "mis_a_jour": "2026-03-17T13:44:31.607Z",
   "libraires": [
     {
       "prenom": "Nadine",
@@ -46,5 +46,10 @@
       "titre": "Une librairie animée",
       "texte": "Rencontres, lectures, casse-croûtes… nous aimons que la librairie soit un endroit où on revient, où on reste, où l'on se retrouve autour de ce qui nous lie : les histoires. C'est pour cela que nous mettons en place, tout au long de l'année, de multiples animations allant du théâtre à la musique, en passant par des lectures, des conférences et des signatures..."
     }
-  ]
+  ],
+  "equipee": {
+    "description": "",
+    "url": "",
+    "bouton": ""
+  }
 }
