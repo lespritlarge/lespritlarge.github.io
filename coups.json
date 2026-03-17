@@ -1,5 +1,5 @@
 {
-  "mis_a_jour": "2026-03-17T11:36:46.744Z",
+  "mis_a_jour": "2026-03-17T11:36:51.072Z",
   "coups": [
     {
       "ean": "9791040806493",
@@ -43,7 +43,8 @@
       "couverture": "https://books.google.com/books/content?id=vu_U0QEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
       "citation": "La lumière au bout du couloir...",
       "libraire": "Aurélien",
-      "categorie": "Roman"
+      "categorie": "Roman",
+      "epingle": true
     },
     {
       "ean": "9782848056012",
