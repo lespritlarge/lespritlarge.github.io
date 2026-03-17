@@ -183,24 +183,7 @@ details[open] .rblock summary::before{transform:rotate(90deg);}
             <div class="f"><label>Date</label><input type="date" id="bDate"/></div>
           </div>
           <div class="f"><label>Texte *</label><textarea id="bTexte" style="min-height:200px" placeholder="Écrivez votre article ici…"></textarea></div>
-          <div class="f">
-              <label>Image (URL ou chemin)</label>
-              <div style="display:flex;gap:.5rem;align-items:center;">
-                <input type="text" id="bImage" placeholder="https://… ou images/photo.jpg" style="flex:1;"/>
-                <button type="button" onclick="Blog.ouvrirGalerieAdt()" style="white-space:nowrap;padding:.5rem .9rem;font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:rgba(92,26,26,.1);color:var(--wood);border:1.5px solid rgba(92,26,26,.2);border-radius:3px;cursor:pointer;">🌊 Avis de Tempête</button>
-              </div>
-              <small>URL directe, chemin GitHub, ou choisissez depuis les archives Avis de Tempête.</small>
-              <!-- Galerie Avis de Tempête -->
-              <div id="adtGalerie" style="display:none;margin-top:.8rem;border:1.5px solid rgba(92,26,26,.15);border-radius:6px;background:var(--cream);padding:.8rem;">
-                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem;">
-                  <span style="font-family:'Raleway',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--wood);">Choisir une image</span>
-                  <button type="button" onclick="Blog.fermerGalerieAdt()" style="background:none;border:none;cursor:pointer;font-size:1rem;color:var(--ink-soft);">✕</button>
-                </div>
-                <div id="adtGalerieGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:.5rem;">
-                  <p style="font-style:italic;font-size:.8rem;color:var(--soft);">Chargement…</p>
-                </div>
-              </div>
-            </div>
+          <div class="f"><label>Image (URL ou chemin)</label><input type="text" id="bImage" placeholder="images/ma-photo.jpg"/><small>Uploadez d'abord dans images/ sur GitHub.</small></div>
           <div class="frow">
             <div class="f"><label>Lien externe</label><input type="url" id="bLien" placeholder="https://…"/></div>
             <div class="f"><label>Texte du bouton</label><input type="text" id="bLienLabel" placeholder="En savoir plus…"/></div>
@@ -387,66 +370,11 @@ details[open] .rblock summary::before{transform:rotate(90deg);}
         <div id="valeursForms"></div>
         <button style="margin-top:.5rem;padding:.5rem 1rem;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(92,26,26,.08);color:var(--wood);border:1.5px solid rgba(92,26,26,.2);border-radius:3px;cursor:pointer;" onclick="Apropos.ajouterValeur()">+ Ajouter une valeur</button>
       </div>
-
-      <!-- SECTION ÉQUIPÉE D'ADEL -->
-      <div style="margin-top:2rem;border-top:1.5px solid rgba(92,26,26,.15);padding-top:1.5rem;">
-        <div class="fhead" style="margin-bottom:.5rem;">🤝 L&#39;Équipée d&#39;Adel</div>
-        <p style="font-family:'Lora',serif;font-style:italic;font-size:.83rem;color:var(--soft);margin-bottom:1rem;line-height:1.6;">Association des amis de la librairie — elle s&#39;engage avec nous dans nos projets.</p>
-        <div class="frow">
-          <div class="f"><label>Description</label><textarea id="equipeeDesc" rows="4" placeholder="Présentez l&#39;association, son rôle, ses engagements…" style="resize:vertical;"></textarea></div>
-        </div>
-        <div class="frow">
-          <div class="f"><label>Lien (site, adhésion…)</label><input type="url" id="equipeeUrl" placeholder="https://…"/></div>
-          <div class="f"><label>Texte du bouton lien</label><input type="text" id="equipeeBtn" placeholder="Rejoindre l&#39;association"/></div>
-        </div>
-      </div>
-
-      <!-- UPLOAD PHOTOS -->
-      <div style="margin-top:2rem;border-top:1.5px solid rgba(92,26,26,.15);padding-top:1.5rem;">
-        <div class="fhead" style="margin-bottom:.5rem;">🖼️ Upload de photos</div>
-        <p style="font-family:'Lora',serif;font-style:italic;font-size:.83rem;color:var(--soft);margin-bottom:1rem;line-height:1.6;">Uploadez une photo sur GitHub et copiez son URL en un clic.</p>
-        <div id="dropZone" onclick="document.getElementById('photoFileInput').click()" style="border:2px dashed rgba(92,26,26,.25);border-radius:6px;padding:1.5rem;text-align:center;background:var(--warm);cursor:pointer;">
-          <div style="font-size:2rem;margin-bottom:.4rem;">📷</div>
-          <div style="font-family:'Raleway',sans-serif;font-size:.75rem;font-weight:600;color:var(--wood);">Cliquer ou glisser une photo ici</div>
-          <div style="font-size:.7rem;color:var(--soft);margin-top:.2rem;">JPG · PNG · WebP — max 5 Mo</div>
-          <input type="file" id="photoFileInput" accept="image/*" style="display:none" onchange="Apropos.uploadPhoto(this.files[0])"/>
-        </div>
-        <div id="photoUploadStatus" style="display:none;margin-top:.8rem;font-family:'Lora',serif;font-size:.83rem;font-style:italic;color:var(--soft);"></div>
-        <div id="photoUrlResult" style="display:none;margin-top:.8rem;">
-          <div style="font-family:'Raleway',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--wood);margin-bottom:.3rem;">URL de la photo :</div>
-          <div style="display:flex;gap:.5rem;align-items:center;">
-            <input type="text" id="photoUrlInput" readonly style="flex:1;font-size:.8rem;background:#f7f5f4;border:1px solid #ddd;border-radius:3px;padding:.4rem;"/>
-            <button onclick="Apropos.copierUrl()" style="padding:.45rem .9rem;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;background:var(--wood);color:#fff;border:none;border-radius:3px;cursor:pointer;">📋 Copier</button>
-          </div>
-        </div>
-      </div>
-
-
-      <!-- ÉQUIPÉE D'ADEL -->
-      <div style="background:rgba(92,26,26,.04);border:1.5px solid rgba(92,26,26,.12);border-radius:6px;padding:1.5rem;margin-bottom:1.5rem;">
-        <div class="fhead" style="margin-bottom:1rem;">🤝 L'Équipée d'Adel</div>
-        <p style="font-family:'Lora',serif;font-style:italic;font-size:.85rem;color:var(--soft);margin-bottom:1.2rem;line-height:1.6;">
-          Association des amis de la librairie — elle s'engage avec nous dans nos projets.
-        </p>
-        <div class="f" style="margin-bottom:.8rem;">
-          <label>Description de l'association</label>
-          <textarea id="adelDesc" rows="4" placeholder="Parlez de l'Équipée d'Adel, de ses actions, de ses engagements avec la librairie…" style="width:100%;padding:.7rem;font-family:'Lora',serif;font-size:.85rem;border:1.5px solid #ddd;border-radius:3px;resize:vertical;"></textarea>
-        </div>
-        <div class="f" style="margin-bottom:.8rem;">
-          <label>Lien vers le site ou les réseaux</label>
-          <input type="url" id="adelLien" placeholder="https://…" style="width:100%;padding:.7rem;font-family:'Lora',serif;font-size:.85rem;border:1.5px solid #ddd;border-radius:3px;"/>
-        </div>
-        <div class="f" style="margin-bottom:.8rem;">
-          <label>Photo / Image</label>
-          <div style="display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;">
-            <input type="text" id="adelPhoto" placeholder="URL ou choisir ci-dessous" style="flex:1;min-width:200px;padding:.7rem;font-family:'Lora',serif;font-size:.85rem;border:1.5px solid #ddd;border-radius:3px;"/>
-            <label style="cursor:pointer;padding:.6rem 1rem;background:rgba(92,26,26,.1);color:var(--wood);border:1.5px solid rgba(92,26,26,.2);border-radius:3px;font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;">
-              📷 Depuis mon ordi
-              <input type="file" accept="image/*" style="display:none;" onchange="Apropos.previewUpload(this,'adelPhoto','adelPhotoPreview')"/>
-            </label>
-          </div>
-          <div id="adelPhotoPreview" style="margin-top:.5rem;"></div>
-        </div>
+      <!-- PARTENAIRES -->
+      <div style="background:var(--cream);border:1.5px solid rgba(92,26,26,.15);border-radius:6px;padding:1.5rem;margin-bottom:1.5rem;">
+        <div class="fhead" style="font-size:.9rem;margin-bottom:1.2rem;">🤝 Partenaires & associations</div>
+        <div id="partenairesForms"></div>
+        <button style="margin-top:.5rem;padding:.5rem 1rem;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(92,26,26,.08);color:var(--wood);border:1.5px solid rgba(92,26,26,.2);border-radius:3px;cursor:pointer;" onclick="Apropos.ajouterPartenaire()">+ Ajouter un partenaire</button>
       </div>
       <div class="fbtns">
         <button class="btn-save" onclick="Apropos.sauvegarder()">💾 Publier la page À propos</button>
@@ -586,41 +514,14 @@ function encodeContent(data) {
 }
 
 async function ghGetSha(file, token) {
-  // Méthode 1 : API Contents avec ref=main
-  const r = await fetch(
-    `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${file}?ref=main`,
-    { headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github+json' } }
-  );
+  // Lit le SHA réel depuis l'API GitHub (pas de cache raw)
+  const r = await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${file}`, {
+    headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github+json' }
+  });
   if (r.ok) { const d = await r.json(); return d.sha; }
-  if (r.status === 404) return null;
-
-  // Méthode 2 (fallback) : Git Trees pour SHA exact du blob
-  try {
-    // Récupérer le SHA du dernier commit sur main
-    const refR = await fetch(
-      `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/git/ref/heads/main`,
-      { headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github+json' } }
-    );
-    if (!refR.ok) throw new Error();
-    const refD = await refR.json();
-    const commitSha = refD.object.sha;
-
-    // Récupérer le tree récursif du commit
-    const treeR = await fetch(
-      `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/git/trees/${commitSha}?recursive=1`,
-      { headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github+json' } }
-    );
-    if (!treeR.ok) throw new Error();
-    const treeD = await treeR.json();
-    const entry = treeD.tree.find(e => e.path === file);
-    return entry ? entry.sha : null;
-  } catch(_) {
-    throw new Error('Impossible de lire le SHA : ' + r.status);
-  }
+  if (r.status === 404) return null; // fichier n'existe pas encore
+  throw new Error('Impossible de lire le SHA : ' + r.status);
 }
-
-// Cache local des SHA pour éviter les 409
-const _shaCache = {};
 
 async function ghWrite(file, data, message) {
   const token = getToken();
@@ -628,21 +529,17 @@ async function ghWrite(file, data, message) {
 
   const encoded = encodeContent(data);
 
-  for (let tentative = 1; tentative <= 5; tentative++) {
-    // Utiliser le SHA en cache si dispo, sinon relire depuis GitHub
-    let sha = _shaCache[file] || null;
-    if (!sha || tentative > 1) {
-      try { sha = await ghGetSha(file, token); }
-      catch(e) { toast('⚠️ Impossible de lire le fichier sur GitHub : ' + e.message); return false; }
-    }
+  // Essai 1 : lire le SHA frais et écrire
+  for (let tentative = 1; tentative <= 3; tentative++) {
+    let sha = null;
+    try { sha = await ghGetSha(file, token); }
+    catch(e) { toast('⚠️ Impossible de lire le fichier sur GitHub : ' + e.message); return false; }
 
     const body = { message, content: encoded };
     if (sha) body.sha = sha;
 
     const r = await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${file}`, {
       method: 'PUT',
-      mode: 'cors',
-      credentials: 'omit',
       headers: {
         'Authorization': `Bearer ${token}`,
         'Accept': 'application/vnd.github+json',
@@ -651,31 +548,21 @@ async function ghWrite(file, data, message) {
       body: JSON.stringify(body)
     });
 
-    if (r.ok || r.status === 201) {
-      // Mettre à jour le cache avec le nouveau SHA retourné par GitHub
-      try {
-        const d = await r.json();
-        if (d.content && d.content.sha) _shaCache[file] = d.content.sha;
-        else delete _shaCache[file]; // forcer relecture au prochain appel
-      } catch(_) { delete _shaCache[file]; }
-      return true;
-    }
+    if (r.ok || r.status === 201) return true;
 
     const err = await r.json().catch(() => ({}));
     const msg = err.message || '';
 
-    if (msg.includes('does not match')) {
-      // SHA périmé → vider le cache et réessayer
-      delete _shaCache[file];
-      console.warn('SHA périmé (tentative ' + tentative + '), nouvelle lecture…');
-      await new Promise(res => setTimeout(res, 500 * tentative));
+    // "does not match" = SHA périmé → on réessaie avec un SHA frais
+    if (msg.includes('does not match') && tentative < 3) {
+      console.warn(`SHA périmé (tentative ${tentative}), nouvelle lecture…`);
+      await new Promise(res => setTimeout(res, 300 * tentative)); // petite pause
       continue;
     }
 
     toast('❌ Erreur GitHub : ' + (msg || r.status));
     return false;
   }
-  toast('❌ Impossible d\'écrire après 5 tentatives. Réessayez dans quelques secondes.');
   return false;
 }
 
@@ -763,58 +650,7 @@ var Blog = (() => {
     if (ok) { toast('🗑️ Article supprimé.'); nouveau(); }
   }
 
-
-  async function ouvrirGalerieAdt() {
-    var galerie = document.getElementById("adtGalerie");
-    var grid    = document.getElementById("adtGalerieGrid");
-    galerie.style.display = "block";
-    grid.innerHTML = "<p style=\"font-style:italic;font-size:.8rem;\">Chargement...</p>";
-    try {
-      var r = await fetch("https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/avisdetempete.json?t=" + Date.now());
-      if (!r.ok) throw new Error();
-      var data = await r.json();
-      var numeros = data.numeros || [];
-      if (!numeros.length) {
-        grid.innerHTML = "<p style=\"font-style:italic;font-size:.8rem;\">Aucune image disponible.</p>";
-        return;
-      }
-      // Construire via DOM pour éviter tout problème de quotes
-      grid.innerHTML = "";
-      numeros.forEach(function(n) {
-        var fullUrl = "https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/avisdetempete/" + n.fichier;
-        var div = document.createElement("div");
-        div.style.cssText = "cursor:pointer;border-radius:4px;overflow:hidden;border:2px solid transparent;transition:border-color .2s;";
-        div.dataset.url = fullUrl;
-        div.addEventListener("mouseenter", function(){ this.style.borderColor = "#8b2e2e"; });
-        div.addEventListener("mouseleave", function(){ this.style.borderColor = "transparent"; });
-        div.addEventListener("click", function(){ Blog.choisirImageAdt(this.dataset.url); });
-        var img = document.createElement("img");
-        img.src = fullUrl;
-        img.style.cssText = "width:100%;aspect-ratio:3/4;object-fit:cover;display:block;";
-        img.loading = "lazy";
-        var label = document.createElement("div");
-        label.style.cssText = "font-size:.6rem;text-align:center;padding:.2rem;font-family:Raleway,sans-serif;";
-        label.textContent = n.mois + " " + n.annee;
-        div.appendChild(img);
-        div.appendChild(label);
-        grid.appendChild(div);
-      });
-    } catch(e) {
-      grid.innerHTML = "<p style=\"font-style:italic;font-size:.8rem;\">Impossible de charger les images.</p>";
-    }
-  }
-
-    function choisirImageAdt(url) {
-    document.getElementById('bImage').value = url || '';
-    document.getElementById('adtGalerie').style.display = 'none';
-    toast('Image selectionnee !');
-  }
-
-  function fermerGalerieAdt() {
-    document.getElementById('adtGalerie').style.display = 'none';
-  }
-
-  return { charger, select, nouveau, sauvegarder, supprimer, ouvrirGalerieAdt, choisirImageAdt, fermerGalerieAdt };
+  return { charger, select, nouveau, sauvegarder, supprimer };
 })();
 
 // ══════════════════════════════════════════
@@ -1110,7 +946,7 @@ var Coups = (() => {
       return `<div style="display:flex;align-items:center;gap:1rem;padding:.8rem;background:var(--cream);border-radius:4px;margin-bottom:.5rem;border:1px solid rgba(92,26,26,.1);">
         ${c.couverture ? `<img src="${c.couverture}" style="width:40px;height:55px;object-fit:cover;border-radius:2px;flex-shrink:0;" onerror="this.style.display='none'"/>` : '<span style="font-size:1.5rem;flex-shrink:0;">📖</span>'}
         <div style="flex:1;min-width:0;">
-          <div style="font-family:'Lora',serif;font-size:.88rem;font-weight:500;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${c.epingle?'📌 ':''}${c.titre || c.ean}</div>
+          <div style="font-family:'Lora',serif;font-size:.88rem;font-weight:500;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${c.titre || c.ean}</div>
           <div style="font-size:.72rem;color:var(--soft);">${c.auteur || ''}</div>
           ${c.citation ? `<div style="font-family:'Lora',serif;font-style:italic;font-size:.78rem;color:var(--soft);margin-top:.2rem;">"${c.citation.substring(0,80)}${c.citation.length>80?'…':''}"</div>` : ''}
           <div style="display:flex;gap:.4rem;margin-top:.3rem;align-items:center;flex-wrap:wrap;">
@@ -1119,7 +955,6 @@ var Coups = (() => {
           </div>
         </div>
         <div style="display:flex;flex-direction:column;gap:.3rem;flex-shrink:0;">
-          <button onclick="Coups.toggleEpingle(${i})" style="background:${c.epingle?'var(--wood)':'none'};border:1px solid rgba(92,26,26,.2);border-radius:3px;cursor:pointer;font-size:.8rem;padding:.25rem .5rem;color:${c.epingle?'#fff':'var(--wood)'};" title="${c.epingle?'Désépingler':'Épingler en avant'}">📌</button>
           <button onclick="Coups.editer(${i})" style="background:none;border:1px solid rgba(92,26,26,.2);border-radius:3px;cursor:pointer;font-size:.8rem;padding:.25rem .5rem;color:var(--wood);" title="Modifier">✏️</button>
           <button onclick="Coups.supprimer(${i})" style="background:none;border:none;cursor:pointer;font-size:1rem;color:#c0392b;padding:.25rem;" title="Supprimer">🗑</button>
         </div>
@@ -1202,13 +1037,7 @@ var Coups = (() => {
     if (ok) { toast('✅ Coup de cœur modifié !'); _editIdx = null; renderList(); }
   }
 
-  async function toggleEpingle(i) {
-    items[i].epingle = !items[i].epingle;
-    const ok = await ghWrite('coups.json', { mis_a_jour: new Date().toISOString(), coups: items }, (items[i].epingle ? '📌 Épinglé : ' : '📌 Désépinglé : ') + (items[i].titre || items[i].ean));
-    if (ok) { toast(items[i].epingle ? '📌 Épinglé !' : 'Désépinglé.'); renderList(); }
-  }
-
-  return { charger, verifier, ajouter, supprimer, editer, annulerEdit, sauvegarderEdit, toggleEpingle };
+  return { charger, verifier, ajouter, supprimer, editer, annulerEdit, sauvegarderEdit };
 })();
 
 // ── INIT ──────────────────────────────────
@@ -1292,35 +1121,22 @@ var Tempete = (() => {
     });
 
     const chemin = 'avisdetempete/' + fichier;
+    let sha = null;
+    try { sha = await ghGetSha(chemin, token); } catch(_) {}
+    const body = { message: '🌊 Avis de Tempête : ' + mois + ' ' + annee, content: b64 };
+    if (sha) body.sha = sha;
 
-    // Tentative 1 : upload sans SHA (nouveau fichier)
-    let uploadOk = false;
-    for (let tentative = 1; tentative <= 2; tentative++) {
-      let sha = null;
-      if (tentative === 2) {
-        // Tentative 2 : récupérer le SHA si le fichier existe déjà
-        try { sha = await ghGetSha(chemin, token); } catch(_) {}
-      }
-      const body = { message: '🌊 Avis de Tempête : ' + mois + ' ' + annee, content: b64 };
-      if (sha) body.sha = sha;
+    const r = await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${chemin}`, {
+      method: 'PUT',
+      headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github+json', 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
 
-      const r = await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${chemin}`, {
-        method: 'PUT',
-        mode: 'cors',
-        credentials: 'omit',
-        headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github+json', 'Content-Type': 'application/json' },
-        body: JSON.stringify(body),
-      });
-
-      if (r.ok || r.status === 201) { uploadOk = true; break; }
-      if (tentative === 2) {
-        const err = await r.json().catch(()=>({}));
-        toast('❌ Erreur upload image : ' + (err.message || r.status));
-        return;
-      }
-      // Si 422 (SHA requis) on réessaie avec SHA
+    if (!r.ok && r.status !== 201) {
+      const err = await r.json().catch(()=>({}));
+      toast('❌ Erreur upload image : ' + (err.message || r.status));
+      return;
     }
-    if (!uploadOk) return;
 
     // Ajouter dans la liste et sauvegarder
     items.unshift({ mois, annee: parseInt(annee), fichier });
@@ -1348,7 +1164,7 @@ var Tempete = (() => {
 //  À PROPOS
 // ══════════════════════════════════════════
 var Apropos = (() => {
-  let libraires = [], valeurs = [];
+  let libraires = [], valeurs = [], partenaires = [];
 
   const VALEURS_DEFAUT = [
     { icone:'📖', titre:'Le conseil humain', texte:"Pas d'algorithme ici. Chaque recommandation vient d'un libraire qui a lu, aimé (ou pas), et qui prend le temps de comprendre ce que vous cherchez." },
@@ -1360,8 +1176,9 @@ var Apropos = (() => {
   async function charger() {
     try {
       const { data } = await ghRead('apropos.json');
-      libraires = data ? (data.libraires || []) : [];
-      valeurs   = data ? (data.valeurs   || VALEURS_DEFAUT) : VALEURS_DEFAUT;
+      libraires   = data ? (data.libraires   || []) : [];
+      valeurs     = data ? (data.valeurs     || VALEURS_DEFAUT) : VALEURS_DEFAUT;
+      partenaires = data ? (data.partenaires || []) : [];
     } catch(e) {
       console.warn('apropos.json non chargé :', e);
       libraires = [];
@@ -1416,6 +1233,35 @@ var Apropos = (() => {
       vHtml += '</div>';
     });
     vEl.innerHTML = vHtml;
+
+    // Partenaires
+    const pEl = document.getElementById('partenairesForms');
+    if (pEl) {
+      if (!partenaires.length) {
+        pEl.innerHTML = '<p style="font-style:italic;color:var(--soft);font-size:.85rem;">Aucun partenaire — cliquez sur « + Ajouter ».</p>';
+      } else {
+        let pHtml = '';
+        partenaires.forEach(function(p, i) {
+          pHtml += '<div style="border:1px solid rgba(92,26,26,.12);border-radius:5px;padding:1.2rem;margin-bottom:1rem;background:var(--warm);position:relative;">';
+          pHtml += '<button onclick="Apropos.supprimerPartenaire(' + i + ')" style="position:absolute;top:.6rem;right:.6rem;background:none;border:none;cursor:pointer;font-size:1rem;color:#c0392b;" title="Supprimer">🗑</button>';
+          pHtml += '<div class="frow">';
+          pHtml += '<div class="f" style="max-width:70px;"><label>Emoji</label><input type="text" id="pEmoji' + i + '" value="' + (p.emoji||'🤝') + '"/></div>';
+          pHtml += '<div class="f"><label>Nom *</label><input type="text" id="pNom' + i + '" value="' + (p.nom||'').replace(/"/g,'&quot;') + '" placeholder="L'Équipée d'Adel"/></div>';
+          pHtml += '</div>';
+          pHtml += '<div class="f"><label>Accroche courte</label><input type="text" id="pAccroche' + i + '" value="' + (p.accroche||'').replace(/"/g,'&quot;') + '" placeholder="Association des amis de la librairie…"/></div>';
+          pHtml += '<div class="f"><label>Description</label><textarea id="pDesc' + i + '" style="min-height:70px;">' + (p.description||'') + '</textarea></div>';
+          pHtml += '<div class="frow">';
+          pHtml += '<div class="f"><label>Lien (site, adhésion…)</label><input type="url" id="pLien' + i + '" value="' + (p.lien||'') + '" placeholder="https://…"/></div>';
+          pHtml += '<div class="f"><label>Texte du bouton lien</label><input type="text" id="pLienLabel' + i + '" value="' + (p.lien_label||'').replace(/"/g,'&quot;') + '" placeholder="Rejoindre l'association"/></div>';
+          pHtml += '</div>';
+          pHtml += '<div class="f"><label>Photo / image (URL)</label><input type="text" id="pPhoto' + i + '" value="' + (p.photo||'').replace(/"/g,'&quot;') + '" placeholder="https://… ou images/partenaire.jpg"/>';
+          pHtml += '<button type="button" onclick="Apropos.choisirImagePartenaire(' + i + ')" style="margin-top:.3rem;padding:.3rem .8rem;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:rgba(92,26,26,.08);color:var(--wood);border:1.5px solid rgba(92,26,26,.2);border-radius:3px;cursor:pointer;">📁 Depuis mon ordi</button>';
+          pHtml += '<input type="file" id="pPhotoFile' + i + '" accept="image/*" style="display:none;" onchange="Apropos.previewPartenaire(' + i + ')"/></div>';
+          pHtml += '</div>';
+        });
+        pEl.innerHTML = pHtml;
+      }
+    }
   }
   function lireFormulaires() {
     const nb = document.querySelectorAll('[id^="lPrenom"]').length;
@@ -1437,6 +1283,19 @@ var Apropos = (() => {
         icone: document.getElementById('vIcone'+i).value.trim(),
         titre: document.getElementById('vTitre'+i).value.trim(),
         texte: document.getElementById('vTexte'+i).value.trim(),
+      });
+    }
+    const nbP = document.querySelectorAll('[id^="pNom"]').length;
+    partenaires = [];
+    for (let i = 0; i < nbP; i++) {
+      partenaires.push({
+        emoji:      document.getElementById('pEmoji'+i).value.trim(),
+        nom:        document.getElementById('pNom'+i).value.trim(),
+        accroche:   document.getElementById('pAccroche'+i).value.trim(),
+        description:document.getElementById('pDesc'+i).value.trim(),
+        lien:       document.getElementById('pLien'+i).value.trim(),
+        lien_label: document.getElementById('pLienLabel'+i).value.trim(),
+        photo:      document.getElementById('pPhoto'+i).value.trim(),
       });
     }
   }
@@ -1475,16 +1334,11 @@ var Apropos = (() => {
     const photosOk = await uploadPhotos();
     if (!photosOk) return;
     lireFormulaires(); // relire après mise à jour des chemins photo
-    const equipee = {
-      description: document.getElementById('equipeeDesc').value.trim(),
-      url:         document.getElementById('equipeeUrl').value.trim(),
-      bouton:      document.getElementById('equipeeBtn').value.trim()
-    };
     const ok = await ghWrite('apropos.json', {
       mis_a_jour: new Date().toISOString(),
       libraires,
       valeurs,
-      equipee,
+      partenaires,
     }, '👥 Mise à jour page À propos');
     if (ok) toast('✅ Page À propos publiée !');
   }
@@ -1551,101 +1405,32 @@ var Apropos = (() => {
     return true;
   }
 
-  
-  async function uploadPhoto(file) {
+  function ajouterPartenaire() {
+    lireFormulaires();
+    partenaires.push({ emoji:'🤝', nom:'', accroche:'', description:'', lien:'', lien_label:'', photo:'' });
+    renderForms();
+    document.getElementById('partenairesForms').lastElementChild.scrollIntoView({ behavior:'smooth' });
+  }
+  function supprimerPartenaire(i) {
+    lireFormulaires();
+    if (!confirm('Supprimer ce partenaire ?')) return;
+    partenaires.splice(i, 1);
+    renderForms();
+  }
+  function choisirImagePartenaire(i) {
+    document.getElementById('pPhotoFile'+i).click();
+  }
+  function previewPartenaire(i) {
+    const file = document.getElementById('pPhotoFile'+i).files[0];
     if (!file) return;
-    if (file.size > 5 * 1024 * 1024) { toast('Image trop lourde (max 5 Mo)'); return; }
-    var status = document.getElementById('photoUploadStatus');
-    var result = document.getElementById('photoUrlResult');
-    status.style.display = 'block';
-    status.textContent = 'Upload en cours…';
-    result.style.display = 'none';
-    try {
-      var b64 = await new Promise(function(res, rej) {
-        var reader = new FileReader();
-        reader.onload = function(){ res(reader.result.split(',')[1]); };
-        reader.onerror = rej;
-        reader.readAsDataURL(file);
-      });
-      var ext = file.name.split('.').pop().toLowerCase();
-      var nom = 'photo_' + Date.now() + '.' + ext;
-      var chemin = 'images/' + nom;
-      var token = getToken();
-      if (!token) { toast('Token GitHub requis'); return; }
-      var r = await fetch('https://api.github.com/repos/' + GH_OWNER + '/' + GH_REPO + '/contents/' + chemin, {
-        method: 'PUT', mode: 'cors', credentials: 'omit',
-        headers: { 'Authorization': 'Bearer ' + token, 'Accept': 'application/vnd.github+json', 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: 'Photo uploadée : ' + nom, content: b64 })
-      });
-      if (r.ok || r.status === 201) {
-        var url = 'https://raw.githubusercontent.com/' + GH_OWNER + '/' + GH_REPO + '/main/' + chemin;
-        document.getElementById('photoUrlInput').value = url;
-        result.style.display = 'block';
-        status.textContent = 'Upload réussi !';
-        toast('Photo uploadée !');
-      } else {
-        var err = await r.json().catch(function(){ return {}; });
-        status.textContent = 'Erreur : ' + (err.message || r.status);
-      }
-    } catch(e) {
-      status.textContent = 'Erreur : ' + e.message;
-    }
-  }
-
-  function copierUrl() {
-    var input = document.getElementById('photoUrlInput');
-    input.select();
-    document.execCommand('copy');
-    toast('URL copiée !');
-  }
-
-  function dropPhoto(e) {
-    e.preventDefault();
-    document.getElementById('dropZone').style.borderColor = 'rgba(92,26,26,.25)';
-    var file = e.dataTransfer.files[0];
-    if (file && file.type.startsWith('image/')) uploadPhoto(file);
-  }
-
-  function previewUpload(input, targetId, previewId) {
-    if (!input.files || !input.files[0]) return;
-    var file = input.files[0];
-    if (file.size > 5 * 1024 * 1024) { toast('Image trop lourde (max 5 Mo)'); return; }
-    var reader = new FileReader();
+    const reader = new FileReader();
     reader.onload = function(e) {
-      var dataUrl = e.target.result;
-      var filename = 'images/' + Date.now() + '_' + file.name.replace(/[^a-zA-Z0-9._-]/g,'_');
-      uploadImageGitHub(dataUrl, filename, targetId, previewId);
+      document.getElementById('pPhoto'+i).value = e.target.result;
     };
     reader.readAsDataURL(file);
   }
 
-  async function uploadImageGitHub(dataUrl, filename, targetId, previewId) {
-    var token = getToken();
-    if (!token) { toast('Token requis pour uploader.'); return; }
-    toast('Upload en cours...');
-    var b64 = dataUrl.split(',')[1];
-    var body = { message: 'Image: ' + filename, content: b64 };
-    try { var sha = await ghGetSha(filename, token); if (sha) body.sha = sha; } catch(_) {}
-    try {
-      var r = await fetch('https://api.github.com/repos/' + GH_OWNER + '/' + GH_REPO + '/contents/' + filename, {
-        method: 'PUT', mode: 'cors', credentials: 'omit',
-        headers: { 'Authorization': 'Bearer ' + token, 'Accept': 'application/vnd.github+json', 'Content-Type': 'application/json' },
-        body: JSON.stringify(body)
-      });
-      if (r.ok || r.status === 201) {
-        var rawUrl = 'https://raw.githubusercontent.com/' + GH_OWNER + '/' + GH_REPO + '/main/' + filename;
-        document.getElementById(targetId).value = rawUrl;
-        var prev = document.getElementById(previewId);
-        if (prev) { prev.innerHTML = ''; var img = document.createElement('img'); img.src = rawUrl; img.style.cssText = 'max-width:180px;max-height:110px;border-radius:4px;margin-top:.3rem;'; prev.appendChild(img); }
-        toast('Image uploadee !');
-      } else {
-        var err = await r.json().catch(function(){return{};});
-        toast('Erreur upload: ' + (err.message || r.status));
-      }
-    } catch(e) { toast('Erreur reseau: ' + e.message); }
-  }
-
-  return { charger, ajouterLibraire, supprimerLibraire, ajouterValeur, supprimerValeur, sauvegarder, previewPhoto, uploadPhoto, copierUrl, dropPhoto, previewUpload, uploadImageGitHub };
+  return { charger, ajouterLibraire, supprimerLibraire, ajouterValeur, supprimerValeur, sauvegarder, previewPhoto, ajouterPartenaire, supprimerPartenaire, choisirImagePartenaire, previewPartenaire };
 })();
 
 var Prix = (() => {
