@@ -1,5 +1,5 @@
 {
-  "mis_a_jour": "2026-03-18T16:39:28.646Z",
+  "mis_a_jour": "2026-03-18T16:46:07.328Z",
   "coups": [
     {
       "ean": "9791040806493",
@@ -111,6 +111,15 @@
       "citation": "Encore une île, il parait que j'aime ça les histoires qui se passent sur des îles...",
       "libraire": "Aurélien",
       "categorie": "Roman"
+    },
+    {
+      "ean": "9782386690648",
+      "titre": "Mimi et moi",
+      "auteur": "",
+      "couverture": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1758169683i/235115607.jpg",
+      "citation": "Des illustrations magnifique sur l'amitié entre un cheval et Mimi...",
+      "libraire": "Les libraires",
+      "categorie": "Jeunesse"
     }
   ]
 }
