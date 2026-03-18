@@ -1,5 +1,5 @@
 {
-  "mis_a_jour": "2026-03-18T15:17:44.018Z",
+  "mis_a_jour": "2026-03-18T16:36:00.308Z",
   "coups": [
     {
       "ean": "9791040806493",
@@ -84,6 +84,15 @@
       "libraire": "Aurélien",
       "categorie": "Roman",
       "epingle": true
+    },
+    {
+      "ean": "9782330216139",
+      "titre": "Les Fantômes de Shearwater",
+      "auteur": "Charlotte McConaghy",
+      "couverture": "https://books.google.com/books/content?id=hXTX0QEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "citation": "a famille Salt : un père et ses trois enfants, gardienne du phare et de la réserve, vit coupée du monde depuis huit ans, hantée par la mort de la mère. Lorsque Rowan, une naufragée, s’échoue sur l’île en pleine tempête, l’équilibre fragile du clan vacille. Qui est-elle ? Que sait-elle ?",
+      "libraire": "Aurélien",
+      "categorie": "Roman"
     }
   ]
 }
