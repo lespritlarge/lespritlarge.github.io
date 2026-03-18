@@ -228,7 +228,22 @@ details[open] .rblock summary::before{transform:rotate(90deg);}
             <div class="f"><label>Lieu</label><input type="text" id="eLieu" placeholder="Librairie L'Esprit Large"/></div>
           </div>
           <div class="f"><label>Description</label><textarea id="eDesc" style="min-height:100px" placeholder="Décrivez l'événement…"></textarea></div>
-          <div class="f"><label>Affiche (nom du fichier)</label><input type="text" id="eAffiche" placeholder="mon-affiche.jpg"/><small>Uploadez l'affiche dans evenements/ sur GitHub.</small></div>
+          <div class="f"><label>Affiche</label>
+            <div style="display:flex;flex-direction:column;gap:.5rem;">
+              <!-- Aperçu -->
+              <div id="eAffichePreview" style="display:none;width:100%;max-height:180px;overflow:hidden;border-radius:4px;background:var(--parchment);text-align:center;">
+                <img id="eAfficheImg" src="" alt="Aperçu" style="max-height:180px;max-width:100%;object-fit:contain;border-radius:4px;"/>
+              </div>
+              <!-- Bouton upload -->
+              <input type="file" id="eAfficheFile" accept="image/*,application/pdf" style="display:none;" onchange="Evts.uploadAffiche()"/>
+              <button type="button" onclick="document.getElementById('eAfficheFile').click()" style="padding:.55rem 1rem;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(92,26,26,.08);color:var(--wood);border:1.5px solid rgba(92,26,26,.2);border-radius:3px;cursor:pointer;text-align:left;">
+                📁 Choisir une affiche…
+              </button>
+              <!-- Nom du fichier résultant (éditable) -->
+              <input type="text" id="eAffiche" placeholder="nom-affiche.jpg (rempli automatiquement)" style="font-size:.75rem;color:var(--soft);"/>
+              <small id="eAfficheStatus" style="font-style:italic;color:var(--soft);"></small>
+            </div>
+          </div>
 
           <div class="f"><label>Options</label>
             <div class="fcheck"><input type="checkbox" id="eSpecial"/><label for="eSpecial">🎉 Événement spécial (fond doré)</label></div>
@@ -715,6 +730,16 @@ var Evts = (() => {
     document.getElementById('eLieu').value    = e.lieu     || "Librairie L'Esprit Large";
     document.getElementById('eDesc').value    = e.desc     || '';
     document.getElementById('eAffiche').value = e.affiche  || '';
+    // Aperçu de l'affiche existante
+    var prevWrap = document.getElementById('eAffichePreview');
+    var prevImg  = document.getElementById('eAfficheImg');
+    if (e.affiche) {
+      prevImg.src = 'https://raw.githubusercontent.com/' + GH_OWNER + '/' + GH_REPO + '/main/evenements/' + e.affiche;
+      prevWrap.style.display = 'block';
+    } else {
+      prevWrap.style.display = 'none';
+    }
+    document.getElementById('eAfficheStatus').textContent = '';
     document.getElementById('eSpecial').checked   = !!e.special;
     document.getElementById('eFermeture').checked = !!e.fermeture;
 
@@ -745,6 +770,9 @@ var Evts = (() => {
     idx = null;
     document.getElementById('eHead').textContent = 'Nouvel événement';
     ['eTitre','eTime','eAffiche'].forEach(id => document.getElementById(id).value = '');
+    document.getElementById('eAffichePreview').style.display = 'none';
+    document.getElementById('eAfficheStatus').textContent = '';
+    document.getElementById('eAfficheFile').value = '';
     document.getElementById('eDate').value    = today();
     document.getElementById('eType').value    = '';
     document.getElementById('eLieu').value    = "Librairie L'Esprit Large";
@@ -881,7 +909,68 @@ var Evts = (() => {
     if (ok) { toast('🗑️ ' + nb + ' occurrences supprimées.'); nouveau(); }
   }
 
-  return { charger, select, nouveau, sauvegarder, supprimer, supprimerGroupe, updatePreview };
+  async function uploadAffiche() {
+    var file = document.getElementById('eAfficheFile').files[0];
+    if (!file) return;
+    var token = getToken();
+    if (!token) { toast('⚠️ Token GitHub requis.'); return; }
+
+    var statusEl = document.getElementById('eAfficheStatus');
+    statusEl.textContent = '⏳ Upload en cours…';
+
+    var ext       = file.name.split('.').pop().toLowerCase();
+    var base      = file.name.replace(/\.[^.]+$/, '').replace(/[^a-z0-9]/gi, '-').toLowerCase();
+    var timestamp = Date.now();
+    var nomFichier = base + '-' + timestamp + '.' + ext;
+    var nom        = 'evenements/' + nomFichier;
+
+    // Lire en base64
+    var b64 = await new Promise(function(res, rej) {
+      var rd = new FileReader();
+      rd.onload = function() { res(rd.result.split(',')[1]); };
+      rd.onerror = rej;
+      rd.readAsDataURL(file);
+    });
+
+    // Aperçu local immédiat
+    var preview = document.getElementById('eAffichePreview');
+    var img     = document.getElementById('eAfficheImg');
+    if (file.type.startsWith('image/')) {
+      img.src = URL.createObjectURL(file);
+      preview.style.display = 'block';
+    }
+
+    // Upload sur GitHub
+    var sha = null;
+    try { sha = await ghGetSha(nom, token); } catch(_) {}
+    var body = { message: '🎪 Affiche événement : ' + nom, content: b64 };
+    if (sha) body.sha = sha;
+
+    var resp = await fetch('https://api.github.com/repos/' + GH_OWNER + '/' + GH_REPO + '/contents/' + nom, {
+      method: 'PUT', mode: 'cors', credentials: 'omit',
+      headers: {
+        'Authorization': 'Bearer ' + token,
+        'Accept': 'application/vnd.github+json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    });
+
+    if (resp.ok || resp.status === 201) {
+      // Stocker juste le nom de fichier (sans le chemin evenements/)
+      document.getElementById('eAffiche').value = nomFichier;
+      statusEl.textContent = '✅ Affiche uploadée !';
+      statusEl.style.color = 'green';
+      toast('✅ Affiche uploadée !');
+    } else {
+      var err = await resp.json().catch(function(){ return {}; });
+      statusEl.textContent = '❌ Erreur : ' + (err.message || resp.status);
+      statusEl.style.color = '#c0392b';
+      toast('❌ Erreur upload : ' + (err.message || resp.status));
+    }
+  }
+
+  return { charger, select, nouveau, sauvegarder, supprimer, supprimerGroupe, updatePreview, uploadAffiche };
 })();
 
 // ── UTILS ─────────────────────────────────
