@@ -1,9 +1,59 @@
 {
-  "mis_a_jour": "2026-03-13",
+  "mis_a_jour": "2026-09-14",
   "prix_premier_roman": {
     "nom": "Prix du Premier Roman",
     "description": "Chaque année, la librairie L'Esprit Large récompense un premier roman remarquable. Un prix né de la conviction que les premières voix méritent d'être entendues.",
     "editions": [
+      {
+        "annee": 2026,
+        "titre": "",
+        "auteur": "",
+        "editeur": "",
+        "couverture": "",
+        "note": "",
+        "selection": [
+          {
+            "titre": "Les bonnes notes",
+            "auteur": " Marie-Pierre Hascoët",
+            "couverture": "https://images.centprod.com/3026900001000/66yE0fMOp2zdZzjnYA1fim8EeVLhdX66SnYa5FlN9V7TEEMr2UAqoA-cover-large.jpg"
+          },
+          {
+            "titre": "Roxanne",
+            "auteur": "Romain Aguilla",
+            "couverture": "https://images.centprod.com/3026900001000/66yE0fMOp2xptK2S3TamRYFdaCpWW6ABqjY8ISlDIw_8k4NDNBPEVg-cover-large.jpg"
+          },
+          {
+            "titre": "Le bruit du melon qui explose ",
+            "auteur": "Marie Colombe",
+            "couverture": "https://images.centprod.com/3026900001000/66yE0fMOp2xppQsvZY5Bfcs-p3FgFg6DULeuCdW7mSmjQTyGEPv8LA-cover-large.jpg"
+          },
+          {
+            "titre": "La maison du lac",
+            "auteur": "Marius Loris Rodionoff",
+            "couverture": "https://images.centprod.com/3026900001000/66yE0fMOp2wEHKK0xIuU9VJqDsOPKj8FIxJhPSiaIMjbDp7BdaYSxw-cover-large.jpg"
+          },
+          {
+            "titre": "Judith ou l'ordre des choses ",
+            "auteur": "Olivier Donneau",
+            "couverture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQx6-F-FUM9H520pSALwiOHcM2-cPDd0q4rMC3EjFrlSJDAykeNocHrr48&s=10"
+          },
+          {
+            "titre": "Paradisi Gloria",
+            "auteur": "Elise Lespade",
+            "couverture": "https://images.centprod.com/3026900001000/66yE0fMOp2yI--Tz-H7yLXTjl8EhbJi4MT-nM9SQ-dv_xWtofP2Wrg-cover-large.jpg"
+          },
+          {
+            "titre": "La fille de.",
+            "auteur": "Anne Pitteloud",
+            "couverture": "https://images.centprod.com/3026900001000/66yE0fMOp2y7g0ip162j4MaPkD44phFdLZsJslgRS1A9yXDMaA1_kA-cover-large.jpg"
+          },
+          {
+            "titre": "La frontière des silences ",
+            "auteur": "Alain Lecherbault",
+            "couverture": "https://images.centprod.com/3026900001000/66yE0fMOp2wmUkINWGh2Q_F1LraMJakcPWSPI61zX0YOWrzdSTziXQ-cover-large.jpg"
+          }
+        ]
+      },
       {
         "annee": 2025,
         "titre": "Nourrices",
