@@ -169,7 +169,13 @@
   <p class="vote-intro" id="voteIntro">Soutenez vos coups de cœur de l'année.</p>
 </div>
 
-<div class="vote-rules">
+<div id="voteClosMsg" style="display:none;max-width:560px;margin:2rem auto;padding:2.5rem 2rem;text-align:center;background:var(--warm-white);border-radius:8px;box-shadow:0 2px 12px var(--shadow);">
+  <div style="font-size:2.2rem;margin-bottom:1rem;">🔒</div>
+  <h2 style="font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--wood-dark);margin-bottom:.8rem;">Le vote est clos</h2>
+  <p style="color:var(--ink-soft);">Merci à tous les participants ! Les résultats seront bientôt annoncés en librairie. Revenez pour la prochaine édition.</p>
+</div>
+
+<div class="vote-rules" id="voteRulesBlock">
   Vous votez avec <strong>5 points maximum</strong> à répartir sur <strong>3 BD maximum</strong>.<br/>
   Exemple : vous avez aimé deux titres et adoré un troisième ? Mettez 1 point sur chacun des deux premiers et 3 sur votre favori. Vous n'avez adoré qu'une seule BD ? Mettez vos 5 points dessus.
 </div>
@@ -354,6 +360,16 @@ async function charger() {
         document.title = data.titre + " — L'Esprit Large";
       }
       if (data.intro) document.getElementById('voteIntro').textContent = data.intro;
+
+      var ouvert = data.ouvert !== false; // par defaut ouvert si champ absent (retro-compatibilite)
+      if (!ouvert) {
+        document.getElementById('voteClosMsg').style.display = 'block';
+        document.getElementById('voteRulesBlock').style.display = 'none';
+        document.getElementById('voteGrid').style.display = 'none';
+        document.getElementById('voteForm').style.display = 'none';
+        document.getElementById('pointsCounter').style.display = 'none';
+        return; // pas la peine de charger/afficher les BD
+      }
     }
   } catch(e) {}
   render();

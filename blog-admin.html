@@ -489,6 +489,18 @@ details[open] .rblock summary::before{transform:rotate(90deg);}
   <div style="padding:2rem;background:var(--warm);width:100%;overflow-y:auto;">
     <div class="fhead">🗳️ Votes BD</div>
 
+    <!-- Statut du vote -->
+    <div id="voteStatutBar" style="border-radius:6px;padding:1rem 1.4rem;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.8rem;box-shadow:0 2px 12px rgba(30,10,10,.07);">
+      <div>
+        <span id="voteStatutLabel" style="font-family:Raleway,sans-serif;font-weight:700;font-size:.9rem;">—</span>
+        <div id="voteStatutDesc" style="font-family:Lora,serif;font-size:.8rem;color:var(--soft);margin-top:.15rem;"></div>
+      </div>
+      <div style="display:flex;gap:.6rem;">
+        <button id="btnToggleOuvert" onclick="Votes.toggleOuvert()" style="border:none;border-radius:3px;padding:.5rem 1.1rem;font-size:.75rem;font-weight:700;cursor:pointer;">—</button>
+        <button onclick="Votes.nouvelleEdition()" style="background:none;border:1.5px solid rgba(92,26,26,.25);color:var(--wood);border-radius:3px;padding:.5rem 1.1rem;font-size:.75rem;font-weight:700;cursor:pointer;">🔄 Nouvelle édition</button>
+      </div>
+    </div>
+
     <!-- Config du vote -->
     <div style="background:#fff;border-radius:6px;padding:1.4rem 1.6rem;margin-bottom:1.5rem;box-shadow:0 2px 12px rgba(30,10,10,.07);">
       <div style="font-family:Raleway,sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--wood);margin-bottom:1rem;">Configuration</div>
@@ -1841,7 +1853,7 @@ window.addEventListener('DOMContentLoaded', function() {
 var Votes = (function() {
   var bds = [];
   var votes = [];
-  var config = { titre: '', intro: '' };
+  var config = { titre: '', intro: '', ouvert: true };
   var CSV_CLASSEMENT = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTH92jvq7L2mA4PnWZ3d8c6k6Qj3-Q0dc4MI1G7OkyoKwTe98pzSvHdsRptoPoaf8WM8h6OARn3Wd20/pub?gid=1757936793&single=true&output=csv';
   var CSV_VOTES = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTH92jvq7L2mA4PnWZ3d8c6k6Qj3-Q0dc4MI1G7OkyoKwTe98pzSvHdsRptoPoaf8WM8h6OARn3Wd20/pub?gid=0&single=true&output=csv';
 
@@ -1862,15 +1874,85 @@ var Votes = (function() {
           bds = data.bds || [];
           config.titre = data.titre || '';
           config.intro = data.intro || '';
+          config.ouvert = data.ouvert !== false; // par defaut ouvert si absent
           var ti = document.getElementById('voteTitre');
           var io = document.getElementById('voteIntro');
           if (ti) ti.value = config.titre;
           if (io) io.value = config.intro;
-        } catch(e) { bds = []; }
-      } else { bds = []; }
+        } catch(e) { bds = []; config.ouvert = true; }
+      } else { bds = []; config.ouvert = true; }
       renderBds();
+      renderStatutBar();
     };
     xhr.send();
+  }
+
+  function renderStatutBar() {
+    var label = document.getElementById('voteStatutLabel');
+    var desc = document.getElementById('voteStatutDesc');
+    var bar = document.getElementById('voteStatutBar');
+    var btn = document.getElementById('btnToggleOuvert');
+    if (!label || !bar || !btn) return;
+    if (config.ouvert) {
+      label.textContent = '🟢 Vote ouvert';
+      desc.textContent = 'Les visiteurs peuvent voter sur vote.html.';
+      bar.style.background = '#e9f6ec';
+      btn.textContent = '🔒 Clôturer le vote';
+      btn.style.background = '#c0392b';
+      btn.style.color = '#fff';
+    } else {
+      label.textContent = '🔴 Vote clos';
+      desc.textContent = 'La page de vote affiche un message de clôture, plus personne ne peut voter.';
+      bar.style.background = '#faecea';
+      btn.textContent = '🔓 Rouvrir le vote';
+      btn.style.background = '#27ae60';
+      btn.style.color = '#fff';
+    }
+  }
+
+  function toggleOuvert() {
+    config.ouvert = !config.ouvert;
+    var ti = document.getElementById('voteTitre');
+    var io = document.getElementById('voteIntro');
+    var data = {
+      titre: ti ? ti.value.trim() : config.titre,
+      intro: io ? io.value.trim() : config.intro,
+      ouvert: config.ouvert,
+      bds: bds.filter(function(b){ return (b.titre||'').trim(); })
+    };
+    ghWrite('vote-bds.json', data, config.ouvert ? '🔓 Reouverture du vote' : '🔒 Cloture du vote').then(function(ok) {
+      if (ok) {
+        toast(config.ouvert ? 'Vote rouvert !' : 'Vote clôturé.');
+        renderStatutBar();
+      } else {
+        config.ouvert = !config.ouvert; // annuler si echec
+        toast('Erreur sauvegarde.');
+        renderStatutBar();
+      }
+    });
+  }
+
+  function nouvelleEdition() {
+    if (!confirm('Démarrer une nouvelle édition ? Cela va VIDER la liste des BD en lice et remettre le vote sur "clos" en attendant que vous ajoutiez les nouvelles BD. Vos anciens votes restent conservés dans le Google Sheet et dans votes.json (rien n\'est supprimé côté historique).')) return;
+    bds = [];
+    config.ouvert = false;
+    var ti = document.getElementById('voteTitre');
+    var io = document.getElementById('voteIntro');
+    var data = {
+      titre: ti ? ti.value.trim() : config.titre,
+      intro: io ? io.value.trim() : config.intro,
+      ouvert: false,
+      bds: []
+    };
+    ghWrite('vote-bds.json', data, '🔄 Nouvelle edition : liste BD reinitialisee').then(function(ok) {
+      if (ok) {
+        toast('Nouvelle édition prête. Ajoutez vos BD puis rouvrez le vote quand vous êtes prêt.');
+        renderBds();
+        renderStatutBar();
+      } else {
+        toast('Erreur sauvegarde.');
+      }
+    });
   }
 
   function renderBds() {
@@ -1913,6 +1995,7 @@ var Votes = (function() {
     var data = {
       titre: ti ? ti.value.trim() : '',
       intro: io ? io.value.trim() : '',
+      ouvert: config.ouvert,
       bds: bds.filter(function(b){ return (b.titre||'').trim(); })
     };
     ghWrite('vote-bds.json', data, 'Maj liste BD vote').then(function(ok) {
@@ -2232,7 +2315,7 @@ var Votes = (function() {
     });
   }
 
-  return { charger: charger, chargerSheet: chargerSheet, chargerBds: chargerBds, ajouterBD: ajouterBD, maj: maj, supprimerBD: supprimerBD, sauvegarderBds: sauvegarderBds, supprimerVote: supprimerVote, ajouterVoteManuel: ajouterVoteManuel };
+  return { charger: charger, chargerSheet: chargerSheet, chargerBds: chargerBds, ajouterBD: ajouterBD, maj: maj, supprimerBD: supprimerBD, sauvegarderBds: sauvegarderBds, supprimerVote: supprimerVote, ajouterVoteManuel: ajouterVoteManuel, toggleOuvert: toggleOuvert, nouvelleEdition: nouvelleEdition };
 })();
 
 var Reservations = (function() {
