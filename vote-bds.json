@@ -1,7 +1,7 @@
 {
   "titre": "Le vote Première vague 2026 !",
   "intro": "Votez pour votre bande-dessinée préférée !",
-  "ouvert": false,
+  "ouvert": true,
   "bds": [
     {
       "id": "bd1781529602131755",
