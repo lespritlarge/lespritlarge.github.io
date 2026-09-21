@@ -1,16 +1,6 @@
 {
-  "mis_a_jour": "2026-09-17T16:45:19.132Z",
+  "mis_a_jour": "2026-09-21T13:24:09.999Z",
   "articles": [
-    {
-      "id": "1789663519132",
-      "titre": "Aurélien et Nadine présentent leurs coups de coeu",
-      "categorie": "Nouveauté",
-      "date": "2026-10-06",
-      "texte": "Aurélien et Nadine présentent leurs coups de coeur et leur déception... c'est ouvert à tous et c'est gratuit. Vous aussi vous avez peut être envie de nous parler de votre coup de coeur ?",
-      "image": "images/blog/1789663512974.jpg",
-      "lien": "",
-      "lien_label": ""
-    },
     {
       "id": "1783173840102",
       "titre": "Des pages et des pas",
@@ -18,6 +8,16 @@
       "date": "2026-10-15",
       "texte": "L’association Mille-feuilles et Petit Lu en partenariat avec la médiathèque de Guérande et la Bibliothèque Départementale de Loire Atlantique (BDLA), organise une journée rencontre conférence, ouverte à tous. \n\"Des pages et des pas\". Mettre des histoires en corps et les sens en éveil",
       "image": "images/blog/1783173831450.jpg",
+      "lien": "",
+      "lien_label": ""
+    },
+    {
+      "id": "1789663519132",
+      "titre": "Coups de coeurs de la rentrée littéraire",
+      "categorie": "Nouveauté",
+      "date": "2026-10-06",
+      "texte": "Aurélien et Nadine présentent leurs coups de cœur et leur déception... c'est ouvert à tous et c'est gratuit. Vous aussi vous avez peut être envie de nous parler de votre coup de cœur ?",
+      "image": "images/blog/1789997032464.jpg",
       "lien": "",
       "lien_label": ""
     },
