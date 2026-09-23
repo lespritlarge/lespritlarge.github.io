@@ -1,6 +1,16 @@
 {
-  "mis_a_jour": "2026-09-21T13:25:44.254Z",
+  "mis_a_jour": "2026-09-23T10:07:36.068Z",
   "articles": [
+    {
+      "id": "1790158056068",
+      "titre": "Lauréat Première vague 2026 : L'AMOURANTE de PIERRE ALEXANDRINE !",
+      "categorie": "Vie de la librairie",
+      "date": "2026-09-22",
+      "texte": "C'est 232 lectrices et lecteurs qui ont lu de février à septembre les 6 bandes dessinées de la sélection et ont su voter pour un gagnant ! L'amourante de Pierre Alexandrine ! Cette grande saga qui suit Louise à travers les époques et les pays à su ravir les lecteurs et lectrices de la Presqu'ile et plus encore !\nUn grand bravo à lui, et un grand merci à tous.tes les participant.e.s pour leur motivation !\nLe prix reviendra l'année prochaine !",
+      "image": "images/blog/1790158027985.png",
+      "lien": "https://www.glenat.com/glenat-bd/lamourante-9782344059692/",
+      "lien_label": "En savoir plus sur le site de l'éditeur..."
+    },
     {
       "id": "1783173840102",
       "titre": "Des pages et des pas",
