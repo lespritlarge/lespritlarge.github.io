@@ -1,5 +1,5 @@
 {
-  "mis_a_jour": "2026-09-14",
+  "mis_a_jour": "2026-09-23",
   "prix_premier_roman": {
     "nom": "Prix du Premier Roman",
     "description": "Chaque année, la librairie L'Esprit Large récompense un premier roman remarquable. Un prix né de la conviction que les premières voix méritent d'être entendues.",
@@ -183,10 +183,10 @@
     "editions": [
       {
         "annee": 2026,
-        "titre": "",
-        "auteur": "",
-        "editeur": "",
-        "couverture": "",
+        "titre": "L'amourante",
+        "auteur": "Pierre Alexandrine",
+        "editeur": "Glénat",
+        "couverture": "https://media.hachette.fr/fit-in/500x500/imgArticle/GLENAT/2025/9782344059692-001-X.jpeg?source=web&v=5995c05d73741078cb1fc46828d4281d",
         "note": "",
         "selection": [
           {
