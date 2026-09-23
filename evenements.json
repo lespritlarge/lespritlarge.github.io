@@ -1,5 +1,5 @@
 {
-  "mis_a_jour": "2026-09-21T13:25:39.375Z",
+  "mis_a_jour": "2026-09-23T11:56:56.122Z",
   "evenements": [
     {
       "titre": "Rencontre autour de la musique irlandaise",
@@ -610,6 +610,19 @@
       "fermeture": false,
       "id": "1787735916380",
       "date": "2026-09-22",
+      "recurrent": false
+    },
+    {
+      "titre": "Lecture théâtralisée de l'adoptée",
+      "time": "18h30",
+      "type": "Autre",
+      "lieu": "",
+      "desc": "Mélanie Couillaud et Delphine Lamand viennent nous lire \"L'adoptée\", texte de Joël Jouanneau... Sur réservation !",
+      "affiche": "images/evenements/affiche1790164583715.png",
+      "special": false,
+      "fermeture": false,
+      "id": "1790164616122",
+      "date": "2026-10-02",
       "recurrent": false
     },
     {
