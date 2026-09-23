@@ -947,7 +947,7 @@ async function envoyerPanier() {
   <div>
     <div class="f-logo">L'Esprit Large</div>
     <p class="f-desc">Librairie indépendante au cœur de Guérande.</p>
-    <p class="f-desc" style="margin-top:.8rem;">📍 12, Rue Vannetaise, 44350 Guérande<br/>📞 02 40 23 44 44<br/>📧 <a href="/cdn-cgi/l/email-protection#8cefe3e2f8edeff8cce9fffcfee5f8a1e0edfeebe9a2efe3e1"><span class="__cf_email__" data-cfemail="fa9995948e9b998eba9f898a88938ed7969b889d9fd4999597">[email&#160;protected]</span></a></p>
+    <p class="f-desc" style="margin-top:.8rem;">📍 12, Rue Vannetaise, 44350 Guérande<br/>📞 02 40 23 44 44<br/>📧 <a href="#" id="footerEmailLink">contact&#64;esprit&#8209;large&#46;com</a></p>
     <p class="f-desc" style="margin-top:.8rem;">🕐 <strong style="color:#b86060;">Horaires</strong><br/>Lun : 14h30–18h00<br/>Mar/Mer/Ven/Sam : 9h30–19h00<br/>Jeu : 9h30–12h30 &amp; 14h30–18h30<br/>Dim &amp; Fériés : fermé</p>
   </div>
   <div>
@@ -973,5 +973,16 @@ async function envoyerPanier() {
     <ul class="f-links">
       <li><a href="https://www.facebook.com/librairielespritlarge" target="_blank" rel="noopener">📘 Facebook</a></li>
       <li><a href="https://www.instagram.com/librairie_lesprit_large/" target="_blank" rel="noopener">📷 Instagram</a></li>
+
+<script>
+(function() {
+  var u = 'contact', d = 'esprit-large.com';
+  var link = document.getElementById('footerEmailLink');
+  if (link) {
+    link.href = 'mailto:' + u + '@' + d;
+    link.textContent = u + '@' + d;
+  }
+})();
+</script>
 </body>
 </html>
