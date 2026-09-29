@@ -1,5 +1,5 @@
 {
-  "mis_a_jour": "2026-09-23T11:56:56.122Z",
+  "mis_a_jour": "2026-09-29T14:47:10.369Z",
   "evenements": [
     {
       "titre": "Rencontre autour de la musique irlandaise",
@@ -636,6 +636,19 @@
       "fermeture": false,
       "id": "1789997046839",
       "date": "2026-10-06",
+      "recurrent": false
+    },
+    {
+      "titre": "Festival du livre de Guérande",
+      "time": "Toute la journée",
+      "type": "Rencontre auteur",
+      "lieu": "Athanor",
+      "desc": "Nous serons au festival du livre de Guérande avec des auteurs qui seront annoncés prochainement...",
+      "affiche": "",
+      "special": false,
+      "fermeture": false,
+      "id": "1790693230369",
+      "date": "2026-11-14",
       "recurrent": false
     }
   ]
