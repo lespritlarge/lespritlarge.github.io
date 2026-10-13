@@ -1,5 +1,5 @@
 {
-  "mis_a_jour": "2026-10-13T14:30:09.034Z",
+  "mis_a_jour": "2026-10-13T14:31:15.313Z",
   "coups": [
     {
       "ean": "9791040806493",
@@ -200,7 +200,8 @@
       "couverture": "https://covers.openlibrary.org/b/id/15250041-L.jpg",
       "citation": "Une plume magnifique!",
       "libraire": "Aurélien",
-      "categorie": "Roman"
+      "categorie": "Roman",
+      "epingle": true
     }
   ]
 }
