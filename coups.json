@@ -1,5 +1,5 @@
 {
-  "mis_a_jour": "2026-09-09T16:14:09.957Z",
+  "mis_a_jour": "2026-10-13T14:30:09.034Z",
   "coups": [
     {
       "ean": "9791040806493",
@@ -190,6 +190,15 @@
       "auteur": "Denis Infante",
       "couverture": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1744947959i/231525866.jpg",
       "citation": "Faites du théâtre!",
+      "libraire": "Aurélien",
+      "categorie": "Roman"
+    },
+    {
+      "ean": "9782896987641",
+      "titre": "La maison du rang Lynch",
+      "auteur": "Alexie Morin",
+      "couverture": "https://covers.openlibrary.org/b/id/15250041-L.jpg",
+      "citation": "Une plume magnifique!",
       "libraire": "Aurélien",
       "categorie": "Roman"
     }
