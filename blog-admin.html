@@ -333,10 +333,16 @@ details[open] .rblock summary::before{transform:rotate(90deg);}
         <div class="f"><label>Catégorie</label>
           <select id="cCategorie" style="padding:.6rem;font-family:'Lora',serif;font-size:.88rem;border:1.5px solid rgba(92,26,26,.2);border-radius:4px;background:#fff;color:var(--ink);">
             <option value="">— Choisir —</option>
-            <option value="Roman">Roman</option>
-            <option value="BD">BD</option>
             <option value="Jeunesse">Jeunesse</option>
+            <option value="Littérature">Littérature</option>
+            <option value="Poche">Poche</option>
+            <option value="Arts">Arts</option>
             <option value="Essai">Essai</option>
+            <option value="BD">BD</option>
+            <option value="Policier">Policier</option>
+            <option value="Imaginaire">Imaginaire</option>
+            <option value="Poésie">Poésie</option>
+            <option value="Théâtre">Théâtre</option>
           </select>
         </div>
         <div class="fbtns">
@@ -1180,10 +1186,7 @@ var Coups = (() => {
               <label style="font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#888;display:block;margin-bottom:.2rem;">Catégorie</label>
               <select id="edit-cat-${i}" style="width:100%;padding:.45rem;font-family:'Lora',serif;font-size:.85rem;border:1.5px solid #ddd;border-radius:3px;background:#fff;">
                 <option value="" ${!c.categorie?'selected':''}>- Choisir -</option>
-                <option value="Roman" ${c.categorie==='Roman'?'selected':''}>Roman</option>
-                <option value="BD" ${c.categorie==='BD'?'selected':''}>BD</option>
-                <option value="Jeunesse" ${c.categorie==='Jeunesse'?'selected':''}>Jeunesse</option>
-                <option value="Essai" ${c.categorie==='Essai'?'selected':''}>Essai</option>
+                ${['Jeunesse','Littérature','Poche','Arts','Essai','BD','Policier','Imaginaire','Poésie','Théâtre'].map(function(n){ return `<option value="${n}" ${c.categorie===n?'selected':''}>${n}</option>`; }).join('')}
               </select>
             </div>
             <div>

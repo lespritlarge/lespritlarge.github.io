@@ -106,10 +106,16 @@
 
 <div class="filtres-bar">
   <button class="filtre-btn active" onclick="filtrer('tous',this)">Tous</button>
-  <button class="filtre-btn" onclick="filtrer('Roman',this)">Romans</button>
-  <button class="filtre-btn" onclick="filtrer('BD',this)">BD</button>
   <button class="filtre-btn" onclick="filtrer('Jeunesse',this)">Jeunesse</button>
-  <button class="filtre-btn" onclick="filtrer('Essai',this)">Essais</button>
+  <button class="filtre-btn" onclick="filtrer('Littérature',this)">Littérature</button>
+  <button class="filtre-btn" onclick="filtrer('Poche',this)">Poche</button>
+  <button class="filtre-btn" onclick="filtrer('Arts',this)">Arts</button>
+  <button class="filtre-btn" onclick="filtrer('Essai',this)">Essai</button>
+  <button class="filtre-btn" onclick="filtrer('BD',this)">BD</button>
+  <button class="filtre-btn" onclick="filtrer('Policier',this)">Policier</button>
+  <button class="filtre-btn" onclick="filtrer('Imaginaire',this)">Imaginaire</button>
+  <button class="filtre-btn" onclick="filtrer('Poésie',this)">Poésie</button>
+  <button class="filtre-btn" onclick="filtrer('Théâtre',this)">Théâtre</button>
 </div>
 
 <div class="coups-container">
@@ -129,7 +135,7 @@
 <script>
 var tousLesCoups = [];
 var filtreActif = 'tous';
-var EMOJI = { Roman: '&#x1F4D6;', BD: '&#x1F3A8;', Jeunesse: '&#x1F31F;', Essai: '&#x1F4A1;' };
+var EMOJI = { 'Littérature': '&#x1F4D6;', Poche: '&#x1F4D8;', Arts: '&#x1F3A8;', BD: '&#x1F4AC;', Jeunesse: '&#x1F31F;', Essai: '&#x1F4A1;', Policier: '&#x1F50D;', Imaginaire: '&#x1F409;', 'Poésie': '&#x1FAB6;', 'Théâtre': '&#x1F3AD;' };
 var pageCourante = 1;
 var PER_PAGE = 20;
 
