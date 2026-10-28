@@ -185,6 +185,11 @@ details[open] .rblock summary::before{transform:rotate(90deg);}
             <div class="f"><label>Date</label><input type="date" id="bDate"/></div>
           </div>
           <div class="f"><label>Texte *</label><textarea id="bTexte" style="min-height:200px" placeholder="Écrivez votre article ici…"></textarea></div>
+          <div class="f"><label>📚 Sélection de livres en stock <span style="font-weight:400;text-transform:none;letter-spacing:0;">(optionnel — affichée sous l'article, ex. « Des beaux livres pour Noël »)</span></label>
+            <input type="text" id="bSelSearch" placeholder="Chercher un titre, un auteur ou un EAN dans le stock…" oninput="Blog.chercherSel()" autocomplete="off"/>
+            <div id="bSelResults" style="display:none;border:1.5px solid rgba(92,26,26,.18);border-radius:3px;background:#fff;max-height:260px;overflow-y:auto;margin-top:.3rem;"></div>
+            <div id="bSelList" style="margin-top:.6rem;"></div>
+          </div>
                     <div class="f"><label>Image de l'article</label>
             <div style="display:flex;flex-direction:column;gap:.5rem;">
               <div id="bImagePreview" style="display:none;width:100%;max-height:160px;overflow:hidden;border-radius:4px;background:var(--parchment);text-align:center;">
@@ -677,6 +682,8 @@ async function ghWrite(file, data, message) {
 // ========================================
 var Blog = (() => {
   let items = [], idx = null;
+  let sel = [];            // EAN de la sélection de livres de l'article en cours
+  let stockSel = null;     // cache du stock (ean -> fiche)
 
   async function charger() {
     document.getElementById('blogList').innerHTML = '<div class="lempty">⏳ Chargement…</div>';
@@ -714,6 +721,7 @@ var Blog = (() => {
     document.getElementById('bLien').value      = a.lien       || '';
     document.getElementById('bLienLabel').value = a.lien_label || '';
     document.getElementById('bDel').style.display = 'inline-block';
+    sel = (a.selection || []).slice(); renderSel();
     renderList();
   }
 
@@ -724,6 +732,7 @@ var Blog = (() => {
     document.getElementById('bCat').value = '';
     document.getElementById('bDate').value = today();
     document.getElementById('bDel').style.display = 'none';
+    sel = []; renderSel();
     document.getElementById('bTitre').focus();
     renderList();
   }
@@ -742,6 +751,7 @@ var Blog = (() => {
       image:      document.getElementById('bImage').value.trim(),
       lien:       document.getElementById('bLien').value.trim(),
       lien_label: document.getElementById('bLienLabel').value.trim(),
+      selection:  sel.slice(),
     };
     if (idx !== null) items[idx] = art; else { items.unshift(art); idx = 0; }
     const ok = await ghWrite('blog.json', { mis_a_jour: new Date().toISOString(), articles: items }, '📝 ' + titre);
@@ -754,6 +764,67 @@ var Blog = (() => {
     items.splice(idx, 1); idx = null;
     const ok = await ghWrite('blog.json', { mis_a_jour: new Date().toISOString(), articles: items }, '🗑️ Suppression article');
     if (ok) { toast('🗑️ Article supprimé.'); nouveau(); }
+  }
+
+  // ── Sélection de livres ──
+  async function chargerStockSel() {
+    if (stockSel) return stockSel;
+    try {
+      const r = await fetch('stock.json?t=' + Date.now());
+      if (!r.ok) throw new Error('stock.json ' + r.status);
+      const d = await r.json();
+      stockSel = {};
+      (d.livres || []).forEach(function(b) { stockSel[b.ean] = b; });
+    } catch (e) { toast('⚠️ Stock illisible : ' + e.message); stockSel = {}; }
+    return stockSel;
+  }
+  function normSel(t) { return String(t || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, ''); }
+  function escSel(t) { return String(t == null ? '' : t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;'); }
+
+  async function chercherSel() {
+    const box = document.getElementById('bSelResults');
+    const q = normSel(document.getElementById('bSelSearch').value.trim());
+    if (q.length < 2) { box.style.display = 'none'; return; }
+    const stock = await chargerStockSel();
+    const res = Object.keys(stock).map(function(e) { return stock[e]; }).filter(function(b) {
+      return (b.stock || 0) > 0 && sel.indexOf(b.ean) === -1 && b.titre && b.titre.indexOf('[A enrichir') !== 0
+        && (normSel(b.titre).indexOf(q) !== -1 || normSel(b.auteur).indexOf(q) !== -1 || String(b.ean).indexOf(q) !== -1);
+    }).slice(0, 15);
+    box.style.display = 'block';
+    box.innerHTML = res.length ? res.map(function(b) {
+      return '<div onclick="Blog.ajouterSel(\'' + b.ean + '\')" style="padding:.5rem .8rem;cursor:pointer;border-bottom:1px solid rgba(92,26,26,.08);font-size:.85rem;">'
+        + '<strong>' + escSel(b.titre) + '</strong> <span style="color:#777;">— ' + escSel(b.auteur || '') + '</span>'
+        + ' <span style="float:right;color:#777;font-size:.75rem;">' + escSel(b.prix || '') + ' · ' + b.stock + ' en stock</span></div>';
+    }).join('') : '<div style="padding:.7rem .8rem;color:#888;font-size:.85rem;font-style:italic;">Aucun livre en stock ne correspond.</div>';
+  }
+
+  async function ajouterSel(ean) {
+    if (sel.indexOf(ean) === -1) sel.push(ean);
+    document.getElementById('bSelSearch').value = '';
+    document.getElementById('bSelResults').style.display = 'none';
+    await renderSel();
+  }
+  async function retirerSel(i) { sel.splice(i, 1); await renderSel(); }
+  async function deplacerSel(i, d) {
+    const j = i + d; if (j < 0 || j >= sel.length) return;
+    const t = sel[i]; sel[i] = sel[j]; sel[j] = t; await renderSel();
+  }
+  async function renderSel() {
+    const el = document.getElementById('bSelList');
+    if (!sel.length) { el.innerHTML = ''; return; }
+    const stock = await chargerStockSel();
+    el.innerHTML = '<div style="font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#888;margin-bottom:.3rem;">' + sel.length + ' livre' + (sel.length > 1 ? 's' : '') + ' dans la sélection</div>'
+      + sel.map(function(ean, i) {
+        const b = stock[ean];
+        const nom = b ? '<strong>' + escSel(b.titre) + '</strong> <span style="color:#777;">— ' + escSel(b.auteur || '') + '</span>'
+                      : '<span style="color:#c0392b;">EAN ' + escSel(ean) + ' (introuvable dans le stock)</span>';
+        const btn = 'style="border:1px solid rgba(92,26,26,.2);background:#fff;border-radius:3px;cursor:pointer;padding:.1rem .45rem;margin-left:.25rem;"';
+        return '<div style="display:flex;align-items:center;gap:.5rem;padding:.4rem .6rem;background:var(--cream);border-radius:3px;margin-bottom:.3rem;font-size:.85rem;">'
+          + '<span style="flex:1;">' + nom + '</span>'
+          + '<button type="button" ' + btn + ' onclick="Blog.deplacerSel(' + i + ',-1)">↑</button>'
+          + '<button type="button" ' + btn + ' onclick="Blog.deplacerSel(' + i + ',1)">↓</button>'
+          + '<button type="button" ' + btn + ' onclick="Blog.retirerSel(' + i + ')">✕</button></div>';
+      }).join('');
   }
 
   async function uploadImage() {
@@ -803,7 +874,7 @@ var Blog = (() => {
     }
   }
 
-  return { charger, select, nouveau, sauvegarder, supprimer, uploadImage };
+  return { charger, select, nouveau, sauvegarder, supprimer, uploadImage, chercherSel, ajouterSel, retirerSel, deplacerSel };
 })();
 
 // ========================================
