@@ -1,21 +1,6 @@
 {
-  "mis_a_jour": "2026-10-28T14:38:10.113Z",
+  "mis_a_jour": "2026-10-28T14:38:37.885Z",
   "articles": [
-    {
-      "id": "1793198290113",
-      "titre": "Une sélection BD pour l'automne",
-      "categorie": "Coup de cœur",
-      "date": "2026-10-28",
-      "texte": "TEST",
-      "image": "",
-      "lien": "",
-      "lien_label": "",
-      "selection": [
-        "9791038701380",
-        "9791023521511",
-        "9782743670184"
-      ]
-    },
     {
       "id": "1783173840102",
       "titre": "Des pages et des pas",
