@@ -15,12 +15,13 @@
       "date_parution": "2024-05",
       "pages": "18",
       "resume": "",
-      "genre": "",
+      "genre": "Religion",
       "langue": "Français",
       "prix": "15 €",
       "couverture": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1718837108i/207612755.jpg",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782226478894",
@@ -32,7 +33,7 @@
       "date_parution": "",
       "pages": "",
       "resume": "Ce 1er février 2020, une téléconférence secrète rassemble un petit cercle de chercheurs de renommée mondiale sur trois continents. Leur point commun ? L'étude des virus les plus dangereux. Ce jour-là, à la suite du confinement qui vient d'être imposé dans une ville chinoise inconnue, quatre virologues réputés confient leurs soupçons : des manipulations génétiques auraient-elles échappé à ceux qui les avaient initiées ? Le contenu exact de cette réunion ultra-sensible n'a filtré qu'en 2022, après deux ans de secret. Il révolutionne l'histoire officielle de la pandémie : car tout montre que la chauve-souris et le pangolin sont innocents ! Problème : la Chine et la France ont leur part de responsabilité. Révélées pour la première fois dans ce livre, des notes confidentielles, émises à la veil",
-      "genre": "",
+      "genre": "Société",
       "langue": "fr",
       "prix": "",
       "couverture": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1679633836i/123693930.jpg",
@@ -49,13 +50,14 @@
       "annee": "2024",
       "date_parution": "2024-08",
       "pages": "21",
-      "resume": "L'histoire, basée sur des faits réels, d'un grand voilier au pedigree étonnant, nommé Black Swan. Passé de propriétaire en propriétaire, ayant besoin d'une bonne restauration, on suit les péripéties d'un armateur anglais, passionné par l'incroyable histoire de son grand-père, officier sur ce bateau, qui tenait un carnet et deux jeunes acquéreurs. Quel est véritablement ce bateau ? Un couple de trentenaires, skippers professionnels, prend connaissance par hasard de l'existence d'un grand voilier classique dans le port de La Spezia. Ils achètent sur un coup de tête ce grand ketch, nommé Black Swan. Ils découvrent que ce voilier a un pedigree étonnant : construit en 1899 par un célèbre chantier naval anglais, il a remporté la médaille d'argent aux Jeux Olympiques de Paris en 1900 sous le nom ",
-      "genre": "",
+      "resume": "L'histoire, basée sur des faits réels, d'un grand voilier au pedigree étonnant, nommé Black Swan. Passé de propriétaire en propriétaire, ayant besoin d'une bonne restauration, on suit les péripéties d'un armateur anglais, passionné par l'incroyable histoire de son grand-père, officier sur ce bateau, qui tenait un carnet et deux jeunes acquéreurs. Quel est véritablement ce bateau ? Un couple de trentenaires, skippers professionnels, prend connaissance par hasard de l'existence d'un grand voilier classique dans le port de La Spezia. Ils achètent sur un coup de tête ce grand ketch, nommé Black Swan. Ils découvrent que ce voilier a un pedigree étonnant : construit en 1899 par un célèbre chantier naval anglais, il a remporté la médaille d'argent aux Jeux Olympiques de Paris en 1900 sous le nom",
+      "genre": "Mer",
       "langue": "Français",
       "prix": "19 €",
       "couverture": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1718937214i/210944689.jpg",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782228942324",
