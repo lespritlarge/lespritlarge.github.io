@@ -68632,11 +68632,11 @@
       "titre": "L'oeil de Goliath",
       "auteur": "MUZZIO Diego",
       "editeur": "Libretto",
-      "collection": "CollectionLittérature étrangère",
+      "collection": "",
       "annee": "2026",
       "date_parution": "2026",
       "pages": "",
-      "resume": "PrésentationEdimbourg, années 1920.Dans l’hôpital psychiatrique de St Bartholomew, le Dr Edward Pierce tente de percer le mystère d’un ingénieur revenu d’une mission maudite au bout du monde. Là-bas, dans un phare battu par les vents et surnommé « l’Œil de Goliath », le réel s’est fissuré : la mer semble douée de conscience, et les ténèbres gagnent les esprits. Mêlant la rigueur du plus pur style gothique anglais à la puissance onirique de la littérature sud-américaine, Diego Muzzio tisse un réc",
+      "resume": "Edimbourg, années 1920. Dans l’hôpital psychiatrique de St Bartholomew, le Dr Edward Pierce tente de percer le mystère d’un ingénieur revenu d’une mission maudite au bout du monde. Là-bas, dans un phare battu par les vents et surnommé « l’Œil de Goliath », le réel s’est fissuré : la mer semble douée de conscience, et les ténèbres gagnent les esprits.",
       "genre": "Imaginaire",
       "langue": "Français",
       "prix": "9.20€",
@@ -99322,13 +99322,14 @@
       "annee": "2023",
       "date_parution": "2023-03-03",
       "pages": "17",
-      "resume": "PrésentationQui sont les loups pour l’homme ?Et s’il s’agissait des autres hommes ?Mais nous avons une arme que les loups n’ont pas : les mots, qui vont fonder les lois et les états. Une histoire qui permet de s’interroger sur les principes de la vie en société.",
-      "genre": "",
+      "resume": "Qui sont les loups pour l’homme ?Et s’il s’agissait des autres hommes ?Mais nous avons une arme que les loups n’ont pas : les mots, qui vont fonder les lois et les états. Une histoire qui permet de s’interroger sur les principes de la vie en société.",
+      "genre": "Philosophie",
       "langue": "Français",
       "prix": "9 €",
       "couverture": "https://couverture.geobib.fr/api/v1/9782492476082/large",
       "stock": 2,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782330213022",
@@ -99527,12 +99528,13 @@
       "date_parution": "2021-05",
       "pages": "24",
       "resume": "",
-      "genre": "",
+      "genre": "Philosophie",
       "langue": "fr",
       "prix": "",
       "couverture": "https://couverture.geobib.fr/api/v1/9782492476013/large",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782278057115",
@@ -101822,12 +101824,13 @@
       "date_parution": "2021-05",
       "pages": "24",
       "resume": "",
-      "genre": "",
+      "genre": "Philosophie",
       "langue": "fr",
       "prix": "",
       "couverture": "https://covers.openlibrary.org/b/id/11120541-L.jpg",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782737387814",
@@ -128967,17 +128970,18 @@
       "titre": "Mauvais Oeil",
       "auteur": "Etaf Rum",
       "editeur": "Pocket",
-      "collection": "CollectionRoman contemporain",
+      "collection": "Roman contemporain",
       "annee": "2026",
       "date_parution": "2026-01-15",
       "pages": "0",
-      "resume": "PrésentationPour Yara, écartelée entre son héritage familial et l'appel d'une nouvelle vie, les secrets du passé ne demandent qu'à être libérés. Mais tous les silences sont-ils bons à briser ?Yara vit à New York avec son mari et leurs enfants, dans un confort qu'elle s'est juré de protéger à tout prix, malgré son épuisement et l'équilibre fragile qu'elle essaie de garder entre sa vie familiale et son ambition.Lorsque le proviseur de l'université où elle travaille la convoque pour une prétendue f",
-      "genre": "",
+      "resume": "Pour Yara, écartelée entre son héritage familial et l'appel d'une nouvelle vie, les secrets du passé ne demandent qu'à être libérés. Mais tous les silences sont-ils bons à briser ?Yara vit à New York avec son mari et leurs enfants, dans un confort qu'elle s'est juré de protéger à tout prix, malgré son épuisement et l'équilibre fragile qu'elle essaie de garder entre sa vie familiale et son ambition.",
+      "genre": "Poche",
       "langue": "Français",
-      "prix": "",
+      "prix": "10.20e",
       "couverture": "https://couverture.geobib.fr/api/v1/9782266344487/large",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9791020903617",
