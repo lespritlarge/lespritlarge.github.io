@@ -9248,7 +9248,7 @@
     },
     {
       "ean": "9782207190012",
-      "titre": "Atlas indispensable de l'EuropeNOUVEAUTÉ",
+      "titre": "Atlas indispensable de l'Europe",
       "auteur": "Charline Vanhoenacker, Caroline Gillet",
       "editeur": "DENOEL",
       "collection": "",
@@ -9261,7 +9261,8 @@
       "prix": "21.00 €",
       "couverture": "https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/images/catalogue/9782207190012-1793285145356.png",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9791093749136",
@@ -13583,7 +13584,7 @@
     },
     {
       "ean": "9782211354486",
-      "titre": "Bienvenue à la résidence du camphrierNOUVEAUTÉ",
+      "titre": "Bienvenue à la résidence du camphrier",
       "auteur": "Etsuko Bushika",
       "editeur": "EDL",
       "collection": "",
@@ -13596,7 +13597,8 @@
       "prix": "15.00 €",
       "couverture": "https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/images/catalogue/9782211354486-1791366668534.png",
       "stock": 2,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782075186896",
@@ -16762,7 +16764,7 @@
     },
     {
       "ean": "9782387250506",
-      "titre": "C'est maintenantNOUVEAUTÉ",
+      "titre": "C'est maintenant",
       "auteur": "Karolina Chyżewska",
       "editeur": "MORGEN",
       "collection": "",
@@ -16775,7 +16777,8 @@
       "prix": "24.90 €",
       "couverture": "https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/images/catalogue/9782387250506-1791366455901.png",
       "stock": 2,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782354137472",
@@ -35963,12 +35966,13 @@
       "date_parution": "27/08/2026",
       "pages": "",
       "resume": "",
-      "genre": "",
+      "genre": "Imaginaire",
       "langue": "Français",
       "prix": "20.90 €",
       "couverture": "https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/images/catalogue/9782487700390-1791366774157.png",
       "stock": 4,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9791022615723",
@@ -68655,12 +68659,13 @@
       "date_parution": "",
       "pages": "23",
       "resume": "L'œil du cyclone est un recueil de courtes bandes-dessinées autobiographiques racontant la relation amoureuse de deux personnages se laissant peu à peu gagner par cette émotion à laquelle ils se pensaient hermétiques.",
-      "genre": "",
+      "genre": "Bandes dessinées",
       "langue": "Français",
       "prix": "17 €",
       "couverture": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1670170343i/63924171.jpg",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782092493588",
@@ -81949,12 +81954,13 @@
       "date_parution": "2017",
       "pages": "22",
       "resume": "Jean Deutsch propose un nouvel ouvrage sur les merveilles de l'évolution biologique, dont il est l'un des spécialistes réputés. Le thème commun de ces nouvelles histoires naturelles est la vision. L'incroyable inventivité de la nature est illustrée par la variété des yeux dont sont dotés des animaux aussi différents que les méduses, les caméléons, la mouche, la coquille Saint-Jacques, le poulpe et bien d'autres. Darwin lui-même s'étonnait que le simple mécanisme de l'évolution ait pu conduire à des dispositifs de vision aussi différents et aussi complexes. Mais les connaissances biologiques les plus récentes éclairent l'apparition de tant de solutions au même problème : comment voir. Cette synthèse sur une question capitale de la théorie de l'évolution est sans équivalent et répond aux att",
-      "genre": "Evolution (Biology)",
+      "genre": "Sciences",
       "langue": "Français",
       "prix": "19 €",
       "couverture": "https://couverture.geobib.fr/api/v1/9782021223224/large",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782381960210",
@@ -83675,7 +83681,7 @@
     },
     {
       "ean": "9782211351843",
-      "titre": "La petite grange rougeNOUVEAUTÉ",
+      "titre": "La petite grange rouge",
       "auteur": "Kim Crumrine",
       "editeur": "EDL",
       "collection": "",
@@ -83688,7 +83694,8 @@
       "prix": "13.00 €",
       "couverture": "https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/images/catalogue/9782211351843-1791366594317.png",
       "stock": 2,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782017087212",
@@ -92335,13 +92342,14 @@
       "annee": "2024",
       "date_parution": "2024-08",
       "pages": "0",
-      "resume": "Présentation\"La baronne laissa parler son amertume. Le progrès était un miroir aux alouettes. La Révolution n'avait guère fait davantage pour les invertis que pour les femmes. \" 1837, baie du Mont-Saint-Michel. Baptiste Rivière, jeune clerc de notaire, se rend au château d'Escreuil pour estimer les biens de la propriétaire des lieux. Mais cette dernière, une ancienne comédienne, veuve d'un aristocrate guillotiné sous la Terreur, demeure recluse dans sa chambre, inaccessible. Bravant les mises en",
-      "genre": "",
+      "resume": "\"La baronne laissa parler son amertume. Le progrès était un miroir aux alouettes. La Révolution n'avait guère fait davantage pour les invertis que pour les femmes. \" 1837, baie du Mont-Saint-Michel. Baptiste Rivière, jeune clerc de notaire, se rend au château d'Escreuil pour estimer les biens de la propriétaire des lieux. Mais cette dernière, une ancienne comédienne, veuve d'un aristocrate guillotiné sous la Terreur, demeure recluse dans sa chambre, inaccessible. Bravant les mises en",
+      "genre": "Poche",
       "langue": "fr",
       "prix": "",
       "couverture": "https://couverture.geobib.fr/api/v1/9782073042651/large",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782603032381",
@@ -127343,12 +127351,13 @@
       "date_parution": "2022",
       "pages": "18",
       "resume": "Le roman de l'abbé Prévost au programme de 1re générale et technologique, suivi du parcours littéraire «  Personnages en marge, plaisirs du romanesque  ». Dans une édition spécialement conçue pour faciliter la préparation au nouveau bac de français.  Le romanSous la Régence, à Paris, le jeune et fougueux chevalier des Grieux s'éprend de la belle Manon, dont la conduite fait fi des règles morales et des conventions sociales.Un grand roman de la passion amoureuse, qui interroge la liberté d'être soi-même dans une société dominée par le rang et l'argent.  Le parcours «  Personnages en marge, plaisirs du romanesque  »10 extraits de romans convoquant différentes figures de la marginalité, pour comprendre en quoi ils suscitent plaisir et intérêt chez le lecteur.  Le dossier Toutes les ressources",
-      "genre": "",
+      "genre": "Scolaire",
       "langue": "Français",
       "prix": "2.95 €",
       "couverture": "https://couverture.geobib.fr/api/v1/9782401086289/large",
       "stock": 2,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782367322247",
@@ -139992,12 +140001,13 @@
       "date_parution": "18/09/2026",
       "pages": "",
       "resume": "",
-      "genre": "Éveil, petite enfance (- de 3 ans) - Albums",
+      "genre": "Tout-carton",
       "langue": "Français",
       "prix": "13.90 €",
       "couverture": "https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/images/catalogue/9782355582479-1793264686495.png",
       "stock": 2,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782330125769",
@@ -148127,7 +148137,7 @@
     },
     {
       "ean": "9782330214593",
-      "titre": "Photo au zooNOUVEAUTÉ",
+      "titre": "Photo au zoo",
       "auteur": "Jean-Baptiste Drouot",
       "editeur": "HELIUM",
       "collection": "",
@@ -148140,7 +148150,8 @@
       "prix": "15.50 €",
       "couverture": "https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/images/catalogue/9782330214593-1791366624096.png",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782823104059",
@@ -149504,7 +149515,7 @@
     },
     {
       "ean": "9782812629068",
-      "titre": "Pois chicsNOUVEAUTÉ",
+      "titre": "Pois chics",
       "auteur": "Amelia Christie-Miller",
       "editeur": "ROUERGUE",
       "collection": "",
@@ -149517,7 +149528,8 @@
       "prix": "29.80 €",
       "couverture": "https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/images/catalogue/9782812629068-1793273663099.png",
       "stock": 2,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782383150145",
@@ -152853,7 +152865,7 @@
     },
     {
       "ean": "9782226515650",
-      "titre": "Pèlerinage françaisNOUVEAUTÉ",
+      "titre": "Pèlerinage français",
       "auteur": "Gilles Kepel",
       "editeur": "ALBIN MICHEL",
       "collection": "",
@@ -152866,7 +152878,8 @@
       "prix": "20.90 €",
       "couverture": "https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/images/catalogue/9782226515650-1791900600030.png",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782290440698",
@@ -155828,7 +155841,7 @@
     },
     {
       "ean": "9782203293335",
-      "titre": "Red Star RebelsNOUVEAUTÉ",
+      "titre": "Red Star Rebels",
       "auteur": "Amie Kaufman",
       "editeur": "CASTERMAN",
       "collection": "",
@@ -155836,12 +155849,13 @@
       "date_parution": "07/10/2026",
       "pages": "",
       "resume": "",
-      "genre": "",
+      "genre": "Roman Jeunesse",
       "langue": "Français",
       "prix": "17.95 €",
       "couverture": "https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/images/catalogue/9782203293335-1791901063480.png",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782910444730",
@@ -170023,7 +170037,7 @@
     },
     {
       "ean": "9782221288603",
-      "titre": "Tome 1 Des Racines et des ArmesNOUVEAUTÉ",
+      "titre": "Les enracinés - Des Racines et des Armes",
       "auteur": "Claire Norton",
       "editeur": "ROBERT LAFFONT",
       "collection": "",
@@ -170031,12 +170045,13 @@
       "date_parution": "13/08/2026",
       "pages": "",
       "resume": "",
-      "genre": "Public visé : Tout public",
+      "genre": "Littérature francophone",
       "langue": "Français",
       "prix": "20.90 €",
       "couverture": "https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/images/catalogue/9782221288603-1793277711522.png",
       "stock": 2,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782752915559",
@@ -171230,7 +171245,7 @@
     },
     {
       "ean": "9791036390005",
-      "titre": "Tout là-hautNOUVEAUTÉ",
+      "titre": "Tout là-haut",
       "auteur": "",
       "editeur": "BAYARD JEUNESSE",
       "collection": "",
@@ -171243,7 +171258,8 @@
       "prix": "13.90 €",
       "couverture": "https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/images/catalogue/9791036390005-1793200163280.png",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782352632863",
@@ -182382,7 +182398,7 @@
     },
     {
       "ean": "9782075242080",
-      "titre": "Violette DorangeNOUVEAUTÉ",
+      "titre": "Violette Dorange",
       "auteur": "Alice Babin",
       "editeur": "GALLIMARD JEUNE",
       "collection": "",
@@ -182390,12 +182406,13 @@
       "date_parution": "01/10/2026",
       "pages": "",
       "resume": "",
-      "genre": "Documentaire / Encyclopédie",
+      "genre": "Roman Jeunesse",
       "langue": "Français",
       "prix": "12.90 €",
       "couverture": "https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/images/catalogue/9782075242080-1793264447472.png",
       "stock": 2,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782330225438",
