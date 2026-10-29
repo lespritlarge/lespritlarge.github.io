@@ -25,7 +25,7 @@
     {
       "ean": "9782226478894",
       "titre": "\"Au nom de la science\"",
-      "auteur": "",
+      "auteur": "JEREMY ANDRE",
       "editeur": "",
       "collection": "",
       "annee": "2023",
@@ -37,7 +37,8 @@
       "prix": "",
       "couverture": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1679633836i/123693930.jpg",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782848116518",
@@ -68627,12 +68628,13 @@
       "date_parution": "2026",
       "pages": "",
       "resume": "PrésentationEdimbourg, années 1920.Dans l’hôpital psychiatrique de St Bartholomew, le Dr Edward Pierce tente de percer le mystère d’un ingénieur revenu d’une mission maudite au bout du monde. Là-bas, dans un phare battu par les vents et surnommé « l’Œil de Goliath », le réel s’est fissuré : la mer semble douée de conscience, et les ténèbres gagnent les esprits. Mêlant la rigueur du plus pur style gothique anglais à la puissance onirique de la littérature sud-américaine, Diego Muzzio tisse un réc",
-      "genre": "",
+      "genre": "Imaginaire",
       "langue": "Français",
-      "prix": "",
+      "prix": "9.20€",
       "couverture": "https://couverture.geobib.fr/api/v1/9782386960758/large",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782492926105",
