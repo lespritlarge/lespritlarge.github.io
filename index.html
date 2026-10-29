@@ -963,6 +963,13 @@ async function chargerEvenements() {
   } catch(e) {}
 }
 
+function mkEsc(s) { return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function texteBrutMarkup(src) {
+  return String(src || '').replace(/!\[[^\]]*\]\([^)]*\)/g, '').replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+    .replace(/^#{2,3}\s+/gm, '').replace(/^>\s?/gm, '').replace(/^[-*•]\s+/gm, '').replace(/^\d+[.)]\s+/gm, '').replace(/^-{3,}\s*$/gm, '')
+    .replace(/\*\*(.+?)\*\*/g, '$1').replace(/(^|[^*\w])\*([^*]+?)\*/g, '$1$2').replace(/\s*\n\s*/g, ' ').trim();
+}
+
 /* ── BLOG ── */
 async function chargerBlog() {
   try {
@@ -973,7 +980,8 @@ async function chargerBlog() {
     if (!articles.length) return;
     var grid = document.getElementById('blogGrid');
     grid.innerHTML = articles.map(function(a) {
-      var extrait = (a.texte||'').substring(0,160) + ((a.texte||'').length > 160 ? '…' : '');
+      var brut = texteBrutMarkup(a.texte);
+      var extrait = mkEsc(brut.substring(0,160)) + (brut.length > 160 ? '…' : '');
       var dateStr = a.date ? new Date(a.date).toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'}) : '';
       var imgHtml = a.image
         ? '<div class="blog-card-img"><img src="' + a.image + '" alt="" loading="lazy" /></div>'

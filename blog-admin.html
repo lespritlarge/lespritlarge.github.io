@@ -63,6 +63,12 @@ body{font-family:'Raleway',sans-serif;background:var(--warm);color:var(--ink);}
 .shead h3{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;font-style:italic;color:var(--dark);}
 .btn-new{font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--wood);color:var(--cream);border:none;padding:.4rem .9rem;cursor:pointer;border-radius:2px;white-space:nowrap;}
 .btn-new:hover{background:var(--dark);}
+.edb{font-size:.72rem;padding:.3rem .6rem;border:1.5px solid rgba(92,26,26,.2);background:#fff;color:var(--wood);border-radius:3px;cursor:pointer;font-family:inherit;}
+.edb:hover,.edb.on{background:var(--wood);color:var(--cream);}
+#edPreview h2{font-size:1.25rem;margin:1rem 0 .5rem;color:var(--wood-dark);} #edPreview h3{font-size:1.05rem;margin:.9rem 0 .4rem;color:var(--wood);}
+#edPreview p{margin:0 0 .9rem;} #edPreview ul,#edPreview ol{margin:0 0 .9rem 1.3rem;} #edPreview blockquote{border-left:3px solid var(--wood);margin:.9rem 0;padding:.2rem 0 .2rem .9rem;font-style:italic;color:#555;}
+#edPreview img{max-width:100%;border-radius:3px;} #edPreview figure{margin:.9rem 0;text-align:center;} #edPreview hr{border:none;border-top:1px solid rgba(92,26,26,.2);margin:1.2rem 0;}
+
 .ilist{flex:1;overflow-y:auto;}
 .li{padding:.8rem 1.2rem;border-bottom:1px solid rgba(92,26,26,.07);cursor:pointer;transition:background .15s;display:flex;align-items:flex-start;gap:.7rem;}
 .li:hover{background:rgba(139,46,46,.05);}
@@ -184,7 +190,25 @@ details[open] .rblock summary::before{transform:rotate(90deg);}
               </select></div>
             <div class="f"><label>Date</label><input type="date" id="bDate"/></div>
           </div>
-          <div class="f"><label>Texte *</label><textarea id="bTexte" style="min-height:200px" placeholder="Écrivez votre article ici…"></textarea></div>
+          <div class="f"><label>Texte *</label>
+            <div id="edToolbar" style="display:flex;flex-wrap:wrap;gap:.3rem;margin-bottom:.4rem;">
+              <button type="button" class="edb" title="Titre de section" onclick="edLigne('## ')"><b>Titre</b></button>
+              <button type="button" class="edb" title="Sous-titre" onclick="edLigne('### ')">Sous-titre</button>
+              <button type="button" class="edb" title="Gras (Ctrl+B)" onclick="edEncadre('**')"><b>G</b></button>
+              <button type="button" class="edb" title="Italique (Ctrl+I)" onclick="edEncadre('*')"><i>I</i></button>
+              <button type="button" class="edb" title="Insérer un lien" onclick="edLien()">🔗 Lien</button>
+              <button type="button" class="edb" title="Liste à puces" onclick="edLigne('- ')">• Liste</button>
+              <button type="button" class="edb" title="Liste numérotée" onclick="edLigne('1. ')">1. Liste</button>
+              <button type="button" class="edb" title="Citation" onclick="edLigne('> ')">❝ Citation</button>
+              <button type="button" class="edb" title="Ligne de séparation" onclick="edSep()">― Séparateur</button>
+              <button type="button" class="edb" title="Insérer une image dans le texte" onclick="document.getElementById('edImgFile').click()">🖼️ Image</button>
+              <button type="button" class="edb" id="edPrevBtn" title="Voir le rendu" onclick="edApercu()">👁 Aperçu</button>
+              <input type="file" id="edImgFile" accept="image/*" style="display:none;" onchange="edImage()"/>
+            </div>
+            <textarea id="bTexte" style="min-height:260px" placeholder="Écrivez votre article ici… Les boutons ci-dessus ajoutent la mise en page ; une ligne vide sépare deux paragraphes."></textarea>
+            <div id="edPreview" style="display:none;margin-top:.5rem;padding:1rem 1.2rem;background:#fff;border:1.5px dashed rgba(92,26,26,.25);border-radius:3px;font-family:'Lora',serif;font-size:.95rem;line-height:1.7;"></div>
+            <small id="edStatus" style="font-style:italic;color:var(--soft);"></small>
+          </div>
           <div class="f"><label>📚 Sélection de livres en stock <span style="font-weight:400;text-transform:none;letter-spacing:0;">(optionnel — affichée sous l'article, ex. « Des beaux livres pour Noël »)</span></label>
             <input type="text" id="bSelSearch" placeholder="Chercher un titre, un auteur ou un EAN dans le stock…" oninput="Blog.chercherSel()" autocomplete="off"/>
             <div id="bSelResults" style="display:none;border:1.5px solid rgba(92,26,26,.18);border-radius:3px;background:#fff;max-height:260px;overflow-y:auto;margin-top:.3rem;"></div>
@@ -677,6 +701,125 @@ async function ghWrite(file, data, message) {
   return false;
 }
 
+// ── Mise en page des articles (mini-Markdown sécurisé) ──
+function mkEsc(s) { return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function mkUrlOk(u) { return /^(https?:\/\/|mailto:|\/|[A-Za-z0-9_-]+[\/.#?]|#)/.test(u) && !/^\s*(javascript|data|vbscript):/i.test(u); }
+function mkInline(raw) {
+  let s = mkEsc(raw);
+  s = s.replace(/!\[([^\]]*)\]\(([^)\s]+)\)/g, function(m, alt, u) {
+    return mkUrlOk(u) ? '<img src="' + u + '" alt="' + alt + '" loading="lazy">' : m;
+  });
+  s = s.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, function(m, t, u) {
+    return mkUrlOk(u) ? '<a href="' + u + '" target="_blank" rel="noopener">' + t + '</a>' : m;
+  });
+  s = s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  s = s.replace(/(^|[^*\w])\*(?!\s)([^*]+?)\*(?!\*)/g, '$1<em>$2</em>');
+  return s;
+}
+function rendreMarkup(src) {
+  const lines = String(src || '').replace(/\r/g, '').split('\n');
+  let html = '', para = [], list = null;
+  function flushPara() { if (para.length) { html += '<p>' + para.map(mkInline).join('<br>') + '</p>'; para = []; } }
+  function flushList() { if (list) { html += '<' + list.t + '>' + list.items.map(function(i){ return '<li>' + mkInline(i) + '</li>'; }).join('') + '</' + list.t + '>'; list = null; } }
+  lines.forEach(function(l) {
+    let m;
+    if (!l.trim()) { flushPara(); flushList(); return; }
+    if ((m = l.match(/^(#{2,3})\s+(.+)$/))) { flushPara(); flushList(); html += '<h' + m[1].length + '>' + mkInline(m[2]) + '</h' + m[1].length + '>'; return; }
+    if (/^!\[[^\]]*\]\([^)\s]+\)\s*$/.test(l.trim())) { flushPara(); flushList(); html += '<figure>' + mkInline(l.trim()) + '</figure>'; return; }
+    if (/^-{3,}\s*$/.test(l)) { flushPara(); flushList(); html += '<hr>'; return; }
+    if ((m = l.match(/^>\s?(.*)$/))) { flushPara(); flushList(); html += '<blockquote>' + mkInline(m[1]) + '</blockquote>'; return; }
+    if ((m = l.match(/^[-*•]\s+(.+)$/))) { flushPara(); if (!list || list.t !== 'ul') { flushList(); list = { t: 'ul', items: [] }; } list.items.push(m[1]); return; }
+    if ((m = l.match(/^\d+[.)]\s+(.+)$/))) { flushPara(); if (!list || list.t !== 'ol') { flushList(); list = { t: 'ol', items: [] }; } list.items.push(m[1]); return; }
+    flushList(); para.push(l);
+  });
+  flushPara(); flushList();
+  return html;
+}
+function texteBrutMarkup(src) {
+  return String(src || '').replace(/!\[[^\]]*\]\([^)]*\)/g, '').replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+    .replace(/^#{2,3}\s+/gm, '').replace(/^>\s?/gm, '').replace(/^[-*•]\s+/gm, '').replace(/^\d+[.)]\s+/gm, '').replace(/^-{3,}\s*$/gm, '')
+    .replace(/\*\*(.+?)\*\*/g, '$1').replace(/(^|[^*\w])\*([^*]+?)\*/g, '$1$2').replace(/\s*\n\s*/g, ' ').trim();
+}
+
+// ── Barre d'outils de mise en page ──
+function edTa() { return document.getElementById('bTexte'); }
+function edSet(ta, texte, debut, fin) { ta.value = texte; ta.focus(); ta.setSelectionRange(debut, fin); edMajApercu(); }
+function edEncadre(m) {
+  const ta = edTa(), a = ta.selectionStart, b = ta.selectionEnd, v = ta.value;
+  const sel = v.slice(a, b) || 'texte';
+  if (v.slice(a - m.length, a) === m && v.slice(b, b + m.length) === m && a !== b) { // déjà encadré → on retire
+    edSet(ta, v.slice(0, a - m.length) + sel + v.slice(b + m.length), a - m.length, b - m.length); return;
+  }
+  edSet(ta, v.slice(0, a) + m + sel + m + v.slice(b), a + m.length, a + m.length + sel.length);
+}
+function edLigne(prefixe) {
+  const ta = edTa(), v = ta.value;
+  const debut = v.lastIndexOf('\n', ta.selectionStart - 1) + 1;
+  let fin = v.indexOf('\n', ta.selectionEnd); if (fin === -1) fin = v.length;
+  const lignes = v.slice(debut, fin).split('\n');
+  const num = prefixe === '1. ';
+  const dejaMis = lignes.every(function(l) { return num ? /^\d+[.)]\s/.test(l) : l.indexOf(prefixe) === 0; });
+  const nv = lignes.map(function(l, i) {
+    const nu = l.replace(/^(#{2,3}\s+|>\s?|[-*•]\s+|\d+[.)]\s+)/, '');
+    if (dejaMis) return nu;
+    return (num ? (i + 1) + '. ' : prefixe) + nu;
+  }).join('\n');
+  edSet(ta, v.slice(0, debut) + nv + v.slice(fin), debut, debut + nv.length);
+}
+function edLien() {
+  const ta = edTa(), a = ta.selectionStart, b = ta.selectionEnd, v = ta.value;
+  const url = prompt('Adresse du lien (https://…) :', 'https://');
+  if (!url || url === 'https://') return;
+  const sel = v.slice(a, b) || 'texte du lien';
+  const ins = '[' + sel + '](' + url.trim() + ')';
+  edSet(ta, v.slice(0, a) + ins + v.slice(b), a, a + ins.length);
+}
+function edSep() {
+  const ta = edTa(), a = ta.selectionEnd, v = ta.value;
+  const ins = (a > 0 && v[a - 1] !== '\n' ? '\n' : '') + '\n---\n\n';
+  edSet(ta, v.slice(0, a) + ins + v.slice(a), a + ins.length, a + ins.length);
+}
+function edApercu() {
+  const box = document.getElementById('edPreview'), btn = document.getElementById('edPrevBtn');
+  const on = box.style.display === 'none';
+  box.style.display = on ? 'block' : 'none'; btn.classList.toggle('on', on);
+  edMajApercu();
+}
+function edMajApercu() {
+  const box = document.getElementById('edPreview');
+  if (box && box.style.display !== 'none') box.innerHTML = rendreMarkup(edTa().value) || '<em style="color:#999;">Rien à afficher.</em>';
+}
+async function edImage() {
+  const input = document.getElementById('edImgFile'), st = document.getElementById('edStatus');
+  if (!input.files.length) return;
+  const file = input.files[0], token = getToken();
+  if (!token) { toast('⚠️ Token GitHub requis pour envoyer une image.'); return; }
+  st.textContent = '⏳ Envoi de l\'image…';
+  const ext = (file.name.split('.').pop() || 'jpg').toLowerCase().replace(/[^a-z0-9]/g, '');
+  const nom = 'images/blog/' + Date.now() + '.' + ext;
+  try {
+    const b64 = await new Promise(function(res, rej) { const r = new FileReader(); r.onload = function() { res(r.result.split(',')[1]); }; r.onerror = rej; r.readAsDataURL(file); });
+    const r = await fetch('https://api.github.com/repos/' + GH_OWNER + '/' + GH_REPO + '/contents/' + nom, {
+      method: 'PUT', headers: { 'Authorization': 'Bearer ' + token, 'Accept': 'application/vnd.github+json', 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: '🖼️ Image article : ' + nom, content: b64 })
+    });
+    if (!r.ok) throw new Error('envoi refusé (' + r.status + ')');
+    const ta = edTa(), a = ta.selectionEnd, v = ta.value;
+    const ins = (a > 0 && v[a - 1] !== '\n' ? '\n\n' : '') + '![' + file.name.replace(/\.[^.]+$/, '') + '](' + nom + ')\n\n';
+    edSet(ta, v.slice(0, a) + ins + v.slice(a), a + ins.length, a + ins.length);
+    st.textContent = '✅ Image insérée.';
+  } catch (e) { st.textContent = '❌ ' + e.message; }
+  input.value = '';
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const ta = edTa(); if (!ta) return;
+  ta.addEventListener('input', edMajApercu);
+  ta.addEventListener('keydown', function(e) {
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'b') { e.preventDefault(); edEncadre('**'); }
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'i') { e.preventDefault(); edEncadre('*'); }
+  });
+});
+
 // ========================================
 //  BLOG
 // ========================================
@@ -716,7 +859,7 @@ var Blog = (() => {
     document.getElementById('bTitre').value     = a.titre      || '';
     document.getElementById('bCat').value       = a.categorie  || '';
     document.getElementById('bDate').value      = a.date       || '';
-    document.getElementById('bTexte').value     = a.texte      || '';
+    document.getElementById('bTexte').value     = a.texte      || ''; edMajApercu();
     document.getElementById('bImage').value     = a.image      || '';
     document.getElementById('bLien').value      = a.lien       || '';
     document.getElementById('bLienLabel').value = a.lien_label || '';
@@ -728,7 +871,7 @@ var Blog = (() => {
   function nouveau() {
     idx = null;
     document.getElementById('bHead').textContent = 'Nouvel article';
-    ['bTitre','bTexte','bImage','bLien','bLienLabel'].forEach(id => document.getElementById(id).value = '');
+    ['bTitre','bTexte','bImage','bLien','bLienLabel'].forEach(id => document.getElementById(id).value = ''); edMajApercu();
     document.getElementById('bCat').value = '';
     document.getElementById('bDate').value = today();
     document.getElementById('bDel').style.display = 'none';
