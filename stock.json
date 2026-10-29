@@ -687,12 +687,13 @@
       "date_parution": "2025-06",
       "pages": "",
       "resume": "",
-      "genre": "",
+      "genre": "Poche",
       "langue": "Français",
       "prix": "",
       "couverture": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1747138861i/223820643.jpg",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9791036314995",
@@ -704,12 +705,13 @@
       "date_parution": "2020-10-14",
       "pages": "23",
       "resume": "C'est bien connu, les enfants adorent le chocolat... et les adultes aussi ! Cet ouvrage propose 30 recettes 100 % gourmandes :Gâteau d'anniversaire, gâteau marbré, fondant, cookies, cup cakes, tartelettes, charlotte, tiramisu, glace, crèmes et mousses, brownies, muffins, sablés, chocolat chaud, glace, cheesecake, fruits en chocolat, bonbons et gourmandises... Quel que soit le moment de la journée, il y a toujours une recette à tester et à savourer !Une initiation ludique à la cuisine avec des recettes mises en scène par des photos au stylisme très coloré et avec les illustrations pleines d'humour de Catherine Meurisse et des pas à pas explicatifs. En bonus : des fiches-conseils sur les méthodes de cuisson et la décoration du chocolat ainsi que de la carterie : invitations pour un goûter 10",
-      "genre": "",
+      "genre": "Cuisine",
       "langue": "Français",
       "prix": "13.90 €",
       "couverture": "https://couverture.geobib.fr/api/v1/9791036314995/large",
       "stock": 2,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782954233567",
@@ -738,12 +740,13 @@
       "date_parution": "2026-01",
       "pages": "",
       "resume": "",
-      "genre": "",
+      "genre": "Bandes dessinées",
       "langue": "fr",
       "prix": "",
       "couverture": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1767127610i/245934079.jpg",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782353452101",
@@ -806,12 +809,13 @@
       "date_parution": "",
       "pages": "24",
       "resume": "Tous les soirs, Toutlaineux et ses amis rendent visite à Elio pour l'aider à s'endormir. Mais ce soir, ils trouvent porte close... Pourquoi ? Pourtant tous les soirs, Elio s'amuse avec eux : quand il les compte, il leur fait faire des tours, des rondes... Il les fait voyager dans la lune ou voguer sur la mer. Mais ce soir, rien. Même la cheminée est trop étroite pour entrer. Que se passe-t-il ? Un album lumineux et plein de charme, pour passer un bon moment avant de s'endormir. Les moutons sont des galets peints, source d'inspiration pour des activités personnelles ou de classe. Et après la fin de l'histoire, il est possible de repartir à la recherche du mouton aux petits cours, Toutlaineux, car il est présent dans chaque double-page alors que tous les moutons sont différents... Ainsi, grâ",
-      "genre": "",
+      "genre": "Albums",
       "langue": "fr",
       "prix": "",
       "couverture": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1677800060i/8665948.jpg",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782758551379",
@@ -823,12 +827,13 @@
       "date_parution": "2021",
       "pages": "",
       "resume": "",
-      "genre": "",
+      "genre": "Cartes",
       "langue": "Français",
-      "prix": "",
+      "prix": "14.30€",
       "couverture": "https://couverture.geobib.fr/api/v1/9782758551379/large",
       "stock": 2,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782758551782",
@@ -840,12 +845,13 @@
       "date_parution": "2022",
       "pages": "",
       "resume": "PrésentationL'indispensable carte de randonnée IGN1022OT.D'une très grande précision elle contient tous les détails existants sur le terrain : voies de communication jusqu'au moindre sentier, constructions jusqu'au hangar, bois, arbre isolé, rivière, source... Sans oublier la représentation du relief par des courbes de niveau. Les sentiers balisés et les informations touristiques sont également représentées.Communes couvertes : La Roche-Bernard, PNR de Brière, Herbignac, Mesquer, Damgan, Le Tour",
-      "genre": "",
+      "genre": "Cartes",
       "langue": "Français",
-      "prix": "",
+      "prix": "14.30€",
       "couverture": "https://couverture.geobib.fr/api/v1/9782758551782/large",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782758551386",
@@ -59818,12 +59824,13 @@
       "date_parution": "05/04/2023",
       "pages": "",
       "resume": "",
-      "genre": "Série : Kaga Kyoichiro",
+      "genre": "Poche - Policier",
       "langue": "Français",
       "prix": "9.40 €",
       "couverture": "https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/images/catalogue/9782330176440-1793032819317.png",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782355047350",
@@ -84795,12 +84802,13 @@
       "date_parution": "22/10/2026",
       "pages": "",
       "resume": "",
-      "genre": "Bandes dessinées - Bandes dessinées de genre - Documentaire",
+      "genre": "Bandes dessinées",
       "langue": "Français",
       "prix": "24.50 €",
       "couverture": "https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/images/catalogue/9782413092926-1793284446360.png",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782080141620",
@@ -101475,12 +101483,13 @@
       "date_parution": "01/10/2026",
       "pages": "",
       "resume": "",
-      "genre": "Public visé : Tout public",
+      "genre": "Littérature francophone",
       "langue": "Français",
       "prix": "19.90 €",
       "couverture": "https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/images/catalogue/9782378806217-1793264570690.png",
       "stock": 2,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782738121448",
@@ -111295,7 +111304,7 @@
     },
     {
       "ean": "9782367323022",
-      "titre": "Les carnets d'Alberto. De Porto à la guerre d’EspagneNOUVEAUTÉ",
+      "titre": "Les carnets d'Alberto. De Porto à la guerre d’Espagne",
       "auteur": "Alberto OLIVEIRA MARTINS",
       "editeur": "CHANDEIGNE",
       "collection": "",
@@ -111303,12 +111312,13 @@
       "date_parution": "04/09/2026",
       "pages": "",
       "resume": "",
-      "genre": "Histoire de l'entre-deux guerres (1919-1939)",
+      "genre": "Histoire",
       "langue": "Français",
       "prix": "24.00 €",
       "couverture": "https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/images/catalogue/9782367323022-1793032031197.png",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782211321174",
@@ -201737,12 +201747,13 @@
       "date_parution": "",
       "pages": "",
       "resume": "",
-      "genre": "",
+      "genre": "Société",
       "langue": "Français",
-      "prix": "",
+      "prix": "19€",
       "couverture": "https://cdn.cultura.com/cdn-cgi/image/width=380/media/pim/TITELIVE/10_9782021587586_1_75.jpg",
       "stock": 0,
-      "statut": "a_commander"
+      "statut": "a_commander",
+      "edite_manuellement": true
     },
     {
       "ean": "9782487891272",
@@ -211564,12 +211575,13 @@
       "date_parution": "",
       "pages": "",
       "resume": "Victor Horta en de grammatica van de art nouveau biedt een vernieuwende en grondige analyse van de architecturale aanpak van Victor Horta, de Belgische architect wiens creaties tussen 1893 en 1905 baanbrekend waren voor de architectuur van de art nouveau. In dit boek, onder redactie van Iwan Strauven (professor architectuurgeschiedenis, ULB) en Benjamin Zurstrassen (directeur van het Hortamuseum in Brussel), is nieuw onderzoek samengebracht van nationale en internationale experts in het werk van Victor Horta.",
-      "genre": "",
+      "genre": "Art",
       "langue": "Anglais",
-      "prix": "",
+      "prix": "45€",
       "couverture": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1699103113i/180171788.jpg",
       "stock": 0,
-      "statut": "a_commander"
+      "statut": "a_commander",
+      "edite_manuellement": true
     },
     {
       "ean": "9782073134110",
@@ -219224,7 +219236,7 @@
     },
     {
       "ean": "9782494463844",
-      "titre": "L'éden à l'aubeNOUVEAUTÉ",
+      "titre": "L'éden à l'aube",
       "auteur": "Karim KATTAN",
       "editeur": "ELYZAD",
       "collection": "",
@@ -219232,12 +219244,13 @@
       "date_parution": "04/09/2026",
       "pages": "",
       "resume": "",
-      "genre": "",
+      "genre": "Poche",
       "langue": "Français",
       "prix": "9.90 €",
       "couverture": "https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/images/catalogue/9782494463844-1791902629904.png",
       "stock": 0,
-      "statut": "a_commander"
+      "statut": "a_commander",
+      "edite_manuellement": true
     },
     {
       "ean": "9782752913807",
@@ -242225,7 +242238,7 @@
     },
     {
       "ean": "9782203291164",
-      "titre": "Les royaumes sauvagesNOUVEAUTÉ",
+      "titre": "Les royaumes sauvages",
       "auteur": "Amanda Foody",
       "editeur": "CASTERMAN",
       "collection": "",
@@ -242233,12 +242246,13 @@
       "date_parution": "09/09/2026",
       "pages": "",
       "resume": "",
-      "genre": "",
+      "genre": "Roman Jeunesse",
       "langue": "Français",
       "prix": "16.95 €",
       "couverture": "https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/images/catalogue/9782203291164-1791902673816.png",
       "stock": 0,
-      "statut": "a_commander"
+      "statut": "a_commander",
+      "edite_manuellement": true
     },
     {
       "ean": "9782232147357",
@@ -248455,12 +248469,13 @@
       "date_parution": "2024-11",
       "pages": "",
       "resume": "",
-      "genre": "",
+      "genre": "Bandes dessinées",
       "langue": "Français",
       "prix": "",
       "couverture": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1721754364i/216094555.jpg",
       "stock": 0,
-      "statut": "a_commander"
+      "statut": "a_commander",
+      "edite_manuellement": true
     },
     {
       "ean": "9782487296114",
@@ -270700,7 +270715,7 @@
     },
     {
       "ean": "9782211345088",
-      "titre": "Ô PinocchioNOUVEAUTÉ",
+      "titre": "Ô Pinocchio",
       "auteur": "Imme Dros",
       "editeur": "EDL",
       "collection": "",
@@ -270708,12 +270723,13 @@
       "date_parution": "05/11/2025",
       "pages": "",
       "resume": "",
-      "genre": "Livres illustrés (+ de 3 ans) - Albums",
+      "genre": "Albums",
       "langue": "Français",
       "prix": "18.00 €",
       "couverture": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABAAQMAAACQp+OdAAAAA1BMVEX///+nxBvIAAAAAXRSTlMAQObYZgAAAA9JREFUeNpjYBgFo4B8AAACQAAB4E0dRAAAAABJRU5ErkJggg==",
       "stock": 0,
-      "statut": "a_commander"
+      "statut": "a_commander",
+      "edite_manuellement": true
     },
     {
       "ean": "9782374161938",
