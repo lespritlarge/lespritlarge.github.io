@@ -69,12 +69,13 @@
       "date_parution": "16/09/2026",
       "pages": "",
       "resume": "",
-      "genre": "",
+      "genre": "Société",
       "langue": "Français",
       "prix": "8.90 €",
       "couverture": "https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/images/catalogue/9782228942324-1791902874702.png",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782365801447",
@@ -86,12 +87,13 @@
       "date_parution": "2014-09",
       "pages": "24",
       "resume": "La recherche de la connaissance de soi est une aventure très ancienne. Depuis la nuit des temps, elle a préoccupé les hommes. Ce livre ne se veut pas un essai littéraire mais davantage une sorte de mode d'emploi, de vade-mecum permettant à chacun d'appréhender cette quête et de se mettre en chemin. Il saura ce qu'il doit chercher, où chercher et comment chercher. La promesse millénaire est de connaître, à force de persévérance, l'univers et les dieux. Le rite écossais ancien et accepté, proposé parmi d'autres, par la franc-maçonnerie, ordre initiatique et traditionnel, se définit ici comme un moyen d'aller à la rencontre de son être véritable. Il se laissera guider par lui en disant, à l'inverse de Descartes : Je suis donc je ne pense pas.",
-      "genre": "",
+      "genre": "Sciences Humaines",
       "langue": "Français",
       "prix": "20 €",
       "couverture": "https://covers.openlibrary.org/b/id/10548478-L.jpg",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782488115193",
@@ -103,12 +105,13 @@
       "date_parution": "09/10/2025",
       "pages": "",
       "resume": "",
-      "genre": "",
+      "genre": "Féminisme",
       "langue": "Français",
       "prix": "11.50 €",
       "couverture": "https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/images/catalogue/9782488115193-1791365103080.png",
       "stock": 2,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782889593316",
