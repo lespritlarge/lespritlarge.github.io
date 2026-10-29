@@ -157,12 +157,13 @@
       "date_parution": "2024-02",
       "pages": "",
       "resume": "",
-      "genre": "",
+      "genre": "Bandes dessinées",
       "langue": "fr",
       "prix": "",
       "couverture": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1719704144i/199379705.jpg",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782226499752",
@@ -497,12 +498,13 @@
       "date_parution": "2026",
       "pages": "64",
       "resume": "PrésentationIl a suffi de prononcer un étrange mot inscrit sur le carnet de Rosaly, la grand-mère disparue de Lynette... Voilà la fillette et son ami Nino réduits, rétrécis, rapetissés à la taille d'insectes. Partis en mini-exploration parmi les merveilles géantes de la forêt voisine, les deux enfants se trouvent embarqués dans une bataille opposant deux groupes d'humains miniatures autour de la cité sylvicole de Microscopia.Lynette et Nino parviendront-ils à rétablir l'harmonie, en apprendront-",
-      "genre": "",
+      "genre": "Bandes dessinées",
       "langue": "Français",
       "prix": "",
       "couverture": "https://couverture.geobib.fr/api/v1/9782205214826/large",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782226506009",
@@ -548,12 +550,13 @@
       "date_parution": "2026",
       "pages": "64",
       "resume": "PrésentationLeila et Julian sont en couple depuis 6 mois. 6 mois de vie en rose fuchsia fluo.6 mois fous amoureux à esquiver Monica, la tante accroc à la vapoteuse, et à fuir les questions de trois rejetons, avocats officiels de la défense des droits de l’enfant de divorcés (Billy, 13 ans, Julietta, 9 ans et Valentin, 9 ans). Sauf que…6 mois, c’est long quand il faut jongler entre vie amoureuse, enfants et ex-partenaires ! Leila et Julian décident donc de passer le pas et de construire une nouve",
-      "genre": "",
+      "genre": "Bandes dessinées",
       "langue": "Français",
       "prix": "",
       "couverture": "https://couverture.geobib.fr/api/v1/9782205214031/large",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9780698116450",
@@ -1704,12 +1707,13 @@
       "date_parution": "2026",
       "pages": "48",
       "resume": "PrésentationHeureusement que Milady est là pour élargir l’horizon de sa petite sœur Tête de Pioche ! Alors, certes, la forêt est très belle, Mamie est la reine des gâteaux, les marmottes sont bien contentes de déguster leur petit déjeuner de bienvenue après l’hibernation, et le renard bien soulagé d’être libéré de son piège… mais qui a permis à Tête de Pioche de découvrir le bayou et le Yucatán ? C’est Milady, bien sûr ! Et son arrivée chez Mamie fait une fois encore sensation : aujourd’hui pilo",
-      "genre": "",
+      "genre": "Bandes dessinées",
       "langue": "Français",
       "prix": "",
       "couverture": "https://couverture.geobib.fr/api/v1/9782505142690/large",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782344066324",
@@ -107802,12 +107806,13 @@
       "date_parution": "2010-02",
       "pages": "30",
       "resume": "Suite à l'invasion des territoires palestiniens par Tsahal début 2009, Rutu Modan livre le point de vue d'une dessinatrice israélienne. L'italien Gipi établit des points de comparaison entre les présidences de Sylvio Berlusconi et celle de Nicolas Sarkozy... Neuf auteurs venus de tous les horizons signent des mini-récits contemporains.",
-      "genre": "",
+      "genre": "Bandes dessinées",
       "langue": "Français",
       "prix": "16.50 €",
       "couverture": "https://covers.openlibrary.org/b/id/15158005-L.jpg",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782760543577",
@@ -196695,12 +196700,13 @@
       "date_parution": "29/05/2026",
       "pages": "",
       "resume": "",
-      "genre": "Bandes dessinées - Bandes dessinées tout public",
+      "genre": "Bandes dessinées",
       "langue": "Français",
       "prix": "14.90 €",
       "couverture": "https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/images/catalogue/9782488123020-1793197862375.png",
       "stock": 0,
-      "statut": "a_commander"
+      "statut": "a_commander",
+      "edite_manuellement": true
     },
     {
       "ean": "9782375024355",
@@ -209717,12 +209723,13 @@
       "date_parution": "2025-11",
       "pages": "",
       "resume": "",
-      "genre": "",
+      "genre": "Bandes dessinées",
       "langue": "Français",
       "prix": "",
       "couverture": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1759379127i/236466560.jpg",
       "stock": 0,
-      "statut": "a_commander"
+      "statut": "a_commander",
+      "edite_manuellement": true
     },
     {
       "ean": "9782379503078",
@@ -214817,12 +214824,13 @@
       "date_parution": "2025-04",
       "pages": "",
       "resume": "",
-      "genre": "",
+      "genre": "Bandes dessinées",
       "langue": "fr",
       "prix": "",
       "couverture": "https://covers.openlibrary.org/b/id/15158142-L.jpg",
       "stock": 0,
-      "statut": "a_commander"
+      "statut": "a_commander",
+      "edite_manuellement": true
     },
     {
       "ean": "9782818061985",
