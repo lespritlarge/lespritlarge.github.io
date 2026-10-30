@@ -5183,13 +5183,14 @@
       "annee": "2023",
       "date_parution": "",
       "pages": "",
-      "resume": "Un périple haletant au pays des merveilles hivernales.Nous sommes au cœur de l'hiver. Alva, une orpheline, vit en marge de la société. Elle survit dans les faubourgs ternes d'une ville scandinave en tant que cambrioleuse, grâce à ses talents exceptionnels pour grimper le long des édifices. Durant un casse avec ses deux associés, Morten et Mini, dans un immeuble où ils dérobent des pièces d'or dans l'appartement d'un vieil homme, elle libère par mégarde, Sidsel, une sorcière de 2m10 qui possède la faculté de cracher des pépites d'or. L'affaire finit mal. Sidsel tue brutalement Morten et le vieil homme, alors que Mini s'échappe de justesse. Alva grimpe sur le toit où Sidsel l'attend. La sorcière ne tue pas la jeune fille, car elle reconnaît quelque chose en elle : une parenté ancestrale qui ",
+      "resume": "Un périple haletant au pays des merveilles hivernales.Nous sommes au cœur de l'hiver. Alva, une orpheline, vit en marge de la société. Elle survit dans les faubourgs ternes d'une ville scandinave en tant que cambrioleuse, grâce à ses talents exceptionnels pour grimper le long des édifices. Durant un casse avec ses deux associés, Morten et Mini, dans un immeuble où ils dérobent des pièces d'or dans l'appartement d'un vieil homme, elle libère par mégarde, Sidsel, une sorcière de 2m10 qui possède la faculté de cracher des pépites d'or. L'affaire finit mal. Sidsel tue brutalement Morten et le vieil homme, alors que Mini s'échappe de justesse. Alva grimpe sur le toit où Sidsel l'attend. La sorcière ne tue pas la jeune fille, car elle reconnaît quelque chose en elle : une parenté ancestrale qui",
       "genre": "BD - Adultes",
       "langue": "fr",
       "prix": "24.50€",
-      "couverture": "https://books.google.com/books/content?id=9qsn0AEACAAJ&printsec=frontcover&img=1&zoom=0&source=gbs_api",
+      "couverture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPM_6TXw4ooB--6m4LLug7n5edpAmndbCFirJ1Um6VrQ&s",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782344065822",
@@ -9052,7 +9053,7 @@
     },
     {
       "ean": "9782808218757",
-      "titre": "ATTENDS-MOI 0",
+      "titre": "ATTENDS-MOI",
       "auteur": "Cons Tirso, David Muñoz",
       "editeur": "LOMBARD",
       "collection": "",
@@ -9063,9 +9064,10 @@
       "genre": "BD - Adultes",
       "langue": "Français",
       "prix": "25.45€",
-      "couverture": "https://couverture.geobib.fr/api/v1/9782808218757/large",
+      "couverture": "https://bdi.dlpdomain.com/album/9782808218757/couv/M655x918/attends-moi-attends-moi.jpg",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782081443112",
@@ -37013,9 +37015,10 @@
       "genre": "BD - Jeunesse",
       "langue": "Français",
       "prix": "21.90€",
-      "couverture": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABAAQMAAACQp+OdAAAAA1BMVEX///+nxBvIAAAAAXRSTlMAQObYZgAAAA9JREFUeNpjYBgFo4B8AAACQAAB4E0dRAAAAABJRU5ErkJggg==",
+      "couverture": "https://products-images.di-static.com/image/liberman-simon-dragomol/9782383871453-475x500-1.webp",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782362319938",
@@ -167307,9 +167310,10 @@
       "genre": "BD - Adultes",
       "langue": "Français",
       "prix": "26€",
-      "couverture": "https://couverture.geobib.fr/api/v1/9782810210619/large",
+      "couverture": "https://medias.edl.li/gecko/couv/prod/9782810210619_C.jpg",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782330224004",
