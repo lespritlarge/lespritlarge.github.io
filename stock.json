@@ -1,9 +1,9 @@
 {
   "mis_a_jour": "2026-10-30T15:46:15",
   "total": 16273,
-  "en_stock": 11379,
+  "en_stock": 11385,
   "a_commander": 4888,
-  "a_enrichir": 6,
+  "a_enrichir": 0,
   "livres": [
     {
       "ean": "9782213736266",
@@ -66,12 +66,13 @@
       "date_parution": "2024",
       "pages": "142",
       "resume": "PrésentationDes vacances tranquilles…C’est ce qu’espéraient Albert et sa maîtresse, la célèbre détective Daisy Brownie… Mais, dès leur arrivée à Guérande, leur projet tombe à l’eau : une affaire bien mystérieuse ébranle la cité médiévale.Pour Albert, dont la paresse n’a d’égale que la gourmandise, bye bye les vacances !Son flair exceptionnel et son sens aigu de l’observation seront de précieux atouts pour résoudre cette énigme.Aux côtés de Daisy, pétillante et pleine de surprises, Albert s'embar",
-      "genre": "",
+      "genre": "Jeunesse - Romans",
       "langue": "Français",
       "prix": "7.58€",
       "couverture": "https://couverture.geobib.fr/api/v1/9782956736325/large",
       "stock": 4,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9780698116450",
@@ -199649,9 +199650,10 @@
       "genre": "",
       "langue": "fr",
       "prix": "",
-      "couverture": "",
+      "couverture": "https://images.epagine.fr/542/9782385191542_1_75.jpg",
       "stock": 0,
-      "statut": "a_commander"
+      "statut": "a_commander",
+      "edite_manuellement": true
     },
     {
       "ean": "9782330221539",
@@ -276546,7 +276548,7 @@
     },
     {
       "ean": "9782386760631",
-      "titre": "[A enrichir — 9782386760631]",
+      "titre": "JE VALORISE MES DÉCHETS VERTS AU JARDIN",
       "auteur": "",
       "editeur": "",
       "collection": "",
@@ -276559,11 +276561,12 @@
       "prix": "17€",
       "couverture": "https://couverture.geobib.fr/api/v1/9782386760631/large",
       "stock": 2,
-      "statut": "a_enrichir"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782488486002",
-      "titre": "[A enrichir — 9782488486002]",
+      "titre": "TOTEMS",
       "auteur": "",
       "editeur": "",
       "collection": "",
@@ -276576,11 +276579,12 @@
       "prix": "18€",
       "couverture": "https://couverture.geobib.fr/api/v1/9782488486002/large",
       "stock": 2,
-      "statut": "a_enrichir"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782919440986",
-      "titre": "[A enrichir — 9782919440986]",
+      "titre": "CHAOS",
       "auteur": "",
       "editeur": "",
       "collection": "",
@@ -276593,11 +276597,12 @@
       "prix": "32€",
       "couverture": "https://couverture.geobib.fr/api/v1/9782919440986/large",
       "stock": 2,
-      "statut": "a_enrichir"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782919440993",
-      "titre": "[A enrichir — 9782919440993]",
+      "titre": "CARNET BLEU",
       "auteur": "",
       "editeur": "",
       "collection": "",
@@ -276610,11 +276615,12 @@
       "prix": "30€",
       "couverture": "https://couverture.geobib.fr/api/v1/9782919440993/large",
       "stock": 2,
-      "statut": "a_enrichir"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9791021031180",
-      "titre": "[A enrichir — 9791021031180]",
+      "titre": "PIERRE ET MOHAMED",
       "auteur": "",
       "editeur": "",
       "collection": "",
@@ -276627,11 +276633,12 @@
       "prix": "",
       "couverture": "https://couverture.geobib.fr/api/v1/9791021031180/large",
       "stock": 4,
-      "statut": "a_enrichir"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9791044800213",
-      "titre": "[A enrichir — 9791044800213]",
+      "titre": "PEN BRON",
       "auteur": "",
       "editeur": "",
       "collection": "",
@@ -276642,9 +276649,10 @@
       "genre": "",
       "langue": "Français",
       "prix": "36€",
-      "couverture": "https://couverture.geobib.fr/api/v1/9791044800213/large",
+      "couverture": "https://image.over-blog.com/k6RhWgR3uz0lqjpSw7SlQ5Krr8w=/filters:no_upscale()/image%2F3533912%2F20220719%2Fob_43a4de_andrea-le-masne-pen-bron.png",
       "stock": 8,
-      "statut": "a_enrichir"
+      "statut": "en_stock",
+      "edite_manuellement": true
     }
   ]
 }
