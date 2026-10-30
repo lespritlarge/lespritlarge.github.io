@@ -189769,9 +189769,10 @@
       "genre": "Littérature - Littérature étrangère",
       "langue": "Français",
       "prix": "16€",
-      "couverture": "https://couverture.geobib.fr/api/v1/9791037117359/large",
+      "couverture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRICLBzD-GSYbCiWXQGCCrPJ-LwxTPAmdSeW2Z2Vq9Kng&s",
       "stock": 8,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782366246896",
