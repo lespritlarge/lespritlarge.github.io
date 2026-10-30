@@ -271,46 +271,12 @@
     <!-- Catégorie hiérarchique -->
     <div class="filter-group">
       <select id="selectCat" onchange="setCatFilter(this.value)">
-        <option value="">Tous les genres</option>
-        <optgroup label="Fiction">
-          <option value="Romans">Romans</option>
-          <option value="Policier &amp; Thriller">Policier &amp; Thriller</option>
-          <option value="Science-fiction">Science-fiction</option>
-          <option value="Fantasy &amp; Fantastique">Fantasy &amp; Fantastique</option>
-          <option value="Fantastique &amp; Horreur">Fantastique &amp; Horreur</option>
-          <option value="Nouvelles">Nouvelles</option>
-          <option value="Poésie">Poésie</option>
-          <option value="Théâtre">Théâtre</option>
-          <option value="Littérature">Littérature générale</option>
-          <option value="Littérature sentimentale">Littérature sentimentale</option>
-        </optgroup>
-        <optgroup label="Non-fiction">
-          <option value="Histoire">Histoire</option>
-          <option value="Biographies &amp; Mémoires">Biographies &amp; Mémoires</option>
-          <option value="Essais">Essais</option>
-          <option value="Sciences humaines">Sciences humaines</option>
-          <option value="Philosophie">Philosophie</option>
-          <option value="Psychologie">Psychologie</option>
-          <option value="Voyage &amp; Guides">Voyage &amp; Guides</option>
-          <option value="Nature &amp; Jardinage">Nature &amp; Jardinage</option>
-          <option value="Cuisine &amp; Gastronomie">Cuisine &amp; Gastronomie</option>
-          <option value="Arts">Arts</option>
-          <option value="Santé &amp; Bien-être">Santé &amp; Bien-être</option>
-          <option value="Développement personnel">Développement personnel</option>
-          <option value="Sciences">Sciences</option>
-          <option value="Économie &amp; Gestion">Économie &amp; Gestion</option>
-          <option value="Droit">Droit</option>
-          <option value="Religion &amp; Spiritualité">Religion &amp; Spiritualité</option>
-          <option value="Musique">Musique</option>
-        </optgroup>
-        <optgroup label="Jeunesse">
-          <option value="Jeunesse">Jeunesse (tous)</option>
-          <option value="Albums jeunesse">Albums jeunesse</option>
-        </optgroup>
-        <optgroup label="BD &amp; Mangas">
-          <option value="BD &amp; Comics">BD &amp; Comics</option>
-          <option value="Mangas">Mangas</option>
-        </optgroup>
+        <option value="">Toutes les catégories</option>
+      </select>
+    </div>
+    <div class="filter-group" id="groupSousCat" style="display:none">
+      <select id="selectSousCat" onchange="setSousCatFilter(this.value)">
+        <option value="">Toutes les sous-catégories</option>
       </select>
     </div>
     <!-- Langue -->
@@ -382,7 +348,8 @@
 <script>
 let BOOKS = [];
 let filtered = [];
-let currentFilter      = 'Tous';
+let currentFilter      = 'Tous';   // famille (ex. « Littérature »)
+let currentSousFilter  = 'Tous';   // sous-famille (ex. « Policier »)
 let currentLangFilter  = 'Tous';
 let currentDispoFilter = 'Tous';
 let currentSort        = 'aleatoire'; // défaut : nouveautés en premier
@@ -439,12 +406,18 @@ async function chargerStock() {
       resume:       b.resume || '',
       statut:       b.statut || (b.stock > 0 ? 'en_stock' : 'a_commander'),
       genre:        b.genre || devinerGenre(b.titre, b.auteur, b.editeur),
+      genreBrut:    b.genre || '',
+      famille:      '',
+      sousFamille:  '',
       langue:       b.langue || 'Français',
       price:        (b.prix || '').replace(' EUR','€').replace(' €','€').replace('  ',' ').trim(),
       cover:        b.couverture || b.cover || '',
       stock:        b.stock || b.quantite || 0,
       fav:          false,
     }));
+
+    BOOKS.forEach(analyserCategorie);
+    construireFiltresCat();
 
     // Coups de cœur
     try {
@@ -483,9 +456,60 @@ function devinerGenre(titre, auteur, editeur) {
   return 'Littérature';
 }
 
+// ── CATÉGORIES (familles Ellipse) ───────────────────────
+// Seules ces familles alimentent le filtre ; les anciens genres (Google Books…)
+// restent affichés sur la fiche mais ne créent pas de filtre.
+const FAMILLES = ['Littérature','Poche','Jeunesse','BD','Essais','Arts','Mer','Régionalisme',
+  'Nature','Cuisine','Voyage','Livres en langues étrangères','Revues','Livre numérique',
+  'Papeterie divers','Occasions','DVD','Divers'];
+
+function analyserCategorie(b) {
+  const g = b.genreBrut || '';          // genre réel du stock (pas la valeur devinée)
+  const i = g.indexOf(' - ');
+  const fam = i < 0 ? g : g.slice(0, i);
+  if (FAMILLES.includes(fam)) {
+    b.famille = fam;
+    b.sousFamille = i < 0 ? '' : g.slice(i + 3);
+  }
+}
+
+function construireFiltresCat() {
+  const sel = document.getElementById('selectCat');
+  const compte = {};
+  BOOKS.forEach(b => { if (b.famille && b.statut !== 'a_commander') compte[b.famille] = (compte[b.famille] || 0) + 1; });
+  sel.innerHTML = '<option value="">Toutes les catégories</option>' +
+    FAMILLES.filter(f => compte[f]).map(f =>
+      '<option value="' + f.replace(/"/g, '&quot;') + '">' + f + ' (' + compte[f] + ')</option>').join('');
+  construireSousFiltres();
+}
+
+function construireSousFiltres() {
+  const grp = document.getElementById('groupSousCat');
+  const sel = document.getElementById('selectSousCat');
+  if (currentFilter === 'Tous') { grp.style.display = 'none'; sel.innerHTML = ''; return; }
+  const compte = {};
+  BOOKS.forEach(b => {
+    if (b.famille === currentFilter && b.sousFamille && b.statut !== 'a_commander')
+      compte[b.sousFamille] = (compte[b.sousFamille] || 0) + 1;
+  });
+  const noms = Object.keys(compte).sort((x, y) => x.localeCompare(y, 'fr'));
+  if (!noms.length) { grp.style.display = 'none'; sel.innerHTML = ''; return; }
+  sel.innerHTML = '<option value="">Toutes les sous-catégories</option>' +
+    noms.map(n => '<option value="' + n.replace(/"/g, '&quot;') + '">' + n + ' (' + compte[n] + ')</option>').join('');
+  grp.style.display = '';
+}
+
+function setSousCatFilter(val) {
+  currentSousFilter = val || 'Tous';
+  currentPage = 1;
+  filterBooks();
+}
+
 function setCatFilter(val) {
   currentFilter = val || 'Tous';
+  currentSousFilter = 'Tous';
   currentPage = 1;
+  construireSousFiltres();
   filterBooks();
 }
 
@@ -521,7 +545,8 @@ function filterBooks() {
     ? BOOKS.filter(b => b.statut === 'a_commander')
     : BOOKS.filter(b => b.statut !== 'a_commander');
   filtered = basePool;
-  if (currentFilter !== 'Tous') filtered = filtered.filter(b => b.genre === currentFilter);
+  if (currentFilter !== 'Tous') filtered = filtered.filter(b => b.famille === currentFilter);
+  if (currentSousFilter !== 'Tous') filtered = filtered.filter(b => b.sousFamille === currentSousFilter);
   if (currentLangFilter === 'Autre') {
     filtered = filtered.filter(b => b.langue && b.langue !== 'Français' && b.langue !== 'Anglais');
   } else if (currentLangFilter !== 'Tous') {
@@ -532,6 +557,7 @@ function filterBooks() {
     normaliser(b.title).includes(q) ||
     normaliser(b.author).includes(q) ||
     normaliser(b.editeur).includes(q) ||
+    normaliser(b.genre).includes(q) ||
     b.ean.includes(q)  // recherche par ISBN/EAN
   );
   // ── Tri ─────────────────────────────────────────────
