@@ -1,8 +1,8 @@
 {
   "mis_a_jour": "2026-10-30T15:46:15",
-  "total": 16273,
+  "total": 16274,
   "en_stock": 11385,
-  "a_commander": 4888,
+  "a_commander": 4889,
   "a_enrichir": 0,
   "livres": [
     {
@@ -276654,6 +276654,24 @@
       "couverture": "https://image.over-blog.com/k6RhWgR3uz0lqjpSw7SlQ5Krr8w=/filters:no_upscale()/image%2F3533912%2F20220719%2Fob_43a4de_andrea-le-masne-pen-bron.png",
       "stock": 8,
       "statut": "en_stock",
+      "edite_manuellement": true
+    },
+    {
+      "ean": "9782375025178",
+      "titre": "Vie et mort d'une mite",
+      "auteur": "Rowe Irvin",
+      "editeur": "PAULSEN",
+      "collection": "",
+      "annee": "",
+      "date_parution": "20/08/2026",
+      "pages": "",
+      "resume": "n vertigineux huis clos en forêt.\n\nElles vivent dans une cabane isolée, au cœur de la forêt, là où rien ne peut les atteindre. À seize ans, l'adolescente ne connaît pas d'autre visage que celui de sa mère. Son monde se résume à quelques arpents de terre, ses jours sont rythmés par le passage des saisons et les rituels que Maya lui impose pour la protéger de la corruption qui guette de l'autre côté de la barrière.\n\nLeur fragile équilibre est bouleversé par l'arrivée d'un jeune homme venu du monde hostile dont Maya veut préserver sa fille. Cet étranger ne risque-t-il pas de détruire le cocon qu'elle a soigneusement tissé et de provoquer l'effondrement de leur microcosme ?\n\nServi par une écriture sensorielle, ce roman invite à une troublante exploration de l'amour maternel.",
+      "genre": "Littérature - Littérature étrangère",
+      "langue": "Français",
+      "prix": "23",
+      "couverture": "https://images.centprod.com/3026900001000/66yE0fMOp2wC7Xl6MSoVOoPHhtF_fN2GMtNIE5OT__9jtn-a6LjIEg-cover-large.jpg",
+      "stock": 0,
+      "statut": "a_commander",
       "edite_manuellement": true
     }
   ]
