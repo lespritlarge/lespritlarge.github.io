@@ -205008,7 +205008,7 @@
     },
     {
       "ean": "9791034754397",
-      "titre": "Cocon familial",
+      "titre": "Cocon familial - DAD Tome 8",
       "auteur": "Nob",
       "editeur": "Dupuis",
       "collection": "Dad",
@@ -205019,9 +205019,10 @@
       "genre": "",
       "langue": "Français",
       "prix": "10.95 €",
-      "couverture": "",
+      "couverture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLzCv9ESeMDfrxNLRUulCyznOFWcwW9eQyEEZfQXNhefNmdsOkL-VN1yE&s=10",
       "stock": 0,
-      "statut": "a_commander"
+      "statut": "a_commander",
+      "edite_manuellement": true
     },
     {
       "ean": "9782381340630",
@@ -206549,9 +206550,10 @@
       "genre": "",
       "langue": "Français",
       "prix": "22 €",
-      "couverture": "",
+      "couverture": "https://media.hachette.fr/imgArticle/STOCK/2009/9782234059917-T.jpg?source=web&v=424da3b636347d0364c3842b9d500d78",
       "stock": 0,
-      "statut": "a_commander"
+      "statut": "a_commander",
+      "edite_manuellement": true
     },
     {
       "ean": "9782073111067",
