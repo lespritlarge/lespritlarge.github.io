@@ -72541,9 +72541,10 @@
       "genre": "BD - Adultes",
       "langue": "Français",
       "prix": "25.95€",
-      "couverture": "https://couverture.geobib.fr/api/v1/9782203222830/large",
+      "couverture": "https://products-images.di-static.com/image/motin-margaux-l-emerveilleuse/9782203222830-475x500-1.webp",
       "stock": 2,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782375025291",
@@ -77403,9 +77404,10 @@
       "genre": "Poche - Littérature",
       "langue": "fr",
       "prix": "7.10€",
-      "couverture": "https://books.google.com/books/content?id=cVEqGwAACAAJ&printsec=frontcover&img=1&zoom=0&source=gbs_api",
+      "couverture": "https://m.media-amazon.com/images/I/716t2KGpqML._AC_UF1000,1000_QL80_.jpg",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782743665678",
