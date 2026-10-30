@@ -1,6 +1,35 @@
 {
-  "mis_a_jour": "2026-10-29T15:42:21.634Z",
+  "mis_a_jour": "2026-10-30T15:07:58.865Z",
   "articles": [
+    {
+      "id": "1793372878865",
+      "titre": "Nos coups de coeurs de la rentrée littéraire...",
+      "categorie": "Coup de cœur",
+      "date": "2026-10-30",
+      "texte": "## On lit quoi ?\n\nDébut octobre, nous nous sommes rencontrés pour parler de nos coups de cœurs de la rentrée... En voici la liste ! \n\n- La dame de la Seine, Claire Duvivier.\n- Rochebrune, Sophie Divry\n- De l'autre côté du lac, Sylvain Prudhomme\n- Ici, maintenant, Tom Newlands\n- Joseph dans la nuit, Olivier Grondeau\n- Le septième siffleur, Colin Niel\n- Choses que je croyais perdues, Clémentine Mélois\n- Les Hallucinés, Pierre-Olivier Capéran\n- La maison du Rang Lynch, Alexie Morin\n- Mordre l'orage, Isabelle Pandazopoulos\n- La promesse des chiens, Claudie Gallay\n- Vivre sans bonheur et n'en point dépérir, Véronique Ovaldé\n- La dernière des Wilberforce, Julia Kerninon\n- La veuve, José Saramago\n- Le pays des été, Pierre Adrian\n- Congés payés, Sophie Tavernier\n- La rue, Robert Seethaler\n- Vie et mort d'une mite, Rowe Irwin",
+      "image": "images/blog/1793372428147.png",
+      "lien": "",
+      "lien_label": "",
+      "selection": [
+        "9782373054255",
+        "9782330224417",
+        "9782707358233",
+        "9791022615501",
+        "9782378805975",
+        "9782021624960",
+        "9782073162854",
+        "9782812628726",
+        "9782896987641",
+        "9782330225643",
+        "9791070210321",
+        "9782080511096",
+        "9782378805944",
+        "9782021566246",
+        "9782073140920",
+        "9782848056302",
+        "9782848056319"
+      ]
+    },
     {
       "id": "1793288494881",
       "titre": "Des frissons pour Halloween !",
