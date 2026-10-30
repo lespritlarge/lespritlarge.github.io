@@ -1,5 +1,5 @@
 {
-  "mis_a_jour": "2026-10-30T15:29:01.732Z",
+  "mis_a_jour": "2026-10-30T15:30:54.095Z",
   "coups": [
     {
       "ean": "9791040806493",
@@ -211,6 +211,15 @@
       "citation": "Prendre un regard sur nos privilèges...",
       "libraire": "Aurélien",
       "categorie": "BD"
+    },
+    {
+      "ean": "9791037117359",
+      "titre": "WEST",
+      "auteur": "Carys Davies",
+      "couverture": "https://couverture.geobib.fr/api/v1/9791037117359/large",
+      "citation": "Un véritable voyage quasi cinématographique...",
+      "libraire": "Aurélien",
+      "categorie": "Littérature"
     }
   ]
 }
