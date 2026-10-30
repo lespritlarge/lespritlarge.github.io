@@ -23496,9 +23496,10 @@
       "genre": "BD - Adultes",
       "langue": "Français",
       "prix": "19€",
-      "couverture": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABAAQMAAACQp+OdAAAAA1BMVEX///+nxBvIAAAAAXRSTlMAQObYZgAAAA9JREFUeNpjYBgFo4B8AAACQAAB4E0dRAAAAABJRU5ErkJggg==",
+      "couverture": "https://products-images.di-static.com/image/melois-clementine-choses-que-je-croyais-perdues/9782073162854-475x500-1.webp",
       "stock": 4,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782211345859",
