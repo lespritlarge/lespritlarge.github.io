@@ -1,5 +1,5 @@
 {
-  "mis_a_jour": "2026-10-30T15:20:05.410Z",
+  "mis_a_jour": "2026-10-30T15:23:54.930Z",
   "articles": [
     {
       "id": "1793372878865",
@@ -147,7 +147,10 @@
       "texte": "La force de l'écriture et du dessin pour lutter contre la dépression. Un superbe roman graphique",
       "image": "images/blog/blog-trois-fois-rien-00-1779895726188.webp",
       "lien": "",
-      "lien_label": ""
+      "lien_label": "",
+      "selection": [
+        "9782889860630"
+      ]
     },
     {
       "id": "1779176442139",
