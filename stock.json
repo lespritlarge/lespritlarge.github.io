@@ -90904,9 +90904,10 @@
       "genre": "BD - Adultes",
       "langue": "Français",
       "prix": "27.90€",
-      "couverture": "https://couverture.geobib.fr/api/v1/9782487948136/large",
+      "couverture": "https://images.epagine.fr/136/9782487948136_1_75.jpg",
       "stock": 3,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782330170240",
