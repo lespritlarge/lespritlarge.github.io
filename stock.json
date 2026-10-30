@@ -39481,9 +39481,10 @@
       "genre": "Jeunesse - Albums",
       "langue": "Français",
       "prix": "15€",
-      "couverture": "https://books.google.com/books/content?id=xM6kzwEACAAJ&printsec=frontcover&img=1&zoom=0&source=gbs_api",
+      "couverture": "https://images.epagine.fr/263/9782372731263_1_75.jpg",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9780000000040",
@@ -202861,9 +202862,10 @@
       "genre": "",
       "langue": "Français",
       "prix": "",
-      "couverture": "https://couverture.geobib.fr/api/v1/9782386691249/large",
+      "couverture": "https://products-images.di-static.com/image/westin-verona-jenny-carl-et-elsa-grimpent-toujours-plus-haut/9782386691249-475x500-1.webp",
       "stock": 0,
-      "statut": "a_commander"
+      "statut": "a_commander",
+      "edite_manuellement": true
     },
     {
       "ean": "9782075218412",
