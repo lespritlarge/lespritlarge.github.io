@@ -23101,13 +23101,14 @@
       "annee": "2026",
       "date_parution": "2026",
       "pages": "96",
-      "resume": "PrésentationAvecCheyenne, Patrick Prugne est de retour avec une nouvelle « saga indienne », dans la lignée d’Iroquoiset deFrenchman.L’histoire se situe en 1864, au moment où colons et chercheurs d’or déferlent sur les plaines de l’ouest, soutenus par l’armée, au mépris des traités censés garantir aux indiens la préservation de leurs territoires.Charlie et George, deux frères métis, se retrouvent pris entre l’hostilité des blancs et la colère des indiens. L’histoire commence quand ils tentent de ",
+      "resume": "PrésentationAvecCheyenne, Patrick Prugne est de retour avec une nouvelle « saga indienne », dans la lignée d’Iroquoiset deFrenchman.L’histoire se situe en 1864, au moment où colons et chercheurs d’or déferlent sur les plaines de l’ouest, soutenus par l’armée, au mépris des traités censés garantir aux indiens la préservation de leurs territoires.Charlie et George, deux frères métis, se retrouvent pris entre l’hostilité des blancs et la colère des indiens. L’histoire commence quand ils tentent de",
       "genre": "BD - Adultes",
       "langue": "Français",
       "prix": "19.50€",
-      "couverture": "https://couverture.geobib.fr/api/v1/9782356742599/large",
+      "couverture": "https://images.epagine.fr/599/9782356742599_1_75.jpg",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782070577729",
@@ -44781,9 +44782,10 @@
       "genre": "BD - Jeunesse",
       "langue": "fr",
       "prix": "16€",
-      "couverture": "https://books.google.com/books/content?id=Wfpe0QEACAAJ&printsec=frontcover&img=1&zoom=0&source=gbs_api",
+      "couverture": "https://bdi.dlpdomain.com/album/9782487663176-couv.jpg",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782075097109",
@@ -60676,9 +60678,10 @@
       "genre": "BD - Jeunesse",
       "langue": "Français",
       "prix": "12.95€",
-      "couverture": "https://couverture.geobib.fr/api/v1/9782800146782/large",
+      "couverture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRi8mqxuseM57gG5FpqBComUPpkm73hQxqt4m76AfoCXA&s=10",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782362667442",
@@ -63947,7 +63950,7 @@
     {
       "ean": "9782344059692",
       "titre": "L'AMOURANTE",
-      "auteur": "Non Renseigné",
+      "auteur": "Pierre Alexandrine",
       "editeur": "GLENAT",
       "collection": "",
       "annee": "",
@@ -63959,7 +63962,8 @@
       "prix": "26€",
       "couverture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNyVI0vu8j8uMhFTBWvoALsYtQDGhAPtz0XinJIXh4Ww&s=10",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782226450753",
@@ -171158,13 +171162,14 @@
       "annee": "2026",
       "date_parution": "2026",
       "pages": "128",
-      "resume": "PrésentationCyrius est un jeune inventeur coincé sur une planète perdue au fin fond de la galaxie. Alors qu'il enchaîne les tentatives ratées d'évasion, il provoque le crash d'un vaisseau spatial et tombe sur une alien naufragée, Chantilly. Celle-ci est traquée par des pirates de l'espace, qui prennent aussi Cyrius pour cible. En effet, il est le dernier Terrien de l'univers, sa tête vaut donc très cher. C'est le début d'une quête dans les tréfonds de la planète, puis à travers la galaxie, pour ",
+      "resume": "PrésentationCyrius est un jeune inventeur coincé sur une planète perdue au fin fond de la galaxie. Alors qu'il enchaîne les tentatives ratées d'évasion, il provoque le crash d'un vaisseau spatial et tombe sur une alien naufragée, Chantilly. Celle-ci est traquée par des pirates de l'espace, qui prennent aussi Cyrius pour cible. En effet, il est le dernier Terrien de l'univers, sa tête vaut donc très cher. C'est le début d'une quête dans les tréfonds de la planète, puis à travers la galaxie, pour",
       "genre": "BD - Jeunesse",
       "langue": "Français",
       "prix": "15.50€",
-      "couverture": "https://couverture.geobib.fr/api/v1/9782808515351/large",
+      "couverture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuBLEO2P5e7YSNNPQuTDMcMU6L-zYPkDWPBLKMMs3BBn2vnf3Q0IUivUKS&s=10",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782363392015",
