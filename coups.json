@@ -1,5 +1,5 @@
 {
-  "mis_a_jour": "2026-10-13T14:31:15.313Z",
+  "mis_a_jour": "2026-10-30T15:29:01.732Z",
   "coups": [
     {
       "ean": "9791040806493",
@@ -202,6 +202,15 @@
       "libraire": "Aurélien",
       "categorie": "Roman",
       "epingle": true
+    },
+    {
+      "ean": "9782505142720",
+      "titre": "SAMIR",
+      "auteur": "Aimée de Jongh",
+      "couverture": "https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/images/catalogue/9782505142720-1793285272658.png",
+      "citation": "Prendre un regard sur nos privilèges...",
+      "libraire": "Aurélien",
+      "categorie": "BD"
     }
   ]
 }
