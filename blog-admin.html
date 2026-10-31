@@ -165,6 +165,7 @@ details[open] .rblock summary::before{transform:rotate(90deg);}
     <button class="tab" onclick="switchTab('apropos',this)">👥 À propos</button>
     <button class="tab" onclick="switchTab('prix',this)">🏆 Prix</button>
     <button class="tab" onclick="switchTab('reservations',this)">📋 Réservations <span id="reservBadge" style="background:#c0392b;color:#fff;border-radius:50%;padding:.1rem .45rem;font-size:.7rem;margin-left:.3rem;display:none;">0</span></button>
+    <button class="tab" onclick="switchTab('commentaires',this)">💬 Commentaires <span id="comBadge" style="background:#c0392b;color:#fff;border-radius:50%;padding:.1rem .45rem;font-size:.7rem;margin-left:.3rem;display:none;">0</span></button>
     <button class="tab" onclick="switchTab('votes',this)">🗳️ Votes BD</button>
   </div>
 
@@ -519,6 +520,21 @@ details[open] .rblock summary::before{transform:rotate(90deg);}
   </div>
 </div>
 
+<!-- PANEL COMMENTAIRES -->
+<div class="panel" id="panel-commentaires">
+  <div style="padding:2rem;background:var(--warm);width:100%;overflow-y:auto;">
+    <div class="fhead">💬 Commentaires du blog</div>
+    <div style="background:#fff;border-radius:6px;padding:1.2rem 1.6rem;margin-bottom:1.5rem;box-shadow:0 2px 12px rgba(30,10,10,.07);">
+      <div style="font-family:Raleway,sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--wood);margin-bottom:.8rem;">Connexion au service de commentaires</div>
+      <div class="f"><label>Adresse du Worker Cloudflare</label><input type="text" id="comApi" placeholder="https://commentaires.xxxx.workers.dev" autocomplete="off"/></div>
+      <div class="f"><label>Mot de passe de modération (ADMIN_TOKEN)</label><input type="password" id="comToken" autocomplete="off"/></div>
+      <button onclick="Commentaires.enregistrer()" style="background:var(--wood);color:#fff;border:none;border-radius:3px;padding:.5rem 1.1rem;font-size:.75rem;font-weight:700;cursor:pointer;">Enregistrer et charger</button>
+      <span style="font-size:.75rem;color:var(--soft);margin-left:.6rem;">Conservés uniquement dans ce navigateur.</span>
+    </div>
+    <div id="comList"><p style="font-family:Lora,serif;font-style:italic;color:var(--soft);">Renseignez la connexion ci-dessus pour charger les commentaires.</p></div>
+  </div>
+</div>
+
 <!-- PANEL VOTES -->
 <div class="panel" id="panel-votes">
   <div style="padding:2rem;background:var(--warm);width:100%;overflow-y:auto;">
@@ -621,6 +637,7 @@ function switchTab(name, el) {
     if (name === 'apropos')  Apropos.charger();
     if (name === 'prix')     Prix.charger();
     if (name === 'reservations') Reservations.charger();
+    if (name === 'commentaires') Commentaires.charger();
   if (name === 'votes') Votes.chargerSheet();
     if (name === 'coups')    Coups.charger();
   }
@@ -2533,6 +2550,89 @@ var Votes = (function() {
   }
 
   return { charger: charger, chargerSheet: chargerSheet, chargerBds: chargerBds, ajouterBD: ajouterBD, maj: maj, supprimerBD: supprimerBD, sauvegarderBds: sauvegarderBds, supprimerVote: supprimerVote, ajouterVoteManuel: ajouterVoteManuel, toggleOuvert: toggleOuvert, nouvelleEdition: nouvelleEdition };
+})();
+
+var Commentaires = (function() {
+  var LS_API = 'el_com_api', LS_TOK = 'el_com_token';
+  function lire(k) { try { return localStorage.getItem(k) || ''; } catch (e) { return ''; } }
+  function ecrire(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  function api() { return (document.getElementById('comApi').value || '').trim().replace(/\/+$/, ''); }
+  function tok() { return document.getElementById('comToken').value.trim(); }
+  function msg(texte) {
+    var el = document.getElementById('comList'); el.textContent = '';
+    var p = document.createElement('p');
+    p.style.cssText = 'font-family:Lora,serif;font-style:italic;color:var(--soft);';
+    p.textContent = texte; el.appendChild(p);
+  }
+  function appel(chemin, methode, corps) {
+    return fetch(api() + chemin, {
+      method: methode || 'GET',
+      headers: { 'Authorization': 'Bearer ' + tok(), 'Content-Type': 'application/json' },
+      body: corps ? JSON.stringify(corps) : undefined
+    }).then(function(r) {
+      if (r.status === 401) throw new Error('Mot de passe de modération refusé.');
+      if (!r.ok) throw new Error('Erreur ' + r.status);
+      return r.json();
+    });
+  }
+  function btn(texte, couleur, fn) {
+    var b = document.createElement('button');
+    b.textContent = texte;
+    b.style.cssText = 'border:none;border-radius:3px;padding:.4rem .9rem;font-size:.72rem;font-weight:700;cursor:pointer;color:#fff;background:' + couleur + ';';
+    b.onclick = fn; return b;
+  }
+  function carte(c, statut) {
+    var d = document.createElement('div');
+    d.style.cssText = 'background:#fff;border-radius:6px;padding:1rem 1.3rem;margin-bottom:.8rem;box-shadow:0 2px 12px rgba(30,10,10,.07);border-left:4px solid ' + (statut === 'ok' ? '#27ae60' : '#e74c3c') + ';';
+    var h = document.createElement('div');
+    h.style.cssText = 'font-family:Raleway,sans-serif;font-size:.8rem;font-weight:700;color:var(--wood);margin-bottom:.3rem;';
+    var date = c.date ? new Date(c.date).toLocaleString('fr-FR') : '';
+    h.textContent = (c.nom || 'Anonyme') + ' — ' + date;
+    var n = document.createElement('div');
+    n.style.cssText = 'font-size:.72rem;color:var(--soft);margin-bottom:.4rem;';
+    n.textContent = 'Note : ' + (c.titre || ('n° ' + c.note));
+    var t = document.createElement('div');
+    t.style.cssText = 'font-family:Lora,serif;font-size:.92rem;white-space:pre-wrap;overflow-wrap:anywhere;margin-bottom:.7rem;';
+    t.textContent = c.message || '';
+    var a = document.createElement('div'); a.style.cssText = 'display:flex;gap:.5rem;';
+    if (statut !== 'ok') a.appendChild(btn('✓ Publier', '#27ae60', function() { agir('/admin/approve', { id: c.id }); }));
+    a.appendChild(btn('🗑 Supprimer', '#c0392b', function() {
+      if (confirm('Supprimer définitivement ce commentaire ?')) agir('/admin/delete', { id: c.id, note: c.note, statut: statut });
+    }));
+    d.appendChild(h); d.appendChild(n); d.appendChild(t); d.appendChild(a);
+    return d;
+  }
+  function titre(texte) {
+    var h = document.createElement('div');
+    h.style.cssText = 'font-family:Raleway,sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--wood);margin:1.2rem 0 .7rem;';
+    h.textContent = texte; return h;
+  }
+  function agir(chemin, corps) {
+    appel(chemin, 'POST', corps).then(function() { charger(); })
+      .catch(function(e) { alert(e.message); });
+  }
+  function charger() {
+    var a = document.getElementById('comApi'), t = document.getElementById('comToken');
+    if (!a.value) a.value = lire(LS_API);
+    if (!t.value) t.value = lire(LS_TOK);
+    if (!api() || !tok()) { msg('Renseignez la connexion ci-dessus pour charger les commentaires.'); return; }
+    msg('⏳ Chargement…');
+    appel('/admin/list').then(function(data) {
+      var el = document.getElementById('comList'); el.textContent = '';
+      var att = data.enAttente || [], pub = data.publies || [];
+      var badge = document.getElementById('comBadge');
+      if (badge) { badge.textContent = att.length; badge.style.display = att.length ? 'inline-block' : 'none'; }
+      el.appendChild(titre('🔴 En attente de validation (' + att.length + ')'));
+      if (!att.length) { var p = document.createElement('p'); p.style.cssText = 'font-style:italic;color:var(--soft);'; p.textContent = 'Aucun commentaire en attente.'; el.appendChild(p); }
+      att.forEach(function(c) { el.appendChild(carte(c, 'pend')); });
+      el.appendChild(titre('🟢 Publiés (' + pub.length + ')'));
+      pub.forEach(function(c) { el.appendChild(carte(c, 'ok')); });
+    }).catch(function(e) { msg('⚠️ ' + e.message); });
+  }
+  function enregistrer() {
+    ecrire(LS_API, api()); ecrire(LS_TOK, tok()); charger();
+  }
+  return { charger: charger, enregistrer: enregistrer };
 })();
 
 var Reservations = (function() {
