@@ -1,6 +1,17 @@
 {
-  "mis_a_jour": "2026-10-30T15:23:54.930Z",
+  "mis_a_jour": "2026-10-31T13:45:09.811Z",
   "articles": [
+    {
+      "id": "1793454309811",
+      "titre": "Les calendriers des marées 2027 de l'atelier SerreJoint sont arrivés!",
+      "categorie": "Événement",
+      "date": "2026-10-31",
+      "texte": "Les calendriers des marées de l'atelier Serrejoint sont arrivés à la librairie, ils sont au doux prix de 45€, à retrouver à la librairie, couleur * SABLE *ou *INDIGO*\n\n![signal-2026-10-31-14-39-40-684_003](images/blog/1793454004069.jpg)\n\n![signal-2026-10-31-14-39-40-684_002](images/blog/1793454012276.jpg)",
+      "image": "images/blog/1793454177495.jpg",
+      "lien": "https://www.atelierserrejoint.com/shop/calendriers/",
+      "lien_label": "Le site de l'atelier Serrejoint",
+      "selection": []
+    },
     {
       "id": "1793372878865",
       "titre": "Nos coups de coeurs de la rentrée littéraire...",
