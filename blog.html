@@ -153,6 +153,25 @@
     .modal-text figure { margin:1.3rem 0; text-align:center; }
     .modal-text img { max-width:100%; height:auto; border-radius:4px; }
     .modal-text a { color:var(--wood); text-decoration:underline; }
+    /* ── Commentaires ── */
+    .comments { margin-top:2.4rem; padding-top:1.6rem; border-top:1px solid rgba(92,26,26,.2); }
+    .comments h3 { font-family:'Raleway',sans-serif; font-weight:800; font-size:1.1rem; color:var(--wood-dark); margin:0 0 1rem; }
+    .comment { background:rgba(92,26,26,.04); border-left:3px solid var(--wood-light); border-radius:0 4px 4px 0; padding:.8rem 1rem; margin-bottom:.8rem; }
+    .comment-head { font-family:'Raleway',sans-serif; font-size:.8rem; font-weight:700; color:var(--wood); margin-bottom:.3rem; }
+    .comment-head span { font-weight:500; color:var(--ink-soft); margin-left:.5rem; }
+    .comment-body { white-space:pre-wrap; word-wrap:break-word; overflow-wrap:anywhere; font-size:.95rem; line-height:1.55; }
+    .comment-vide { font-style:italic; color:var(--ink-soft); margin:0 0 1rem; }
+    .comment-form { margin-top:1.2rem; display:grid; gap:.6rem; }
+    .comment-form input[type=text], .comment-form textarea { width:100%; box-sizing:border-box; font:inherit; padding:.6rem .8rem; border:1.5px solid rgba(92,26,26,.25); border-radius:4px; background:#fff; color:var(--ink); }
+    .comment-form input:focus, .comment-form textarea:focus { outline:none; border-color:var(--wood); }
+    .comment-form textarea { resize:vertical; min-height:96px; }
+    .comment-form button { justify-self:start; background:var(--wood); color:#fff; border:none; border-radius:3px; padding:.65rem 1.4rem; font-family:'Raleway',sans-serif; font-weight:700; font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; cursor:pointer; }
+    .comment-form button:hover { background:var(--ink); }
+    .comment-form button:disabled { opacity:.55; cursor:wait; }
+    .comment-note { font-size:.78rem; color:var(--ink-soft); margin:0; }
+    .comment-msg { font-size:.9rem; margin:0; min-height:1.2em; }
+    .comment-msg.ok { color:#1e7a46; } .comment-msg.err { color:#b03a2e; }
+    .hp-field { position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
     .modal-link {
       display:inline-block; margin-top:1.5rem;
       font-family:'Raleway',sans-serif; font-size:0.78rem; font-weight:700;
@@ -284,6 +303,18 @@
       <div class="modal-text" id="modalText"></div>
       <div class="selection" id="modalSelection" style="display:none;"></div>
       <a id="modalLink" class="modal-link" href="#" target="_blank" style="display:none;">→ Voir le lien</a>
+      <section class="comments" id="modalComments" style="display:none;">
+        <h3>💬 Commentaires</h3>
+        <div id="commentsList"></div>
+        <form class="comment-form" id="commentForm" onsubmit="envoyerCommentaire(event)">
+          <input type="text" id="cNom" maxlength="60" placeholder="Votre prénom ou pseudo" autocomplete="given-name" required />
+          <textarea id="cMsg" maxlength="1500" placeholder="Votre commentaire…" required></textarea>
+          <div class="hp-field" aria-hidden="true"><label>Ne pas remplir <input type="text" id="cSite" tabindex="-1" autocomplete="off" /></label></div>
+          <button type="submit" id="cBtn">Publier le commentaire</button>
+          <p class="comment-msg" id="cMsgInfo" role="status"></p>
+          <p class="comment-note">Les commentaires sont relus par la librairie avant d'apparaître. Aucune adresse e-mail n'est demandée ; seuls votre prénom et votre message sont conservés.</p>
+        </form>
+      </section>
     </div>
   </div>
 </div>
@@ -350,6 +381,89 @@ function afficher() {
   }).join('');
 }
 
+
+// ── Commentaires (modérés) ──────────────────────────────
+// Adresse du Worker Cloudflare (voir worker-commentaires.js). Vide = commentaires désactivés.
+const COMMENTS_API = 'https://commentaires.aurel-daunay.workers.dev';
+let noteCourante = null;
+
+function formaterDateCourte(iso) {
+  const d = new Date(iso);
+  return isNaN(d) ? '' : d.toLocaleDateString('fr-FR', { day:'numeric', month:'long', year:'numeric' });
+}
+
+function afficherCommentaires(liste) {
+  const box = document.getElementById('commentsList');
+  box.textContent = '';
+  if (!liste.length) {
+    const p = document.createElement('p');
+    p.className = 'comment-vide';
+    p.textContent = 'Pas encore de commentaire — soyez le premier à réagir !';
+    box.appendChild(p);
+    return;
+  }
+  liste.forEach(c => {
+    const d = document.createElement('div'); d.className = 'comment';
+    const h = document.createElement('div'); h.className = 'comment-head';
+    h.textContent = c.nom || 'Anonyme';
+    const sp = document.createElement('span'); sp.textContent = formaterDateCourte(c.date);
+    h.appendChild(sp);
+    const b = document.createElement('div'); b.className = 'comment-body';
+    b.textContent = c.message || '';
+    d.appendChild(h); d.appendChild(b); box.appendChild(d);
+  });
+}
+
+async function chargerCommentaires(noteId) {
+  const section = document.getElementById('modalComments');
+  noteCourante = noteId ? String(noteId) : null;
+  document.getElementById('cMsgInfo').textContent = '';
+  document.getElementById('cMsgInfo').className = 'comment-msg';
+  if (!COMMENTS_API || !noteCourante) { section.style.display = 'none'; return; }
+  section.style.display = '';
+  document.getElementById('commentsList').textContent = '';
+  try { document.getElementById('cNom').value = localStorage.getItem('el_com_nom') || ''; } catch (e) {}
+  const demandee = noteCourante;
+  try {
+    const r = await fetch(COMMENTS_API + '/comments?note=' + encodeURIComponent(demandee));
+    if (!r.ok) throw new Error();
+    const data = await r.json();
+    if (demandee === noteCourante) afficherCommentaires(data.commentaires || []);
+  } catch (e) {
+    if (demandee === noteCourante) afficherCommentaires([]);
+  }
+}
+
+async function envoyerCommentaire(ev) {
+  ev.preventDefault();
+  const info = document.getElementById('cMsgInfo');
+  const btn = document.getElementById('cBtn');
+  const nom = document.getElementById('cNom').value.trim();
+  const msg = document.getElementById('cMsg').value.trim();
+  if (!noteCourante || !COMMENTS_API) return;
+  info.className = 'comment-msg'; info.textContent = '';
+  btn.disabled = true;
+  try {
+    const a = ARTICLES.find(x => String(x.id) === noteCourante) || {};
+    const r = await fetch(COMMENTS_API + '/comments', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ note: noteCourante, titre: a.titre || '', nom: nom, message: msg,
+                             site: document.getElementById('cSite').value }),
+    });
+    const data = await r.json().catch(() => ({}));
+    if (!r.ok) throw new Error(data.erreur || 'Envoi impossible pour le moment.');
+    try { localStorage.setItem('el_com_nom', nom); } catch (e) {}
+    document.getElementById('cMsg').value = '';
+    info.className = 'comment-msg ok';
+    info.textContent = 'Merci ! Votre commentaire apparaîtra dès qu\'il aura été relu par la librairie.';
+  } catch (e) {
+    info.className = 'comment-msg err';
+    info.textContent = e.message || 'Envoi impossible pour le moment.';
+  }
+  btn.disabled = false;
+}
+
 function ouvrirModal(idx) {
   const a = (filtreActif === 'Tous' ? ARTICLES : ARTICLES.filter(a => a.categorie === filtreActif))[idx];
   document.getElementById('modalCat').textContent   = a.categorie || '';
@@ -360,6 +474,7 @@ function ouvrirModal(idx) {
   if (a.image) { img.src = a.image; img.style.display = 'block'; }
   else { img.style.display = 'none'; }
   afficherSelection(a.selection || []);
+  chargerCommentaires(a.id);
   const lien = document.getElementById('modalLink');
   if (a.lien) { lien.href = a.lien; lien.textContent = a.lien_label || '→ Voir le lien'; lien.style.display = 'inline-block'; }
   else { lien.style.display = 'none'; }
