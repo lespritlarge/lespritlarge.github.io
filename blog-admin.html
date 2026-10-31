@@ -175,7 +175,10 @@ details[open] .rblock summary::before{transform:rotate(90deg);}
     <div class="panel active" id="panel-blog">
       <div class="split">
         <div class="slist">
-          <div class="shead"><h3>Articles</h3><button class="btn-new" onclick="Blog.nouveau()">+ Nouveau</button><button class="btn-new" style="margin-left:.4rem;background:none;color:var(--wood);border:1.5px solid rgba(92,26,26,.25);" title="Crée les pages qui donnent un aperçu sur Facebook, pour tous les articles" onclick="Blog.regenererPartages()">🔗 Partage</button></div>
+          <div class="shead"><h3>Articles</h3><button class="btn-new" onclick="Blog.nouveau()">+ Nouveau</button></div>
+          <div style="padding:.6rem 1.2rem;border-bottom:1px solid rgba(92,26,26,.1);flex-shrink:0;">
+            <button class="btn-new" style="width:100%;background:none;color:var(--wood);border:1.5px solid rgba(92,26,26,.25);" title="Crée les pages qui donnent un aperçu sur Facebook, pour tous les articles déjà publiés" onclick="Blog.regenererPartages()">🔗 Créer les pages de partage</button>
+          </div>
           <div class="ilist" id="blogList"><div class="lempty">Chargement…</div></div>
         </div>
         <div class="sform">
@@ -1003,10 +1006,15 @@ var Blog = (() => {
   }
 
   async function regenererPartages() {
+    if (!getToken()) { toast('⚠️ Token GitHub requis : renseignez-le en haut de la page, puis réessayez.'); return; }
+    if (!items.length) { toast('⚠️ Aucun article chargé. Attendez la fin du chargement de la liste.'); return; }
     if (!confirm('Créer / mettre à jour les pages de partage Facebook de ' + items.length + ' article(s) ?')) return;
+    toast('⏳ Création des pages de partage…');
     let n = 0;
     for (const a of items) { if (await ecrirePartage(a)) n++; }
-    toast('🔗 ' + n + ' / ' + items.length + ' pages de partage à jour.');
+    toast(n === items.length
+      ? '✅ ' + n + ' pages de partage créées. Elles seront en ligne dans ~1 minute.'
+      : '⚠️ ' + n + ' / ' + items.length + ' pages créées : vérifiez votre token GitHub (droit d\'écriture sur le dépôt).');
   }
 
   async function supprimer() {
