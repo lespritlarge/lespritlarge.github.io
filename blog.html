@@ -332,6 +332,7 @@ async function charger() {
     ARTICLES = data.articles || [];
     construireFiltres();
     afficher();
+    ouvrirNoteParId(new URLSearchParams(location.search).get('note'));
   } catch(e) {
     document.getElementById('blogGrid').innerHTML =
       '<div class="empty">📝 Aucun article pour l\'instant. Revenez bientôt !</div>';
@@ -384,7 +385,7 @@ function afficher() {
 
 // ── Commentaires (modérés) ──────────────────────────────
 // Adresse du Worker Cloudflare (voir worker-commentaires.js). Vide = commentaires désactivés.
-const COMMENTS_API = 'https://commentaires.aurel-daunay.workers.dev';
+const COMMENTS_API = '';
 let noteCourante = null;
 
 function formaterDateCourte(iso) {
@@ -462,6 +463,15 @@ async function envoyerCommentaire(ev) {
     info.textContent = e.message || 'Envoi impossible pour le moment.';
   }
   btn.disabled = false;
+}
+
+
+// ── Lien direct vers une note (?note=ID) ──
+function ouvrirNoteParId(id) {
+  if (!id) return;
+  filtreActif = 'Tous';
+  const i = ARTICLES.findIndex(a => String(a.id) === String(id));
+  if (i >= 0) ouvrirModal(i);
 }
 
 function ouvrirModal(idx) {

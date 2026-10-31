@@ -175,7 +175,7 @@ details[open] .rblock summary::before{transform:rotate(90deg);}
     <div class="panel active" id="panel-blog">
       <div class="split">
         <div class="slist">
-          <div class="shead"><h3>Articles</h3><button class="btn-new" onclick="Blog.nouveau()">+ Nouveau</button></div>
+          <div class="shead"><h3>Articles</h3><button class="btn-new" onclick="Blog.nouveau()">+ Nouveau</button><button class="btn-new" style="margin-left:.4rem;background:none;color:var(--wood);border:1.5px solid rgba(92,26,26,.25);" title="Crée les pages qui donnent un aperçu sur Facebook, pour tous les articles" onclick="Blog.regenererPartages()">🔗 Partage</button></div>
           <div class="ilist" id="blogList"><div class="lempty">Chargement…</div></div>
         </div>
         <div class="sform">
@@ -235,6 +235,14 @@ details[open] .rblock summary::before{transform:rotate(90deg);}
           <div class="fbtns">
             <button class="btn-save" onclick="Blog.sauvegarder()">💾 Publier l'article</button>
             <button class="btn-del" id="bDel" onclick="Blog.supprimer()" style="display:none">Supprimer</button>
+          </div>
+          <div class="fbtns" id="bShare" style="display:none;align-items:center;flex-wrap:wrap;gap:.5rem;">
+            <span style="font-family:Raleway,sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--wood);">Partager</span>
+            <button type="button" class="btn-new" onclick="Blog.partager('fb')">Facebook</button>
+            <button type="button" class="btn-new" onclick="Blog.partager('ig')">Instagram</button>
+            <button type="button" class="btn-new" onclick="Blog.partager('wa')">WhatsApp</button>
+            <button type="button" class="btn-new" onclick="Blog.partager('copie')">🔗 Copier le lien</button>
+            <span id="bShareHint" style="flex-basis:100%;font-size:.78rem;color:var(--soft);"></span>
           </div>
           <p class="fhint">💡 Sauvegardé dans <strong>blog.json</strong> sur GitHub.</p>
         </div>
@@ -718,6 +726,59 @@ async function ghWrite(file, data, message) {
   return false;
 }
 
+// ── Pages de partage (aperçu Facebook) ──
+const SITE_URL = 'https://esprit-large.com';
+async function ghWriteBrut(file, texte, message) {
+  const token = getToken();
+  if (!token) return false;
+  const bytes = new TextEncoder().encode(texte);
+  let bin = ''; for (let i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);
+  const content = btoa(bin);
+  for (let t = 1; t <= 3; t++) {
+    let sha = null;
+    try { sha = await ghGetSha(file, token); } catch (e) { return false; }
+    const body = { message, content }; if (sha) body.sha = sha;
+    const r = await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${file}`, {
+      method: 'PUT',
+      headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github+json', 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
+    });
+    if (r.ok) return true;
+    const err = await r.json().catch(() => ({}));
+    if (!(err.message || '').includes('does not match')) return false;
+    await new Promise(res => setTimeout(res, 300 * t));
+  }
+  return false;
+}
+
+function htmlPartage(a) {
+  const id = encodeURIComponent(a.id);
+  const cible = '../blog.html?note=' + id;
+  const brut = texteBrutMarkup(a.texte || '').replace(/\s+/g, ' ').trim();
+  const desc = brut.length > 200 ? brut.slice(0, 197) + '…' : brut;
+  let img = (a.image || '').trim();
+  if (img && !/^https?:\/\//i.test(img)) img = SITE_URL + '/' + img.replace(/^\/+/, '');
+  const titre = (a.titre || '') + ' — Librairie L\'Esprit Large';
+  return '<!DOCTYPE html>\n<html lang="fr"><head><meta charset="utf-8">\n'
+    + '<title>' + mkEsc(titre) + '</title>\n'
+    + '<meta name="viewport" content="width=device-width, initial-scale=1">\n'
+    + '<meta name="description" content="' + mkEsc(desc) + '">\n'
+    + '<meta property="og:type" content="article">\n'
+    + '<meta property="og:site_name" content="Librairie L\'Esprit Large">\n'
+    + '<meta property="og:locale" content="fr_FR">\n'
+    + '<meta property="og:title" content="' + mkEsc(a.titre || '') + '">\n'
+    + '<meta property="og:description" content="' + mkEsc(desc) + '">\n'
+    + '<meta property="og:url" content="' + SITE_URL + '/partage/' + id + '.html">\n'
+    + (img ? '<meta property="og:image" content="' + mkEsc(img) + '">\n<meta name="twitter:card" content="summary_large_image">\n' : '<meta name="twitter:card" content="summary">\n')
+    + '<meta http-equiv="refresh" content="0; url=' + mkEsc(cible) + '">\n'
+    + '</head><body><p><a href="' + mkEsc(cible) + '">Lire la note « ' + mkEsc(a.titre || '') + ' »</a></p>\n'
+    + '<script>location.replace(' + JSON.stringify(cible) + ');<\/script></body></html>\n';
+}
+
+async function ecrirePartage(a) {
+  return ghWriteBrut('partage/' + a.id + '.html', htmlPartage(a), '🔗 Page de partage : ' + (a.titre || a.id));
+}
+
 // ── Mise en page des articles (mini-Markdown sécurisé) ──
 function mkEsc(s) { return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 function mkUrlOk(u) { return /^(https?:\/\/|mailto:|\/|[A-Za-z0-9_-]+[\/.#?]|#)/.test(u) && !/^\s*(javascript|data|vbscript):/i.test(u); }
@@ -881,6 +942,8 @@ var Blog = (() => {
     document.getElementById('bLien').value      = a.lien       || '';
     document.getElementById('bLienLabel').value = a.lien_label || '';
     document.getElementById('bDel').style.display = 'inline-block';
+    document.getElementById('bShare').style.display = 'flex';
+    document.getElementById('bShareHint').textContent = '';
     sel = (a.selection || []).slice(); renderSel();
     renderList();
   }
@@ -892,6 +955,7 @@ var Blog = (() => {
     document.getElementById('bCat').value = '';
     document.getElementById('bDate').value = today();
     document.getElementById('bDel').style.display = 'none';
+    document.getElementById('bShare').style.display = 'none';
     sel = []; renderSel();
     document.getElementById('bTitre').focus();
     renderList();
@@ -915,7 +979,34 @@ var Blog = (() => {
     };
     if (idx !== null) items[idx] = art; else { items.unshift(art); idx = 0; }
     const ok = await ghWrite('blog.json', { mis_a_jour: new Date().toISOString(), articles: items }, '📝 ' + titre);
-    if (ok) { toast('✅ Article publié !'); renderList(); }
+    if (ok) {
+      const okP = await ecrirePartage(art);
+      toast(okP ? '✅ Article publié (page de partage prête) !' : '✅ Article publié — page de partage non créée, utilisez « Pages de partage ».');
+      renderList();
+    }
+  }
+
+  async function partager(reseau) {
+    if (idx === null || !items[idx]) return;
+    const a = items[idx];
+    const u = SITE_URL + '/partage/' + encodeURIComponent(a.id) + '.html';
+    const hint = document.getElementById('bShareHint');
+    if (reseau === 'fb') { window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(u), '_blank', 'noopener'); return; }
+    if (reseau === 'wa') { window.open('https://wa.me/?text=' + encodeURIComponent(a.titre + ' ' + u), '_blank', 'noopener'); return; }
+    let ok = false;
+    try { await navigator.clipboard.writeText(u); ok = true; } catch (e) {}
+    if (reseau === 'ig') {
+      hint.textContent = (ok ? '✅ Lien copié. ' : '') + 'Sur Instagram : collez-le dans un sticker « Lien » de votre story (ou dans la bio). Pour un post, enregistrez l\'image de la note et mettez le lien en bio.';
+    } else {
+      hint.textContent = ok ? '✅ Lien copié : ' + u : 'Copie impossible. Lien : ' + u;
+    }
+  }
+
+  async function regenererPartages() {
+    if (!confirm('Créer / mettre à jour les pages de partage Facebook de ' + items.length + ' article(s) ?')) return;
+    let n = 0;
+    for (const a of items) { if (await ecrirePartage(a)) n++; }
+    toast('🔗 ' + n + ' / ' + items.length + ' pages de partage à jour.');
   }
 
   async function supprimer() {
@@ -1034,7 +1125,7 @@ var Blog = (() => {
     }
   }
 
-  return { charger, select, nouveau, sauvegarder, supprimer, uploadImage, chercherSel, ajouterSel, retirerSel, deplacerSel };
+  return { charger, select, nouveau, sauvegarder, supprimer, partager, regenererPartages, uploadImage, chercherSel, ajouterSel, retirerSel, deplacerSel };
 })();
 
 // ========================================
