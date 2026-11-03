@@ -88905,15 +88905,16 @@
       "editeur": "FLAM JEUNESSE",
       "collection": "",
       "annee": "",
-      "date_parution": "",
+      "date_parution": "04/11/2026",
       "pages": "",
-      "resume": "",
+      "resume": "Dans l’immensité paisible de l’océan, c’est l’heure de la sieste. Toute la famille cachalot se place à la verticale.\n« Pas de jeux pendant la sieste ! » ordonne Grand-Maa à Mobie. La petite baleine ferme un œil, puis l’autre, quand, tout à coup, quelque chose vient la déranger…\n«  Mais qu’est-ce que c’est que ça ? »\n\nPas de repos face à la pollution des océans : un album tendre et inspirant par le créateur de Grrrizzly.",
       "genre": "Jeunesse - Albums",
       "langue": "Français",
       "prix": "14.50€",
-      "couverture": "",
+      "couverture": "https://www.flammarion-jeunesse.fr/media/cache/couverture_medium/flammarion_img/Couvertures/9782080157133.jpg",
       "stock": 2,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782897198961",
