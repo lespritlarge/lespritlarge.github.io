@@ -754,32 +754,83 @@ async function ghWriteBrut(file, texte, message) {
   return false;
 }
 
-function htmlPartage(a) {
-  const id = encodeURIComponent(a.id);
-  const cible = '../blog.html?note=' + id;
-  const brut = texteBrutMarkup(a.texte || '').replace(/\s+/g, ' ').trim();
-  const desc = brut.length > 200 ? brut.slice(0, 197) + '…' : brut;
-  let img = (a.image || '').trim();
+function htmlApercu(o) {
+  // o : { fichier, titreOg, titrePage, desc, image, cible }
+  const desc = (o.desc || '').replace(/\s+/g, ' ').trim();
+  const d200 = desc.length > 200 ? desc.slice(0, 197) + '…' : desc;
+  let img = (o.image || '').trim();
   if (img && !/^https?:\/\//i.test(img)) img = SITE_URL + '/' + img.replace(/^\/+/, '');
-  const titre = (a.titre || '') + ' — Librairie L\'Esprit Large';
   return '<!DOCTYPE html>\n<html lang="fr"><head><meta charset="utf-8">\n'
-    + '<title>' + mkEsc(titre) + '</title>\n'
+    + '<title>' + mkEsc(o.titrePage) + '</title>\n'
     + '<meta name="viewport" content="width=device-width, initial-scale=1">\n'
-    + '<meta name="description" content="' + mkEsc(desc) + '">\n'
+    + '<meta name="description" content="' + mkEsc(d200) + '">\n'
     + '<meta property="og:type" content="article">\n'
     + '<meta property="og:site_name" content="Librairie L\'Esprit Large">\n'
     + '<meta property="og:locale" content="fr_FR">\n'
-    + '<meta property="og:title" content="' + mkEsc(a.titre || '') + '">\n'
-    + '<meta property="og:description" content="' + mkEsc(desc) + '">\n'
-    + '<meta property="og:url" content="' + SITE_URL + '/partage/' + id + '.html">\n'
+    + '<meta property="og:title" content="' + mkEsc(o.titreOg) + '">\n'
+    + '<meta property="og:description" content="' + mkEsc(d200) + '">\n'
+    + '<meta property="og:url" content="' + SITE_URL + '/' + o.fichier + '">\n'
     + (img ? '<meta property="og:image" content="' + mkEsc(img) + '">\n<meta name="twitter:card" content="summary_large_image">\n' : '<meta name="twitter:card" content="summary">\n')
-    + '<meta http-equiv="refresh" content="0; url=' + mkEsc(cible) + '">\n'
-    + '</head><body><p><a href="' + mkEsc(cible) + '">Lire la note « ' + mkEsc(a.titre || '') + ' »</a></p>\n'
-    + '<script>location.replace(' + JSON.stringify(cible) + ');<\/script></body></html>\n';
+    + '<meta http-equiv="refresh" content="0; url=' + mkEsc(o.cible) + '">\n'
+    + '</head><body><p><a href="' + mkEsc(o.cible) + '">Lire : ' + mkEsc(o.titreOg) + '</a></p>\n'
+    + '<script>location.replace(' + JSON.stringify(o.cible) + ');<\/script></body></html>\n';
 }
 
+function pageNote(a) {
+  const id = encodeURIComponent(a.id);
+  return { fichier: 'partage/' + a.id + '.html', titreOg: a.titre || '', titrePage: (a.titre || '') + ' — Librairie L\'Esprit Large',
+    desc: texteBrutMarkup(a.texte || ''), image: a.image, cible: '../blog.html?note=' + id };
+}
+function pageCoup(c) {
+  const ean = encodeURIComponent(c.ean);
+  const qui = c.libraire ? 'Coup de cœur de ' + c.libraire : 'Coup de cœur de la librairie';
+  return { fichier: 'partage/coup-' + c.ean + '.html', titreOg: qui + ' : ' + (c.titre || ''),
+    titrePage: qui + ' : ' + (c.titre || '') + ' — Librairie L\'Esprit Large',
+    desc: (c.citation ? '« ' + c.citation + ' » ' : '') + (c.auteur ? '— ' + c.auteur : ''),
+    image: c.couverture, cible: '../coups.html?ean=' + ean };
+}
+const htmlPartage = a => htmlApercu(pageNote(a));
+
 async function ecrirePartage(a) {
-  return ghWriteBrut('partage/' + a.id + '.html', htmlPartage(a), '🔗 Page de partage : ' + (a.titre || a.id));
+  const o = pageNote(a);
+  return ghWriteBrut(o.fichier, htmlApercu(o), '🔗 Page de partage : ' + (a.titre || a.id));
+}
+
+// Vérifie que la page d'aperçu existe sur GitHub ; la crée sinon.
+// Renvoie 'existe', 'creee' ou 'echec'.
+async function assurerPage(o) {
+  try {
+    const r = await fetch(`https://raw.githubusercontent.com/${GH_OWNER}/${GH_REPO}/main/${o.fichier}?t=${Date.now()}`);
+    if (r.ok) return 'existe';
+  } catch (e) {}
+  if (!getToken()) { toast('⚠️ Token GitHub requis pour créer la page de partage.'); return 'echec'; }
+  const ok = await ghWriteBrut(o.fichier, htmlApercu(o), '🔗 Page de partage : ' + o.titreOg);
+  return ok ? 'creee' : 'echec';
+}
+
+// Partage commun (notes de blog et coups de cœur) : o = pageNote(...) ou pageCoup(...)
+async function partagerPage(o, reseau, titre, hint) {
+  const u = SITE_URL + '/' + o.fichier;
+  const fenetre = (reseau === 'fb' || reseau === 'wa') ? window.open('', '_blank') : null;   // ouverte tout de suite (anti-blocage)
+  const fermer = () => { try { if (fenetre) fenetre.close(); } catch (e) {} };
+  hint.textContent = '⏳ Vérification de la page de partage…';
+  const etat = await assurerPage(o);
+  if (etat === 'echec') { fermer(); hint.textContent = '❌ Page de partage impossible à créer : vérifiez votre token GitHub.'; return; }
+  if (etat === 'creee') {
+    fermer();
+    hint.textContent = '✅ Page de partage créée. Elle sera en ligne dans environ 1 minute : patientez, puis cliquez de nouveau (sinon Facebook garderait une page vide en mémoire).';
+    return;
+  }
+  hint.textContent = '';
+  if (reseau === 'fb') { fenetre.location = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(u); return; }
+  if (reseau === 'wa') { fenetre.location = 'https://wa.me/?text=' + encodeURIComponent(titre + ' ' + u); return; }
+  let ok = false;
+  try { await navigator.clipboard.writeText(u); ok = true; } catch (e) {}
+  if (reseau === 'ig') {
+    hint.textContent = (ok ? '✅ Lien copié. ' : '') + 'Sur Instagram : collez-le dans un sticker « Lien » de votre story (ou dans la bio). Pour un post, enregistrez l\'image et mettez le lien en bio.';
+  } else {
+    hint.textContent = ok ? '✅ Lien copié : ' + u : 'Copie impossible. Lien : ' + u;
+  }
 }
 
 // ── Mise en page des articles (mini-Markdown sécurisé) ──
@@ -992,17 +1043,7 @@ var Blog = (() => {
   async function partager(reseau) {
     if (idx === null || !items[idx]) return;
     const a = items[idx];
-    const u = SITE_URL + '/partage/' + encodeURIComponent(a.id) + '.html';
-    const hint = document.getElementById('bShareHint');
-    if (reseau === 'fb') { window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(u), '_blank', 'noopener'); return; }
-    if (reseau === 'wa') { window.open('https://wa.me/?text=' + encodeURIComponent(a.titre + ' ' + u), '_blank', 'noopener'); return; }
-    let ok = false;
-    try { await navigator.clipboard.writeText(u); ok = true; } catch (e) {}
-    if (reseau === 'ig') {
-      hint.textContent = (ok ? '✅ Lien copié. ' : '') + 'Sur Instagram : collez-le dans un sticker « Lien » de votre story (ou dans la bio). Pour un post, enregistrez l\'image de la note et mettez le lien en bio.';
-    } else {
-      hint.textContent = ok ? '✅ Lien copié : ' + u : 'Copie impossible. Lien : ' + u;
-    }
+    await partagerPage(pageNote(a), reseau, a.titre, document.getElementById('bShareHint'));
   }
 
   async function regenererPartages() {
@@ -1502,6 +1543,8 @@ var Coups = (() => {
   }
 
   let _editIdx = null;
+  let _shareIdx = null;
+  let _shareMsg = '';
 
   function renderList() {
     const el = document.getElementById('coupsList');
@@ -1548,11 +1591,30 @@ var Coups = (() => {
         </div>
         <div style="display:flex;flex-direction:column;gap:.3rem;flex-shrink:0;">
           <button onclick="Coups.togglePin(${i})" style="background:none;border:1px solid ${c.epingle?'var(--wood)':'rgba(92,26,26,.2)'};border-radius:3px;cursor:pointer;font-size:.8rem;padding:.25rem .5rem;color:${c.epingle?'#fff':'var(--wood)'};background-color:${c.epingle?'var(--wood)':'transparent'};" title="${c.epingle?'Désépingler':'Épingler'}">📌</button>
+          <button onclick="Coups.ouvrirPartage(${i})" style="background:none;border:1px solid rgba(92,26,26,.2);border-radius:3px;cursor:pointer;font-size:.8rem;padding:.25rem .5rem;color:var(--wood);" title="Partager">📤</button>
           <button onclick="Coups.editer(${i})" style="background:none;border:1px solid rgba(92,26,26,.2);border-radius:3px;cursor:pointer;font-size:.8rem;padding:.25rem .5rem;color:var(--wood);" title="Modifier">✏️</button>
           <button onclick="Coups.supprimer(${i})" style="background:none;border:none;cursor:pointer;font-size:1rem;color:#c0392b;padding:.25rem;" title="Supprimer">🗑</button>
         </div>
-      </div>`;
+      </div>` + (_shareIdx === i ? `<div style="display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;padding:.6rem .8rem;background:#fff;border:1px solid rgba(92,26,26,.15);border-radius:4px;margin:-.3rem 0 .6rem;">
+        <span style="font-family:Raleway,sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--wood);">Partager</span>
+        ${[['fb','Facebook'],['ig','Instagram'],['wa','WhatsApp'],['copie','🔗 Copier le lien']].map(function(x){ return `<button onclick="Coups.partager('${x[0]}')" style="font-size:.72rem;font-weight:700;background:rgba(92,26,26,.07);color:var(--wood);border:1.5px solid rgba(92,26,26,.2);border-radius:3px;padding:.35rem .7rem;cursor:pointer;">${x[1]}</button>`; }).join('')}
+        <span id="coupShareHint" style="flex-basis:100%;font-size:.78rem;color:var(--soft);">${_shareMsg}</span>
+      </div>` : '');
     }).join('');
+  }
+
+  function ouvrirPartage(i) {
+    _shareIdx = (_shareIdx === i) ? null : i;
+    _shareMsg = '';
+    renderList();
+  }
+
+  async function partager(reseau) {
+    const c = items[_shareIdx];
+    if (!c) return;
+    const hint = document.getElementById('coupShareHint');
+    const qui = c.libraire ? 'Coup de cœur de ' + c.libraire : 'Coup de cœur de la librairie';
+    await partagerPage(pageCoup(c), reseau, qui + ' : ' + (c.titre || ''), hint);
   }
 
   async function verifier() {
@@ -1637,7 +1699,7 @@ var Coups = (() => {
     else { items[i].epingle = !items[i].epingle; } // annuler si echec sauvegarde
   }
 
-  return { charger, verifier, ajouter, supprimer, editer, annulerEdit, sauvegarderEdit, togglePin };
+  return { charger, verifier, ajouter, supprimer, editer, annulerEdit, sauvegarderEdit, togglePin, ouvrirPartage, partager };
 })();
 
 // -- INIT ----------------------------------
@@ -2730,6 +2792,14 @@ var Commentaires = (function() {
   }
   function enregistrer() {
     ecrire(LS_API, api()); ecrire(LS_TOK, tok()); charger();
+    // Publie l'adresse dans config.json : le site la lit de là, elle ne se perd plus quand blog.html est republié
+    if (api() && getToken()) {
+      ghWrite('config.json', { commentsApi: api() }, '💬 Adresse du service de commentaires').then(function(ok) {
+        toast(ok ? '✅ Commentaires activés sur le site (config.json publié).' : '⚠️ Adresse non publiée sur GitHub : vérifiez le token.');
+      });
+    } else if (api()) {
+      toast('⚠️ Token GitHub requis pour activer les commentaires sur le site.');
+    }
   }
   return { charger: charger, enregistrer: enregistrer };
 })();

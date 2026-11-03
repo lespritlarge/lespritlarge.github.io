@@ -75,7 +75,8 @@
     .site-footer .f-links li { margin-bottom:.4rem; }
     .site-footer .f-links a { font-size:.82rem; opacity:.7; text-decoration:none; color:#f2f0ef; transition:opacity .2s; }
     .site-footer .f-links a:hover { opacity:1; }
-  </style>
+  .coup-card.cible { outline: 3px solid var(--wood); outline-offset: 3px; box-shadow: 0 6px 26px rgba(92,26,26,.28); }
+</style>
 </head>
 <body>
 
@@ -136,6 +137,7 @@
 var tousLesCoups = [];
 var filtreActif = 'tous';
 var EMOJI = { 'Littérature': '&#x1F4D6;', Poche: '&#x1F4D8;', Arts: '&#x1F3A8;', BD: '&#x1F4AC;', Jeunesse: '&#x1F31F;', Essai: '&#x1F4A1;', Policier: '&#x1F50D;', Imaginaire: '&#x1F409;', 'Poésie': '&#x1FAB6;', 'Théâtre': '&#x1F3AD;' };
+var cibleEan = '';   // coup de coeur ouvert depuis un lien partagé (?ean=...)
 var pageCourante = 1;
 var PER_PAGE = 20;
 
@@ -156,6 +158,10 @@ function renderCoups() {
   var epingles = tous.filter(function(x){ return x.epingle; });
   var autres   = tous.filter(function(x){ return !x.epingle; });
   var ordonnes = epingles.concat(autres);
+  if (cibleEan) {
+    var k = ordonnes.findIndex(function(x){ return x.ean === cibleEan; });
+    if (k > 0) { ordonnes.unshift(ordonnes.splice(k, 1)[0]); }
+  }
   var total    = ordonnes.length;
   var totalPages = Math.ceil(total / PER_PAGE);
   countEl.textContent = total + ' coup' + (total > 1 ? 's' : '') + ' de coeur'
@@ -177,7 +183,7 @@ function renderCoups() {
 
 function buildCard(item) {
   var card = document.createElement('div');
-  card.className = 'coup-card';
+  card.className = 'coup-card' + (cibleEan && item.ean === cibleEan ? ' cible' : '');
   var wrap = document.createElement('div');
   wrap.className = 'coup-cover-wrap';
   if (item.couverture) {
@@ -286,6 +292,7 @@ async function charger() {
       var tmp = reste[m]; reste[m] = reste[n]; reste[n] = tmp;
     }
     tousLesCoups = epingles.concat(recents).concat(reste);
+    try { cibleEan = new URLSearchParams(location.search).get('ean') || ''; } catch (e) { cibleEan = ''; }
     renderCoups();
   } catch(e) {
     document.getElementById('coups-grid').innerHTML = '<div class="coups-vide">Impossible de charger les coups de c\u0153ur.</div>';

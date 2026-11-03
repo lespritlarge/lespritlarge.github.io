@@ -330,6 +330,7 @@ async function charger() {
     if (!res.ok) throw new Error();
     const data = await res.json();
     ARTICLES = data.articles || [];
+    await chargerConfigCommentaires();
     construireFiltres();
     afficher();
     ouvrirNoteParId(new URLSearchParams(location.search).get('note'));
@@ -385,8 +386,18 @@ function afficher() {
 
 // ── Commentaires (modérés) ──────────────────────────────
 // Adresse du Worker Cloudflare (voir worker-commentaires.js). Vide = commentaires désactivés.
-const COMMENTS_API = '';
+let COMMENTS_API = '';   // lue dans config.json (écrite par l'admin) ; vous pouvez aussi la mettre ici
 let noteCourante = null;
+
+async function chargerConfigCommentaires() {
+  try {
+    const r = await fetch(GITHUB_RAW.replace(/[^\/]*\.json.*$/, 'config.json') + '?t=' + Date.now());
+    if (r.ok) {
+      const c = await r.json();
+      if (c && typeof c.commentsApi === 'string' && /^https:\/\//.test(c.commentsApi)) COMMENTS_API = c.commentsApi.replace(/\/+$/, '');
+    }
+  } catch (e) {}
+}
 
 function formaterDateCourte(iso) {
   const d = new Date(iso);
