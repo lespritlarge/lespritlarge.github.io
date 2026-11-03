@@ -299,7 +299,8 @@
     <!-- Tri -->
     <div class="filter-group">
       <select id="sortSelect" onchange="setSort(this.value)">
-        <option value="aleatoire" selected>Aléatoire</option>
+        <option value="ajouts" selected>Derniers ajoutés</option>
+        <option value="aleatoire">Aléatoire</option>
         <option value="nouveautes">Nouveautés d'abord</option>
         <option value="titre">Titre A→Z</option>
         <option value="auteur">Auteur A→Z</option>
@@ -352,7 +353,7 @@ let currentFilter      = 'Tous';   // famille (ex. « Littérature »)
 let currentSousFilter  = 'Tous';   // sous-famille (ex. « Policier »)
 let currentLangFilter  = 'Tous';
 let currentDispoFilter = 'Tous';
-let currentSort        = 'aleatoire'; // défaut : nouveautés en premier
+let currentSort        = 'ajouts';    // défaut : derniers livres ajoutés au stock en premier
 let currentPage = 1;
 const PER_PAGE = 40;
 let reserveBook = null;
@@ -407,6 +408,7 @@ async function chargerStock() {
       statut:       b.statut || (b.stock > 0 ? 'en_stock' : 'a_commander'),
       genre:        b.genre || devinerGenre(b.titre, b.auteur, b.editeur),
       genreBrut:    b.genre || '',
+      date_ajout:   b.date_ajout || '',
       famille:      '',
       sousFamille:  '',
       langue:       b.langue || 'Français',
@@ -578,6 +580,7 @@ function filterBooks() {
       if (db) return  1;
       return a.title.localeCompare(b.title, 'fr');
     }
+    if (currentSort === 'ajouts')    return (b.date_ajout || '').localeCompare(a.date_ajout || '');   // sans date : ordre mélangé conservé
     if (currentSort === 'titre')     return a.title.localeCompare(b.title, 'fr');
     if (currentSort === 'auteur')    return (a.author||'').localeCompare(b.author||'', 'fr');
     if (currentSort === 'prix_asc')  return (parseFloat(a.price)||999) - (parseFloat(b.price)||999);
