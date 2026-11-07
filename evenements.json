@@ -1,5 +1,5 @@
 {
-  "mis_a_jour": "2026-11-06T14:06:04.248Z",
+  "mis_a_jour": "2026-11-07T09:07:45.221Z",
   "evenements": [
     {
       "titre": "Rencontre autour de la musique irlandaise",
@@ -651,6 +651,19 @@
       "date": "2026-11-11",
       "recurrent": true,
       "groupe_id": "mw51s1y0_g"
+    },
+    {
+      "titre": "La librairie est ouverte mercredi 11 novembre de 9h30 à 12h30",
+      "time": "9h30 12h30",
+      "type": "Autre",
+      "lieu": "",
+      "desc": "Le mercredi 11 novembre la librairie est ouverte le matin...",
+      "affiche": "",
+      "special": true,
+      "fermeture": false,
+      "id": "1794042465221",
+      "date": "2026-11-11",
+      "recurrent": false
     },
     {
       "titre": "Festival du livre de Guérande",
