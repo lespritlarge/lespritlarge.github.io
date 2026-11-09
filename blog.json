@@ -1,6 +1,17 @@
 {
-  "mis_a_jour": "2026-11-06T15:49:55.270Z",
+  "mis_a_jour": "2026-11-09T14:06:41.077Z",
   "articles": [
+    {
+      "id": "1794233201077",
+      "titre": "Horaires exceptionnels : 11 novembre",
+      "categorie": "Vie de la librairie",
+      "date": "2026-11-11",
+      "texte": "La librairie est ouverte mercredi 11 novembre de 9h30 à 12h30, elle sera fermée l'après-midi !\nA bientôt!",
+      "image": "images/blog/1794233196668.jpg",
+      "lien": "",
+      "lien_label": "",
+      "selection": []
+    },
     {
       "id": "1793979923766",
       "titre": "Exposition des toiles de Michel Andrieux",
