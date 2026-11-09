@@ -1,5 +1,5 @@
 {
-  "mis_a_jour": "2026-11-07T09:07:45.221Z",
+  "mis_a_jour": "2026-11-09T14:36:16.043Z",
   "evenements": [
     {
       "titre": "Rencontre autour de la musique irlandaise",
@@ -676,6 +676,19 @@
       "fermeture": false,
       "id": "1790693230369",
       "date": "2026-11-14",
+      "recurrent": false
+    },
+    {
+      "titre": "Festival du livre de Guérande",
+      "time": "10h-18h",
+      "type": "Rencontre auteur",
+      "lieu": "Librairie L'Esprit Large",
+      "desc": "",
+      "affiche": "images/evenements/affiche1794234972106.jpg",
+      "special": false,
+      "fermeture": false,
+      "id": "1794234976043",
+      "date": "2026-11-15",
       "recurrent": false
     },
     {
