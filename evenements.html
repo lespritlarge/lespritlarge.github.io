@@ -420,7 +420,7 @@
 </div>
 
 <script>
-/* ── DONNÉES — chargées depuis evenements.json ── */
+/* -- DONNÉES — chargées depuis evenements.json -- */
 let EVENTS = [];
 
 async function chargerEvenements() {
@@ -449,6 +449,7 @@ async function chargerEvenements() {
         special:   !!e.special,
         recurrent: !!e.recurrent,
         fermeture: !!e.fermeture,
+        groupe_id: e.groupe_id || null,
       };
     });
   } catch(err) {
@@ -460,7 +461,7 @@ async function chargerEvenements() {
   renderList();
 }
 
-/* ── STATE ── */
+/* -- STATE -- */
 const today = new Date();
 let currentYear = today.getFullYear();
 let currentMonth = today.getMonth() + 1; // 1-12
@@ -468,7 +469,7 @@ let currentMonth = today.getMonth() + 1; // 1-12
 const MONTHS_FR = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
 const DAYS_FR = ['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'];
 
-/* ── CALENDAR ── */
+/* -- CALENDAR -- */
 function renderCalendar() {
   document.getElementById('monthTitle').textContent = `${MONTHS_FR[currentMonth-1]} ${currentYear}`;
 
@@ -513,27 +514,33 @@ function changeMonth(dir) {
   renderCalendar();
 }
 
-/* ── LIST VIEW ── */
+/* -- LIST VIEW -- */
 function renderList() {
+  // Date du jour à minuit pour comparer (un événement aujourd'hui est encore "à venir")
+  const maintenant = new Date();
+  maintenant.setHours(0, 0, 0, 0);
+
   const sorted = [...EVENTS].sort((a,b) => {
     const da = new Date(a.year, a.month-1, a.day);
     const db = new Date(b.year, b.month-1, b.day);
     return da - db;
   });
 
-  // Group by month
-  const grouped = {};
+  // Separer a venir (>= aujourd'hui) et passes (< aujourd'hui)
+  const aVenir = [];
+  const passes = [];
   sorted.forEach(e => {
-    const key = `${MONTHS_FR[e.month-1]} ${e.year}`;
-    if (!grouped[key]) grouped[key] = [];
-    grouped[key].push(e);
+    const d = new Date(e.year, e.month-1, e.day);
+    d.setHours(0, 0, 0, 0);
+    // Fermetures : toujours visibles
+    if (e.fermeture) { aVenir.push(e); return; }
+    // Chaque occurrence (meme recurrente) part en archive si sa date est passee
+    if (d >= maintenant) aVenir.push(e);
+    else passes.push(e);
   });
 
-  let html = '';
-  Object.entries(grouped).forEach(([monthLabel, events]) => {
-    html += `<h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;font-style:italic;color:var(--wood-dark);margin:2rem 0 1rem;padding-bottom:0.5rem;border-bottom:1px solid rgba(92,26,26,0.15);">${monthLabel}</h3>`;
-    events.forEach(e => {
-      html += `
+  function carteEvent(e) {
+    return `
       <div class="event-card${e.special?' special':''}">
         <div class="event-date-box" style="${e.special?'background:var(--amber);':''}">
           <div class="event-day">${e.day}</div>
@@ -545,17 +552,62 @@ function renderList() {
           <div class="event-title">${e.title}</div>
           <div class="event-desc">${e.desc}</div>
           <div class="event-meta">🕐 ${e.time} · 📍 ${e.lieu}</div>
-          ${e.affiche ? `<div style="margin-top:.6rem;"><img src="evenements/${e.affiche}" alt="Affiche" style="max-height:110px;border-radius:3px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.15);" /></div>` : ''}
+          ${e.affiche ? `<div style="margin-top:.6rem;"><img src="${urlAfficheEvt(e.affiche)}" alt="Affiche" style="max-height:110px;border-radius:3px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.15);" /></div>` : ''}
         </div>
         ${e.fermeture ? '' : `<button class="btn-inscris" onclick="openModal('${e.title.replace(/'/g,"\\'")}')">Je m'inscris</button>`}
       </div>`;
+  }
+
+  function groupeParMois(liste, ordreDecroissant) {
+    const grouped = {};
+    liste.forEach(e => {
+      const key = `${MONTHS_FR[e.month-1]} ${e.year}`;
+      if (!grouped[key]) grouped[key] = [];
+      grouped[key].push(e);
     });
-  });
+    let h = '';
+    const entries = Object.entries(grouped);
+    if (ordreDecroissant) entries.reverse();
+    entries.forEach(([monthLabel, events]) => {
+      h += `<h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;font-style:italic;color:var(--wood-dark);margin:2rem 0 1rem;padding-bottom:0.5rem;border-bottom:1px solid rgba(92,26,26,0.15);">${monthLabel}</h3>`;
+      events.forEach(e => { h += carteEvent(e); });
+    });
+    return h;
+  }
+
+  // A venir
+  let html = '';
+  if (aVenir.length) {
+    html += groupeParMois(aVenir, false);
+  } else {
+    html += '<p style="font-family:Lora,serif;font-style:italic;color:var(--ink-soft);padding:2rem 0;text-align:center;">Aucun événement à venir pour le moment.</p>';
+  }
+
+  // Evenements passes (section repliable, du plus recent au plus ancien)
+  if (passes.length) {
+    html += `<div style="margin-top:3rem;border-top:2px solid rgba(92,26,26,0.12);padding-top:1.5rem;">
+      <button id="btnTogglePasses" onclick="togglePasses()" style="background:none;border:none;cursor:pointer;font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--ink-soft);display:flex;align-items:center;gap:.5rem;">
+        <span id="passesArrow">▸</span> Événements passés (${passes.length})
+      </button>
+      <div id="passesContent" style="display:none;opacity:.75;margin-top:1rem;">
+        ${groupeParMois(passes, true)}
+      </div>
+    </div>`;
+  }
 
   document.getElementById('eventsList').innerHTML = html;
 }
 
-/* ── VIEW SWITCH ── */
+function togglePasses() {
+  const content = document.getElementById('passesContent');
+  const arrow = document.getElementById('passesArrow');
+  if (!content) return;
+  const open = content.style.display !== 'none';
+  content.style.display = open ? 'none' : 'block';
+  if (arrow) arrow.textContent = open ? '▸' : '▾';
+}
+
+/* -- VIEW SWITCH -- */
 function switchView(view, el) {
   document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
   el.classList.add('active');
@@ -563,7 +615,14 @@ function switchView(view, el) {
   document.getElementById('listView').style.display = view === 'list' ? 'block' : 'none';
 }
 
-/* ── MODAL ── */
+/* -- AFFICHES : deux formes de chemin (« nom.png » ou « images/evenements/afficheXXX.png ») -- */
+function urlAfficheEvt(a) {
+  if (!a) return '';
+  if (/^https?:\/\//i.test(a)) return a;
+  return a.indexOf('/') !== -1 ? a : 'evenements/' + a;
+}
+
+/* -- MODAL -- */
 function openModal(title) {
   var evt = EVENTS.find(function(e) { return e.title === title; });
   if (!evt) evt = { title: title, type:'', desc:'', time:'', lieu:'', affiche:'', fermeture:false };
@@ -581,7 +640,7 @@ function openEventModal(evt) {
   document.getElementById('modalMeta').textContent = meta.join(' · ');
   var afficheWrap = document.getElementById('modalAfficheWrap');
   if (evt.affiche) {
-    document.getElementById('modalAffiche').src = 'evenements/' + evt.affiche;
+    document.getElementById('modalAffiche').src = urlAfficheEvt(evt.affiche);
     afficheWrap.style.display = 'block';
   } else { afficheWrap.style.display = 'none'; }
   var descWrap = document.getElementById('modalDescWrap');
@@ -631,7 +690,7 @@ function confirmInscription() {
   .catch(() => showToast('⚠️ Une erreur est survenue, réessayez.'));
 }
 
-/* ── TOAST ── */
+/* -- TOAST -- */
 function showToast(msg) {
   const t = document.getElementById('toast');
   document.getElementById('toastMsg').textContent = msg;
@@ -639,7 +698,7 @@ function showToast(msg) {
   setTimeout(() => t.classList.remove('show'), 3800);
 }
 
-/* ── INIT ── */
+/* -- INIT -- */
 chargerEvenements();
 </script>
 

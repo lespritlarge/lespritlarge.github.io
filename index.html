@@ -670,6 +670,13 @@
     .evt-type { font-family:'Raleway',sans-serif; font-size:.62rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--wood-light,#b86060); }
     .evt-titre { font-family:'Playfair Display',serif; font-size:.95rem; font-weight:700; color:var(--ink); line-height:1.3; }
     .evt-lieu { font-size:.75rem; color:var(--ink-soft); }
+    .evt-affiche img { width:100%; height:170px; object-fit:cover; object-position:top; border-radius:3px; margin-bottom:.8rem; display:block; background:#eee; }
+    .evt-modal { position:fixed; inset:0; background:rgba(30,10,10,.6); display:none; align-items:center; justify-content:center; z-index:2000; padding:1rem; }
+    .evt-modal.open { display:flex; }
+    .evt-modal-box { position:relative; background:#fff; border-radius:8px; max-width:520px; width:100%; max-height:90vh; overflow-y:auto; box-shadow:0 10px 40px rgba(0,0,0,.35); }
+    .evt-modal-box img { width:100%; max-height:60vh; object-fit:contain; background:#f2f0ef; display:block; }
+    .evt-modal-body { padding:1.2rem 1.4rem 1.5rem; display:flex; flex-direction:column; }
+    .evt-modal-close { position:absolute; top:.6rem; right:.6rem; width:2rem; height:2rem; border-radius:50%; border:none; background:rgba(255,255,255,.92); color:var(--ink); font-size:1rem; cursor:pointer; z-index:1; box-shadow:0 1px 6px rgba(0,0,0,.25); }
     /* ── BLOG ── */
     #blog-home { background:var(--cream,#f2f0ef); }
     .blog-cards { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:1.5rem; }
@@ -775,6 +782,20 @@
     <p style="font-style:italic;color:var(--ink-soft);padding:1rem;">Chargement…</p>
   </div>
 </section>
+
+<div class="evt-modal" id="evtModal" onclick="if(event.target===this)fermerEvenement()">
+  <div class="evt-modal-box" role="dialog" aria-modal="true">
+    <button class="evt-modal-close" onclick="fermerEvenement()" aria-label="Fermer">✕</button>
+    <img id="evtMAffiche" alt="Affiche de l'événement" style="display:none;" />
+    <div class="evt-modal-body">
+      <div class="evt-type" id="evtMType"></div>
+      <div class="evt-titre" id="evtMTitre" style="font-size:1.3rem;"></div>
+      <div class="evt-lieu" id="evtMMeta" style="margin:.3rem 0 .8rem;"></div>
+      <div id="evtMDesc" style="font-family:'Lora',serif;font-size:.92rem;line-height:1.6;white-space:pre-wrap;"></div>
+      <a href="https://esprit-large.com/evenements.html" class="btn-voir-plus" style="margin-top:1.2rem;">Voir tout l'agenda</a>
+    </div>
+  </div>
+</div>
 
 <!-- BLOG -->
 <section id="blog-home" class="section-wrap">
@@ -929,6 +950,19 @@ async function chargerCoups() {
 }
 
 /* ── ÉVÉNEMENTS ── */
+var NB_EVENEMENTS_ACCUEIL = 8;   // nombre de cartes sur l'accueil
+var NB_MEME_TITRE = 4;           // max. de dates affichées pour un même événement récurrent
+var NB_NOTES_ACCUEIL = 5;
+var GH_RAW_SITE = 'https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/';
+// Les affiches sont enregistrées sous deux formes : « nom.png » (dossier evenements/)
+// ou « images/evenements/afficheXXXX.png » (envoyées depuis l'admin).
+function urlAffiche(a) {
+  if (!a) return '';
+  if (/^https?:\/\//i.test(a)) return a;
+  return GH_RAW_SITE + (a.indexOf('/') !== -1 ? a : 'evenements/' + a);
+}
+function escAttr(s) { return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;'); }
+
 async function chargerEvenements() {
   try {
     var r = await fetch('https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/evenements.json?t=' + Date.now());
@@ -936,12 +970,19 @@ async function chargerEvenements() {
     var data = await r.json();
     var evts = data.evenements || [];
     var today = new Date(); today.setHours(0,0,0,0);
-    var prochains = evts.filter(function(e) {
+    var futurs = evts.filter(function(e) {
       if (!e.date) return false;
       var p = e.date.split('-');
       var d = new Date(parseInt(p[0]), parseInt(p[1])-1, parseInt(p[2]));
       return d >= today;
-    }).slice(0, 4);
+    }).sort(function(a, b) { return a.date < b.date ? -1 : a.date > b.date ? 1 : 0; });
+    // Au plus NB_MEME_TITRE occurrences d'un même titre (ex. lectures hebdomadaires) pour laisser de la place aux autres rendez-vous
+    var vus = {};
+    var prochains = futurs.filter(function(e) {
+      var k = (e.titre || '').trim().toLowerCase();
+      vus[k] = (vus[k] || 0) + 1;
+      return vus[k] <= NB_MEME_TITRE;
+    }).slice(0, NB_EVENEMENTS_ACCUEIL);
     var list = document.getElementById('evtHomeList');
     if (!prochains.length) {
       list.innerHTML = '<p style="font-style:italic;color:var(--ink-soft);padding:1rem;">Aucun événement à venir.</p>';
@@ -951,17 +992,40 @@ async function chargerEvenements() {
     list.innerHTML = prochains.map(function(e) {
       var p = (e.date||'').split('-');
       var d = p.length === 3 ? new Date(parseInt(p[0]), parseInt(p[1])-1, parseInt(p[2])) : null;
-      var GH_RAW = 'https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/';
-      return '<div class="evt-carte" style="cursor:pointer;" onclick="ouvrirEvenement(this)"' + ' data-titre="' + (e.titre||'').replace(/"/g,'&quot;') + '"' + ' data-type="' + (e.type||'') + '"' + ' data-lieu="' + (e.lieu||'') + '"' + ' data-time="' + (e.time||'') + '"' + ' data-desc="' + (e.desc||'').replace(/"/g,'&quot;') + '"' + ' data-affiche="' + (e.affiche||'') + '">'
-        + (e.affiche ? '<div class="evt-affiche"><img src="' + GH_RAW + 'evenements/' + e.affiche + '" alt="' + (e.titre||'') + '" loading="lazy" style="width:100%;height:120px;object-fit:cover;border-radius:3px;margin-bottom:.8rem;display:block;" /></div>' : '')
+      return '<div class="evt-carte" style="cursor:pointer;" onclick="ouvrirEvenement(this)"'
+        + ' data-titre="' + escAttr(e.titre) + '" data-type="' + escAttr(e.type) + '" data-lieu="' + escAttr(e.lieu) + '"'
+        + ' data-time="' + escAttr(e.time) + '" data-date="' + escAttr(e.date) + '" data-desc="' + escAttr(e.desc) + '" data-affiche="' + escAttr(urlAffiche(e.affiche)) + '">'
+        + (e.affiche ? '<div class="evt-affiche"><img src="' + escAttr(urlAffiche(e.affiche)) + '" alt="Affiche : ' + escAttr(e.titre) + '" loading="lazy" onerror="this.parentNode.style.display=\'none\'" /></div>' : '')
         + (d ? '<div class="evt-jour">' + d.getDate() + '</div><div class="evt-mois">' + MOIS[d.getMonth()] + ' ' + d.getFullYear() + '</div>' : '')
-        + '<div class="evt-type">' + (e.type||'') + '</div>'
-        + '<div class="evt-titre">' + (e.titre||'') + '</div>'
-        + (e.lieu ? '<div class="evt-lieu">&#128205; ' + e.lieu + '</div>' : '')
+        + '<div class="evt-type">' + mkEsc(e.type||'') + '</div>'
+        + '<div class="evt-titre">' + mkEsc(e.titre||'') + '</div>'
+        + (e.lieu ? '<div class="evt-lieu">&#128205; ' + mkEsc(e.lieu) + '</div>' : '')
         + '</div>';
     }).join('');
   } catch(e) {}
 }
+
+
+function ouvrirEvenement(el) {
+  var d = el.dataset, m = document.getElementById('evtModal');
+  var MOIS = ['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+  var p = (d.date || '').split('-');
+  var quand = p.length === 3 ? parseInt(p[2]) + ' ' + MOIS[parseInt(p[1]) - 1] + ' ' + p[0] : '';
+  document.getElementById('evtMType').textContent = d.type || '';
+  document.getElementById('evtMTitre').textContent = d.titre || '';
+  document.getElementById('evtMMeta').textContent = [quand, d.time, d.lieu ? '📍 ' + d.lieu : ''].filter(Boolean).join(' · ');
+  document.getElementById('evtMDesc').textContent = d.desc || '';
+  var img = document.getElementById('evtMAffiche');
+  if (d.affiche) { img.src = d.affiche; img.style.display = 'block'; img.onerror = function(){ img.style.display = 'none'; }; }
+  else { img.removeAttribute('src'); img.style.display = 'none'; }
+  m.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function fermerEvenement() {
+  document.getElementById('evtModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') fermerEvenement(); });
 
 function mkEsc(s) { return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 function texteBrutMarkup(src) {
@@ -976,7 +1040,7 @@ async function chargerBlog() {
     var r = await fetch('https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/blog.json?t=' + Date.now());
     if (!r.ok) return;
     var data = await r.json();
-    var articles = (data.articles || []).slice(0, 3);
+    var articles = (data.articles || []).slice(0, NB_NOTES_ACCUEIL);
     if (!articles.length) return;
     var grid = document.getElementById('blogGrid');
     grid.innerHTML = articles.map(function(a) {
