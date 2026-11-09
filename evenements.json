@@ -1,5 +1,5 @@
 {
-  "mis_a_jour": "2026-11-09T14:44:19.724Z",
+  "mis_a_jour": "2026-11-09T14:45:38.508Z",
   "evenements": [
     {
       "titre": "Rencontre autour de la musique irlandaise",
@@ -656,9 +656,9 @@
       "titre": "La librairie est ouverte mercredi 11 novembre de 9h30 à 12h30",
       "time": "9h30 12h30",
       "type": "Autre",
-      "lieu": "",
+      "lieu": "Librairie L'Esprit Large",
       "desc": "Le mercredi 11 novembre la librairie est ouverte le matin...",
-      "affiche": "",
+      "affiche": "images/evenements/affiche1794235531595.jpg",
       "special": true,
       "fermeture": false,
       "id": "1794042465221",
@@ -670,7 +670,7 @@
       "time": "Toute la journée",
       "type": "Rencontre auteur",
       "lieu": "Athanor",
-      "desc": "Nous serons au festival du livre de Guérande avec des auteurs qui seront annoncés prochainement...",
+      "desc": "Nous serons au festival du livre de Guérande avec des auteurs régionaux!",
       "affiche": "images/evenements/affiche1794235456314.jpg",
       "special": false,
       "fermeture": false,
@@ -683,7 +683,7 @@
       "time": "10h-18h",
       "type": "Rencontre auteur",
       "lieu": "Librairie L'Esprit Large",
-      "desc": "",
+      "desc": "Nous serons au festival du livre de Guérande avec des auteurs régionaux!",
       "affiche": "images/evenements/affiche1794234972106.jpg",
       "special": false,
       "fermeture": false,
