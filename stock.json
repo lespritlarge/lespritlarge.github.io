@@ -1,5 +1,5 @@
 {
-  "mis_a_jour": "2026-11-03T13:38:31",
+  "mis_a_jour": "2026-11-09T15:29:19",
   "total": 16453,
   "en_stock": 11393,
   "a_commander": 5056,
@@ -5464,21 +5464,20 @@
     },
     {
       "ean": "9782356742575",
-      "titre": "Amériques",
+      "titre": "AMÉRIQUES",
       "auteur": "Laurent Paturaud, Esther Gil",
       "editeur": "DANIEL MAGHEN",
       "collection": "",
-      "annee": "2026",
-      "date_parution": "2026-08-26",
+      "annee": "",
+      "date_parution": "",
       "pages": "",
       "resume": "",
       "genre": "BD - Adultes",
       "langue": "Français",
       "prix": "19.50€",
-      "couverture": "https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/images/catalogue/9782356742575-1793710631128.png",
+      "couverture": "",
       "stock": 1,
-      "statut": "en_stock",
-      "edite_manuellement": true
+      "statut": "en_stock"
     },
     {
       "ean": "9782205084900",
@@ -8445,16 +8444,15 @@
       "editeur": "EYROLLES",
       "collection": "",
       "annee": "",
-      "date_parution": "05/11/2026",
+      "date_parution": "",
       "pages": "",
       "resume": "",
       "genre": "Essais - Société",
       "langue": "Français",
       "prix": "25€",
-      "couverture": "https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/images/catalogue/9782416021954-1793710649507.png",
+      "couverture": "",
       "stock": 1,
-      "statut": "en_stock",
-      "edite_manuellement": true
+      "statut": "en_stock"
     },
     {
       "ean": "9782746763036",
@@ -8764,21 +8762,20 @@
     },
     {
       "ean": "9782931273333",
-      "titre": "Attendre la neige",
-      "auteur": "Léa",
+      "titre": "ATTENDRE LA NEIGE",
+      "auteur": "Léa Faivre",
       "editeur": "A PAS DE LOUPS",
       "collection": "",
-      "annee": "2026",
-      "date_parution": "2026-11-17",
+      "annee": "",
+      "date_parution": "",
       "pages": "",
       "resume": "",
       "genre": "Jeunesse - Albums",
       "langue": "Français",
       "prix": "16.50€",
-      "couverture": "https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/images/catalogue/9782931273333-1793710678917.png",
+      "couverture": "",
       "stock": 1,
-      "statut": "en_stock",
-      "edite_manuellement": true
+      "statut": "en_stock"
     },
     {
       "ean": "9782818055014",
@@ -8991,16 +8988,15 @@
       "editeur": "LIENS LIBERENT",
       "collection": "",
       "annee": "",
-      "date_parution": "23/10/2026",
+      "date_parution": "",
       "pages": "",
       "resume": "",
       "genre": "Essais - Politique",
       "langue": "Français",
       "prix": "20€",
-      "couverture": "https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/images/catalogue/9791020920560-1793710687747.png",
+      "couverture": "",
       "stock": 1,
-      "statut": "en_stock",
-      "edite_manuellement": true
+      "statut": "en_stock"
     },
     {
       "ean": "9791091365123",
@@ -9140,21 +9136,20 @@
     },
     {
       "ean": "9782330226404",
-      "titre": "Au coeur du Yamato (Intégrale)",
+      "titre": "AU COEUR DU YAMATO  (INTÉGRALE)",
       "auteur": "Aki Shimazaki",
       "editeur": "ACTES SUD",
       "collection": "",
-      "annee": "2026",
-      "date_parution": "2026-11-04",
+      "annee": "",
+      "date_parution": "",
       "pages": "",
       "resume": "",
       "genre": "Littérature - Littérature étrangère",
       "langue": "Français",
       "prix": "24.90€",
-      "couverture": "https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/images/catalogue/9782330226404-1793712832499.png",
+      "couverture": "",
       "stock": 2,
-      "statut": "en_stock",
-      "edite_manuellement": true
+      "statut": "en_stock"
     },
     {
       "ean": "9782808515245",
@@ -9380,7 +9375,7 @@
     {
       "ean": "9782378624903",
       "titre": "AU LIT, PETIT ÉLÉPHANT !",
-      "auteur": "Dzotap Alain Serge",
+      "auteur": "Dzotap Alain Serge, Ana Zurita",
       "editeur": "CIRCONFLEXE",
       "collection": "",
       "annee": "2024",
@@ -9634,7 +9629,7 @@
     },
     {
       "ean": "9791037516510",
-      "titre": "AU PLUS PRÈS DES ANIMAUX",
+      "titre": "AU PLUS PRÈS DES ANIMAUX - LA VIE SAUVAGE RACONTÉE AUX ENFANTS",
       "auteur": "Mathilde Boussion",
       "editeur": "ARENES",
       "collection": "",
@@ -11084,16 +11079,15 @@
       "editeur": "RUE DE SEVRES",
       "collection": "",
       "annee": "",
-      "date_parution": "04/11/2026",
+      "date_parution": "",
       "pages": "",
       "resume": "",
       "genre": "Essais - Feminisme",
       "langue": "Français",
       "prix": "15€",
-      "couverture": "https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/images/catalogue/9782810212279-1793712845638.png",
+      "couverture": "",
       "stock": 1,
-      "statut": "en_stock",
-      "edite_manuellement": true
+      "statut": "en_stock"
     },
     {
       "ean": "9782869598829",
@@ -14303,7 +14297,7 @@
       "resume": "",
       "genre": "Poche - Littérature",
       "langue": "fr",
-      "prix": "5€",
+      "prix": "5.10€",
       "couverture": "https://covers.openlibrary.org/b/id/12886148-L.jpg",
       "stock": 1,
       "statut": "en_stock"
@@ -17115,7 +17109,7 @@
     },
     {
       "ean": "9791037516893",
-      "titre": "C'EST MALIN",
+      "titre": "C'EST MALIN - QUE PENSE LES ANIMAUX QU'ON ÉTUDIE EN LABORATOIRE ?",
       "auteur": "Vinciane Despret, Pierre Kroll",
       "editeur": "LES ARENES BD",
       "collection": "",
@@ -25327,7 +25321,7 @@
     {
       "ean": "9782700284430",
       "titre": "COMME LES AUTRES",
-      "auteur": "Martin Page, Laurène Boglio",
+      "auteur": "Martin Page",
       "editeur": "RAGEOT",
       "collection": "",
       "annee": "2026",
@@ -31414,7 +31408,7 @@
       "ean": "9782211081313",
       "titre": "DE L INTERIEUR",
       "auteur": "Philippe Aufort",
-      "editeur": "EDL",
+      "editeur": "MEDIUM EDL",
       "collection": "CollectionThéatre",
       "annee": "2005",
       "date_parution": "2005",
@@ -33074,6 +33068,23 @@
       "prix": "19.50€",
       "couverture": "https://couverture.geobib.fr/api/v1/9782234093751/large",
       "stock": 2,
+      "statut": "en_stock"
+    },
+    {
+      "ean": "9782362420177",
+      "titre": "DEPOUILLES",
+      "auteur": "Éric Pessan",
+      "editeur": "ATTENTE",
+      "collection": "",
+      "annee": "2011",
+      "date_parution": "2011-11",
+      "pages": "142",
+      "resume": "Dépouilles est un texte polyphonique, narratif, centré sur une situation particulière : l'instant de la présentation du mort dans les funérariums. Ces une ou deux journées où le mort est exposé, où le mort reçoit les visites de ses proches, de sa famille (ou à l'inverse, ces moments d'absence de visites). Cette présentation du défunt est souvent l'occasion de retrouvailles, d'évitements, d'expression des regrets comme d'étouffement des rancœurs. De cette situation extrêmement précise et codifiée, de cette situation extrêmement théâtralisée, naît le poème. Dépouilles est un chant, un enchevêtrement de paroles qui construit une recherche poétique : ces paroles, ces mots, ces phrases, foisonnantes, contradictoires, souvent toutes faites, forment le corps du texte. La thématique est simple et ",
+      "genre": "Littérature - Théâtre",
+      "langue": "fr",
+      "prix": "16€",
+      "couverture": "https://couverture.geobib.fr/api/v1/9782362420177/large",
+      "stock": 1,
       "statut": "en_stock"
     },
     {
@@ -38211,23 +38222,6 @@
       "statut": "en_stock"
     },
     {
-      "ean": "9782362420177",
-      "titre": "DÉPOUILLES",
-      "auteur": "Éric Pessan",
-      "editeur": "ATTENTE",
-      "collection": "",
-      "annee": "2011",
-      "date_parution": "2011-11",
-      "pages": "142",
-      "resume": "Dépouilles est un texte polyphonique, narratif, centré sur une situation particulière : l'instant de la présentation du mort dans les funérariums. Ces une ou deux journées où le mort est exposé, où le mort reçoit les visites de ses proches, de sa famille (ou à l'inverse, ces moments d'absence de visites). Cette présentation du défunt est souvent l'occasion de retrouvailles, d'évitements, d'expression des regrets comme d'étouffement des rancœurs. De cette situation extrêmement précise et codifiée, de cette situation extrêmement théâtralisée, naît le poème. Dépouilles est un chant, un enchevêtrement de paroles qui construit une recherche poétique : ces paroles, ces mots, ces phrases, foisonnantes, contradictoires, souvent toutes faites, forment le corps du texte. La thématique est simple et ",
-      "genre": "Littérature - Théâtre",
-      "langue": "fr",
-      "prix": "16€",
-      "couverture": "https://couverture.geobib.fr/api/v1/9782362420177/large",
-      "stock": 1,
-      "statut": "en_stock"
-    },
-    {
       "ean": "9782878582406",
       "titre": "DÉRIVE",
       "auteur": "François Vallejo",
@@ -38972,23 +38966,6 @@
       "langue": "fr",
       "prix": "10€",
       "couverture": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1678891629i/99533018.jpg",
-      "stock": 1,
-      "statut": "en_stock"
-    },
-    {
-      "ean": "9782207190272",
-      "titre": "ECRIRE LE ROMAN DE SA FAMILLE",
-      "auteur": "Colombe Schneck",
-      "editeur": "DENOEL",
-      "collection": "",
-      "annee": "",
-      "date_parution": "",
-      "pages": "",
-      "resume": "",
-      "genre": "Essais - Société",
-      "langue": "Français",
-      "prix": "18€",
-      "couverture": "",
       "stock": 1,
       "statut": "en_stock"
     },
@@ -46406,8 +46383,8 @@
     },
     {
       "ean": "9782702210239",
-      "titre": "FRA ANGELICO, BOTTICELLI... CHEFS D'OEUVRE RETROUVES",
-      "auteur": "Laclotte, Collectif",
+      "titre": "FRA ANGELICO, BOTTICELLI... CHEFS D'OEUVRE RETROUVÉS",
+      "auteur": "Collectif, Michel Laclotte",
       "editeur": "CERCLE D'ART",
       "collection": "",
       "annee": "2014",
@@ -69900,7 +69877,7 @@
     },
     {
       "ean": "9791037516831",
-      "titre": "L'INCROYABLE HISTOIRE DE LA MORT",
+      "titre": "L'INCROYABLE HISTOIRE DE LA MORT - RITES, HÉRITAGES CULTURELS ET CROYANCES",
       "auteur": "Didier Convard, Pierre Boisserie",
       "editeur": "LES ARENES BD",
       "collection": "",
@@ -74789,7 +74766,7 @@
       "resume": "",
       "genre": "Livres en langues étrangères - Adultes",
       "langue": "Français",
-      "prix": "13.90€",
+      "prix": "15.65€",
       "couverture": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1388185097i/77899.jpg",
       "stock": 1,
       "statut": "en_stock"
@@ -88865,7 +88842,7 @@
       "resume": "",
       "genre": "Poche - Policiers",
       "langue": "Français",
-      "prix": "9.30€",
+      "prix": "9.90€",
       "couverture": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1697009658i/125088771.jpg",
       "stock": 1,
       "statut": "en_stock"
@@ -88911,16 +88888,15 @@
       "editeur": "FLAM JEUNESSE",
       "collection": "",
       "annee": "",
-      "date_parution": "04/11/2026",
+      "date_parution": "",
       "pages": "",
-      "resume": "Dans l’immensité paisible de l’océan, c’est l’heure de la sieste. Toute la famille cachalot se place à la verticale.\n« Pas de jeux pendant la sieste ! » ordonne Grand-Maa à Mobie. La petite baleine ferme un œil, puis l’autre, quand, tout à coup, quelque chose vient la déranger…\n«  Mais qu’est-ce que c’est que ça ? »\n\nPas de repos face à la pollution des océans : un album tendre et inspirant par le créateur de Grrrizzly.",
+      "resume": "",
       "genre": "Jeunesse - Albums",
       "langue": "Français",
       "prix": "14.50€",
-      "couverture": "https://www.flammarion-jeunesse.fr/media/cache/couverture_medium/flammarion_img/Couvertures/9782080157133.jpg",
+      "couverture": "",
       "stock": 2,
-      "statut": "en_stock",
-      "edite_manuellement": true
+      "statut": "en_stock"
     },
     {
       "ean": "9782897198961",
@@ -97680,7 +97656,7 @@
     {
       "ean": "9782369904724",
       "titre": "LE FEU INTÉRIEUR",
-      "auteur": "Emmi Valve, Kinnunen Kirsi",
+      "auteur": "Emmi Valve",
       "editeur": "CA ET LA",
       "collection": "",
       "annee": "2026",
@@ -142764,7 +142740,7 @@
     {
       "ean": "9782401121287",
       "titre": "NON, JE VEUX PAS ! - ALLER AU DODO",
-      "auteur": "Elisa Seror",
+      "auteur": "Elisa Seror, Juliette Gillard",
       "editeur": "HATIER JEUNESSE",
       "collection": "",
       "annee": "2026",
@@ -142781,7 +142757,7 @@
     {
       "ean": "9782401121300",
       "titre": "NON, JE VEUX PAS ! - ALLER SUR LE POT",
-      "auteur": "Elisa Seror",
+      "auteur": "Elisa Seror, Juliette Gillard",
       "editeur": "HATIER JEUNESSE",
       "collection": "",
       "annee": "2026",
@@ -142798,7 +142774,7 @@
     {
       "ean": "9782401121294",
       "titre": "NON, JE VEUX PAS ! - MANGER DES MORCEAUX",
-      "auteur": "Elisa Seror",
+      "auteur": "Elisa Seror, Juliette Gillard",
       "editeur": "HATIER JEUNESSE",
       "collection": "",
       "annee": "2026",
@@ -142815,7 +142791,7 @@
     {
       "ean": "9782401121317",
       "titre": "NON, JE VEUX PAS ! - ME CALMER",
-      "auteur": "Elisa Seror",
+      "auteur": "Elisa Seror, Juliette Gillard",
       "editeur": "HATIER JEUNESSE",
       "collection": "",
       "annee": "2026",
@@ -157621,7 +157597,7 @@
     },
     {
       "ean": "9791037517906",
-      "titre": "PSYCHO POLITICUS",
+      "titre": "PSYCHO POLITICUS - COMMENT NOS SOCIÉTÉS FABRIQUENT ET FAVORISENT LES LEADERS TOXIQUES",
       "auteur": "David Gourion",
       "editeur": "ARENES",
       "collection": "",
@@ -159297,7 +159273,7 @@
       "resume": "",
       "genre": "Essais - Société",
       "langue": "fr",
-      "prix": "8.90€",
+      "prix": "9.90€",
       "couverture": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1739854037i/219271241.jpg",
       "stock": 1,
       "statut": "en_stock"
@@ -168943,7 +168919,7 @@
     },
     {
       "ean": "9791037516855",
-      "titre": "SILENCE, ÇA RUMINE",
+      "titre": "SILENCE, ÇA RUMINE - ARRÊTEZ DE PENSER EN BOUCLE !",
       "auteur": "Pauline Aubry, Faustine Devynck",
       "editeur": "LES ARENES BD",
       "collection": "",
@@ -169080,7 +169056,7 @@
     {
       "ean": "9782408020811",
       "titre": "SIMON, L'ENFANT DU 20E CONVOI",
-      "auteur": "Françoise Pirart",
+      "auteur": "Françoise Pirart, Laura Perez",
       "editeur": "MILAN",
       "collection": "CollectionMilan Junior",
       "annee": "2020",
@@ -176746,7 +176722,7 @@
     },
     {
       "ean": "9791037517272",
-      "titre": "TOUS VOYANTS",
+      "titre": "TOUS VOYANTS ! - 20 CLÉS POUR DÉVELOPPER SON INTUITION ET PRENDRE LES BONNES DÉCISIONS",
       "auteur": "Samer Zakharia",
       "editeur": "ARENES",
       "collection": "",
@@ -192891,6 +192867,23 @@
       "langue": "fr",
       "prix": "8.40€",
       "couverture": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1738039645i/222220448.jpg",
+      "stock": 1,
+      "statut": "en_stock"
+    },
+    {
+      "ean": "9782207190272",
+      "titre": "ÉCRIRE LE ROMAN DE SA FAMILLE",
+      "auteur": "Colombe Schneck",
+      "editeur": "DENOEL",
+      "collection": "",
+      "annee": "",
+      "date_parution": "",
+      "pages": "",
+      "resume": "",
+      "genre": "Essais - Société",
+      "langue": "Français",
+      "prix": "18€",
+      "couverture": "",
       "stock": 1,
       "statut": "en_stock"
     },
