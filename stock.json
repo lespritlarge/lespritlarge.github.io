@@ -1,5 +1,5 @@
 {
-  "mis_a_jour": "2026-11-09T15:29:19",
+  "mis_a_jour": "2026-11-13T11:19:45",
   "total": 16453,
   "en_stock": 11393,
   "a_commander": 5056,
@@ -27480,7 +27480,7 @@
     {
       "ean": "9782709669351",
       "titre": "CONVERSATIONS DU BOUT DU MONDE",
-      "auteur": "Sam Karmann",
+      "auteur": "Sam Karmann, Damien Seguin",
       "editeur": "LATTES",
       "collection": "",
       "annee": "2021",
@@ -32663,23 +32663,6 @@
       "statut": "en_stock"
     },
     {
-      "ean": "9782366721997",
-      "titre": "DECOUVRE LA VIE MARINE AVEC LAURENT BALLESTA",
-      "auteur": "Ballesta, Chapelle",
-      "editeur": "PLUME CAROTTE",
-      "collection": "",
-      "annee": "2020",
-      "date_parution": "2020-06",
-      "pages": "143",
-      "resume": "",
-      "genre": "Jeunesse - Documentaires",
-      "langue": "fr",
-      "prix": "18€",
-      "couverture": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1678261721i/81533428.jpg",
-      "stock": 1,
-      "statut": "en_stock"
-    },
-    {
       "ean": "9782366722345",
       "titre": "DECOUVRE LES GRANDS SINGES AVEC AMANDINE RENAUD",
       "auteur": "Chapelle, N'guessan",
@@ -36438,7 +36421,7 @@
     },
     {
       "ean": "9782211336062",
-      "titre": "DOCTEUR DOLITTLE",
+      "titre": "DOCTEUR DOLITTLE (POCHE)",
       "auteur": "Hugh Lofting, Ole Könnecke",
       "editeur": "EDL",
       "collection": "Neuf",
@@ -38014,6 +37997,23 @@
       "langue": "Français",
       "prix": "11.90€",
       "couverture": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1680124350i/95147289.jpg",
+      "stock": 1,
+      "statut": "en_stock"
+    },
+    {
+      "ean": "9782366721997",
+      "titre": "DÉCOUVRE LA VIE MARINE AVEC LAURENT BALLESTA",
+      "auteur": "Ballesta, Chapelle",
+      "editeur": "PLUME CAROTTE",
+      "collection": "",
+      "annee": "2020",
+      "date_parution": "2020-06",
+      "pages": "143",
+      "resume": "",
+      "genre": "Jeunesse - Documentaires",
+      "langue": "fr",
+      "prix": "18€",
+      "couverture": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1678261721i/81533428.jpg",
       "stock": 1,
       "statut": "en_stock"
     },
@@ -47328,7 +47328,7 @@
       "resume": "Fungirl est une fille maladroite, extravertie et provocatrice. Elle exaspère tout son entourage, de sa coloc (et ex-petite amie) au nouveau copain de celle-ci, jusqu'à son patron des pompes funèbres. Fungirl est une magnifique tornade qui sème le chaos partout où elle passe, c'est un shooter d'humour et d'irrévérence, une trace de vie pure, un orgasme explosif. Fungirl, c'est aussi une comète isolée se consumant trop vite dans un ciel constellé d'ennui et de bien-pensance.",
       "genre": "BD - Adultes",
       "langue": "Français",
-      "prix": "30€",
+      "prix": "32€",
       "couverture": "https://couverture.geobib.fr/api/v1/9782849613139/large",
       "stock": 1,
       "statut": "en_stock"
@@ -51850,7 +51850,7 @@
       "resume": "L'histoire est un savoir nouveau en Inde : ce sont les Britanniques qui ont fait exister l'idée de l'Inde et des Indes au XIXe siècle. L'auteur de cet ouvrage propose des regards croisés, ceux des Indiens et ceux des Occidentaux. Toutes les périodes et tous les événements sont objets de controverse, d'autant plus que les sources officielles pour connaître la vérité sont rares. -- [Renaud-Bray].",
       "genre": "Voyage - Récits",
       "langue": "fr",
-      "prix": "39.50€",
+      "prix": "55€",
       "couverture": "https://books.google.com/books/content?id=Mdw1rgEACAAJ&printsec=frontcover&img=1&zoom=0&source=gbs_api",
       "stock": 1,
       "statut": "en_stock"
@@ -61105,8 +61105,8 @@
     },
     {
       "ean": "9782211335287",
-      "titre": "JOURNAL INTIME 1 DE MON CORPS",
-      "auteur": "Ghada Hatem-Gantzer, Clémentine du Pontavice",
+      "titre": "JOURNAL INTIME 1 DE MON CORPS (POCHE)",
+      "auteur": "Pontavice Clémentine du",
       "editeur": "EDL",
       "collection": "",
       "annee": "2026",
@@ -63342,7 +63342,7 @@
       "resume": "Santiago, un jeune berger andalou, part à la recherche d'un trésor enfoui au pied des Pyramides. Lorsqu'il rencontre l'Alchimiste dans le désert, celui-ci lui apprend à écouter son cœur, à lire les signes du destin et, par-dessus tout, à aller au bout de son rêve. Merveilleux conte philosophique destiné à l'enfant qui sommeille en chaque être, ce livre a déjà marqué une génération de lecteurs.",
       "genre": "Poche - Littérature",
       "langue": "fr",
-      "prix": "7.90€",
+      "prix": "8.50€",
       "couverture": "https://covers.openlibrary.org/b/id/14632861-L.jpg",
       "stock": 1,
       "statut": "en_stock"
@@ -100987,7 +100987,7 @@
     },
     {
       "ean": "9782075088459",
-      "titre": "LE LION, LA SORCIÈRE ET L'ARMOIRE MAGIQUE LE MONDE DE NARNIA II",
+      "titre": "LE LION, LA SORCIÈRE BLANCHE ET L'ARMOIRE MAGIQUE LE MONDE DE NARNIA II",
       "auteur": "Lewis Clives Staples",
       "editeur": "GALLIMARD JEUNE",
       "collection": "",
@@ -102890,23 +102890,6 @@
       "statut": "en_stock"
     },
     {
-      "ean": "9782075088404",
-      "titre": "LE MONDE DE NARNIA LE NEVEU DU MAGICIEN",
-      "auteur": "Lewis Clives Staples",
-      "editeur": "GALLIMARD JEUNE",
-      "collection": "",
-      "annee": "",
-      "date_parution": "",
-      "pages": "",
-      "resume": "",
-      "genre": "Jeunesse - Romans",
-      "langue": "Français",
-      "prix": "12.90€",
-      "couverture": "https://cdn.cultura.com/cdn-cgi/image/width=380/media/pim/TITELIVE/7_9782075088404_1_75.jpg",
-      "stock": 1,
-      "statut": "en_stock"
-    },
-    {
       "ean": "9782296569751",
       "titre": "LE MONDE DE NINA BERBEROVA",
       "auteur": "Ida Junker",
@@ -103668,6 +103651,23 @@
       "langue": "Français",
       "prix": "20€",
       "couverture": "https://couverture.geobib.fr/api/v1/9782358722803/large",
+      "stock": 1,
+      "statut": "en_stock"
+    },
+    {
+      "ean": "9782075088404",
+      "titre": "LE NEVEU DU MAGICIEN LE MONDE DE NARNIA",
+      "auteur": "Lewis Clives Staples",
+      "editeur": "GALLIMARD JEUNE",
+      "collection": "",
+      "annee": "",
+      "date_parution": "",
+      "pages": "",
+      "resume": "",
+      "genre": "Jeunesse - Romans",
+      "langue": "Français",
+      "prix": "12.90€",
+      "couverture": "https://cdn.cultura.com/cdn-cgi/image/width=380/media/pim/TITELIVE/7_9782075088404_1_75.jpg",
       "stock": 1,
       "statut": "en_stock"
     },
@@ -120317,7 +120317,7 @@
     {
       "ean": "9782808504881",
       "titre": "LES MÉMOIRES DE LA SHOAH",
-      "auteur": "Théa Rojzman, Baudouin Tamia",
+      "auteur": "Annick Cojean, Théa Rojzman",
       "editeur": "DUPUIS",
       "collection": "",
       "annee": "2025",
@@ -126947,7 +126947,7 @@
     {
       "ean": "9782709635318",
       "titre": "LORSQUE LE BONHEUR VOUS FAIT SIGNE",
-      "auteur": "Gibran, Metoui",
+      "auteur": "Lasâad Metoui, Khalil Gibran",
       "editeur": "LATTES",
       "collection": "",
       "annee": "2011",
@@ -129904,7 +129904,7 @@
     },
     {
       "ean": "9782494797697",
-      "titre": "MAESTRO - NOUVELLE ÉDITION",
+      "titre": "MAESTRO",
       "auteur": "PRUGNE THIBAULT",
       "editeur": "MARGOT",
       "collection": "",
@@ -158669,7 +158669,7 @@
     {
       "ean": "9782386960796",
       "titre": "QUAND LES DIEUX RACONTENT LEURS HISTOIRES",
-      "auteur": "Collognat",
+      "auteur": "Annie Collognat",
       "editeur": "LIBRETTO",
       "collection": "",
       "annee": "",
@@ -158686,7 +158686,7 @@
     {
       "ean": "9791028141950",
       "titre": "QUAND LES LOUPS REVIENDRONT",
-      "auteur": "Swift E. J, Alix Dewez",
+      "auteur": "E. J. Swift",
       "editeur": "BRAGELONNE",
       "collection": "",
       "annee": "",
@@ -180479,7 +180479,7 @@
     },
     {
       "ean": "9782211315777",
-      "titre": "UN CAILLOU DANS LA POCHE",
+      "titre": "UN CAILLOU DANS LA POCHE (VERSION POCHE)",
       "auteur": "Marie Chartres",
       "editeur": "EDL",
       "collection": "",
