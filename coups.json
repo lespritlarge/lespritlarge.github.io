@@ -1,5 +1,5 @@
 {
-  "mis_a_jour": "2026-11-20T09:09:26.299Z",
+  "mis_a_jour": "2026-11-20T09:11:03.954Z",
   "coups": [
     {
       "ean": "9791040806493",
@@ -227,6 +227,15 @@
       "auteur": "Luca Brunoni",
       "couverture": "https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/images/catalogue/9782253254775-1793277937291.png",
       "citation": "A lire !",
+      "libraire": "Aurélien",
+      "categorie": "Poche"
+    },
+    {
+      "ean": "9782253092629",
+      "titre": "LES LARMES NOIRES SUR LA TERRE",
+      "auteur": "Sandrine Collette",
+      "couverture": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1517859229i/38356568.jpg",
+      "citation": "Quel texte sombre et lumineux à la fois...",
       "libraire": "Aurélien",
       "categorie": "Poche"
     }
