@@ -102987,9 +102987,10 @@
       "genre": "Essais - Histoire",
       "langue": "fr",
       "prix": "32.50€",
-      "couverture": "https://books.google.com/books/content?id=gEZxyHK3uF4C&printsec=frontcover&img=1&zoom=0&source=gbs_api",
+      "couverture": "https://images.centprod.com/3026900001000/66yE0fMOp2x_yLA1nKuIf18wJpRxZyRv4JkT33CV1fwFFEEoTkMENQ-cover-large.jpg",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782889323661",
