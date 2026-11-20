@@ -2044,9 +2044,10 @@
       "genre": "Jeunesse - Albums",
       "langue": "Français",
       "prix": "22€",
-      "couverture": "https://couverture.geobib.fr/api/v1/9782913413368/large",
+      "couverture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKK_LI_KBC8X6rtSikOBlYBFJ6u-pxttWwrCo7f8Vda-vXPTTyvK2z6PAC&s=10",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782912667410",
@@ -5546,9 +5547,10 @@
       "genre": "BD - Adultes",
       "langue": "Français",
       "prix": "19.50€",
-      "couverture": "",
+      "couverture": "https://www.danielmaghen-editions.com/wp-content/uploads/2026/07/Couv-Ameriques-RVB-1-375x490.jpg",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782205084900",
@@ -8521,9 +8523,10 @@
       "genre": "Essais - Société",
       "langue": "Français",
       "prix": "25€",
-      "couverture": "",
+      "couverture": "https://static.fnac-static.com/multimedia/PE/Images/FR/NR/4c/56/39/20534860/1507-1/tsp20261107081521/Atlas-des-curiosites-frontalieres.jpg",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782746763036",
@@ -8844,9 +8847,10 @@
       "genre": "Jeunesse - Albums",
       "langue": "Français",
       "prix": "16.50€",
-      "couverture": "",
+      "couverture": "https://actualitte.com/uploads/images/9782931273333-475x500-1-6af9bbafbdddc799595459.jpg",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782818055014",
@@ -9065,9 +9069,10 @@
       "genre": "Essais - Politique",
       "langue": "Français",
       "prix": "20€",
-      "couverture": "",
+      "couverture": "https://images.centprod.com/3026900001000/66yE0fMOp2zvGLbG_oNVXu0qTocNfRT4c-50VnNe9jkfm01iwMIoKA-cover-large.jpg",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9791091365123",
@@ -9218,9 +9223,10 @@
       "genre": "Littérature - Littérature étrangère",
       "langue": "Français",
       "prix": "24.90€",
-      "couverture": "",
+      "couverture": "https://images.centprod.com/3026900001000/66yE0fMOp2xwggiHEOE6Glrrv7Bclu_DZDlr4dQtbhQmub0jVzCm4w-cover-large.jpg",
       "stock": 2,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782808515245",
@@ -11156,9 +11162,10 @@
       "genre": "Essais - Feminisme",
       "langue": "Français",
       "prix": "15€",
-      "couverture": "",
+      "couverture": "https://images.centprod.com/3026900001000/66yE0fMOp2zlcJu15GXR51Mo6pN5jr9IZwyZeQ2OQv-LlXoxSaUJvA-cover-large.jpg",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782869598829",
@@ -12278,9 +12285,10 @@
       "genre": "BD - Jeunesse",
       "langue": "Français",
       "prix": "25.95€",
-      "couverture": "",
+      "couverture": "https://images.centprod.com/3026900001000/66yE0fMOp2xVrqVMyIyIAZhoEodybWjd7RL7oSY9WMTe5Z0ek8JOFg-cover-large.jpg",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782487785069",
@@ -12635,9 +12643,10 @@
       "genre": "Littérature - Littérature française",
       "langue": "Français",
       "prix": "18€",
-      "couverture": "",
+      "couverture": "https://images.centprod.com/3026900001000/66yE0fMOp2yoZaPfXRQc6tsLnXlNUGOiZwdX4tg8oUDtO9a_9-7uYw-cover-large.jpg",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782264047960",
