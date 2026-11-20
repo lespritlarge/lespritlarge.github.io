@@ -27706,9 +27706,10 @@
       "genre": "Régionalisme - Littérature",
       "langue": "Français",
       "prix": "12€",
-      "couverture": "https://couverture.geobib.fr/api/v1/9782848090405/large",
+      "couverture": "https://images.epagine.fr/405/9782848090405_1_75.jpg",
       "stock": 4,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782367731704",
