@@ -1,6 +1,25 @@
 {
-  "mis_a_jour": "2026-11-13T12:01:49.941Z",
+  "mis_a_jour": "2026-11-20T12:38:56.342Z",
   "articles": [
+    {
+      "id": "1795178336342",
+      "titre": "Un peu d'humour...",
+      "categorie": "Coup de cœur",
+      "date": "2026-11-20",
+      "texte": "Vous cherchez des bandes dessinées humoristiques pour vous esclaffer ou pour un cadeau de noël rigolo ?\nVoici notre sélection pour cette fin d'année :\n\n**- ANIMAN — Anouk Ricard**\nDu Anouk Ricard pur jus, drôle et absurde comme on aime!\n**- THE FABULOUS TONY LOPEZ ET SON ORCHESTRE SHOW — Fabcaro**\nFabcaro est l'un des dessinateurs les plus drôles du moment, et ça ne loupe pas dans ce nouvel ouvrage tout en musique!\n**- L'ÉTÉ DE BÉRÉNICE — Émilie Tronche, Émilie Tronche**\nEmilie Tronche avait réussi son Samuel, elle maitrise parfaitement nos sentiments adolescents et ces tendres événements de l'été...\n**- LA RÉVOLTE AVEC PRÉCÉDENT LA REVOLTE SANS PRECEDENT 3 — Guillaume Meurice**\nTroisième opus de Sandrine Deloffre et Guillaume Meurice, toujours aussi désopilant sur notre société et ses dérives\n**- FABLES SANS ANIMAUX — Dorothée DE MONFREID**\nDonner vie à des objets tout en se moquant de la bêtise humaine!\n**- LE SIÈGE — Inintéressant Ami**\nDes petits strips comme on aime, absurde et amusant à souhait !\n**- FAUSSE BALLE — Pascal Girard**\nNotes de blog de Pascal Girard, dessinateur québecois sur sa vie de père, d'homme et d'adulte.",
+      "image": "images/blog/1795178331994.png",
+      "lien": "",
+      "lien_label": "",
+      "selection": [
+        "9782492926075",
+        "9782413093411",
+        "9782203296602",
+        "9782205216196",
+        "9782494740280",
+        "9782413087601",
+        "9782925114680"
+      ]
+    },
     {
       "id": "1794568946477",
       "titre": "Festival du livre de Bretagne - Athanor",
