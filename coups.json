@@ -1,5 +1,5 @@
 {
-  "mis_a_jour": "2026-10-30T15:30:54.095Z",
+  "mis_a_jour": "2026-11-20T09:09:26.299Z",
   "coups": [
     {
       "ean": "9791040806493",
@@ -220,6 +220,15 @@
       "citation": "Un véritable voyage quasi cinématographique...",
       "libraire": "Aurélien",
       "categorie": "Littérature"
+    },
+    {
+      "ean": "9782253254775",
+      "titre": "EN SURFACE",
+      "auteur": "Luca Brunoni",
+      "couverture": "https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/images/catalogue/9782253254775-1793277937291.png",
+      "citation": "A lire !",
+      "libraire": "Aurélien",
+      "categorie": "Poche"
     }
   ]
 }
