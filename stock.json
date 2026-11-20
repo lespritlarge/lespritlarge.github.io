@@ -51421,9 +51421,10 @@
       "genre": "BD - Jeunesse",
       "langue": "fr",
       "prix": "13.50€",
-      "couverture": "https://books.google.com/books/content?id=XjCq0QEACAAJ&printsec=frontcover&img=1&zoom=0&source=gbs_api",
+      "couverture": "https://images.epagine.fr/408/9782203300408_1_75.jpg",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782203302532",
@@ -217777,20 +217778,21 @@
     },
     {
       "ean": "9782203287419",
-      "titre": "Hilda & Twig",
-      "auteur": "",
+      "titre": "Hilda & Twig - Tome 1 - Pas nés de la dernière pluie",
+      "auteur": "Hélène Dauniol-Remaud",
       "editeur": "",
       "collection": "",
       "annee": "2025",
       "date_parution": "2025-02",
       "pages": "",
       "resume": "",
-      "genre": "",
+      "genre": "BD - Jeunesse",
       "langue": "fr",
-      "prix": "",
-      "couverture": "https://books.google.com/books/content?id=808d0QEACAAJ&printsec=frontcover&img=1&zoom=0&source=gbs_api",
+      "prix": "13.50",
+      "couverture": "https://www.casterman.com/media/cache/couverture_large/casterman_img/Couvertures/9782203287419.jpg",
       "stock": 0,
-      "statut": "a_commander"
+      "statut": "a_commander",
+      "edite_manuellement": true
     },
     {
       "ean": "9782373054293",
@@ -217802,12 +217804,13 @@
       "date_parution": "",
       "pages": "",
       "resume": "Hilda Bustamante a 79 ans, et comme tout le monde, un jour, elle meurt. Ce qui est extraordinaire, à la stupéfaction de son grand amour, de sa petite-fille, et de ses copines de l'église... c'est qu'Hilda ressuscite. Son retour réveille des secrets que son entourage pensait enterrés avec elle : une amourette entre le curé et l'une des filles du groupe de prière, le relation d'Hilda avec un autre prétendant et la véritable raison derrière cet adultère. Ce roman raconte l'histoire d'Hilda et du merveilleux scandale de sa résurrection.\nSalomé Esper nous livre dans ce roman une tendre réponse à la question : que laissons-nous derrière après notre mort ?\n« Cela lui revint d’un coup, et alors elle sut. Sans rien y comprendre, sans pouvoir se l’expliquer. Elle sut qu’elle était morte. Et elle pensa : depuis combien de temps ? Avec le doute vint aussi la tristesse, mais elle chassa cette pensée au plus vite, cela ne pouvait pas faire longtemps : là, maintenant, elle était vivante. »",
-      "genre": "",
+      "genre": "Littérature - Littérature étrangère",
       "langue": "Français",
       "prix": "21",
       "couverture": "https://images.epagine.fr/293/9782373054293_1_75.jpg",
       "stock": 0,
-      "statut": "a_commander"
+      "statut": "a_commander",
+      "edite_manuellement": true
     },
     {
       "ean": "9791041423088",
