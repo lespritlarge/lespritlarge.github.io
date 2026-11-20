@@ -69,9 +69,10 @@
       "genre": "",
       "langue": "Français",
       "prix": "7.58€",
-      "couverture": "https://couverture.geobib.fr/api/v1/9782956736325/large",
+      "couverture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOQvPLfHXdSOFqSXRA22W_Y0Xv8dxN0WmLJeUr-WkCv7lcy4Lp5_yXNwGi&s=10",
       "stock": 4,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9780698116450",
@@ -1225,9 +1226,10 @@
       "genre": "Cuisine - Essai",
       "langue": "Français",
       "prix": "20€",
-      "couverture": "https://couverture.geobib.fr/api/v1/9782917008782/large",
+      "couverture": "https://m.media-amazon.com/images/I/51GRiawk2pL._AC_SX148_SY213_QL70_.jpg",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9791093860701",
@@ -1459,13 +1461,14 @@
       "annee": "2026",
       "date_parution": "2026",
       "pages": "256",
-      "resume": "PrésentationDu mystère, de l'aventure et un soupçon de magie dans le Paris du XIXe siècle.<br>Une nuit, dans le Paris de Victor Hugo, une longue silhouette de mauvais garçon dépose un paquet de linge sale au pied d'une statue, rue Mirabelle. Le paquet de linge sale est un bébé. Les commerçants se réunissent. Aucun n'a le coeur de l'emmener à l'orphelinat. Alors, c'est décidé, le bébé passera une année chez chacun des 7 commerçants : le crémier, le pharmacien, le primeur, le boulanger, le poisson",
+      "resume": "Du mystère, de l'aventure et un soupçon de magie dans le Paris du XIXe siècle. Une nuit, dans le Paris de Victor Hugo, une longue silhouette de mauvais garçon dépose un paquet de linge sale au pied d'une statue, rue Mirabelle. Le paquet de linge sale est un bébé. Les commerçants se réunissent. Aucun n'a le coeur de l'emmener à l'orphelinat. Alors, c'est décidé, le bébé passera une année chez chacun des 7 commerçants : le crémier, le pharmacien, le primeur, le boulanger, le poisson",
       "genre": "Jeunesse - Romans",
       "langue": "Français",
       "prix": "15.90€",
-      "couverture": "https://couverture.geobib.fr/api/v1/9782075173148/large",
+      "couverture": "https://m.media-amazon.com/images/I/51r5FaKTQ9L._SX195_.jpg",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782073123633",
@@ -86022,9 +86025,10 @@
       "genre": "Poche - Littérature",
       "langue": "Français",
       "prix": "8.70€",
-      "couverture": "https://couverture.geobib.fr/api/v1/9782253251798/large",
+      "couverture": "https://cdn.cultura.com/media/pim/12638483_image_type_product_shot_FOUR_non_TRANSCODE_1_FR_2c0a8",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782377173051",
