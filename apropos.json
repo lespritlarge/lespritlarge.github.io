@@ -1,11 +1,11 @@
 {
-  "mis_a_jour": "2026-03-17T15:06:54.466Z",
+  "mis_a_jour": "2026-11-20T15:48:06.866Z",
   "libraires": [
     {
       "prenom": "Nadine",
       "role": "Libraire",
       "bio": "Parler, échanger, découvrir pour «transmettre » une lecture, un roman, un album pour enfant.",
-      "photo": "",
+      "photo": "images/nadine.JPG",
       "citation": "Quand je pense à tous les livres qu'il me reste à lire, j'ai la certitude d'être encore heureux.",
       "genres": [
         "Littérature française",
