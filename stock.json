@@ -72863,9 +72863,10 @@
       "genre": "BD - Jeunesse",
       "langue": "Français",
       "prix": "20€",
-      "couverture": "https://couverture.geobib.fr/api/v1/9782203296602/large",
+      "couverture": "https://static.fnac-static.com/multimedia/PE/Images/FR/NR/0e/79/39/20543758/1507-1/tsp20261105095300/L-ete-de-Berenice.jpg",
       "stock": 3,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782754834353",
@@ -114581,9 +114582,10 @@
       "genre": "Littérature - Littérature française",
       "langue": "Français",
       "prix": "14€",
-      "couverture": "https://couverture.geobib.fr/api/v1/9782352122036/large",
+      "couverture": "https://www.babelio.com/couv/CVT_Les-cinq-amies-lechappent-belle-in-extremis_7252.jpg",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782266229487",
@@ -174540,9 +174542,10 @@
       "genre": "BD - Jeunesse",
       "langue": "Français",
       "prix": "13.50€",
-      "couverture": "https://couverture.geobib.fr/api/v1/9782413093411/large",
+      "couverture": "https://leslibraires.b-cdn.net/agW9CEUBHnAV-4RsXj5jDAIDw4wN4qNGMA_R86UciS4/s:800:800/MTcwMDIzMTE.webp",
       "stock": 3,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9780316371025",
