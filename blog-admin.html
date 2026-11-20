@@ -214,7 +214,7 @@ details[open] .rblock summary::before{transform:rotate(90deg);}
             <small id="edStatus" style="font-style:italic;color:var(--soft);"></small>
           </div>
           <div class="f"><label>📚 Sélection de livres en stock <span style="font-weight:400;text-transform:none;letter-spacing:0;">(optionnel — affichée sous l'article, ex. « Des beaux livres pour Noël »)</span></label>
-            <input type="text" id="bSelSearch" placeholder="Chercher un titre, un auteur ou un EAN dans le stock…" oninput="Blog.chercherSel()" autocomplete="off"/>
+            <input type="text" id="bSelSearch" placeholder="Chercher un titre, un auteur ou un EAN (livres en stock ou qui l'ont été)…" oninput="Blog.chercherSel()" autocomplete="off"/>
             <div id="bSelResults" style="display:none;border:1.5px solid rgba(92,26,26,.18);border-radius:3px;background:#fff;max-height:260px;overflow-y:auto;margin-top:.3rem;"></div>
             <div id="bSelList" style="margin-top:.6rem;"></div>
           </div>
@@ -1087,15 +1087,17 @@ var Blog = (() => {
     if (q.length < 2) { box.style.display = 'none'; return; }
     const stock = await chargerStockSel();
     const res = Object.keys(stock).map(function(e) { return stock[e]; }).filter(function(b) {
-      return (b.stock || 0) > 0 && sel.indexOf(b.ean) === -1 && b.titre && b.titre.indexOf('[A enrichir') !== 0
+      return sel.indexOf(b.ean) === -1 && b.titre && b.titre.indexOf('[A enrichir') !== 0
         && (normSel(b.titre).indexOf(q) !== -1 || normSel(b.auteur).indexOf(q) !== -1 || String(b.ean).indexOf(q) !== -1);
-    }).slice(0, 15);
+    }).sort(function(a, b) { return ((b.stock || 0) > 0 ? 1 : 0) - ((a.stock || 0) > 0 ? 1 : 0); })   // en stock d'abord
+      .slice(0, 20);
     box.style.display = 'block';
     box.innerHTML = res.length ? res.map(function(b) {
       return '<div onclick="Blog.ajouterSel(\'' + b.ean + '\')" style="padding:.5rem .8rem;cursor:pointer;border-bottom:1px solid rgba(92,26,26,.08);font-size:.85rem;">'
         + '<strong>' + escSel(b.titre) + '</strong> <span style="color:#777;">— ' + escSel(b.auteur || '') + '</span>'
-        + ' <span style="float:right;color:#777;font-size:.75rem;">' + escSel(b.prix || '') + ' · ' + b.stock + ' en stock</span></div>';
-    }).join('') : '<div style="padding:.7rem .8rem;color:#888;font-size:.85rem;font-style:italic;">Aucun livre en stock ne correspond.</div>';
+        + ' <span style="float:right;font-size:.75rem;' + ((b.stock || 0) > 0 ? 'color:#1e7a46;' : 'color:#999;') + '">' + escSel(b.prix || '') + ' · '
+        + ((b.stock || 0) > 0 ? b.stock + ' en stock' : 'plus en stock') + '</span></div>';
+    }).join('') : '<div style="padding:.7rem .8rem;color:#888;font-size:.85rem;font-style:italic;">Aucun livre ne correspond.</div>';
   }
 
   async function ajouterSel(ean) {
@@ -1117,7 +1119,8 @@ var Blog = (() => {
       + sel.map(function(ean, i) {
         const b = stock[ean];
         const nom = b ? '<strong>' + escSel(b.titre) + '</strong> <span style="color:#777;">— ' + escSel(b.auteur || '') + '</span>'
-                      : '<span style="color:#c0392b;">EAN ' + escSel(ean) + ' (introuvable dans le stock)</span>';
+                        + ((b.stock || 0) > 0 ? '' : ' <span style="font-size:.7rem;color:#999;border:1px solid #ccc;border-radius:10px;padding:.05rem .45rem;">plus en stock</span>')
+                      : '<span style="color:#c0392b;">EAN ' + escSel(ean) + ' (introuvable dans le catalogue)</span>';
         const btn = 'style="border:1px solid rgba(92,26,26,.2);background:#fff;border-radius:3px;cursor:pointer;padding:.1rem .45rem;margin-left:.25rem;"';
         return '<div style="display:flex;align-items:center;gap:.5rem;padding:.4rem .6rem;background:var(--cream);border-radius:3px;margin-bottom:.3rem;font-size:.85rem;">'
           + '<span style="flex:1;">' + nom + '</span>'
