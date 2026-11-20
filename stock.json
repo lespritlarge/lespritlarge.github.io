@@ -88415,9 +88415,10 @@
       "genre": "BD - Adultes",
       "langue": "Français",
       "prix": "14€",
-      "couverture": "https://couverture.geobib.fr/api/v1/9782205216196/large",
+      "couverture": "https://images.centprod.com/3026900001000/66yE0fMOp2woDkThKJhNfwMkfqmeTmEWRJlQEXYDJsLl11SDp_-cZQ-cover-large.jpg",
       "stock": 5,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782021499544",
@@ -234124,9 +234125,10 @@
       "genre": "",
       "langue": "Français",
       "prix": "",
-      "couverture": "https://couverture.geobib.fr/api/v1/9782807702684/large",
+      "couverture": "https://images.centprod.com/3026900001000/66yE0fMOp2z6692cN8cpkwW6O2L2OhMcgaiBUHJTEzm9L-LzjdslaQ-cover-large.jpg",
       "stock": 0,
-      "statut": "a_commander"
+      "statut": "a_commander",
+      "edite_manuellement": true
     },
     {
       "ean": "9782226482983",
