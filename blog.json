@@ -1,6 +1,17 @@
 {
-  "mis_a_jour": "2026-11-20T15:00:53.210Z",
+  "mis_a_jour": "2026-11-20T15:37:56.365Z",
   "articles": [
+    {
+      "id": "1795189076365",
+      "titre": "Préparer noël... avec nous.",
+      "categorie": "Vie de la librairie",
+      "date": "2026-11-20",
+      "texte": "Noël arrive... Quelques conseils de vos libraires pour ne pas faire de déçu :\n\n## **On commande tôt pour éviter les mauvaises surprises...**\nPar mail : commande.espritlarge@protonmail.com\nPar téléphone : 02.40.23.44.44\nSur les site [ALIP](https://asso.librairies-alip.fr/) ou [Place des libraires](https://www.placedeslibraires.fr/)\nOu sur notre site internet !\n\nA partir du 12 décembre, nous ne pourrons plus garantir que vos livres arriveront à temps sous le sapin... Mais ne vous inquiétez pas, il nous restera plein de choix dans nos rayons !\n\n**On emballe les cadeaux avec du papier recyclé ou du tissu... c'est meilleur pour la planète.**\n**On ne s'énerve pas sur les libraires, ils font ce qu'ils peuvent !**\n**On est prêt à vous conseiller et même à trouver le livre parfait pour l’oncle qui n’aime pas lire où la nièce qu’on ne voit qu’une fois par an, faites nous confiance !**",
+      "image": "images/blog/1795189071175.jpeg",
+      "lien": "",
+      "lien_label": "",
+      "selection": []
+    },
     {
       "id": "1795186529585",
       "titre": "La chronique de Siméon, stagiaire à L'esprit Large : Maison Croâ Croâ",
