@@ -1,9 +1,9 @@
 {
-  "mis_a_jour": "2026-11-13T11:19:45",
+  "mis_a_jour": "2026-11-20T09:50:12",
   "total": 16453,
-  "en_stock": 11393,
+  "en_stock": 11397,
   "a_commander": 5056,
-  "a_enrichir": 4,
+  "a_enrichir": 0,
   "livres": [
     {
       "ean": "9782213736266",
@@ -1618,6 +1618,74 @@
       "prix": "19€",
       "couverture": "https://books.google.com/books/content?id=ihNlzgEACAAJ&printsec=frontcover&img=1&zoom=0&source=gbs_api",
       "stock": 1,
+      "statut": "en_stock"
+    },
+    {
+      "ean": "9782488486002",
+      "titre": "9782488486002",
+      "auteur": "",
+      "editeur": "",
+      "collection": "",
+      "annee": "",
+      "date_parution": "",
+      "pages": "",
+      "resume": "",
+      "genre": "",
+      "langue": "Français",
+      "prix": "",
+      "couverture": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABAAQMAAACQp+OdAAAAA1BMVEX///+nxBvIAAAAAXRSTlMAQObYZgAAAA9JREFUeNpjYBgFo4B8AAACQAAB4E0dRAAAAABJRU5ErkJggg==",
+      "stock": 2,
+      "statut": "en_stock"
+    },
+    {
+      "ean": "9782919440986",
+      "titre": "9782919440986",
+      "auteur": "",
+      "editeur": "",
+      "collection": "",
+      "annee": "",
+      "date_parution": "",
+      "pages": "",
+      "resume": "",
+      "genre": "",
+      "langue": "Français",
+      "prix": "",
+      "couverture": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABAAQMAAACQp+OdAAAAA1BMVEX///+nxBvIAAAAAXRSTlMAQObYZgAAAA9JREFUeNpjYBgFo4B8AAACQAAB4E0dRAAAAABJRU5ErkJggg==",
+      "stock": 2,
+      "statut": "en_stock"
+    },
+    {
+      "ean": "9782919440993",
+      "titre": "9782919440993",
+      "auteur": "",
+      "editeur": "",
+      "collection": "",
+      "annee": "",
+      "date_parution": "",
+      "pages": "",
+      "resume": "",
+      "genre": "",
+      "langue": "Français",
+      "prix": "",
+      "couverture": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABAAQMAAACQp+OdAAAAA1BMVEX///+nxBvIAAAAAXRSTlMAQObYZgAAAA9JREFUeNpjYBgFo4B8AAACQAAB4E0dRAAAAABJRU5ErkJggg==",
+      "stock": 2,
+      "statut": "en_stock"
+    },
+    {
+      "ean": "9791044800213",
+      "titre": "9791044800213",
+      "auteur": "",
+      "editeur": "",
+      "collection": "",
+      "annee": "",
+      "date_parution": "",
+      "pages": "",
+      "resume": "",
+      "genre": "",
+      "langue": "Français",
+      "prix": "",
+      "couverture": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABAAQMAAACQp+OdAAAAA1BMVEX///+nxBvIAAAAAXRSTlMAQObYZgAAAA9JREFUeNpjYBgFo4B8AAACQAAB4E0dRAAAAABJRU5ErkJggg==",
+      "stock": 8,
       "statut": "en_stock"
     },
     {
@@ -6834,7 +6902,7 @@
       "resume": "",
       "genre": "BD - Adultes",
       "langue": "Français",
-      "prix": "17.95€",
+      "prix": "17.01€",
       "couverture": "https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/images/catalogue/9782808216326-1793281586812.png",
       "stock": 1,
       "statut": "en_stock"
@@ -9460,7 +9528,7 @@
     {
       "ean": "9782810200580",
       "titre": "AU NOM DE CATHERINE",
-      "auteur": "Goust, Billet",
+      "auteur": "Mayalen Goust, Mayalen Goust",
       "editeur": "RUE DE SEVRES",
       "collection": "CollectionBandes Dessinee",
       "annee": "2023",
@@ -10880,7 +10948,7 @@
       "resume": "",
       "genre": "Essais - Écologie",
       "langue": "Français",
-      "prix": "24.50€",
+      "prix": "23.22€",
       "couverture": "https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/images/catalogue/9782021588385-1793285919036.png",
       "stock": 1,
       "statut": "en_stock"
@@ -11551,7 +11619,7 @@
     {
       "ean": "9782344056462",
       "titre": "BALLE AU PIED - TOME 01",
-      "auteur": "Lylian",
+      "auteur": "Lylian, lesdeuxpareilles",
       "editeur": "GLENAT",
       "collection": "",
       "annee": "2024",
@@ -12911,7 +12979,7 @@
     {
       "ean": "9791027614769",
       "titre": "BIBBI JOUE AU BALLON",
-      "auteur": "OLSSON INGRID / RAMEL CHARLOTT",
+      "auteur": "Ingrid Olsson, Charlotte Ramel",
       "editeur": "TOURBILLON",
       "collection": "",
       "annee": "",
@@ -13515,7 +13583,7 @@
       "resume": "",
       "genre": "Essais - Écologie",
       "langue": "Français",
-      "prix": "21.50€",
+      "prix": "20.38€",
       "couverture": "https://couverture.geobib.fr/api/v1/9782021603521/large",
       "stock": 1,
       "statut": "en_stock"
@@ -16405,7 +16473,7 @@
       "resume": "La dix-neuvième enquête du commissaire Brunetti Pas de repos pour le commissaire Brunetti en cet été caniculaire. Pendant que sa famille profite de la fraîcheur des montagnes, Brusca, son ami d'enfance, vient lui demander son aide. Il y aurait des cas de corruption au tribunal de Venise et une juge y serait mêlée. Pour Brunetti, c'est une occasion de plus de s'opposer à sa hiérarchie, peu pressée d'enquêter au sein du système judiciaire de la Sérénissime. Évidemment, des notables sont impliqués dans cette affaire, mais aussi dans l'enquête officieuse qu'il mène en parallèle avec l'inspecteur Vianello. La tante de ce dernier, vieille dame crédule, obsédée par les horoscopes, divinations et prédictions en tous genres, retire de grosses sommes d'argent : est-elle victime d'un gourou peu scrup",
       "genre": "Poche - Policiers",
       "langue": "fr",
-      "prix": "8.95€",
+      "prix": "8.48€",
       "couverture": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1721618334i/211082936.jpg",
       "stock": 1,
       "statut": "en_stock"
@@ -21666,7 +21734,7 @@
     {
       "ean": "9782344068458",
       "titre": "CHAGRIN",
-      "auteur": "Non Renseigné",
+      "auteur": "Rodolphe, Griffo",
       "editeur": "GLENAT",
       "collection": "Collection Hors Collection",
       "annee": "2026",
@@ -23424,7 +23492,7 @@
       "date_parution": "20/08/2026",
       "pages": "",
       "resume": "",
-      "genre": "BD - Adultes",
+      "genre": "Littérature - Littérature française",
       "langue": "Français",
       "prix": "19€",
       "couverture": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABAAQMAAACQp+OdAAAAA1BMVEX///+nxBvIAAAAAXRSTlMAQObYZgAAAA9JREFUeNpjYBgFo4B8AAACQAAB4E0dRAAAAABJRU5ErkJggg==",
@@ -32912,7 +32980,7 @@
       "resume": "",
       "genre": "Jeunesse - Albums",
       "langue": "fr",
-      "prix": "13€",
+      "prix": "14€",
       "couverture": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1730954141i/219272256.jpg",
       "stock": 1,
       "statut": "en_stock"
@@ -34093,7 +34161,7 @@
     {
       "ean": "9791035207755",
       "titre": "DES SIÈCLES ET DES SIÈCLES",
-      "auteur": "Christophe Honoré",
+      "auteur": "Christophe Honoré, le Gac Gwen",
       "editeur": "THIERRY MAGNIER",
       "collection": "CollectionAlbums Jeunesse",
       "annee": "2024",
@@ -34323,7 +34391,7 @@
       "resume": "PrésentationIcône solitaire et visionnaire, Éric Tabarly n’a cessé de repousser les limites de la mer, du vent et des hommes. À travers une mise en page immersive qui donne toute sa force à l’image, ce Mook retrace l’odyssée d’un marin hors du commun. Du pont du Pen Duick aux embruns du grand large, plongez dans l’univers d’un homme libre, discret et farouche, qui a marqué l’histoire de la voile bien au-delà des océans.",
       "genre": "Mer - Beaux livres",
       "langue": "Français",
-      "prix": "14.90€",
+      "prix": "14.12€",
       "couverture": "https://products-images.di-static.com/image/mds-destin-n-1-tabarly/9782737392757-475x500-1.webp",
       "stock": 1,
       "statut": "en_stock"
@@ -47523,7 +47591,7 @@
     {
       "ean": "9782264086426",
       "titre": "GALETTE AU MIEL",
-      "auteur": "Haruki Murakami",
+      "auteur": "Haruki Murakami, Kat Menschik",
       "editeur": "10 X 18",
       "collection": "",
       "annee": "2025",
@@ -51629,7 +51697,7 @@
       "resume": "PrésentationHistoire de la Bretagne et des Bretons2. Des Lumières au XXIe siècleDans ce livre somme, Joël Cornette, Breton et historien, retrace l’aventure mouvementée d’un territoire singulier, depuis ses plus lointaines origines jusqu’à l’aube du XXIe siècle. Des menhirs de Carnac à la « révolution verte » de l’agriculture, en passant par l’ère viking et les effervescences de 1789, il mêle la grande à la petite histoire, les personnages illustres à la foule des bretons anonymes, et traite des ",
       "genre": "Régionalisme - Littérature",
       "langue": "fr",
-      "prix": "14.60€",
+      "prix": "13.84€",
       "couverture": "https://couverture.geobib.fr/api/v1/9782757852491/large",
       "stock": 1,
       "statut": "en_stock"
@@ -52853,7 +52921,7 @@
       "resume": "",
       "genre": "Essais - Sciences humaines",
       "langue": "Français",
-      "prix": "24.50€",
+      "prix": "23.22€",
       "couverture": "https://couverture.geobib.fr/api/v1/9782021619713/large",
       "stock": 1,
       "statut": "en_stock"
@@ -60860,7 +60928,7 @@
       "resume": "",
       "genre": "Littérature - Littérature étrangère",
       "langue": "Français",
-      "prix": "22€",
+      "prix": "20.85€",
       "couverture": "https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/images/catalogue/9791040126157-1793279229345.png",
       "stock": 2,
       "statut": "en_stock"
@@ -65059,7 +65127,7 @@
       "resume": "",
       "genre": "Poche - Divers",
       "langue": "Français",
-      "prix": "12.50€",
+      "prix": "11.85€",
       "couverture": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1752033747i/236118139.jpg",
       "stock": 2,
       "statut": "en_stock"
@@ -67099,7 +67167,7 @@
       "resume": "",
       "genre": "Jeunesse - Albums",
       "langue": "fr",
-      "prix": "20€",
+      "prix": "22€",
       "couverture": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1689153883i/55367196.jpg",
       "stock": 1,
       "statut": "en_stock"
@@ -69207,7 +69275,7 @@
       "resume": "",
       "genre": "Poche - Littérature",
       "langue": "fr",
-      "prix": "7.90€",
+      "prix": "7.49€",
       "couverture": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1677894093i/72598164.jpg",
       "stock": 1,
       "statut": "en_stock"
@@ -74018,7 +74086,7 @@
       "resume": "PrésentationUne magnifique Bible reliée, avec une tranche dorée, avec la très belle traduction officielle liturgique, en texte intégral.Un beau cadeau de baptême, de profession de foi ou de confirmation.",
       "genre": "Essais - Religions",
       "langue": "Français",
-      "prix": "35€",
+      "prix": "33.18€",
       "couverture": "https://couverture.geobib.fr/api/v1/9782728935765/large",
       "stock": 1,
       "statut": "en_stock"
@@ -76355,7 +76423,7 @@
     {
       "ean": "9782355045516",
       "titre": "LA COUR COULEURS - ANTHOLOGIE DE POEMES CONTRE LE RACISME",
-      "auteur": "Henry, Zau",
+      "auteur": "Jean-Marie HENRY, Zaü",
       "editeur": "RUE DU MONDE",
       "collection": "La poésie",
       "annee": "2019",
@@ -76372,7 +76440,7 @@
     {
       "ean": "9782073151483",
       "titre": "LA COURONNE VERTE",
-      "auteur": "KASISCHKE LAURA / LEROY CÉLINE",
+      "auteur": "Laura Kasischke",
       "editeur": "FOLIO",
       "collection": "",
       "annee": "",
@@ -84651,7 +84719,7 @@
     {
       "ean": "9782075212946",
       "titre": "LA NATURE EN ÉQUILIBRE",
-      "auteur": "Sharon Wismer",
+      "auteur": "Sharon Wismer, Po Terri",
       "editeur": "GALLIMARD JEUNE",
       "collection": "CollectionAlbums documentaires",
       "annee": "2025",
@@ -84752,7 +84820,7 @@
     },
     {
       "ean": "9782488813075",
-      "titre": "LA NOUVELLE",
+      "titre": "LA NOUVELLE - TOME 1 - LA BD JEUNESSE BEST SELLER DÈS 10 ANS SUR L'ADOLESCENCE, L'AMITIÉ, LA PUBERTÉ",
       "auteur": "Cassandra Calin",
       "editeur": "LA DOUX",
       "collection": "",
@@ -85357,7 +85425,7 @@
       "resume": "",
       "genre": "Essais - Sciences humaines",
       "langue": "fr",
-      "prix": "11.90€",
+      "prix": "11.28€",
       "couverture": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1753847920i/231149542.jpg",
       "stock": 1,
       "statut": "en_stock"
@@ -92301,7 +92369,7 @@
     {
       "ean": "9782413087212",
       "titre": "LAÏCITÉ : COMMENT LA LOI DE 1905 FUT VOTÉE",
-      "auteur": "Arnaud Bureau",
+      "auteur": "Arnaud Bureau, Alexandre Franc",
       "editeur": "DELCOURT",
       "collection": "Encrages",
       "annee": "2025",
@@ -92760,7 +92828,7 @@
     {
       "ean": "9782372875394",
       "titre": "LE BLEU DU MAGICIEN T02 - PSAUME 108 THE ANCIENT MAGUS BRIDE",
-      "auteur": "Tsukumo Isuo",
+      "auteur": "Makoto Sanda, Tsukumo Isuo",
       "editeur": "KOMIKKU EDTS",
       "collection": "",
       "annee": "2020",
@@ -99093,7 +99161,7 @@
       "resume": "",
       "genre": "Cuisine - Recettes",
       "langue": "Français",
-      "prix": "21€",
+      "prix": "19.91€",
       "couverture": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQOjpESzJlE2_eKHDOicfK6TALHsrluNIOmnPXjFidCZHuvpmHl31kScTD7X6bAsopnmeN_Sqeih4XIvvMdpuCjAaYt2Gjz_GdVmUW8yB0_bHos34YhYatO",
       "stock": 1,
       "statut": "en_stock"
@@ -99781,7 +99849,7 @@
     {
       "ean": "9782487905184",
       "titre": "LE GÉOMÈTRE LOBACHEVSKI",
-      "auteur": "Adrian Duncan, Marie Hermet",
+      "auteur": "Adrian DUNCAN",
       "editeur": "GRANDS VENTS",
       "collection": "",
       "annee": "2026",
@@ -101889,7 +101957,7 @@
     {
       "ean": "9782228929233",
       "titre": "LE LÉOPARD DE KUBILAI KHAN",
-      "auteur": "Timothy Brook, Odile Demange",
+      "auteur": "Timothy Brook",
       "editeur": "PAYOT",
       "collection": "",
       "annee": "2021",
@@ -107566,7 +107634,7 @@
     },
     {
       "ean": "9782381962313",
-      "titre": "LE ROI D’ATTOLIE",
+      "titre": "LE ROI D’ATTOLIE - LE VOLEUR DE LA REINE TOME 3",
       "auteur": "Megan Whalen Turner",
       "editeur": "LOUVERTURE",
       "collection": "CollectionMonsieur Toussaint Laventure",
@@ -114189,7 +114257,7 @@
       "resume": "PrésentationPrintemps 1945. Juché sur sa bicyclette, Louis, jeune lycéen prometteur, parcourt Paris libéré depuis peu, passant de ses révisions pour le baccalauréat à son travail au cinéma Pax.Jusqu’à ce jour du 22 mai, où il aperçoit le visage d’une jeune fille, assise dans un des nombreux bus qui se rendent à l’hôtel Lutetia où transitent les rescapés des camps de concentration nazis.Les douze jours qui suivront changeront sa vie.Louis s’engage comme bénévole et s’occupe des « revenants ». Il ",
       "genre": "BD - Adultes",
       "langue": "fr",
-      "prix": "23€",
+      "prix": "21.80€",
       "couverture": "https://couverture.geobib.fr/api/v1/9782505120001/large",
       "stock": 1,
       "statut": "en_stock"
@@ -117470,7 +117538,7 @@
       "resume": "À quoi sert une fusée et comment ça marche ? Pourquoi envoie-t-on des satellites et des hommes dans l'espace ? Quelles sont les premières fusées et celles de demain ? Autant de questions auxquelles cette Grande imagerie tente de répondre ! Pour les fans d'astronomie qui ont la tête dans les étoiles !",
       "genre": "Jeunesse - Documentaires",
       "langue": "Français",
-      "prix": "8.95€",
+      "prix": "8.48€",
       "couverture": "https://products-images.di-static.com/image/mouriaux-pierre-francois-les-fusees/9782215199687-475x500-1.webp",
       "stock": 1,
       "statut": "en_stock"
@@ -119731,7 +119799,7 @@
       "resume": "",
       "genre": "Essais - Politique",
       "langue": "fr",
-      "prix": "6.90€",
+      "prix": "6.54€",
       "couverture": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1759031570i/242085990.jpg",
       "stock": 1,
       "statut": "en_stock"
@@ -120028,7 +120096,7 @@
     {
       "ean": "9782743663391",
       "titre": "LES MORTS D'AVRIL",
-      "auteur": "Alan Parks, Olivier Deparis",
+      "auteur": "Alan Parks",
       "editeur": "RIVAGES",
       "collection": "",
       "annee": "2024",
@@ -123488,7 +123556,7 @@
       "resume": "Présentation« Un des textes les plus émouvants de cette rentrée littéraire. » RTLUn fils apprend le décès de son père. Ils s’étaient éloignés ; un malentendu, des non-dits, et la distance était devenue infranchissable. Le fils revient à Trappes, le quartier de son enfance, pour vider l’appartement. Il y découvre une enveloppe de cassettes audio, chacune datée et portant un nom de lieu. Son père y raconte sa vie en France, année après année. Notre narrateur décide de partir sur les traces de ce t",
       "genre": "Poche - Littérature",
       "langue": "Français",
-      "prix": "6.95€",
+      "prix": "6.59€",
       "couverture": "https://couverture.geobib.fr/api/v1/9791041414062/large",
       "stock": 1,
       "statut": "en_stock"
@@ -124149,7 +124217,7 @@
       "date_parution": "03/09/2026",
       "pages": "",
       "resume": "",
-      "genre": "BD - Jeunesse",
+      "genre": "Jeunesse - Documentaires",
       "langue": "Français",
       "prix": "15.90€",
       "couverture": "https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/images/catalogue/9791037517173-1793279203738.png",
@@ -132991,7 +133059,7 @@
       "resume": "",
       "genre": "BD - Adultes",
       "langue": "Français",
-      "prix": "23.50€",
+      "prix": "22.27€",
       "couverture": "https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/images/catalogue/9782205215250-1793197048554.png",
       "stock": 1,
       "statut": "en_stock"
@@ -141083,7 +141151,7 @@
       "resume": "",
       "genre": "BD - Adultes",
       "langue": "Français",
-      "prix": "49€",
+      "prix": "46.45€",
       "couverture": "https://couverture.geobib.fr/api/v1/9782808500487/large",
       "stock": 2,
       "statut": "en_stock"
@@ -142358,7 +142426,7 @@
       "resume": "",
       "genre": "Littérature - Littérature étrangère",
       "langue": "Français",
-      "prix": "21.90€",
+      "prix": "20.76€",
       "couverture": "https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/images/catalogue/9782021624861-1793279674136.png",
       "stock": 2,
       "statut": "en_stock"
@@ -144168,7 +144236,7 @@
     {
       "ean": "9782264087911",
       "titre": "NOUS SERONS TEMPÊTE",
-      "auteur": "WARD JESMYN / RECOURSÉ CHARLES",
+      "auteur": "Ward Jesmyn",
       "editeur": "10 X 18",
       "collection": "",
       "annee": "",
@@ -144823,7 +144891,7 @@
       "resume": "",
       "genre": "Jeunesse - Divers",
       "langue": "fr",
-      "prix": "10.90€",
+      "prix": "9.08€",
       "couverture": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1725679049i/218573926.jpg",
       "stock": 1,
       "statut": "en_stock"
@@ -150365,7 +150433,7 @@
       "resume": "",
       "genre": "Poche - Littérature",
       "langue": "Français",
-      "prix": "6.95€",
+      "prix": "6.59€",
       "couverture": "https://covers.openlibrary.org/b/id/13639444-L.jpg",
       "stock": 1,
       "statut": "en_stock"
@@ -155048,7 +155116,7 @@
     {
       "ean": "9791036372803",
       "titre": "PORTRAIT AU COUTEAU",
-      "auteur": "Malika Ferdjoukh",
+      "auteur": "Malika Ferdjoukh, Aline Bureau",
       "editeur": "BAYARD JEUNESSE",
       "collection": "CollectionLes Essentiels",
       "annee": "2026",
@@ -159273,7 +159341,7 @@
       "resume": "",
       "genre": "Essais - Société",
       "langue": "fr",
-      "prix": "9.90€",
+      "prix": "9.38€",
       "couverture": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1739854037i/219271241.jpg",
       "stock": 1,
       "statut": "en_stock"
@@ -180734,7 +180802,7 @@
     },
     {
       "ean": "9782381962597",
-      "titre": "UN COMPLOT DE ROIS",
+      "titre": "UN COMPLOT DE ROIS - LE VOLEUR DE LA REINE TOME 4",
       "auteur": "Megan WHALEN TURNER",
       "editeur": "LOUVERTURE",
       "collection": "",
@@ -181517,7 +181585,7 @@
     {
       "ean": "9782369121169",
       "titre": "UN JOUR LE SOIR",
-      "auteur": "Giacomo Nanni",
+      "auteur": "Giacomo Nani",
       "editeur": "ICI MEME",
       "collection": "",
       "annee": "2023",
@@ -189677,7 +189745,7 @@
     {
       "ean": "9791040124795",
       "titre": "VÅGOR",
-      "auteur": "Ulf Kvensler, Rémi Cassaigne",
+      "auteur": "Ulf Kvensler",
       "editeur": "MARTINIERE BL",
       "collection": "",
       "annee": "2026",
@@ -190604,7 +190672,7 @@
       "resume": "Un solide gaillard aux allures de baroudeur se retrouve sans nom, sans passé, sans souvenir, dans un lieu inconnu. Son seul début d'indice pour découvrir son identité est un chiffre, XIII, qu'il porte en tatouage. Sa position est d'autant plus inconfortable qu'une bande de tueurs est à ses trousses. De plus, il découvre que de hautes personnalités civiles et militaires s'intéressent à lui. Ce récit d'espionnage a pour cadre un pays moderne non précisé, mais qui ressemble fort aux Etats-Unis. La longue traque se poursuit d'un album à l'autre et Jean Van Hamme distille peu à peu les informations sur le passé du héros, qui semble lié à l'histoire récente de son pays. Le scénario, qui mêle aventure et fiction à l'histoire de ces vingt dernières années, est mis en image par William Vance. Son t",
       "genre": "BD - Adultes",
       "langue": "fr",
-      "prix": "14€",
+      "prix": "13.27€",
       "couverture": "https://covers.openlibrary.org/b/id/10648722-L.jpg",
       "stock": 1,
       "statut": "en_stock"
@@ -279637,74 +279705,6 @@
       "couverture": "https://covers.openlibrary.org/b/id/2136183-L.jpg",
       "stock": 0,
       "statut": "a_commander"
-    },
-    {
-      "ean": "9782488486002",
-      "titre": "[A enrichir — 9782488486002]",
-      "auteur": "",
-      "editeur": "",
-      "collection": "",
-      "annee": "",
-      "date_parution": "",
-      "pages": "",
-      "resume": "",
-      "genre": "",
-      "langue": "Français",
-      "prix": "18€",
-      "couverture": "https://couverture.geobib.fr/api/v1/9782488486002/large",
-      "stock": 2,
-      "statut": "a_enrichir"
-    },
-    {
-      "ean": "9782919440986",
-      "titre": "[A enrichir — 9782919440986]",
-      "auteur": "",
-      "editeur": "",
-      "collection": "",
-      "annee": "",
-      "date_parution": "",
-      "pages": "",
-      "resume": "",
-      "genre": "",
-      "langue": "Français",
-      "prix": "32€",
-      "couverture": "https://couverture.geobib.fr/api/v1/9782919440986/large",
-      "stock": 2,
-      "statut": "a_enrichir"
-    },
-    {
-      "ean": "9782919440993",
-      "titre": "[A enrichir — 9782919440993]",
-      "auteur": "",
-      "editeur": "",
-      "collection": "",
-      "annee": "",
-      "date_parution": "",
-      "pages": "",
-      "resume": "",
-      "genre": "",
-      "langue": "Français",
-      "prix": "30€",
-      "couverture": "https://couverture.geobib.fr/api/v1/9782919440993/large",
-      "stock": 2,
-      "statut": "a_enrichir"
-    },
-    {
-      "ean": "9791044800213",
-      "titre": "[A enrichir — 9791044800213]",
-      "auteur": "",
-      "editeur": "",
-      "collection": "",
-      "annee": "",
-      "date_parution": "",
-      "pages": "",
-      "resume": "",
-      "genre": "",
-      "langue": "Français",
-      "prix": "36€",
-      "couverture": "https://couverture.geobib.fr/api/v1/9791044800213/large",
-      "stock": 8,
-      "statut": "a_enrichir"
     }
   ]
 }
