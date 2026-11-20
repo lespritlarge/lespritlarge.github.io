@@ -173981,9 +173981,10 @@
       "genre": "BD - Adultes",
       "langue": "Français",
       "prix": "32.90€",
-      "couverture": "https://couverture.geobib.fr/api/v1/9782387250087/large",
+      "couverture": "https://images.centprod.com/3026900001000/66yE0fMOp2wQS6ZYC_42TOpnuTPPnivI3Yr4q_0VYASJX0h4ioKYQQ-cover-large.jpg",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782384061587",
