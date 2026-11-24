@@ -1127,10 +1127,11 @@
       "genre": "Jeunesse - Albums",
       "langue": "Français",
       "prix": "26.90€",
-      "couverture": "",
+      "couverture": "https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/images/catalogue/3127020509621-1795521087356.png",
       "stock": 3,
       "statut": "en_stock",
-      "date_ajout": "2026-11-24"
+      "date_ajout": "2026-11-24",
+      "edite_manuellement": true
     },
     {
       "ean": "9782809717273",
@@ -1264,9 +1265,10 @@
       "genre": "Cuisine - Essai",
       "langue": "Français",
       "prix": "20€",
-      "couverture": "https://couverture.geobib.fr/api/v1/9782917008782/large",
+      "couverture": "https://images.centprod.com/3026900001000/66yE0fMOp2xyl03ZuCAH6zRh0N4idps5zHpf0k8dUVWaCUrp5Y2iEg-cover-large.jpg",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9791093860701",
@@ -1485,9 +1487,10 @@
       "genre": "Jeunesse - Romans",
       "langue": "Français",
       "prix": "15.90€",
-      "couverture": "https://couverture.geobib.fr/api/v1/9782075173148/large",
+      "couverture": "https://images.centprod.com/3026900001000/66yE0fMOp2xbP5rHFwePH9paXEoAy9jHv5t145YM13zmK9P-eEJ5sw-cover-large.jpg",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782073123633",
@@ -2199,9 +2202,10 @@
       "genre": "Littérature - Littérature étrangère",
       "langue": "Français",
       "prix": "22€",
-      "couverture": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1760070372i/242564227.jpg",
+      "couverture": "https://images.centprod.com/3026900001000/66yE0fMOp2woKJxrCJWO2AV65sKFySOOzm7yLuXrn9mi7YKrFETfWA-cover-large.jpg",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782364684843",
@@ -2473,9 +2477,10 @@
       "genre": "Essais - Sciences humaines",
       "langue": "Français",
       "prix": "21.90€",
-      "couverture": "https://couverture.geobib.fr/api/v1/9782488335454/large",
+      "couverture": "https://images.centprod.com/3026900001000/66yE0fMOp2wHXCs7l6hjLkoArkj-Qjc7m8B0ytQ8QqgRU5C7w0BFag-cover-large.jpg",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782386291777",
@@ -73097,9 +73102,10 @@
       "genre": "BD - Jeunesse",
       "langue": "Français",
       "prix": "20€",
-      "couverture": "https://couverture.geobib.fr/api/v1/9782203296602/large",
+      "couverture": "https://images.centprod.com/3026900001000/66yE0fMOp2wPqiqH3PYDeoK9q30sPsgkkM7uH6Rp0Ftufe68tEIW_Q-cover-large.jpg",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782075187398",
@@ -86000,9 +86006,10 @@
       "genre": "Poche - Littérature",
       "langue": "Français",
       "prix": "8.70€",
-      "couverture": "https://couverture.geobib.fr/api/v1/9782253251798/large",
+      "couverture": "https://images.centprod.com/3026900001000/66yE0fMOp2xIP60Y7G2yOTqvzZKuCCMZIxpOwbLokGGDrDl5Tjc6Tw-cover-large.jpg",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782330191337",
@@ -125891,10 +125898,11 @@
       "genre": "Essais - Feminisme",
       "langue": "Français",
       "prix": "10.20€",
-      "couverture": "https://couverture.geobib.fr/api/v1/9791041424825/large",
+      "couverture": "https://images.centprod.com/3026900001000/66yE0fMOp2xrnXyD1fgM-p4hSjuUfpqPJ95aevpaOxoQ9btg3JNBGA-cover-large.jpg",
       "stock": 1,
       "statut": "en_stock",
-      "date_ajout": "2026-11-24"
+      "date_ajout": "2026-11-24",
+      "edite_manuellement": true
     },
     {
       "ean": "9782956525608",
