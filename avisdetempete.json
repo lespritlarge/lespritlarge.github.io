@@ -1,6 +1,11 @@
 {
-  "mis_a_jour": "2026-10-29T09:40:54.297Z",
+  "mis_a_jour": "2026-11-24T17:00:48.055Z",
   "numeros": [
+    {
+      "mois": "Novembre",
+      "annee": 2026,
+      "fichier": "AdT2026Novembre.png"
+    },
     {
       "mois": "Octobre",
       "annee": 2026,
