@@ -83097,9 +83097,10 @@
       "genre": "Mer - Littérature",
       "langue": "Français",
       "prix": "24€",
-      "couverture": "https://couverture.geobib.fr/api/v1/9791040408635/large",
+      "couverture": "https://images.centprod.com/3026900001000/66yE0fMOp2yoSLxi-0s5Y5bumDH_SMx7SCFSkRVMa-IdN1hQtSmqRg-cover-large.jpg",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782386691096",
@@ -88426,9 +88427,10 @@
       "genre": "BD - Adultes",
       "langue": "Français",
       "prix": "14€",
-      "couverture": "https://couverture.geobib.fr/api/v1/9782205216196/large",
+      "couverture": "https://images.centprod.com/3026900001000/66yE0fMOp2woDkThKJhNfwMkfqmeTmEWRJlQEXYDJsLl11SDp_-cZQ-cover-large.jpg",
       "stock": 5,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782021499544",
@@ -88439,13 +88441,14 @@
       "annee": "2023",
       "date_parution": "2023",
       "pages": "0",
-      "resume": "Notre agriculture ? Une industrie qui fonctionne au pétrole, aux engrais et aux pesticides. La campagne ? Une usine qui produit des « matières premières » végétales ou animales. À l'instar des sociétés industrielles dont il émane, ce système contribue au chaos climatique par la dégradation des écosystèmes, avec le soutien des politiques publiques. Contre ces méfaits, il faut une révolution agro-écologique, qui passe par la transition énergétique, l'agriculture durable, la diminution de l'alimentation carnée et la réhabilitation de l'agroforesterie. Un tel projet, dont on voit les prémices dans certains territoires, est la seule utopie réaliste. Il commande directement le contenu de nos assiettes, en quantité comme en qualité. Ce livre novateur offre un socle de pensée et d'action pour que ",
+      "resume": "Notre agriculture ? Une industrie qui fonctionne au pétrole, aux engrais et aux pesticides. La campagne ? Une usine qui produit des « matières premières » végétales ou animales. À l'instar des sociétés industrielles dont il émane, ce système contribue au chaos climatique par la dégradation des écosystèmes, avec le soutien des politiques publiques. Contre ces méfaits, il faut une révolution agro-écologique, qui passe par la transition énergétique, l'agriculture durable, la diminution de l'alimentation carnée et la réhabilitation de l'agroforesterie. Un tel projet, dont on voit les prémices dans certains territoires, est la seule utopie réaliste. Il commande directement le contenu de nos assiettes, en quantité comme en qualité. Ce livre novateur offre un socle de pensée et d'action pour que",
       "genre": "Essais - Écologie",
       "langue": "fr",
       "prix": "12.90€",
-      "couverture": "https://couverture.geobib.fr/api/v1/9782021499544/large",
+      "couverture": "https://images.centprod.com/3026900001000/66yE0fMOp2xq5Ae9dgA9qAT3-di0NTYlaLBGSzFPEnUdP0jfhPl8DA-cover-large.jpg",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782290378090",
@@ -236712,9 +236715,10 @@
       "genre": "",
       "langue": "Français",
       "prix": "",
-      "couverture": "https://couverture.geobib.fr/api/v1/9782807702684/large",
+      "couverture": "https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/images/catalogue/9782807702684-1795521254797.png",
       "stock": 0,
-      "statut": "a_commander"
+      "statut": "a_commander",
+      "edite_manuellement": true
     },
     {
       "ean": "9782226482983",
@@ -281592,9 +281596,10 @@
       "genre": "",
       "langue": "Français",
       "prix": "18.50€",
-      "couverture": "https://couverture.geobib.fr/api/v1/9791042727574/large",
+      "couverture": "https://images.centprod.com/3026900001000/66yE0fMOp2xwn7PXC4iPjlb-ciBKKOfX9ACVrEbOGTb7V6RIqcWGbA-cover-large.jpg",
       "stock": 0,
-      "statut": "a_commander"
+      "statut": "a_commander",
+      "edite_manuellement": true
     },
     {
       "ean": "9782386010583",
