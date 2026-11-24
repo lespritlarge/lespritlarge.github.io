@@ -214544,12 +214544,13 @@
       "date_parution": "2026-01",
       "pages": "",
       "resume": "",
-      "genre": "",
+      "genre": "Essais - Histoire",
       "langue": "Français",
-      "prix": "",
+      "prix": "10",
       "couverture": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1754799766i/239928851.jpg",
       "stock": 0,
-      "statut": "a_commander"
+      "statut": "a_commander",
+      "edite_manuellement": true
     },
     {
       "ean": "9788857524429",
@@ -220035,12 +220036,13 @@
       "date_parution": "2015-06",
       "pages": "420",
       "resume": "Vol. 3: Contre toute attente, Katniss a survécu une seconde fois aux Hunger Games. Mais le Capitole crie vengeance. Katniss doit payer les humiliations qu'elle lui a fait subir. Et le président Snow a été très clair : Katniss n'est pas la seule à risquer sa vie. Sa famille, ses amis et tous les anciens habitants du district Douze sont visés par la colère sanglante du pouvoir. Pour sauver les siens, Katniss doit redevenir le geai moqueur, le symbole de la rébellion. Quel que soit le prix à payer. [4e de couverture]",
-      "genre": "",
+      "genre": "Jeunesse - S.F. / Fantasy",
       "langue": "fr",
-      "prix": "",
+      "prix": "8.30",
       "couverture": "https://covers.openlibrary.org/b/id/12024279-L.jpg",
       "stock": 0,
-      "statut": "a_commander"
+      "statut": "a_commander",
+      "edite_manuellement": true
     },
     {
       "ean": "9782266260787",
@@ -221038,12 +221040,13 @@
       "date_parution": "2026",
       "pages": "576",
       "resume": "Présentation1788, VersaillesAcacia se voit endosser un rôle qu’elle aurait tout donné pour éviter : reine de France.Pour le peuple, elle incarne l’espoir d’un pays à bout de souffle. Pour la cour, celui d’une souveraine vouée à sécuriser le trône. Or, la jeune mariée se révèle tout sauf docile : frivole, imprévisible et un brin rebelle, loin de l'exemplarité attendue d'elle. Elle fascine autant qu’elle scandalise.Son époux, Alexandre d’Arc du Lys, est détesté par tous ses sujets.Devenu roi par d",
-      "genre": "",
+      "genre": "Jeunesse - New romance",
       "langue": "Français",
       "prix": "19.90€",
       "couverture": "https://couverture.geobib.fr/api/v1/9791042902001/large",
       "stock": 0,
-      "statut": "a_commander"
+      "statut": "a_commander",
+      "edite_manuellement": true
     },
     {
       "ean": "9782743668846",
@@ -236695,12 +236698,13 @@
       "date_parution": "2019-08",
       "pages": "224",
       "resume": "\"Sa robe caresse le sol. A cet instant, nous sommes comme les pierres des voûtes, immobiles et sans souffle. Mais ce qui raidit mes frères, ce n'est pas l'indifférence, car ils sont habitués à ne pas être regardés ; ni non plus la solennité de l'entretien - tout ce qui touche à Aliénor est solennel. Non, ce qui nous fige, à cet instant-là, c'est sa voix. Car c'est d'une voix douce, pleine de menaces, que ma mère ordonne d'aller renverser notre père\". En 1173, Aliénor d'Aquitaine pousse trois de ses enfants à la rébellion contre le roi d'Angleterre, son époux. La voici racontée par son fils, Richard Coeur de Lion, dans une oeuvre pétrie de poésie et de cruauté. Un regard qui révèle deux personnages pleins d'amour, d'honneur et de violence et tiraillés par leurs passions - ambition, haine, l",
-      "genre": "",
+      "genre": "Poche - Littérature",
       "langue": "fr",
-      "prix": "",
+      "prix": "8.40",
       "couverture": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1563792630l/49952706.jpg",
       "stock": 0,
-      "statut": "a_commander"
+      "statut": "a_commander",
+      "edite_manuellement": true
     },
     {
       "ean": "9782807702684",
@@ -236712,7 +236716,7 @@
       "date_parution": "2026",
       "pages": "32",
       "resume": "PrésentationÊtre condamné à n’apparaître qu’à la dernière page, est-ce vraiment un rôle de héros ? Les princes charmants en ont assez! Ils décident de changer les règles et d’échanger leur place avec les princesses. Mais vivre la vie de château, ce n’est pas toujours de tout repos…",
-      "genre": "",
+      "genre": "Jeunesse - Albums",
       "langue": "Français",
       "prix": "",
       "couverture": "https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/images/catalogue/9782807702684-1795521254797.png",
