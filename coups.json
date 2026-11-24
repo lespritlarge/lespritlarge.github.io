@@ -1,5 +1,5 @@
 {
-  "mis_a_jour": "2026-11-20T15:12:11.432Z",
+  "mis_a_jour": "2026-11-24T12:26:34.490Z",
   "coups": [
     {
       "ean": "9791040806493",
@@ -256,6 +256,15 @@
       "citation": "Une belle histoire fantastique",
       "libraire": "Siméon",
       "categorie": "BD"
+    },
+    {
+      "ean": "9782494900080",
+      "titre": "LE CERCLE DES PROFESSIONNELS DE L'INUTILE",
+      "auteur": "Marie Klimis",
+      "couverture": "https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/images/catalogue/9782494900080-1795520916266.png",
+      "citation": "Venez découvrir ces professionnels de l'inutile qui construisent la beauté du monde... Un très beau roman.",
+      "libraire": "Nadine",
+      "categorie": "Littérature"
     }
   ]
 }
