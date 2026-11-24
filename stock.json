@@ -69,9 +69,10 @@
       "genre": "",
       "langue": "Français",
       "prix": "7.58€",
-      "couverture": "https://couverture.geobib.fr/api/v1/9782956736325/large",
+      "couverture": "https://images.centprod.com/3026900001000/66yE0fMOp2yd4kOx4rGcndZ7va8I5g_uVFUxSU1j90T3F806-d3kRw-cover-large.jpg",
       "stock": 4,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9780698116450",
@@ -114564,9 +114565,10 @@
       "genre": "Littérature - Littérature française",
       "langue": "Français",
       "prix": "14€",
-      "couverture": "https://couverture.geobib.fr/api/v1/9782352122036/large",
+      "couverture": "https://images.centprod.com/3026900001000/66yE0fMOp2z_vGJwpBJXidEfQ85ZXX9ODcZIbTegxDEjeFMEty2bcQ-cover-large.jpg",
       "stock": 1,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9782266229487",
@@ -174540,9 +174542,10 @@
       "genre": "BD - Jeunesse",
       "langue": "Français",
       "prix": "13.50€",
-      "couverture": "https://couverture.geobib.fr/api/v1/9782413093411/large",
+      "couverture": "https://images.centprod.com/3026900001000/66yE0fMOp2w2XiRpi-n0hVjRit8wofiDe3OdubXbiDZkaK8qJ2bK3g-cover-large.jpg",
       "stock": 3,
-      "statut": "en_stock"
+      "statut": "en_stock",
+      "edite_manuellement": true
     },
     {
       "ean": "9780316371025",
