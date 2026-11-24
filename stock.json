@@ -1,5 +1,5 @@
 {
-  "mis_a_jour": "2026-11-20T09:50:12",
+  "mis_a_jour": "2026-11-24T09:52:34",
   "total": 16453,
   "en_stock": 11397,
   "a_commander": 5056,
@@ -69,10 +69,9 @@
       "genre": "",
       "langue": "Français",
       "prix": "7.58€",
-      "couverture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOQvPLfHXdSOFqSXRA22W_Y0Xv8dxN0WmLJeUr-WkCv7lcy4Lp5_yXNwGi&s=10",
+      "couverture": "https://couverture.geobib.fr/api/v1/9782956736325/large",
       "stock": 4,
-      "statut": "en_stock",
-      "edite_manuellement": true
+      "statut": "en_stock"
     },
     {
       "ean": "9780698116450",
@@ -1226,10 +1225,9 @@
       "genre": "Cuisine - Essai",
       "langue": "Français",
       "prix": "20€",
-      "couverture": "https://m.media-amazon.com/images/I/51GRiawk2pL._AC_SX148_SY213_QL70_.jpg",
+      "couverture": "https://couverture.geobib.fr/api/v1/9782917008782/large",
       "stock": 1,
-      "statut": "en_stock",
-      "edite_manuellement": true
+      "statut": "en_stock"
     },
     {
       "ean": "9791093860701",
@@ -1461,14 +1459,13 @@
       "annee": "2026",
       "date_parution": "2026",
       "pages": "256",
-      "resume": "Du mystère, de l'aventure et un soupçon de magie dans le Paris du XIXe siècle. Une nuit, dans le Paris de Victor Hugo, une longue silhouette de mauvais garçon dépose un paquet de linge sale au pied d'une statue, rue Mirabelle. Le paquet de linge sale est un bébé. Les commerçants se réunissent. Aucun n'a le coeur de l'emmener à l'orphelinat. Alors, c'est décidé, le bébé passera une année chez chacun des 7 commerçants : le crémier, le pharmacien, le primeur, le boulanger, le poisson",
+      "resume": "PrésentationDu mystère, de l'aventure et un soupçon de magie dans le Paris du XIXe siècle.<br>Une nuit, dans le Paris de Victor Hugo, une longue silhouette de mauvais garçon dépose un paquet de linge sale au pied d'une statue, rue Mirabelle. Le paquet de linge sale est un bébé. Les commerçants se réunissent. Aucun n'a le coeur de l'emmener à l'orphelinat. Alors, c'est décidé, le bébé passera une année chez chacun des 7 commerçants : le crémier, le pharmacien, le primeur, le boulanger, le poisson",
       "genre": "Jeunesse - Romans",
       "langue": "Français",
       "prix": "15.90€",
-      "couverture": "https://m.media-amazon.com/images/I/51r5FaKTQ9L._SX195_.jpg",
+      "couverture": "https://couverture.geobib.fr/api/v1/9782075173148/large",
       "stock": 1,
-      "statut": "en_stock",
-      "edite_manuellement": true
+      "statut": "en_stock"
     },
     {
       "ean": "9782073123633",
@@ -2044,10 +2041,9 @@
       "genre": "Jeunesse - Albums",
       "langue": "Français",
       "prix": "22€",
-      "couverture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKK_LI_KBC8X6rtSikOBlYBFJ6u-pxttWwrCo7f8Vda-vXPTTyvK2z6PAC&s=10",
+      "couverture": "https://couverture.geobib.fr/api/v1/9782913413368/large",
       "stock": 1,
-      "statut": "en_stock",
-      "edite_manuellement": true
+      "statut": "en_stock"
     },
     {
       "ean": "9782912667410",
@@ -5547,10 +5543,9 @@
       "genre": "BD - Adultes",
       "langue": "Français",
       "prix": "19.50€",
-      "couverture": "https://www.danielmaghen-editions.com/wp-content/uploads/2026/07/Couv-Ameriques-RVB-1-375x490.jpg",
+      "couverture": "",
       "stock": 1,
-      "statut": "en_stock",
-      "edite_manuellement": true
+      "statut": "en_stock"
     },
     {
       "ean": "9782205084900",
@@ -6907,7 +6902,7 @@
       "resume": "",
       "genre": "BD - Adultes",
       "langue": "Français",
-      "prix": "17.01€",
+      "prix": "17.95€",
       "couverture": "https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/images/catalogue/9782808216326-1793281586812.png",
       "stock": 1,
       "statut": "en_stock"
@@ -8523,10 +8518,9 @@
       "genre": "Essais - Société",
       "langue": "Français",
       "prix": "25€",
-      "couverture": "https://static.fnac-static.com/multimedia/PE/Images/FR/NR/4c/56/39/20534860/1507-1/tsp20261107081521/Atlas-des-curiosites-frontalieres.jpg",
+      "couverture": "",
       "stock": 1,
-      "statut": "en_stock",
-      "edite_manuellement": true
+      "statut": "en_stock"
     },
     {
       "ean": "9782746763036",
@@ -8847,10 +8841,9 @@
       "genre": "Jeunesse - Albums",
       "langue": "Français",
       "prix": "16.50€",
-      "couverture": "https://actualitte.com/uploads/images/9782931273333-475x500-1-6af9bbafbdddc799595459.jpg",
+      "couverture": "",
       "stock": 1,
-      "statut": "en_stock",
-      "edite_manuellement": true
+      "statut": "en_stock"
     },
     {
       "ean": "9782818055014",
@@ -9069,10 +9062,9 @@
       "genre": "Essais - Politique",
       "langue": "Français",
       "prix": "20€",
-      "couverture": "https://images.centprod.com/3026900001000/66yE0fMOp2zvGLbG_oNVXu0qTocNfRT4c-50VnNe9jkfm01iwMIoKA-cover-large.jpg",
+      "couverture": "",
       "stock": 1,
-      "statut": "en_stock",
-      "edite_manuellement": true
+      "statut": "en_stock"
     },
     {
       "ean": "9791091365123",
@@ -9223,10 +9215,9 @@
       "genre": "Littérature - Littérature étrangère",
       "langue": "Français",
       "prix": "24.90€",
-      "couverture": "https://images.centprod.com/3026900001000/66yE0fMOp2xwggiHEOE6Glrrv7Bclu_DZDlr4dQtbhQmub0jVzCm4w-cover-large.jpg",
+      "couverture": "",
       "stock": 2,
-      "statut": "en_stock",
-      "edite_manuellement": true
+      "statut": "en_stock"
     },
     {
       "ean": "9782808515245",
@@ -9894,7 +9885,7 @@
     {
       "ean": "9782330223953",
       "titre": "AU SOIR D'ALEXANDRIE",
-      "auteur": "EL ASWANY ALAA / GAUTHIER GILL",
+      "auteur": "El Aswany Alaa",
       "editeur": "ACTES SUD",
       "collection": "",
       "annee": "",
@@ -10957,7 +10948,7 @@
       "resume": "",
       "genre": "Essais - Écologie",
       "langue": "Français",
-      "prix": "23.22€",
+      "prix": "24.50€",
       "couverture": "https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/images/catalogue/9782021588385-1793285919036.png",
       "stock": 1,
       "statut": "en_stock"
@@ -11162,10 +11153,9 @@
       "genre": "Essais - Feminisme",
       "langue": "Français",
       "prix": "15€",
-      "couverture": "https://images.centprod.com/3026900001000/66yE0fMOp2zlcJu15GXR51Mo6pN5jr9IZwyZeQ2OQv-LlXoxSaUJvA-cover-large.jpg",
+      "couverture": "",
       "stock": 1,
-      "statut": "en_stock",
-      "edite_manuellement": true
+      "statut": "en_stock"
     },
     {
       "ean": "9782869598829",
@@ -12285,10 +12275,9 @@
       "genre": "BD - Jeunesse",
       "langue": "Français",
       "prix": "25.95€",
-      "couverture": "https://images.centprod.com/3026900001000/66yE0fMOp2xVrqVMyIyIAZhoEodybWjd7RL7oSY9WMTe5Z0ek8JOFg-cover-large.jpg",
+      "couverture": "",
       "stock": 1,
-      "statut": "en_stock",
-      "edite_manuellement": true
+      "statut": "en_stock"
     },
     {
       "ean": "9782487785069",
@@ -12643,10 +12632,9 @@
       "genre": "Littérature - Littérature française",
       "langue": "Français",
       "prix": "18€",
-      "couverture": "https://images.centprod.com/3026900001000/66yE0fMOp2yoZaPfXRQc6tsLnXlNUGOiZwdX4tg8oUDtO9a_9-7uYw-cover-large.jpg",
+      "couverture": "",
       "stock": 1,
-      "statut": "en_stock",
-      "edite_manuellement": true
+      "statut": "en_stock"
     },
     {
       "ean": "9782264047960",
@@ -13595,7 +13583,7 @@
       "resume": "",
       "genre": "Essais - Écologie",
       "langue": "Français",
-      "prix": "20.38€",
+      "prix": "21.50€",
       "couverture": "https://couverture.geobib.fr/api/v1/9782021603521/large",
       "stock": 1,
       "statut": "en_stock"
@@ -16485,7 +16473,7 @@
       "resume": "La dix-neuvième enquête du commissaire Brunetti Pas de repos pour le commissaire Brunetti en cet été caniculaire. Pendant que sa famille profite de la fraîcheur des montagnes, Brusca, son ami d'enfance, vient lui demander son aide. Il y aurait des cas de corruption au tribunal de Venise et une juge y serait mêlée. Pour Brunetti, c'est une occasion de plus de s'opposer à sa hiérarchie, peu pressée d'enquêter au sein du système judiciaire de la Sérénissime. Évidemment, des notables sont impliqués dans cette affaire, mais aussi dans l'enquête officieuse qu'il mène en parallèle avec l'inspecteur Vianello. La tante de ce dernier, vieille dame crédule, obsédée par les horoscopes, divinations et prédictions en tous genres, retire de grosses sommes d'argent : est-elle victime d'un gourou peu scrup",
       "genre": "Poche - Policiers",
       "langue": "fr",
-      "prix": "8.48€",
+      "prix": "8.95€",
       "couverture": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1721618334i/211082936.jpg",
       "stock": 1,
       "statut": "en_stock"
@@ -27706,10 +27694,9 @@
       "genre": "Régionalisme - Littérature",
       "langue": "Français",
       "prix": "12€",
-      "couverture": "https://images.epagine.fr/405/9782848090405_1_75.jpg",
+      "couverture": "https://couverture.geobib.fr/api/v1/9782848090405/large",
       "stock": 4,
-      "statut": "en_stock",
-      "edite_manuellement": true
+      "statut": "en_stock"
     },
     {
       "ean": "9782367731704",
@@ -34404,7 +34391,7 @@
       "resume": "PrésentationIcône solitaire et visionnaire, Éric Tabarly n’a cessé de repousser les limites de la mer, du vent et des hommes. À travers une mise en page immersive qui donne toute sa force à l’image, ce Mook retrace l’odyssée d’un marin hors du commun. Du pont du Pen Duick aux embruns du grand large, plongez dans l’univers d’un homme libre, discret et farouche, qui a marqué l’histoire de la voile bien au-delà des océans.",
       "genre": "Mer - Beaux livres",
       "langue": "Français",
-      "prix": "14.12€",
+      "prix": "14.90€",
       "couverture": "https://products-images.di-static.com/image/mds-destin-n-1-tabarly/9782737392757-475x500-1.webp",
       "stock": 1,
       "statut": "en_stock"
@@ -34770,7 +34757,7 @@
       "ean": "9782211069915",
       "titre": "DEUX JAMBES, DEUX PIEDS, MON OEIL",
       "auteur": "Monique Enckell",
-      "editeur": "EDL",
+      "editeur": "MEDIUM EDL",
       "collection": "",
       "annee": "2003",
       "date_parution": "",
@@ -49082,7 +49069,7 @@
     },
     {
       "ean": "9782919300570",
-      "titre": "GRANDMAMA",
+      "titre": "GRANDMAMA UK",
       "auteur": "Corinne Fleury",
       "editeur": "ATELIER NOMADES",
       "collection": "",
@@ -51422,10 +51409,9 @@
       "genre": "BD - Jeunesse",
       "langue": "fr",
       "prix": "13.50€",
-      "couverture": "https://images.epagine.fr/408/9782203300408_1_75.jpg",
+      "couverture": "https://books.google.com/books/content?id=XjCq0QEACAAJ&printsec=frontcover&img=1&zoom=0&source=gbs_api",
       "stock": 1,
-      "statut": "en_stock",
-      "edite_manuellement": true
+      "statut": "en_stock"
     },
     {
       "ean": "9782203302532",
@@ -51711,7 +51697,7 @@
       "resume": "PrésentationHistoire de la Bretagne et des Bretons2. Des Lumières au XXIe siècleDans ce livre somme, Joël Cornette, Breton et historien, retrace l’aventure mouvementée d’un territoire singulier, depuis ses plus lointaines origines jusqu’à l’aube du XXIe siècle. Des menhirs de Carnac à la « révolution verte » de l’agriculture, en passant par l’ère viking et les effervescences de 1789, il mêle la grande à la petite histoire, les personnages illustres à la foule des bretons anonymes, et traite des ",
       "genre": "Régionalisme - Littérature",
       "langue": "fr",
-      "prix": "13.84€",
+      "prix": "14.60€",
       "couverture": "https://couverture.geobib.fr/api/v1/9782757852491/large",
       "stock": 1,
       "statut": "en_stock"
@@ -52935,7 +52921,7 @@
       "resume": "",
       "genre": "Essais - Sciences humaines",
       "langue": "Français",
-      "prix": "23.22€",
+      "prix": "24.50€",
       "couverture": "https://couverture.geobib.fr/api/v1/9782021619713/large",
       "stock": 1,
       "statut": "en_stock"
@@ -60942,7 +60928,7 @@
       "resume": "",
       "genre": "Littérature - Littérature étrangère",
       "langue": "Français",
-      "prix": "20.85€",
+      "prix": "22€",
       "couverture": "https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/images/catalogue/9791040126157-1793279229345.png",
       "stock": 2,
       "statut": "en_stock"
@@ -63160,7 +63146,7 @@
     {
       "ean": "9782266355346",
       "titre": "L'ACADÉMIE - TOME 3 LE TOURNOI DES CHAMPIONS",
-      "auteur": "LAYTON T.Z. / KUNTZER BENJAMIN",
+      "auteur": "Layton T.Z.",
       "editeur": "POCKET JEUNESSE",
       "collection": "",
       "annee": "",
@@ -65141,7 +65127,7 @@
       "resume": "",
       "genre": "Poche - Divers",
       "langue": "Français",
-      "prix": "11.85€",
+      "prix": "12.50€",
       "couverture": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1752033747i/236118139.jpg",
       "stock": 2,
       "statut": "en_stock"
@@ -69289,7 +69275,7 @@
       "resume": "",
       "genre": "Poche - Littérature",
       "langue": "fr",
-      "prix": "7.49€",
+      "prix": "7.90€",
       "couverture": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1677894093i/72598164.jpg",
       "stock": 1,
       "statut": "en_stock"
@@ -72877,10 +72863,9 @@
       "genre": "BD - Jeunesse",
       "langue": "Français",
       "prix": "20€",
-      "couverture": "https://static.fnac-static.com/multimedia/PE/Images/FR/NR/0e/79/39/20543758/1507-1/tsp20261105095300/L-ete-de-Berenice.jpg",
+      "couverture": "https://couverture.geobib.fr/api/v1/9782203296602/large",
       "stock": 3,
-      "statut": "en_stock",
-      "edite_manuellement": true
+      "statut": "en_stock"
     },
     {
       "ean": "9782754834353",
@@ -74101,7 +74086,7 @@
       "resume": "PrésentationUne magnifique Bible reliée, avec une tranche dorée, avec la très belle traduction officielle liturgique, en texte intégral.Un beau cadeau de baptême, de profession de foi ou de confirmation.",
       "genre": "Essais - Religions",
       "langue": "Français",
-      "prix": "33.18€",
+      "prix": "35€",
       "couverture": "https://couverture.geobib.fr/api/v1/9782728935765/large",
       "stock": 1,
       "statut": "en_stock"
@@ -79669,7 +79654,7 @@
       "ean": "9782211201940",
       "titre": "LA FOULE, ELLE RIT",
       "auteur": "Jean-Pierre Cannet",
-      "editeur": "EDL",
+      "editeur": "MEDIUM EDL",
       "collection": "Théâtre",
       "annee": "2010",
       "date_parution": "",
@@ -83593,23 +83578,6 @@
       "statut": "en_stock"
     },
     {
-      "ean": "9782211211215",
-      "titre": "LA MERE NOEL",
-      "auteur": "Brisac, Butaud",
-      "editeur": "EDL",
-      "collection": "",
-      "annee": "2012",
-      "date_parution": "2012-11",
-      "pages": "46",
-      "resume": "Noël approche. Violette a des questions à poser sur les Rois mages, sur leurs étranges cadeaux, sur le père Noël. Elle les pose à sa maîtresse, mais Mme Krapish s'énerve. Elle les pose à ses marionnettes, mais elles restent muettes. Elle les pose à sa mère, mais elle ne l'écoute pas. Et la mère Noël ? Qui est-elle ? Que fait-elle ? Pourquoi personne ne parle d'elle ? Où habite-t-elle ? Chez le père Noël ? Violette veut des réponses et, si personne ne veut les lui donner, elle les trouvera.",
-      "genre": "Jeunesse - Théâtre",
-      "langue": "fr",
-      "prix": "7€",
-      "couverture": "https://covers.openlibrary.org/b/id/11081164-L.jpg",
-      "stock": 1,
-      "statut": "en_stock"
-    },
-    {
       "ean": "9782211223119",
       "titre": "LA MESSE ANNIVERSAIRE",
       "auteur": "Olivier Adam",
@@ -85440,7 +85408,7 @@
       "resume": "",
       "genre": "Essais - Sciences humaines",
       "langue": "fr",
-      "prix": "11.28€",
+      "prix": "11.90€",
       "couverture": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1753847920i/231149542.jpg",
       "stock": 1,
       "statut": "en_stock"
@@ -86036,10 +86004,9 @@
       "genre": "Poche - Littérature",
       "langue": "Français",
       "prix": "8.70€",
-      "couverture": "https://cdn.cultura.com/media/pim/12638483_image_type_product_shot_FOUR_non_TRANSCODE_1_FR_2c0a8",
+      "couverture": "https://couverture.geobib.fr/api/v1/9782253251798/large",
       "stock": 1,
-      "statut": "en_stock",
-      "edite_manuellement": true
+      "statut": "en_stock"
     },
     {
       "ean": "9782377173051",
@@ -88417,10 +88384,9 @@
       "genre": "BD - Adultes",
       "langue": "Français",
       "prix": "14€",
-      "couverture": "https://images.centprod.com/3026900001000/66yE0fMOp2woDkThKJhNfwMkfqmeTmEWRJlQEXYDJsLl11SDp_-cZQ-cover-large.jpg",
+      "couverture": "https://couverture.geobib.fr/api/v1/9782205216196/large",
       "stock": 5,
-      "statut": "en_stock",
-      "edite_manuellement": true
+      "statut": "en_stock"
     },
     {
       "ean": "9782021499544",
@@ -99178,7 +99144,7 @@
       "resume": "",
       "genre": "Cuisine - Recettes",
       "langue": "Français",
-      "prix": "19.91€",
+      "prix": "21€",
       "couverture": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQOjpESzJlE2_eKHDOicfK6TALHsrluNIOmnPXjFidCZHuvpmHl31kScTD7X6bAsopnmeN_Sqeih4XIvvMdpuCjAaYt2Gjz_GdVmUW8yB0_bHos34YhYatO",
       "stock": 1,
       "statut": "en_stock"
@@ -102987,10 +102953,9 @@
       "genre": "Essais - Histoire",
       "langue": "fr",
       "prix": "32.50€",
-      "couverture": "https://images.centprod.com/3026900001000/66yE0fMOp2x_yLA1nKuIf18wJpRxZyRv4JkT33CV1fwFFEEoTkMENQ-cover-large.jpg",
+      "couverture": "https://books.google.com/books/content?id=gEZxyHK3uF4C&printsec=frontcover&img=1&zoom=0&source=gbs_api",
       "stock": 1,
-      "statut": "en_stock",
-      "edite_manuellement": true
+      "statut": "en_stock"
     },
     {
       "ean": "9782889323661",
@@ -114275,7 +114240,7 @@
       "resume": "PrésentationPrintemps 1945. Juché sur sa bicyclette, Louis, jeune lycéen prometteur, parcourt Paris libéré depuis peu, passant de ses révisions pour le baccalauréat à son travail au cinéma Pax.Jusqu’à ce jour du 22 mai, où il aperçoit le visage d’une jeune fille, assise dans un des nombreux bus qui se rendent à l’hôtel Lutetia où transitent les rescapés des camps de concentration nazis.Les douze jours qui suivront changeront sa vie.Louis s’engage comme bénévole et s’occupe des « revenants ». Il ",
       "genre": "BD - Adultes",
       "langue": "fr",
-      "prix": "21.80€",
+      "prix": "23€",
       "couverture": "https://couverture.geobib.fr/api/v1/9782505120001/large",
       "stock": 1,
       "statut": "en_stock"
@@ -114599,10 +114564,9 @@
       "genre": "Littérature - Littérature française",
       "langue": "Français",
       "prix": "14€",
-      "couverture": "https://www.babelio.com/couv/CVT_Les-cinq-amies-lechappent-belle-in-extremis_7252.jpg",
+      "couverture": "https://couverture.geobib.fr/api/v1/9782352122036/large",
       "stock": 1,
-      "statut": "en_stock",
-      "edite_manuellement": true
+      "statut": "en_stock"
     },
     {
       "ean": "9782266229487",
@@ -117557,7 +117521,7 @@
       "resume": "À quoi sert une fusée et comment ça marche ? Pourquoi envoie-t-on des satellites et des hommes dans l'espace ? Quelles sont les premières fusées et celles de demain ? Autant de questions auxquelles cette Grande imagerie tente de répondre ! Pour les fans d'astronomie qui ont la tête dans les étoiles !",
       "genre": "Jeunesse - Documentaires",
       "langue": "Français",
-      "prix": "8.48€",
+      "prix": "8.95€",
       "couverture": "https://products-images.di-static.com/image/mouriaux-pierre-francois-les-fusees/9782215199687-475x500-1.webp",
       "stock": 1,
       "statut": "en_stock"
@@ -119818,7 +119782,7 @@
       "resume": "",
       "genre": "Essais - Politique",
       "langue": "fr",
-      "prix": "6.54€",
+      "prix": "6.90€",
       "couverture": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1759031570i/242085990.jpg",
       "stock": 1,
       "statut": "en_stock"
@@ -123575,7 +123539,7 @@
       "resume": "Présentation« Un des textes les plus émouvants de cette rentrée littéraire. » RTLUn fils apprend le décès de son père. Ils s’étaient éloignés ; un malentendu, des non-dits, et la distance était devenue infranchissable. Le fils revient à Trappes, le quartier de son enfance, pour vider l’appartement. Il y découvre une enveloppe de cassettes audio, chacune datée et portant un nom de lieu. Son père y raconte sa vie en France, année après année. Notre narrateur décide de partir sur les traces de ce t",
       "genre": "Poche - Littérature",
       "langue": "Français",
-      "prix": "6.59€",
+      "prix": "6.95€",
       "couverture": "https://couverture.geobib.fr/api/v1/9791041414062/large",
       "stock": 1,
       "statut": "en_stock"
@@ -126847,7 +126811,7 @@
     {
       "ean": "9791028126650",
       "titre": "LONG LONDON, T1  : LE GRAND QUAND",
-      "auteur": "Alan Moore, Christophe Claro",
+      "auteur": "Alan Moore, Nico Delort",
       "editeur": "BRAGELONNE",
       "collection": "",
       "annee": "",
@@ -133078,7 +133042,7 @@
       "resume": "",
       "genre": "BD - Adultes",
       "langue": "Français",
-      "prix": "22.27€",
+      "prix": "23.50€",
       "couverture": "https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/images/catalogue/9782205215250-1793197048554.png",
       "stock": 1,
       "statut": "en_stock"
@@ -140173,6 +140137,23 @@
       "statut": "en_stock"
     },
     {
+      "ean": "9782211211215",
+      "titre": "MÈRE NOËL (LA)",
+      "auteur": "Geneviève Brisac, Alice Butaud",
+      "editeur": "MEDIUM EDL",
+      "collection": "",
+      "annee": "2012",
+      "date_parution": "2012-11",
+      "pages": "46",
+      "resume": "Noël approche. Violette a des questions à poser sur les Rois mages, sur leurs étranges cadeaux, sur le père Noël. Elle les pose à sa maîtresse, mais Mme Krapish s'énerve. Elle les pose à ses marionnettes, mais elles restent muettes. Elle les pose à sa mère, mais elle ne l'écoute pas. Et la mère Noël ? Qui est-elle ? Que fait-elle ? Pourquoi personne ne parle d'elle ? Où habite-t-elle ? Chez le père Noël ? Violette veut des réponses et, si personne ne veut les lui donner, elle les trouvera.",
+      "genre": "Jeunesse - Théâtre",
+      "langue": "fr",
+      "prix": "7€",
+      "couverture": "https://covers.openlibrary.org/b/id/11081164-L.jpg",
+      "stock": 1,
+      "statut": "en_stock"
+    },
+    {
       "ean": "9782228936545",
       "titre": "MÈRES SOLOS",
       "auteur": "Johanna Luyssen",
@@ -141170,7 +141151,7 @@
       "resume": "",
       "genre": "BD - Adultes",
       "langue": "Français",
-      "prix": "46.45€",
+      "prix": "49€",
       "couverture": "https://couverture.geobib.fr/api/v1/9782808500487/large",
       "stock": 2,
       "statut": "en_stock"
@@ -142445,7 +142426,7 @@
       "resume": "",
       "genre": "Littérature - Littérature étrangère",
       "langue": "Français",
-      "prix": "20.76€",
+      "prix": "21.90€",
       "couverture": "https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/images/catalogue/9782021624861-1793279674136.png",
       "stock": 2,
       "statut": "en_stock"
@@ -144910,7 +144891,7 @@
       "resume": "",
       "genre": "Jeunesse - Divers",
       "langue": "fr",
-      "prix": "9.08€",
+      "prix": "10.90€",
       "couverture": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1725679049i/218573926.jpg",
       "stock": 1,
       "statut": "en_stock"
@@ -150452,7 +150433,7 @@
       "resume": "",
       "genre": "Poche - Littérature",
       "langue": "Français",
-      "prix": "6.59€",
+      "prix": "6.95€",
       "couverture": "https://covers.openlibrary.org/b/id/13639444-L.jpg",
       "stock": 1,
       "statut": "en_stock"
@@ -159360,7 +159341,7 @@
       "resume": "",
       "genre": "Essais - Société",
       "langue": "fr",
-      "prix": "9.38€",
+      "prix": "9.90€",
       "couverture": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1739854037i/219271241.jpg",
       "stock": 1,
       "statut": "en_stock"
@@ -173981,10 +173962,9 @@
       "genre": "BD - Adultes",
       "langue": "Français",
       "prix": "32.90€",
-      "couverture": "https://images.centprod.com/3026900001000/66yE0fMOp2wQS6ZYC_42TOpnuTPPnivI3Yr4q_0VYASJX0h4ioKYQQ-cover-large.jpg",
+      "couverture": "https://couverture.geobib.fr/api/v1/9782387250087/large",
       "stock": 1,
-      "statut": "en_stock",
-      "edite_manuellement": true
+      "statut": "en_stock"
     },
     {
       "ean": "9782384061587",
@@ -174560,10 +174540,9 @@
       "genre": "BD - Jeunesse",
       "langue": "Français",
       "prix": "13.50€",
-      "couverture": "https://leslibraires.b-cdn.net/agW9CEUBHnAV-4RsXj5jDAIDw4wN4qNGMA_R86UciS4/s:800:800/MTcwMDIzMTE.webp",
+      "couverture": "https://couverture.geobib.fr/api/v1/9782413093411/large",
       "stock": 3,
-      "statut": "en_stock",
-      "edite_manuellement": true
+      "statut": "en_stock"
     },
     {
       "ean": "9780316371025",
@@ -175198,7 +175177,7 @@
       "ean": "9782211069182",
       "titre": "THOMAS HAWK",
       "auteur": "Karin Serres",
-      "editeur": "EDL",
+      "editeur": "MEDIUM EDL",
       "collection": "",
       "annee": "2003",
       "date_parution": "",
@@ -188168,7 +188147,7 @@
     {
       "ean": "9782080486004",
       "titre": "VINGT MILLE LIEUES SOUS LES MERS",
-      "auteur": "Jules Verne",
+      "auteur": "Jules Verne, Alphonse Neuville",
       "editeur": "FLAMMARION",
       "collection": "",
       "annee": "2025",
@@ -190693,7 +190672,7 @@
       "resume": "Un solide gaillard aux allures de baroudeur se retrouve sans nom, sans passé, sans souvenir, dans un lieu inconnu. Son seul début d'indice pour découvrir son identité est un chiffre, XIII, qu'il porte en tatouage. Sa position est d'autant plus inconfortable qu'une bande de tueurs est à ses trousses. De plus, il découvre que de hautes personnalités civiles et militaires s'intéressent à lui. Ce récit d'espionnage a pour cadre un pays moderne non précisé, mais qui ressemble fort aux Etats-Unis. La longue traque se poursuit d'un album à l'autre et Jean Van Hamme distille peu à peu les informations sur le passé du héros, qui semble lié à l'histoire récente de son pays. Le scénario, qui mêle aventure et fiction à l'histoire de ces vingt dernières années, est mis en image par William Vance. Son t",
       "genre": "BD - Adultes",
       "langue": "fr",
-      "prix": "13.27€",
+      "prix": "14€",
       "couverture": "https://covers.openlibrary.org/b/id/10648722-L.jpg",
       "stock": 1,
       "statut": "en_stock"
@@ -217781,21 +217760,20 @@
     },
     {
       "ean": "9782203287419",
-      "titre": "Hilda & Twig - Tome 1 - Pas nés de la dernière pluie",
-      "auteur": "Hélène Dauniol-Remaud",
+      "titre": "Hilda & Twig",
+      "auteur": "",
       "editeur": "",
       "collection": "",
       "annee": "2025",
       "date_parution": "2025-02",
       "pages": "",
       "resume": "",
-      "genre": "BD - Jeunesse",
+      "genre": "",
       "langue": "fr",
-      "prix": "13.50",
-      "couverture": "https://www.casterman.com/media/cache/couverture_large/casterman_img/Couvertures/9782203287419.jpg",
+      "prix": "",
+      "couverture": "https://books.google.com/books/content?id=808d0QEACAAJ&printsec=frontcover&img=1&zoom=0&source=gbs_api",
       "stock": 0,
-      "statut": "a_commander",
-      "edite_manuellement": true
+      "statut": "a_commander"
     },
     {
       "ean": "9782373054293",
@@ -217807,13 +217785,12 @@
       "date_parution": "",
       "pages": "",
       "resume": "Hilda Bustamante a 79 ans, et comme tout le monde, un jour, elle meurt. Ce qui est extraordinaire, à la stupéfaction de son grand amour, de sa petite-fille, et de ses copines de l'église... c'est qu'Hilda ressuscite. Son retour réveille des secrets que son entourage pensait enterrés avec elle : une amourette entre le curé et l'une des filles du groupe de prière, le relation d'Hilda avec un autre prétendant et la véritable raison derrière cet adultère. Ce roman raconte l'histoire d'Hilda et du merveilleux scandale de sa résurrection.\nSalomé Esper nous livre dans ce roman une tendre réponse à la question : que laissons-nous derrière après notre mort ?\n« Cela lui revint d’un coup, et alors elle sut. Sans rien y comprendre, sans pouvoir se l’expliquer. Elle sut qu’elle était morte. Et elle pensa : depuis combien de temps ? Avec le doute vint aussi la tristesse, mais elle chassa cette pensée au plus vite, cela ne pouvait pas faire longtemps : là, maintenant, elle était vivante. »",
-      "genre": "Littérature - Littérature étrangère",
+      "genre": "",
       "langue": "Français",
       "prix": "21",
       "couverture": "https://images.epagine.fr/293/9782373054293_1_75.jpg",
       "stock": 0,
-      "statut": "a_commander",
-      "edite_manuellement": true
+      "statut": "a_commander"
     },
     {
       "ean": "9791041423088",
@@ -234131,10 +234108,9 @@
       "genre": "",
       "langue": "Français",
       "prix": "",
-      "couverture": "https://images.centprod.com/3026900001000/66yE0fMOp2z6692cN8cpkwW6O2L2OhMcgaiBUHJTEzm9L-LzjdslaQ-cover-large.jpg",
+      "couverture": "https://couverture.geobib.fr/api/v1/9782807702684/large",
       "stock": 0,
-      "statut": "a_commander",
-      "edite_manuellement": true
+      "statut": "a_commander"
     },
     {
       "ean": "9782226482983",
@@ -253423,14 +253399,13 @@
       "annee": "2026",
       "date_parution": "2026",
       "pages": "176",
-      "resume": "Un jeune homme, en rupture avec un quotidien pesant et un rôle de télévendeur dans une société déshumanisée qui vient de le licencier, part en randonnée par une belle journée de printemps. Alors qu'il arpente les contreforts de la montagne, une feuille rouge sortie de nulle part atterrit à ses pieds.Pris d'une irrésistible envie de l'attraper, il tente de la ramasser, en vain. Sa course-poursuite l'entraîne au bord d'un étonnant lac asséché et couvert d'herbe dans lequel il s'enfonce",
+      "resume": "PrésentationUn jeune homme, en rupture avec un quotidien pesant et un rôle de télévendeur dans une société déshumanisée qui vient de le licencier, part en randonnée par une belle journée de printemps. Alors qu'il arpente les contreforts de la montagne, une feuille rouge sortie de nulle part atterrit à ses pieds.Pris d'une irrésistible envie de l'attraper, il tente de la ramasser, en vain. Sa course-poursuite l'entraîne au bord d'un étonnant lac asséché et couvert d'herbe dans lequel il s'enfonce",
       "genre": "",
       "langue": "Français",
       "prix": "",
-      "couverture": "https://images.centprod.com/3026900001000/66yE0fMOp2zjbDaQCflM3NizUE0HWquM1_1H2YQndWbxYXDj3ePRfA-cover-large.jpg",
+      "couverture": "https://couverture.geobib.fr/api/v1/9782808511919/large",
       "stock": 0,
-      "statut": "a_commander",
-      "edite_manuellement": true
+      "statut": "a_commander"
     },
     {
       "ean": "9782330202453",
