@@ -1,6 +1,17 @@
 {
-  "mis_a_jour": "2026-11-24T11:15:36.348Z",
+  "mis_a_jour": "2026-11-24T16:57:30.548Z",
   "articles": [
+    {
+      "id": "1795539450548",
+      "titre": "UNE SURPRISE!!",
+      "categorie": "Événement",
+      "date": "2026-11-30",
+      "texte": "Sur présentation de CET ARTICLE : **5% **de remise sur **TOUT VOS ACHATS** le **LUNDI 30 NOVEMBRE**!!! C'est le BLACK LUNDI!!\nN'hésitez pas à venir nous voir pour profiter de cette offre exceptionnelle !!",
+      "image": "images/blog/1795539441839.jpg",
+      "lien": "",
+      "lien_label": "",
+      "selection": []
+    },
     {
       "id": "1795512628269",
       "titre": "Nos horaires de décembre !",
