@@ -1,5 +1,5 @@
 {
-  "mis_a_jour": "2026-11-24T12:26:34.490Z",
+  "mis_a_jour": "2026-11-27T17:01:30.267Z",
   "coups": [
     {
       "ean": "9791040806493",
@@ -265,6 +265,15 @@
       "citation": "Venez découvrir ces professionnels de l'inutile qui construisent la beauté du monde... Un très beau roman.",
       "libraire": "Nadine",
       "categorie": "Littérature"
+    },
+    {
+      "ean": "9782808211604",
+      "titre": "LE LIEN",
+      "auteur": "Filippi, Yvan Gaspard",
+      "couverture": "https://raw.githubusercontent.com/lespritlarge/lespritlarge.github.io/main/images/catalogue/9782808211604-1793281620308.png",
+      "citation": "Une bd fantastique qui sait nous emmener en quelques (magnifiques) pages dans ce monde imaginaire!",
+      "libraire": "Aurélien",
+      "categorie": "BD"
     }
   ]
 }
